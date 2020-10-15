@@ -1,0 +1,112 @@
+"0","floridaMap = ggplot() +
+  geom_polypath(data = fknmsBounds[fknmsBounds$type == ""Sanctuary"",], aes(x = long, y = lat, group = location), alpha = 0.1, fill = ""black"", color = NA) +
+  geom_polypath(data = fknmsBounds[fknmsBounds$location == ""FKNMS2"",], aes(x = long, y = lat), fill = ""aliceblue"", color = NA) +
+  geom_polypath(data = fknmsBounds, aes(x = long, y = lat, color = type, group = location), fill = NA) +
+  scale_fill_manual(values = paletteer_d(""wesanderson::Darjeeling1"", n = 5, type = ""continuous""), name = ""Reef"") +
+  scale_color_manual(values = c(""gray30"", ""goldenrod3""), name = ""Boundaries"", labels = c(""FKNMS"", ""SPA"")) +
+  geom_point(data = fknmsReefs, aes(x = long, y = lat, fill = reef), shape = 21, size = 2) +
+  geom_sf(data = states, fill = ""white"", size = 0.25) +
+  coord_sf(xlim = c(-88, -79.7), ylim = c(24, 31.3)) +
+  scale_x_continuous(breaks = c(seq(-88, -78, by = 2))) +
+  scale_y_continuous(breaks = c(seq(24, 32, by = 2))) +
+  annotation_scale(location = ""bl"") +
+  annotation_north_arrow(location = ""tr"", which_north = ""true"", style = north_arrow_minimal()) +
+  theme_bw() +
+  theme(plot.title = element_text(size = 9) ,
+        panel.background = element_rect(fill = ""aliceblue""),
+        plot.background = element_blank(),
+        axis.title = element_blank(),
+        legend.position = ""none"")
+
+keyLargo = ggplot() +
+  geom_polypath(data = fknmsBounds[fknmsBounds$type == ""Sanctuary"",], aes(x = long, y = lat, group = location), alpha = 0.1, fill = ""black"", color = NA) +
+   geom_polypath(data = fknmsBounds[fknmsBounds$location == ""FKNMS2"",], aes(x = long, y = lat), fill = ""aliceblue"", color = NA) +
+  geom_segment(aes(x = -82.9645, xend = -82.4, y = 24.6, yend = 24.6), color = ""gray92"", size = .55) +
+  geom_sf(data = bathy, color = ""gray75"", size = 0.25) +
+  geom_polypath(data = fknmsBounds, aes(x = long, y = lat, color = type, group = location), fill = NA) +
+  scale_fill_manual(values = paletteer_d(""wesanderson::Darjeeling1"", n = 5, type = ""continuous""), name = ""Reef"") +
+  scale_color_manual(values = c(""gray30"", ""goldenrod3""), name = ""Boundaries"", labels = c(""FKNMS"", ""SPA"")) +
+  geom_point(data = fknmsSites, aes(x = long, y = lat, fill = reef, shape = depth), size = 1.5) +
+  geom_sf(data = florida, fill = ""white"", size = 0.25) +
+  coord_sf(xlim = c(-80.35, -80.10), ylim = c(25.1, 25.3)) +
+  scale_x_continuous(breaks = c(seq(-80.4, -80.1, by = .1))) +
+  scale_y_continuous(breaks = c(seq(25.1, 25.3, by = .1))) +
+  scale_shape_manual(values = c(24, 25), name = ""Depth"") +
+  annotation_scale(location = ""bl"") +
+  guides(fill = guide_legend(override.aes = list(shape = 22, color = NA, size = 4), order = 1), shape = guide_legend(override.aes = list(size = 3), order = 2), color = guide_legend(override.aes = list(fill = ""black"", alpha = 0.1), order = 3)) +
+  ggtitle(""Upper Keys"") +
+  theme_bw() +
+  theme(legend.title = element_text(size = 9, face = ""bold""),
+        axis.title = element_blank(),
+        panel.background = element_rect(fill = ""aliceblue""),
+        legend.text = element_text(size = 9),
+        legend.position = ""bottom"",
+        legend.direction = ""vertical"",
+        legend.box = ""horizontal"")
+
+lowerKeys = keyLargo +
+  coord_sf(xlim = c(-81.7, -81.45), ylim = c(24.45, 24.65)) +
+  scale_x_continuous(breaks = c(seq(-81.7, -81.45, by = .1))) +
+  scale_y_continuous(breaks = c(seq(24.4, 24.7, by = .1))) +
+  ggtitle(""Lower Keys"") #+
+"
+"2","Coordinate system already present. Adding new coordinate system, which will replace the existing one.
+"
+"2","Scale for 'x' is already present. Adding another scale for 'x', which will replace
+the existing scale.
+"
+"2","Scale for 'y' is already present. Adding another scale for 'y', which will replace
+the existing scale.
+"
+"0","  # theme_bw() +"
+"0","  # theme(panel.background = element_rect(fill = ""aliceblue""),"
+"0","  #       plot.background = element_blank(),"
+"0","  #       axis.title = element_blank(),"
+"0","  #       legend.position = ""none"")"
+"0",""
+"0","dryTortugas = keyLargo +"
+"0","  coord_sf(xlim = c(-83.2, -82.95), ylim = c(24.48, 24.68)) +"
+"0","  scale_x_continuous(breaks = c(seq(-83.2, -82.95, by = .1))) +"
+"0","  scale_y_continuous(breaks = c(seq(24.4, 24.7, by = .1))) +"
+"0","  annotation_scale(location = ""br"") +"
+"0","  ggtitle(""Dry Tortugas"")# +"
+"2","Coordinate system already present. Adding new coordinate system, which will replace the existing one.
+"
+"2","Scale for 'x' is already present. Adding another scale for 'x', which will replace
+the existing scale.
+"
+"2","Scale for 'y' is already present. Adding another scale for 'y', which will replace
+the existing scale.
+"
+"0","  # theme_bw() +"
+"0","  # theme(panel.background = element_rect(fill = ""aliceblue""),"
+"0","  #       plot.background = element_blank(),"
+"0","  #       axis.title = element_blank(),"
+"0","  #       legend.position = ""none"")"
+"0",""
+"0","plotLayout = '"
+"0","  AAAAAAAAAAABBBBB"
+"0","  AAAAAAAAAAABBBBB"
+"0","  AAAAAAAAAAABBBBB"
+"0","  AAAAAAAAAAABBBBB"
+"0","  AAAAAAAAAAACCCCC"
+"0","  AAAAAAAAAAACCCCC"
+"0","  AAAAAAAAAAACCCCC"
+"0","  AAAAAAAAAAACCCCC"
+"0","  #EEEEEEEEE#DDDDD"
+"0","  #EEEEEEEEE#DDDDD"
+"0","  #EEEEEEEEE#DDDDD"
+"0","  #EEEEEEEEE#DDDDD"
+"0","'"
+"0",""
+"0","fknmsMap = floridaMap + keyLargo + lowerKeys + dryTortugas + guide_area() +"
+"0","  plot_annotation(tag_levels = 'a') +"
+"0","  plot_layout(design = plotLayout, guides = ""collect"") &"
+"0","  theme(plot.tag = element_text(face = ""bold""),"
+"0","        plot.title = element_text(face = ""bold"", size = 9),"
+"0","        legend.box = ""horizontal"","
+"0","        legend.box.just = ""top"","
+"0","        legend.spacing.x = unit(.1, ""cm""),"
+"0","        axis.ticks = element_line(color = ""black""),"
+"0","        axis.text = element_text(size = 9, color = ""black""))"
+"0",""

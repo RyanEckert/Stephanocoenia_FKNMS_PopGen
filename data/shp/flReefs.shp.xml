@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE metadata SYSTEM "http://www.fgdc.gov/metadata/fgdc-std-001-1998.dtd">
+<metadata>
+	<idinfo>
+		<citation>
+			<citeinfo>
+				<pubdate>Unpublished Material</pubdate>
+				<title>Coral and Hard Bottom Habitats Florida</title>
+				<geoform Sync="TRUE">vector digital data</geoform>
+				<onlink>http://research.myfwc.com/</onlink>
+				<ftname Sync="TRUE">GIS.FWC.coral_hardbottom_poly</ftname><origin>Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute</origin></citeinfo>
+		</citation>
+		<descript>
+			<abstract>This GIS data set represents coral and other hard bottom type data available to FWRI as of July 2010. The extent and resolution of source data sets varies. This is not intended to be a comprehensive survey - data gaps do exist. Sliver polygons also exist due to differences in overlapping study areas, as well as some present in the source data sets.
+
+Worm and oyster reefs are not included in this compilation. See separate data sets for worm and oyster reefs.</abstract>
+			<purpose>This data set represents hardbottom areas that have been mapped in and around Florida.</purpose>
+			<supplinf>Prior to July 1, 2004, the Fish and Wildlife Research Institute (FWRI) was known as the Florida Marine Research Institute (FMRI). The institute name has not been changed in historical data sets or references to work completed by the Florida Marine Research Institute. The institute name has been changed in references to ongoing research, new research, and contact information.</supplinf>
+			<langdata Sync="TRUE">en</langdata></descript>
+		<timeperd>
+			<timeinfo>
+				<rngdates>
+					<begdate>1960</begdate>
+					<enddate>2009</enddate>
+				</rngdates>
+			</timeinfo>
+			<current>ground condition</current>
+		</timeperd>
+		<status>
+			<progress>Complete</progress>
+			<update>None planned</update>
+		</status>
+		<spdom>
+			<bounding>
+				<westbc Sync="TRUE">-97.954819</westbc>
+				<eastbc Sync="TRUE">-74.762056</eastbc>
+				<northbc Sync="TRUE">36.748314</northbc>
+				<southbc Sync="TRUE">23.761990</southbc>
+			</bounding>
+			<lboundng><leftbc Sync="TRUE">-865576.017844</leftbc><rightbc Sync="TRUE">1235782.706035</rightbc><bottombc Sync="TRUE">37495.690489</bottombc><topbc Sync="TRUE">1411737.832576</topbc></lboundng></spdom>
+		<keywords>
+			<theme>
+				<themekt>FWC Theme</themekt>
+				<themekey>GIS</themekey>
+				<themekey>benthic</themekey>
+				<themekey>corals (reefs, etc.)</themekey>
+				<themekey>mapping</themekey>
+			</theme>
+			<theme>
+				<themekt>Habitat</themekt>
+				<themekey>hard bottom</themekey>
+			</theme>
+			<theme>
+				<themekt>ISO 19115 Topic Category</themekt>
+				<themekey>oceans</themekey>
+			</theme>
+			<place>
+				<placekt>FWC Place</placekt>
+				<placekey>Atlantic Ocean</placekey>
+				<placekey>Florida</placekey>
+				<placekey>Florida Bay</placekey>
+				<placekey>Florida Keys</placekey>
+				<placekey>Florida Keys National Marine Sanctuary</placekey>
+				<placekey>Gulf of Mexico</placekey>
+			</place>
+			<place>
+				<placekt>FWC Regions</placekt>
+				<placekey>North Central</placekey>
+				<placekey>Northeast</placekey>
+				<placekey>Northwest</placekey>
+				<placekey>South</placekey>
+				<placekey>Southwest</placekey>
+			</place>
+			<place>
+				<placekt>Water Management Districts</placekt>
+				<placekey>Northwest Florida</placekey>
+				<placekey>South Florida</placekey>
+				<placekey>Southwest Florida</placekey>
+				<placekey>St. Johns River</placekey>
+				<placekey>Suwannee River</placekey>
+			</place>
+		</keywords>
+		<accconst>Available without restriction. All data must be verified by Principal Investigator or Group Database Analyst prior to release.  It is strongly recommended that this data is directly acquired from FWC and not indirectly through other sources which may have changed the data in some way. FWC makes no claims as to the data's suitability for other purposes.</accconst>
+		<useconst>Acknowledgement of the FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute) as the data source would be appreciated in any products developed from these data, and such acknowledgment as is standard for citation and legal practices for data source is expected by users of this data.  Please cite the original metadata when using portions of the record to create a similar record of slightly altered data, such as reprojection. If any data are modified or adjusted, please share the edited information with FWC. Users should be aware that comparison with other data sets for the same area from other time periods may be inaccurate due to inconsistencies resulting from changes in mapping conventions, data collection, and computer processes over time. FWC shall not be liable for improper or incorrect use of this data. These data are not legal documents and are not to be used as such.  This is not a survey data set and should not be utilized as such. These data are not to be used for navigation.</useconst>
+		<ptcontac>
+			<cntinfo>
+				<cntperp>
+					<cntper>GISLibrarian</cntper>
+					<cntorg>FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute)</cntorg>
+				</cntperp>
+				<cntpos>GIS Data Librarian</cntpos>
+				<cntaddr>
+					<addrtype>mailing and physical address</addrtype>
+					<address>Fish and Wildlife Research Institute</address>
+					<address>100 Eighth Avenue Southeast</address>
+					<city>St. Petersburg</city>
+					<state>Florida</state>
+					<postal>33701</postal>
+					<country>USA</country>
+				</cntaddr>
+				<cntvoice>727-896-8626</cntvoice>
+				<cntfax>727-893-1679</cntfax>
+				<cntemail>GISLibrarian@MyFWC.com</cntemail>
+				<hours>8:00 a.m.-5:00 p.m. Eastern time</hours>
+			</cntinfo>
+		</ptcontac>
+		<secinfo>
+			<secsys>FWRI-DC</secsys>
+			<secclass>Available without restriction</secclass>
+			<sechandl>Available without restriction</sechandl>
+		</secinfo>
+		<native Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 3; ESRI ArcCatalog 9.3.1.3000</native>
+		<natvform Sync="TRUE">SDE Feature Class</natvform></idinfo>
+	<dataqual>
+		<attracc>
+			<attraccr>Attributes are based on information given about the source data. Accuracy has not been tested.</attraccr>
+		</attracc>
+		<logic>These data are logically consistent. A topology was run to wliminate overlapping polygons.</logic>
+		<complete>These data represent the data available to FWRI as of June, 2009. This is a data compilation, not an exhaustive study. Data gaps do exist.</complete>
+		<posacc>
+			<horizpa>
+				<horizpar>Positional accuracy varies by source data set. Positional accuracy is unaltered by FWRI.</horizpar>
+			</horizpa>
+		</posacc>
+		<lineage>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>Nova Southeastern University Oceanographic Center</origin>
+						<pubdate>20041122</pubdate>
+						<title>benthic_broward_2004</title>
+						<geoform>vector digital data</geoform>
+					</citeinfo>
+				</srccite>
+				<srcscale>6000</srcscale>
+				<typesrc>vector digital data</typesrc>
+				<srctime>
+					<timeinfo>
+						<sngdate>
+							<caldate>20041122</caldate>
+						</sngdate>
+					</timeinfo>
+					<srccurr>publication date</srccurr>
+				</srctime>
+				<srccitea>benthic_broward_2004</srccitea>
+				<srccontr>TYPE "Aggregated Patch Reef", "Linear Reef", "Patch Reef", and "Spur and Groove" were reclassified as "Coral Reef".
+
+TYPE "Colonized Pavement", and "Ridge" were reclassified as "Hardbottom".
+
+TYPE "Scattered Coral/Rock in Sand" was not included in the compilation.</srccontr>
+			</srcinfo>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>Nova Southeastern University Oceanographic Center</origin>
+						<pubdate>20070331</pubdate>
+						<title>benthic_palmbeach_2002</title>
+						<geoform>vector digital data</geoform>
+					</citeinfo>
+				</srccite>
+				<srcscale>6000</srcscale>
+				<typesrc>vector digital data</typesrc>
+				<srctime>
+					<timeinfo>
+						<sngdate>
+							<caldate>2002</caldate>
+						</sngdate>
+					</timeinfo>
+					<srccurr>ground condition</srccurr>
+				</srctime>
+				<srccitea>benthic_palmbeach_2002</srccitea>
+				<srccontr>In areas of overlap with benthic_broward_2004, the Broward County data were used.
+
+TYPE "Aggregated Patch Reef", "Linear Reef", "Patch Reef", and "Spur and Groove" were reclassified as "Coral Reef".
+
+TYPE "Colonized Pavement", and "Ridge" were reclassified as "Hardbottom".</srccontr>
+			</srcinfo>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute)</origin>
+						<pubdate>Unpublished Material</pubdate>
+						<title>benthic_FKTR_2004</title>
+						<geoform>vector digital data</geoform>
+					</citeinfo>
+				</srccite>
+				<srcscale>24000</srcscale>
+				<typesrc>vector digital data</typesrc>
+				<srctime>
+					<timeinfo>
+						<sngdate>
+							<caldate>20041205</caldate>
+						</sngdate>
+					</timeinfo>
+					<srccurr>ground condition</srccurr>
+				</srctime>
+				<srccitea>benthic_fktr_2004</srccitea>
+				<srccontr>"Coral Reef", "Hardbottom", and "Hardbottom, Seagrass" polygons were selected from this data set. All relevant polygons were used. The classification present in this data set was retained in the compilation.</srccontr>
+			</srcinfo>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>U.S. Geological Survey</origin>
+						<pubdate>200603</pubdate>
+						<title>benthic_fl_keys_usgs</title>
+						<geoform>vector digital data</geoform>
+					</citeinfo>
+				</srccite>
+				<typesrc>vector digital data</typesrc>
+				<srctime>
+					<timeinfo>
+						<mdattim>
+							<sngdate>
+								<caldate>1975</caldate>
+							</sngdate>
+							<sngdate>
+								<caldate>1983</caldate>
+							</sngdate>
+							<sngdate>
+								<caldate>1991</caldate>
+							</sngdate>
+							<sngdate>
+								<caldate>1974</caldate>
+							</sngdate>
+						</mdattim>
+					</timeinfo>
+					<srccurr>ground condition</srccurr>
+				</srctime>
+				<srccitea>benthic_fl_keys_usgs</srccitea>
+				<srccontr>In areas of overlap with benthic_south_fl, benthic_fktr_2004, and benthic_flbay_2004, the other data sources were used.
+
+"Bare pleistocene coral reef limestone" and "Bare Pleistocene oolitic limestone" polygons were reclassified as "Hardbottom"
+
+"Live Coral Reef", "Outlier Reef", and "Senile Coral Reef" polygons were reclassified as "Coral Reef".</srccontr>
+			</srcinfo>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>Florida Fish and Wildlife Conservation Commission (FWC), Fish and Wildlife Research Institute (FWRI), National Oceanic and Atmospheric Administration (NOAA) Coastal Services Center (CSC), Dade County</origin>
+						<pubdate>2001</pubdate>
+						<title>benthic_south_fl</title>
+						<geoform>vector digital data</geoform>
+						<pubinfo>
+							<publish>FWRI</publish>
+						</pubinfo>
+					</citeinfo>
+				</srccite>
+				<srcscale>48000</srcscale>
+				<typesrc>vector digital data</typesrc>
+				<srctime>
+					<timeinfo>
+						<mdattim>
+							<sngdate>
+								<caldate>1991</caldate>
+							</sngdate>
+							<sngdate>
+								<caldate>1992</caldate>
+							</sngdate>
+							<sngdate>
+								<caldate>1995</caldate>
+							</sngdate>
+						</mdattim>
+					</timeinfo>
+					<srccurr>ground condition</srccurr>
+				</srctime>
+				<srccitea>benthic_south_fl</srccitea>
+				<srccontr>"Hardbottom", "Hardbottom with Seagrass", "Patch Reef", and "Platform Margin Reef" polygons; as well as seagrass polygons identified as "Dense Pathces in a Matrix of Hardbottom" were selected from this data set. In areas of overlap with benthic_fktr_2004, benthic_biscayne_2005, or benthic_tortugas_2006; the other, more recent, data source was used. Although this data set also overlaps with benthic_flbay_2004, the focus of the Florida Bay study was seagrass mapping and some areas of hardbottom shown in the benthic_south_fl study were not reflected in the Florida Bay study. Therefore, benthic_south_fl, which focused on mapping hardbottom and coral, was used in the Florida Bay area as well.
+
+"Patch Reef" and "Platform Margin Reef" were reclassified as "Coral Reef", with the exception of polygons with an A_CODE described as "Coral Patches in Bare Sand" or "Reef Rubble", which were not included in the compilation.</srccontr>
+			</srcinfo>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>Avineon, Inc.</origin>
+						<pubdate>20050914</pubdate>
+						<title>benthic_flbay_2004</title>
+						<geoform>vector digital data</geoform>
+					</citeinfo>
+				</srccite>
+				<srcscale>24000</srcscale>
+				<typesrc>vector digital data</typesrc>
+				<srctime>
+					<timeinfo>
+						<mdattim>
+							<sngdate>
+								<caldate>20040331</caldate>
+							</sngdate>
+							<sngdate>
+								<caldate>20040421</caldate>
+							</sngdate>
+						</mdattim>
+					</timeinfo>
+					<srccurr>ground condition</srccurr>
+				</srctime>
+				<srccitea>benthic_flbay_2004</srccitea>
+				<srccontr>Selected "Hard Bottom" polygons from this data set. All relevant polygons were used. These polygons were reclassified as "Hardbottom".</srccontr>
+			</srcinfo>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>Florida Fish and Wildlife Conservation Commission(FWC), Fish and Wildlife Research Institute (FWRI), Center for Spatial Analysis</origin>
+						<pubdate>2000</pubdate>
+						<title>bottomtype_swcoast_fl</title>
+						<geoform>vector digital data</geoform>
+						<pubinfo>
+							<pubplace>St. Petersburg, FL</pubplace>
+							<publish>FWC, FWRI</publish>
+						</pubinfo>
+					</citeinfo>
+				</srccite>
+				<srcscale>100000</srcscale>
+				<typesrc>vector digital data</typesrc>
+				<srctime>
+					<timeinfo>
+						<sngdate>
+							<caldate>1989</caldate>
+						</sngdate>
+					</timeinfo>
+					<srccurr>publication date of source chart</srccurr>
+				</srctime>
+				<srccitea>bottomtype_swcoast_fl</srccitea>
+				<srccontr>"Coral" and "Rocky" polygons were selected from this data set. All relevant polygons were used. "Coral" polygons were reclassified as "Coral Reef" and "Rocky" polygons were reclassified as "Hardbottom".</srccontr>
+			</srcinfo>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>Texas A &amp; M Department of Oceanography</origin>
+						<pubdate>Unpublished Material</pubdate>
+						<title>middle_ground_1979_reef</title>
+					</citeinfo>
+				</srccite>
+				<typesrc>vector digital data</typesrc>
+				<srctime>
+					<timeinfo>
+						<sngdate>
+							<caldate>197909</caldate>
+						</sngdate>
+					</timeinfo>
+					<srccurr>ground condition</srccurr>
+				</srctime>
+				<srccitea>middle_ground_1979_reef</srccitea>
+				<srccontr>"Reef" and "Both" (Reef and Sandwave) polygons were selected from this data set. All relevant polygons were used. All selected polygons were reclassified as "Hardbottom".</srccontr>
+			</srcinfo>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>U.S. Department of Interior, Minerals Management Service</origin>
+						<title>sediment_gulfofmexico</title>
+						<geoform>vector digital data</geoform>
+					</citeinfo>
+				</srccite>
+				<typesrc>vector digital data</typesrc>
+				<srctime>
+					<timeinfo>
+						<rngdates>
+							<begdate>1960</begdate>
+							<enddate>1970</enddate>
+						</rngdates>
+					</timeinfo>
+					<srccurr>publication date of map is 1983 - however the sediment data is from a compilation of studies from the 1960s and 1970s</srccurr>
+				</srctime>
+				<srccitea>sediment_gulfofmexico</srccitea>
+				<srccontr>Selected "Hard Banks" from this data set. In areas of overlap with middle_ground_1979_reef, benthic_flbay_2004, benthic south_fl, benthic_fl_keys_usgs, and benthic_fktr_2004, the other, more recent data sources were used. This data set was so coarse, in nearshore areas where other studies were uninterpretable, this data set was not used to fill gaps. All selected polygons were reclassified as "Hardbottom".</srccontr>
+			</srcinfo>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>Florida Fish and Wildlife Conservation Commission (FWC), Florida Marine Research Institute (FMRI), Coastal and Marine Resource Assessment (CAMRA)</origin>
+						<pubdate>1998</pubdate>
+						<title>seamap_poly1</title>
+						<geoform>vector digital data</geoform>
+						<pubinfo>
+							<pubplace>St. Petersburg, FL</pubplace>
+							<publish>FWC, FWRI, CAMRA</publish>
+						</pubinfo>
+					</citeinfo>
+				</srccite>
+				<typesrc>vector digital data</typesrc>
+				<srctime>
+					<timeinfo>
+						<mdattim>
+							<sngdate>
+								<caldate>1986</caldate>
+							</sngdate>
+							<sngdate>
+								<caldate>1993</caldate>
+							</sngdate>
+							<sngdate>
+								<caldate>1994</caldate>
+							</sngdate>
+						</mdattim>
+					</timeinfo>
+					<srccurr>various - see individual polygon "sourcedate" attribute</srccurr>
+				</srctime>
+				<srccitea>seamap_poly1</srccitea>
+				<srccontr>"Hard Bottom" and "Probable Hard Bottom" polygons were selelcted from this data set. In areas of overlap with benthic_broward_2004, benthic_palmbeach_2004, benthic_biscayne_2005, and benthic_south_fl, the other more recent data sources were used. The data classification was preserved in the compilation.</srccontr>
+			</srcinfo>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>Florida Fish and Wildlife Conservation Commission - Florida Marine Research Institute; CAMRA subsection</origin>
+						<pubdate>20010701</pubdate>
+						<title>SEAMAP One-minute Grid</title>
+						<edition>1.2</edition>
+						<geoform>vector digital data</geoform>
+					</citeinfo>
+				</srccite>
+				<typesrc>vector digital data</typesrc>
+				<srctime>
+					<timeinfo>
+						<sngdate>
+							<caldate>20010701</caldate>
+						</sngdate>
+					</timeinfo>
+					<srccurr>publication date</srccurr>
+				</srctime>
+				<srccitea>seamap_grid</srccitea>
+				<srccontr>"Hard Bottom" and "Probable Hard Bottom" polygons were selelcted from this data set. In areas of overlap with any other source data set, any grid polygon from this data set that touched a polygon from another, more detailed, source data set was removed from this compilation to avoid overlap. The data classification was preserved in the compilation.</srccontr>
+			</srcinfo>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>Avineon, Inc</origin>
+						<pubdate>20080528</pubdate>
+						<title>benthic_tortugas_2006</title>
+						<geoform>vector digital data</geoform>
+					</citeinfo>
+				</srccite>
+				<typesrc>vector digital data</typesrc>
+				<srctime>
+					<timeinfo>
+						<sngdate>
+							<caldate>2006</caldate>
+						</sngdate>
+					</timeinfo>
+					<srccurr>ground condition</srccurr>
+				</srctime>
+				<srccitea>benthic_tortugas_2006</srccitea>
+				<srccontr>"Aggregate Patch Reefs", "Aggregate Reef", "Individual Patch Reef", and "Spur and Groove" polygons were reclassified as "Coral Reef".
+
+"Pavement" polygons were reclassified as "Hardbottom".</srccontr>
+			</srcinfo>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>Avineon, Inc</origin>
+						<pubdate>20080930</pubdate>
+						<title>benthic_biscayne_2005</title>
+						<geoform>vector digital data</geoform>
+					</citeinfo>
+				</srccite>
+				<typesrc>vector digital data</typesrc>
+				<srctime>
+					<timeinfo>
+						<sngdate>
+							<caldate>2005</caldate>
+						</sngdate>
+					</timeinfo>
+					<srccurr>ground condition</srccurr>
+				</srctime>
+				<srccitea>benthic_biscayne_2005</srccitea>
+				<srccontr>"Aggregate Patch Reefs", "Aggregate Reef", "Individual Patch Reef", and "Spur and Groove" polygons were reclassified as "Coral Reef".
+
+"Pavement" polygons were reclassified as "Hardbottom".</srccontr>
+			</srcinfo>
+			<procstep>
+				<procdesc>FWRI staff added four attributes to each data set:
+SOURCEDATE - year(s) of source photography.
+METADATA - the information in this field will be populated with a link to the metadata for the source data set that the polygon came from once the source metadata is online. Currently it is the source data set name that can be used to reference the source metadata. 
+DESCRIPT - is the description of the polygon type as reclassified from the source data attributes (see Source Contributions).
+
+Staff used the most recent information for an area. Staff determined the most recent information by creating footprints of all source polygons, minus any large land polygons and uninterpreted areas. Staff used these footprints with the ArcGIS Toolbox 9.3 command "erase" to eliminate areas of overlap from older source data sets. 
+
+In some areas the erase function resulted in sliver polygons due to different studies using different shorelines or study boundaries. Staff manually deleted these slivers after the "erase". Once all the data were "erased" in preparation, staff "merged" all of the data into a single geodatabase feature class. 
+
+Running a topology resulted in 14 overlaps, which were present in the SEAMAP source data. These overlaps were only slivers and were corrected in this compilation.
+
+If an area was uninterpreted within a more recent study, but interpreted in an older study, then the older study was used.
+
+Sliver polygons are present and are due to preserving the "Source" attribute, due to different mapped areas for overlapping studies, or they were present in the original source data sets.</procdesc>
+			</procstep>
+			<srcinfo><srccite><citeinfo><title>benthic_n_miamidade_2009</title><origin>Brian Walker</origin><pubdate>20090630</pubdate><geoform>vector digital data</geoform><onlink>http://research.myfwc.com</onlink></citeinfo></srccite><typesrc>vector digital data</typesrc><srccitea>benthic_n_miamidade_2009</srccitea><srcscale>6000</srcscale><srctime><timeinfo><sngdate><caldate>20090630</caldate></sngdate></timeinfo><srccurr>publication date</srccurr></srctime><srccontr>This is the most recent data for this area. In areas of overlap wth other source data, this data set was used.
+
+TYPE "Aggregated Patch Reef", "Linear Reef", "Patch Reef", and "Spur and Groove" were reclassified as "Coral Reef".
+
+TYPE "Colonized Pavement", and "Ridge" were reclassified as "Hardbottom".</srccontr></srcinfo><procstep><procdesc>Data for the north Miami-Dade County area were added to the compilation.</procdesc><procdate>201004</procdate></procstep><procstep><procdesc>The hardbottom data for Springs Coast were added to the compilation.</procdesc><date Sync="TRUE">20100518</date><time Sync="TRUE">11430300</time><procdate>201007</procdate></procstep><srcinfo><srccite><citeinfo><title>seagrass_springscoast_poly</title><origin>Southwest Florida Water Management District (SWFWMD)</origin><pubdate>Unpublished Material</pubdate><geoform>vector digital data</geoform></citeinfo></srccite><srcscale>12000</srcscale><typesrc>vector digital data</typesrc><srctime><timeinfo><sngdate><caldate>2007</caldate></sngdate></timeinfo><srccurr>ground condition</srccurr></srctime><srccitea>hardbottom_springscoast</srccitea><srccontr>Hardbottom polygons from 2007 Springs Coast seagrass mapping project. All polygons from this data set were classified as "Hardbottom".</srccontr></srcinfo><procstep><procdesc Sync="TRUE">Dataset copied.</procdesc><srcused Sync="TRUE">Server=Gleason; Service=5153; User=fmri; Version=SDE.DEFAULT</srcused><procdate Sync="TRUE">20100909</procdate><proctime Sync="TRUE">15551900</proctime></procstep><procstep><procdesc Sync="TRUE">Dataset copied.</procdesc><srcused Sync="TRUE">Service=sde:sqlserver:gleason; Database=gis; User=FWC_GIS_User; Version=sde.DEFAULT</srcused><procdate Sync="TRUE">20110331</procdate><proctime Sync="TRUE">15540700</proctime></procstep></lineage>
+	</dataqual>
+	<spdoinfo>
+		<direct Sync="TRUE">Vector</direct>
+		<ptvctinf>
+			<sdtsterm Name="GIS.FWC.coral_hardbottom_poly">
+				<sdtstype Sync="TRUE">G-polygon</sdtstype>
+				<ptvctcnt>17626</ptvctcnt>
+			</sdtsterm>
+			<esriterm Name="GIS.FWC.coral_hardbottom_poly"><efeatyp Sync="TRUE">Simple</efeatyp><efeageom Sync="TRUE">Polygon</efeageom><esritopo Sync="TRUE">FALSE</esritopo><efeacnt Sync="TRUE">17626</efeacnt><spindex Sync="TRUE">TRUE</spindex><linrefer Sync="TRUE">FALSE</linrefer></esriterm></ptvctinf>
+	</spdoinfo>
+	<spref>
+		<horizsys>
+			<planar>
+				<planci>
+					<plance Sync="TRUE">coordinate pair</plance>
+					<coordrep>
+						<absres Sync="TRUE">0.000179</absres>
+						<ordres Sync="TRUE">0.000179</ordres>
+					</coordrep>
+					<plandu Sync="TRUE">meters</plandu>
+				</planci>
+				<mapproj><mapprojn Sync="TRUE">Albers Conical Equal Area</mapprojn><albers><stdparll Sync="TRUE">24.000000</stdparll><stdparll Sync="TRUE">31.500000</stdparll><longcm Sync="TRUE">-84.000000</longcm><latprjo Sync="TRUE">24.000000</latprjo><feast Sync="TRUE">400000.000000</feast><fnorth Sync="TRUE">0.000000</fnorth></albers></mapproj></planar>
+			<geodetic>
+				<horizdn Sync="TRUE">North American Datum of 1983</horizdn>
+				<ellips Sync="TRUE">Geodetic Reference System 80</ellips>
+				<semiaxis Sync="TRUE">6378137.000000</semiaxis>
+				<denflat Sync="TRUE">298.257222</denflat>
+			</geodetic>
+			<cordsysn><geogcsn Sync="TRUE">GCS_North_American_1983</geogcsn><projcsn Sync="TRUE">NAD_1983_Albers</projcsn></cordsysn></horizsys>
+		<vertdef>
+			<altsys>
+				<altres>0.000003</altres>
+				<altenc>Explicit elevation coordinate included with horizontal coordinates</altenc>
+			</altsys>
+		</vertdef>
+	</spref>
+	<eainfo>
+		<detailed Name="GIS.FWC.coral_hardbottom_poly">
+			<enttyp>
+				<enttypl Sync="TRUE">GIS.FWC.coral_hardbottom_poly</enttypl>
+				<enttypd>Hardbottom and coral data</enttypd>
+				<enttypds>Producer defined</enttypds>
+				<enttypt Sync="TRUE">Feature Class</enttypt><enttypc Sync="TRUE">17626</enttypc></enttyp>
+			<attr>
+				<attrlabl>Shape</attrlabl>
+				<attrdef>Feature geometry.</attrdef>
+				<attrdefs>ESRI</attrdefs>
+				<attrdomv>
+					<udom>Coordinates defining the features.</udom>
+				</attrdomv>
+				<attalias Sync="TRUE">METADATA</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr>
+			<attr>
+				<attrlabl>METADATA</attrlabl>
+				<attrdef>Title of metadata document of source data set.</attrdef>
+				<attrdefs>FWRI</attrdefs>
+				<attrdomv>
+					<udom>Metadata title.</udom>
+				</attrdomv>
+				<attalias Sync="TRUE">OBJECTID</attalias><attrtype Sync="TRUE">OID</attrtype><attwidth Sync="TRUE">4</attwidth><atprecis Sync="TRUE">10</atprecis><attscale Sync="TRUE">0</attscale></attr>
+			<attr><attrlabl Sync="TRUE">OBJECTID</attrlabl><attalias Sync="TRUE">DESCRIPT</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">50</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef Sync="TRUE">Internal feature number.</attrdef><attrdefs Sync="TRUE">ESRI</attrdefs><attrdomv><udom Sync="TRUE">Sequential unique whole numbers that are automatically generated.</udom></attrdomv></attr><attr>
+				<attrlabl>DESCRIPT</attrlabl>
+				<attrdef>Description of polygon habitat type as reclassified from the source data.</attrdef>
+				<attrdefs>FWRI</attrdefs>
+				<attrdomv>
+					<edom>
+						<edomv>Coral Reef</edomv>
+						<edomvd>Areas containing live coral.</edomvd>
+						<edomvds>FWRI</edomvds>
+					</edom>
+					<edom>
+						<edomv>Hardbottom</edomv>
+						<edomvd>Low relief consolidated limestone structures. Hardbottom areas may contain live coral, but not necessarily. Also included in this class are worm reefs on the east coast of Florida.</edomvd>
+						<edomvds>FWRI</edomvds>
+					</edom>
+					<edom>
+						<edomv>Probable Hardbottom</edomv>
+						<edomvd>Probable Hardbottom identified in the SEAMAP Bottom Mapping Project.</edomvd>
+						<edomvds>FWRI</edomvds>
+					</edom>
+					<edom>
+						<edomv>Hardbottom with Seagrass</edomv>
+						<edomvd>Areas where both seagrass and hardbottom are present. Seagrass density is not included in this file.</edomvd>
+						<edomvds>FWRI</edomvds>
+					</edom>
+				</attrdomv>
+				<attalias Sync="TRUE">SOURCEDATE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">20</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr>
+			<attr>
+				<attrlabl>SOURCEDATE</attrlabl>
+				<attrdef>Date of source data</attrdef>
+				<attrdefs>FWRI</attrdefs>
+				<attrdomv>
+					<udom>Date field. Year only. Multiple years possible.</udom>
+				</attrdomv>
+				<attalias Sync="TRUE">Shape</attalias><attrtype Sync="TRUE">Geometry</attrtype><attwidth Sync="TRUE">4</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr>
+			<attr><attrlabl Sync="TRUE">SHAPE</attrlabl><attalias Sync="TRUE">SHAPE.area</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">0</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef Sync="TRUE">Feature geometry.</attrdef><attrdefs Sync="TRUE">ESRI</attrdefs><attrdomv><udom Sync="TRUE">Coordinates defining the features.</udom></attrdomv></attr><attr><attrlabl Sync="TRUE">SHAPE.AREA</attrlabl><attalias Sync="TRUE">SHAPE.len</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">0</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SHAPE.LEN</attrlabl><attalias Sync="TRUE">SHAPE.LEN</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">0</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr></detailed>
+	</eainfo>
+	<distinfo>
+		<distrib>
+			<cntinfo>
+				<cntperp>
+					<cntper>GISLibrarian</cntper>
+					<cntorg>FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute)</cntorg>
+				</cntperp>
+				<cntpos>GIS Data Librarian</cntpos>
+				<cntaddr>
+					<addrtype>mailing and physical address</addrtype>
+					<address>Fish and Wildlife Research Institute</address>
+					<address>100 Eighth Avenue Southeast</address>
+					<city>St. Petersburg</city>
+					<state>Florida</state>
+					<postal>33701</postal>
+					<country>USA</country>
+				</cntaddr>
+				<cntvoice>727-896-8626</cntvoice>
+				<cntfax>727-893-1679</cntfax>
+				<cntemail>GISLibrarian@MyFWC.com</cntemail>
+				<hours>8:00 a.m.-5:00 p.m. Eastern time</hours>
+			</cntinfo>
+		</distrib>
+		<resdesc>Downloadable Data</resdesc>
+		<distliab>This data set is in the public domain, and the recipient may not assert any proprietary rights thereto nor represent it to anyone as other than a FWC-FWRI produced data set; it is provided "as-is" without warranty of any kind, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose. The user assumes all responsibility for the accuracy and suitability of this data set for a specific application. In no event will the staff of the Fish and Wildlife Research Institute be liable for any damages, including lost profits, lost savings, or other incidental or consequential damages arising from the use of or the inability to use this data set.</distliab>
+		<stdorder>
+			<digform>
+				<digtinfo>
+					<formname>SHP</formname>
+					<transize>0.000</transize>
+					<dssize Sync="TRUE">13.880</dssize></digtinfo>
+				<digtopt>
+					<onlinopt>
+						<computer>
+							<networka>
+								<networkr>http://research.myfwc.com/</networkr>
+							</networka>
+						</computer>
+					</onlinopt>
+				</digtopt>
+			</digform>
+			<fees>None. However, persons or organizations requesting information must provide transfer media if FTP is not available and must pay express shipping costs if express shipping is required.</fees>
+			<ordering>Contact GIS Librarian by e-mail, telephone, or letter explaining which products are needed and providing a brief description of how the products will be used. Also, provide name and address of the person or organization requesting the products.</ordering>
+			<turnarnd>Usually within 10 business days, although, complex requests may take longer</turnarnd>
+		</stdorder>
+		<custom>Contact GIS Librarian</custom>
+	</distinfo>
+	<metainfo>
+		<metd Sync="TRUE">20100921</metd>
+		<metc>
+			<cntinfo>
+				<cntperp>
+					<cntper>GISLibrarian</cntper>
+					<cntorg>FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute)</cntorg>
+				</cntperp>
+				<cntpos>GIS Data Librarian</cntpos>
+				<cntaddr>
+					<addrtype>mailing and physical address</addrtype>
+					<address>Fish and Wildlife Research Institute</address>
+					<address>100 Eighth Avenue Southeast</address>
+					<city>St. Petersburg</city>
+					<state>Florida</state>
+					<postal>33701</postal>
+					<country>USA</country>
+				</cntaddr>
+				<cntvoice>727-896-8626</cntvoice>
+				<cntfax>727-893-1679</cntfax>
+				<cntemail>GISLibrarian@MyFWC.com</cntemail>
+				<hours>8:00 a.m.-5:00 p.m. Eastern time</hours>
+			</cntinfo>
+		</metc>
+		<metstdn Sync="TRUE">FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+		<metstdv Sync="TRUE">FGDC-STD-001-1998</metstdv>
+		<mettc Sync="TRUE">local time</mettc>
+		<metac>No restrictions on metadata</metac>
+		<metuc>Metadata must be distributed with the data set.</metuc>
+		<metsi>
+			<metscs>FWRI-MC</metscs>
+			<metsc>Available</metsc>
+			<metshd>Metadata must be distributed with the data set.</metshd>
+		</metsi>
+		<metextns>
+			<onlink>http://www.esri.com/metadata/esriprof80.html</onlink>
+			<metprof>ESRI Metadata Profile</metprof>
+		</metextns>
+		<langmeta Sync="TRUE">en</langmeta><metextns><onlink Sync="TRUE">http://www.esri.com/metadata/esriprof80.html</onlink><metprof Sync="TRUE">ESRI Metadata Profile</metprof></metextns></metainfo>
+	<Esri><CreaDate>20200508</CreaDate><CreaTime>19230300</CreaTime><SyncOnce>FALSE</SyncOnce><SyncDate>20100921</SyncDate><SyncTime>09542600</SyncTime><ModDate>20100921</ModDate><ModTime>09544100</ModTime><DataProperties/><ArcGISFormat>1.0</ArcGISFormat></Esri><mdDateSt Sync="TRUE">20100707</mdDateSt><dataIdInfo><envirDesc Sync="TRUE">Microsoft Windows 2000 Version 5.2 (Build 3790) Service Pack 2; ESRI ArcCatalog 9.3.1.3000</envirDesc><dataLang><languageCode Sync="TRUE" value="en"></languageCode></dataLang><idCitation><resTitle Sync="TRUE">coral_hardbottom_fl_poly</resTitle><presForm><PresFormCd Sync="TRUE" value="005"></PresFormCd></presForm></idCitation><spatRpType><SpatRepTypCd Sync="TRUE" value="001"></SpatRepTypCd></spatRpType></dataIdInfo><mdLang><languageCode Sync="TRUE" value="en"></languageCode></mdLang><mdStanName Sync="TRUE">ISO 19115 Geographic Information - Metadata</mdStanName><mdStanVer Sync="TRUE">DIS_ESRI1.0</mdStanVer><mdChar><CharSetCd Sync="TRUE" value="004"></CharSetCd></mdChar><mdHrLv><ScopeCd Sync="TRUE" value="005"></ScopeCd></mdHrLv><mdHrLvName Sync="TRUE">dataset</mdHrLvName><distInfo><distributor><distorTran><onLineSrc><orDesc Sync="TRUE">002</orDesc><linkage Sync="TRUE">file://</linkage><protocol Sync="TRUE">Local Area Network</protocol></onLineSrc><transSize Sync="TRUE">0.000</transSize></distorTran><distorFormat><formatName Sync="TRUE">Shapefile</formatName></distorFormat></distributor></distInfo><refSysInfo><RefSystem><refSysID><identCode Sync="TRUE">NAD_1983_Albers</identCode></refSysID></RefSystem></refSysInfo><spatRepInfo><VectSpatRep><topLvl><TopoLevCd Sync="TRUE" value="001"></TopoLevCd></topLvl><geometObjs Name="coral_hardbottom_fl_poly"><geoObjTyp><GeoObjTypCd Sync="TRUE" value="001"></GeoObjTypCd></geoObjTyp><geoObjCnt Sync="TRUE">0</geoObjCnt></geometObjs></VectSpatRep></spatRepInfo></metadata>

@@ -1,0 +1,553 @@
+region,location,site,date,sampleID,species,latDD,longDD,depthFt,depthM,depthZone,collection,rackID
+TER-North,Sherwood Forrest,Site 17,8/22/19,22-VIII-19-1-005,Orbicella faveolata,24.65211,-83.103095,113,34.4,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 17,8/22/19,22-VIII-19-1-013,Orbicella faveolata,24.65211,-83.103095,111,33.8,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 17,8/22/19,22-VIII-19-1-015,Orbicella faveolata,24.65211,-83.103095,113,34.4,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-029,Orbicella faveolata,24.640415,-83.10294667,99,30.2,Mesophotic,Scuba,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-032,Orbicella faveolata,24.640415,-83.10294667,94,28.7,Shallow,Scuba,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-036,Orbicella faveolata,24.640415,-83.10294667,96,29.3,Shallow,Scuba,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-038,Orbicella faveolata,24.640415,-83.10294667,97,29.6,Shallow,Scuba,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-039,Orbicella faveolata,24.640415,-83.10294667,95,29,Shallow,Scuba,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-040,Orbicella faveolata,24.640415,-83.10294667,99,30.2,Mesophotic,Scuba,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-041,Orbicella faveolata,24.640415,-83.10294667,96,29.3,Shallow,Scuba,1
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-039,Orbicella faveolata,24.49396,-83.09607833,104,31.7,Mesophotic,Tech Dive,1
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-041,Orbicella faveolata,24.49396,-83.09607833,105,32,Mesophotic,Tech Dive,1
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-043,Orbicella faveolata,24.49396,-83.09607833,103,31.4,Mesophotic,Tech Dive,1
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-044,Orbicella faveolata,24.49396,-83.09607833,101,30.8,Mesophotic,Tech Dive,1
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-001,Orbicella faveolata,24.51033667,-83.092685,88,26.8,Shallow,Scuba,1
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-002,Orbicella faveolata,24.51033667,-83.092685,90,27.4,Shallow,Scuba,1
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-003,Orbicella faveolata,24.51033667,-83.092685,90,27.4,Shallow,Scuba,1
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-004,Orbicella faveolata,24.51033667,-83.092685,91,27.7,Shallow,Scuba,1
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-005,Orbicella faveolata,24.51033667,-83.092685,90,27.4,Shallow,Scuba,1
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-006,Orbicella faveolata,24.51033667,-83.092685,91,27.7,Shallow,Scuba,1
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-007,Orbicella faveolata,24.51033667,-83.092685,92,28,Shallow,Scuba,1
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-008,Orbicella faveolata,24.51033667,-83.092685,93,28.3,Shallow,Scuba,1
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-010,Orbicella faveolata,24.51033667,-83.092685,92,28,Shallow,Scuba,1
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-011,Orbicella faveolata,24.51033667,-83.092685,89,27.1,Shallow,Scuba,1
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-012,Orbicella faveolata,24.51033667,-83.092685,89,27.1,Shallow,Scuba,1
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-013,Orbicella faveolata,24.51033667,-83.092685,87,26.5,Shallow,Scuba,2
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-014,Orbicella faveolata,24.51033667,-83.092685,90,27.4,Shallow,Scuba,2
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-015,Orbicella faveolata,24.51033667,-83.092685,90,27.4,Shallow,Scuba,2
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-016,Orbicella faveolata,24.51033667,-83.092685,91,27.7,Shallow,Scuba,2
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-017,Orbicella faveolata,24.51033667,-83.092685,90,27.4,Shallow,Scuba,2
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-018,Orbicella faveolata,24.51033667,-83.092685,92,28,Shallow,Scuba,2
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-019,Orbicella faveolata,24.51033667,-83.092685,92,28,Shallow,Scuba,2
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-020,Orbicella faveolata,24.51033667,-83.092685,89,27.1,Shallow,Scuba,2
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-021,Orbicella faveolata,24.51033667,-83.092685,92,28,Shallow,Scuba,2
+TER-South,Riley's Hump,Site 43,8/25/19,25-VIII-19-4-022,Orbicella faveolata,24.51033667,-83.092685,98,29.9,Shallow,Scuba,2
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-002,Orbicella faveolata,24.487965,-83.1139,113,34.4,Mesophotic,Tech Dive,2
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-003,Orbicella faveolata,24.487965,-83.1139,113,34.4,Mesophotic,Tech Dive,2
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-006,Orbicella faveolata,24.487965,-83.1139,105,32,Mesophotic,Tech Dive,2
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-007,Orbicella faveolata,24.487965,-83.1139,100,30.5,Mesophotic,Tech Dive,2
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-009,Orbicella faveolata,24.487965,-83.1139,119,36.3,Mesophotic,Tech Dive,2
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-010,Orbicella faveolata,24.487965,-83.1139,110,33.5,Mesophotic,Tech Dive,2
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-011,Orbicella faveolata,24.487965,-83.1139,112,34.1,Mesophotic,Tech Dive,2
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-012,Orbicella faveolata,24.487965,-83.1139,108,32.9,Mesophotic,Tech Dive,2
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-015,Orbicella faveolata,24.487965,-83.1139,109,33.2,Mesophotic,Tech Dive,2
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-017,Orbicella faveolata,24.487965,-83.1139,108,32.9,Mesophotic,Tech Dive,2
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-019,Orbicella faveolata,24.487965,-83.1139,106,32.3,Mesophotic,Tech Dive,2
+TER-North,Sherwood Forrest,Site 17,8/22/19,22-VIII-19-1-002,Stephanocoenia intersepta,24.65211,-83.103095,115,35.1,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 17,8/22/19,22-VIII-19-1-004,Stephanocoenia intersepta,24.65211,-83.103095,113,34.4,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 17,8/22/19,22-VIII-19-1-006,Stephanocoenia intersepta,24.65211,-83.103095,115,35.1,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 17,8/22/19,22-VIII-19-1-008,Stephanocoenia intersepta,24.65211,-83.103095,110,33.5,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 17,8/22/19,22-VIII-19-1-009,Stephanocoenia intersepta,24.65211,-83.103095,113,34.4,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 17,8/22/19,22-VIII-19-1-010,Stephanocoenia intersepta,24.65211,-83.103095,113,34.4,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 17,8/22/19,22-VIII-19-1-011,Stephanocoenia intersepta,24.65211,-83.103095,114,34.7,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 17,8/22/19,22-VIII-19-1-012,Stephanocoenia intersepta,24.65211,-83.103095,112,34.1,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 17,8/22/19,22-VIII-19-1-016,Stephanocoenia intersepta,24.65211,-83.103095,113,34.4,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 33,8/22/19,22-VIII-19-2-006,Stephanocoenia intersepta,24.66019667,-83.07890333,48,14.6,Shallow,Scuba,1
+TER-North,Sherwood Forrest,Site 33,8/22/19,22-VIII-19-2-024,Stephanocoenia intersepta,24.66019667,-83.07890333,57,17.4,Shallow,Scuba,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-003,Stephanocoenia intersepta,24.64042,-83.10294333,101,30.8,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-017,Stephanocoenia intersepta,24.64042,-83.10294333,97,29.6,Shallow,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-018,Stephanocoenia intersepta,24.64042,-83.10294333,95,29,Shallow,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-019,Stephanocoenia intersepta,24.64042,-83.10294333,99,30.2,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-020,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-021,Stephanocoenia intersepta,24.64042,-83.10294333,98,29.9,Shallow,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-022,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-023,Stephanocoenia intersepta,24.64042,-83.10294333,101,30.8,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-025,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-026,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-027,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-028,Stephanocoenia intersepta,24.64042,-83.10294333,102,31.1,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-029,Stephanocoenia intersepta,24.64042,-83.10294333,102,31.1,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-030,Stephanocoenia intersepta,24.64042,-83.10294333,101,30.8,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-031,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic,Tech Dive,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-022,Stephanocoenia intersepta,24.67518667,-83.068585,69,21,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-025,Stephanocoenia intersepta,24.67518667,-83.068585,67,20.4,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-036,Stephanocoenia intersepta,24.67518667,-83.068585,67,20.4,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-026,Stephanocoenia intersepta,24.640415,-83.10294667,99,30.2,Mesophotic,Scuba,2
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-030,Stephanocoenia intersepta,24.640415,-83.10294667,99,30.2,Mesophotic,Scuba,2
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-033,Stephanocoenia intersepta,24.640415,-83.10294667,94,28.7,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-034,Stephanocoenia intersepta,24.640415,-83.10294667,100,30.5,Mesophotic,Scuba,2
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-035,Stephanocoenia intersepta,24.640415,-83.10294667,100,30.5,Mesophotic,Scuba,2
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-037,Stephanocoenia intersepta,24.640415,-83.10294667,97,29.6,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-6-002,Stephanocoenia intersepta,24.67518667,-83.068585,68,20.7,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-6-003,Stephanocoenia intersepta,24.67518667,-83.068585,67,20.4,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-6-004,Stephanocoenia intersepta,24.67518667,-83.068585,69,21,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-6-005,Stephanocoenia intersepta,24.67518667,-83.068585,68,20.7,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-6-006,Stephanocoenia intersepta,24.67518667,-83.068585,67,20.4,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-001,Stephanocoenia intersepta,24.65691333,-83.10079667,64,19.5,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-002,Stephanocoenia intersepta,24.65691333,-83.10079667,62,18.9,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-003,Stephanocoenia intersepta,24.65691333,-83.10079667,67,20.4,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-004,Stephanocoenia intersepta,24.65691333,-83.10079667,66,20.1,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-005,Stephanocoenia intersepta,24.65691333,-83.10079667,67,20.4,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-006,Stephanocoenia intersepta,24.65691333,-83.10079667,67,20.4,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-007,Stephanocoenia intersepta,24.65691333,-83.10079667,67,20.4,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-008,Stephanocoenia intersepta,24.65691333,-83.10079667,66,20.1,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-009,Stephanocoenia intersepta,24.65691333,-83.10079667,64,19.5,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-010,Stephanocoenia intersepta,24.65691333,-83.10079667,65,19.8,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-011,Stephanocoenia intersepta,24.65691333,-83.10079667,55,16.8,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-012,Stephanocoenia intersepta,24.65691333,-83.10079667,65,19.8,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-013,Stephanocoenia intersepta,24.65691333,-83.10079667,65,19.8,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-014,Stephanocoenia intersepta,24.65691333,-83.10079667,59,18,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-015,Stephanocoenia intersepta,24.65691333,-83.10079667,58,17.7,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-016,Stephanocoenia intersepta,24.65691333,-83.10079667,65,19.8,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-017,Stephanocoenia intersepta,24.65691333,-83.10079667,66,20.1,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-018,Stephanocoenia intersepta,24.65691333,-83.10079667,67,20.4,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-019,Stephanocoenia intersepta,24.65691333,-83.10079667,61,18.6,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-020,Stephanocoenia intersepta,24.65691333,-83.10079667,60,18.3,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-7-021,Stephanocoenia intersepta,24.65691333,-83.10079667,57,17.4,Shallow,Scuba,3
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-008,Stephanocoenia intersepta,24.49396,-83.09607833,112,34.1,Mesophotic,Tech Dive,3
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-011,Stephanocoenia intersepta,24.49396,-83.09607833,111,33.8,Mesophotic,Tech Dive,3
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-038,Stephanocoenia intersepta,24.49396,-83.09607833,108,32.9,Mesophotic,Tech Dive,3
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-040,Stephanocoenia intersepta,24.49396,-83.09607833,105,32,Mesophotic,Tech Dive,3
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-042,Stephanocoenia intersepta,24.49396,-83.09607833,103,31.4,Mesophotic,Tech Dive,3
+TER-South,Riley's Hump,Site 19,8/24/19,24-VIII-19-3-018,Stephanocoenia intersepta,24.48925667,-83.122695,123,37.5,Mesophotic,Tech Dive,3
+TER-South,Riley's Hump,Site 39,8/24/19,24-VIII-19-4-001,Stephanocoenia intersepta,24.51135833,-83.09516,91,27.7,Shallow,Scuba,3
+TER-South,Riley's Hump,Site 39,8/24/19,24-VIII-19-4-002,Stephanocoenia intersepta,24.51135833,-83.09516,92,28,Shallow,Scuba,3
+TER-South,Riley's Hump,Site 39,8/24/19,24-VIII-19-4-003,Stephanocoenia intersepta,24.51135833,-83.09516,91,27.7,Shallow,Scuba,3
+TER-South,Riley's Hump,Site 39,8/24/19,24-VIII-19-4-004,Stephanocoenia intersepta,24.51135833,-83.09516,90,27.4,Shallow,Scuba,3
+TER-South,Riley's Hump,Site 39,8/24/19,24-VIII-19-4-005,Stephanocoenia intersepta,24.51135833,-83.09516,91,27.7,Shallow,Scuba,3
+TER-South,Riley's Hump,Site 39,8/24/19,24-VIII-19-4-006,Stephanocoenia intersepta,24.51135833,-83.09516,90,27.4,Shallow,Scuba,3
+TER-South,Riley's Hump,Site 39,8/24/19,24-VIII-19-4-007,Stephanocoenia intersepta,24.51135833,-83.09516,90,27.4,Shallow,Scuba,3
+TER-South,Riley's Hump,Site 39,8/24/19,24-VIII-19-4-008,Stephanocoenia intersepta,24.51135833,-83.09516,90,27.4,Shallow,Scuba,3
+TER-South,Riley's Hump,Site 39,8/24/19,24-VIII-19-4-009,Stephanocoenia intersepta,24.51135833,-83.09516,89,27.1,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 39,8/24/19,24-VIII-19-4-016,Stephanocoenia intersepta,24.51135833,-83.09516,85,25.9,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 39,8/24/19,24-VIII-19-4-017,Stephanocoenia intersepta,24.51135833,-83.09516,86,26.2,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-001,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-002,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-003,Stephanocoenia intersepta,24.49239333,-83.12151333,84,25.6,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-004,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-005,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-006,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-007,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-008,Stephanocoenia intersepta,24.49239333,-83.12151333,84,25.6,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-009,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-010,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-011,Stephanocoenia intersepta,24.49239333,-83.12151333,87,26.5,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-012,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-013,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-014,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-015,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-016,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-017,Stephanocoenia intersepta,24.49239333,-83.12151333,83,25.3,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-018,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-019,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 40,8/25/19,25-VIII-19-2-020,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-001,Stephanocoenia intersepta,24.487965,-83.1139,117,35.7,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-004,Stephanocoenia intersepta,24.487965,-83.1139,113,34.4,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-005,Stephanocoenia intersepta,24.487965,-83.1139,107,32.6,Mesophotic,Tech Dive,5
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-008,Stephanocoenia intersepta,24.487965,-83.1139,101,30.8,Mesophotic,Tech Dive,5
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-013,Stephanocoenia intersepta,24.487965,-83.1139,108,32.9,Mesophotic,Tech Dive,5
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-014,Stephanocoenia intersepta,24.487965,-83.1139,110,33.5,Mesophotic,Tech Dive,5
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-016,Stephanocoenia intersepta,24.487965,-83.1139,107,32.6,Mesophotic,Tech Dive,5
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-018,Stephanocoenia intersepta,24.487965,-83.1139,105,32,Mesophotic,Tech Dive,5
+TER-South,Riley's Hump,Site 41,8/25/19,25-VIII-19-5-020,Stephanocoenia intersepta,24.487965,-83.1139,102,31.1,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-003,Stephanocoenia intersepta,24.49395667,-81.58831167,115,35.1,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-004,Stephanocoenia intersepta,24.49395667,-81.58831167,114,34.7,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-006,Stephanocoenia intersepta,24.49395667,-81.58831167,112,34.1,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-007,Stephanocoenia intersepta,24.49395667,-81.58831167,110,33.5,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-011,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-013,Stephanocoenia intersepta,24.49395667,-81.58831167,106,32.3,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-016,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-017,Stephanocoenia intersepta,24.49395667,-81.58831167,108,32.9,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-019,Stephanocoenia intersepta,24.49395667,-81.58831167,108,32.9,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-020,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-022,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-023,Stephanocoenia intersepta,24.49395667,-81.58831167,109,33.2,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-024,Stephanocoenia intersepta,24.49395667,-81.58831167,109,33.2,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-025,Stephanocoenia intersepta,24.49395667,-81.58831167,110,33.5,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-029,Stephanocoenia intersepta,24.49395667,-81.58831167,110,33.5,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-031,Stephanocoenia intersepta,24.49395667,-81.58831167,109,33.2,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-033,Stephanocoenia intersepta,24.49395667,-81.58831167,106,32.3,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-034,Stephanocoenia intersepta,24.49395667,-81.58831167,105,32,Mesophotic,Tech Dive,5
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-035,Stephanocoenia intersepta,24.49395667,-81.58831167,104,31.7,Mesophotic,Tech Dive,6
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-036,Stephanocoenia intersepta,24.49395667,-81.58831167,103,31.4,Mesophotic,Tech Dive,6
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-038,Stephanocoenia intersepta,24.49395667,-81.58831167,104,31.7,Mesophotic,Tech Dive,6
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-040,Stephanocoenia intersepta,24.49395667,-81.58831167,106,32.3,Mesophotic,Tech Dive,6
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-041,Stephanocoenia intersepta,24.49395667,-81.58831167,106,32.3,Mesophotic,Tech Dive,6
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-044,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive,6
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-046,Stephanocoenia intersepta,24.49395667,-81.58831167,110,33.5,Mesophotic,Tech Dive,6
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-048,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive,6
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-049,Stephanocoenia intersepta,24.49395667,-81.58831167,106,32.3,Mesophotic,Tech Dive,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-002,Stephanocoenia intersepta,24.49297,-81.59892667,60,18.3,Shallow,Scuba,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-003,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-004,Stephanocoenia intersepta,24.49297,-81.59892667,60,18.3,Shallow,Scuba,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-008,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-010,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-012,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow,Scuba,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-014,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-016,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow,Scuba,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-018,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow,Scuba,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-020,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow,Scuba,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-022,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow,Scuba,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-024,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-026,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-027,Stephanocoenia intersepta,24.49297,-81.59892667,61,18.6,Shallow,Scuba,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-028,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-029,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba,6
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-031,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba,7
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-034,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow,Scuba,7
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-037,Stephanocoenia intersepta,24.49297,-81.59892667,56,17.1,Shallow,Scuba,7
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-039,Stephanocoenia intersepta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,7
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-041,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba,7
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-043,Stephanocoenia intersepta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,7
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-044,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba,7
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-047,Stephanocoenia intersepta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,7
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-049,Stephanocoenia intersepta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,7
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-051,Stephanocoenia intersepta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,7
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-052,Stephanocoenia intersepta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,7
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-055,Stephanocoenia intersepta,24.49297,-81.59892667,61,18.6,Shallow,Scuba,7
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-056,Stephanocoenia intersepta,24.49297,-81.59892667,60,18.3,Shallow,Scuba,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-3-014,Stephanocoenia intersepta,24.494035,-81.58790833,106,32.3,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-3-016,Stephanocoenia intersepta,24.494035,-81.58790833,106,32.3,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-3-018,Stephanocoenia intersepta,24.494035,-81.58790833,106,32.3,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 47,8/26/19,26-VIII-19-4-001,Stephanocoenia intersepta,24.49105167,-81.60602833,62,18.9,Shallow,Scuba,7
+Lower Keys,Big Coppitt,Site 47,8/26/19,26-VIII-19-4-003,Stephanocoenia intersepta,24.49105167,-81.60602833,60,18.3,Shallow,Scuba,7
+Lower Keys,Big Coppitt,Site 47,8/26/19,26-VIII-19-4-004,Stephanocoenia intersepta,24.49105167,-81.60602833,63,19.2,Shallow,Scuba,7
+Lower Keys,Big Coppitt,Site 47,8/26/19,26-VIII-19-4-005,Stephanocoenia intersepta,24.49105167,-81.60602833,59,18,Shallow,Scuba,7
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-2-011,Stephanocoenia intersepta,25.14415667,-80.252055,78,23.8,Shallow,Scuba,7
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-2-013,Stephanocoenia intersepta,25.14415667,-80.252055,74,22.6,Shallow,Scuba,7
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-2-015,Stephanocoenia intersepta,25.14415667,-80.252055,68,20.7,Shallow,Scuba,7
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-2-016,Stephanocoenia intersepta,25.14415667,-80.252055,65,19.8,Shallow,Scuba,7
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-2-019,Stephanocoenia intersepta,25.14415667,-80.252055,65,19.8,Shallow,Scuba,7
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-2-020,Stephanocoenia intersepta,25.14415667,-80.252055,65,19.8,Shallow,Scuba,8
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-2-022,Stephanocoenia intersepta,25.14415667,-80.252055,71,21.6,Shallow,Scuba,8
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-2-023,Stephanocoenia intersepta,25.14415667,-80.252055,71,21.6,Shallow,Scuba,8
+Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,27-VIII-19-4-014,Stephanocoenia intersepta,25.15823333,-80.22064,142,43.3,Mesophotic,Tech Dive,8
+Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,27-VIII-19-4-015,Stephanocoenia intersepta,25.15823333,-80.22064,142,43.3,Mesophotic,Tech Dive,8
+Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,27-VIII-19-4-016,Stephanocoenia intersepta,25.15823333,-80.22064,142,43.3,Mesophotic,Tech Dive,8
+Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,27-VIII-19-4-017,Stephanocoenia intersepta,25.15823333,-80.22064,144,43.9,Mesophotic,Tech Dive,8
+Upper Keys,The Elbow,Site 49,8/27/19,27-VIII-19-5-001,Stephanocoenia intersepta,25.14404833,-80.25258833,66,20.1,Shallow,Scuba,8
+Upper Keys,The Elbow,Site 49,8/27/19,27-VIII-19-5-002,Stephanocoenia intersepta,25.14404833,-80.25258833,62,18.9,Shallow,Scuba,8
+Upper Keys,The Elbow,Site 49,8/27/19,27-VIII-19-5-005,Stephanocoenia intersepta,25.14404833,-80.25258833,64,19.5,Shallow,Scuba,8
+Upper Keys,The Elbow,Site 49,8/27/19,27-VIII-19-5-006,Stephanocoenia intersepta,25.14404833,-80.25258833,67,20.4,Shallow,Scuba,8
+Upper Keys,The Elbow,Site 49,8/27/19,27-VIII-19-5-007,Stephanocoenia intersepta,25.14404833,-80.25258833,61,18.6,Shallow,Scuba,8
+Upper Keys,The Elbow,Site 49,8/27/19,27-VIII-19-5-009,Stephanocoenia intersepta,25.14404833,-80.25258833,62,18.9,Shallow,Scuba,8
+Upper Keys,The Elbow,Site 49,8/27/19,27-VIII-19-5-011,Stephanocoenia intersepta,25.14404833,-80.25258833,60,18.3,Shallow,Scuba,8
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-1-007,Stephanocoenia intersepta,25.217545,-80.19341333,137,41.8,Mesophotic,Tech Dive,8
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-1-011,Stephanocoenia intersepta,25.217545,-80.19341333,137,41.8,Mesophotic,Tech Dive,8
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-1-021,Stephanocoenia intersepta,25.217545,-80.19341333,145,44.2,Mesophotic,Tech Dive,8
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-2-001,Stephanocoenia intersepta,25.22056667,-80.200865,91,27.7,Shallow,Scuba,8
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-2-003,Stephanocoenia intersepta,25.22056667,-80.200865,89,27.1,Shallow,Scuba,8
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-2-005,Stephanocoenia intersepta,25.22056667,-80.200865,85,25.9,Shallow,Scuba,8
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-2-007,Stephanocoenia intersepta,25.22056667,-80.200865,81,24.7,Shallow,Scuba,8
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-2-009,Stephanocoenia intersepta,25.22056667,-80.200865,87,26.5,Shallow,Scuba,8
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-2-010,Stephanocoenia intersepta,25.22056667,-80.200865,87,26.5,Shallow,Scuba,8
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-2-011,Stephanocoenia intersepta,25.22056667,-80.200865,90,27.4,Shallow,Scuba,8
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-2-012,Stephanocoenia intersepta,25.22056667,-80.200865,89,27.1,Shallow,Scuba,8
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-2-014,Stephanocoenia intersepta,25.22056667,-80.200865,93,28.3,Shallow,Scuba,9
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-2-015,Stephanocoenia intersepta,25.22056667,-80.200865,91,27.7,Shallow,Scuba,9
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-2-016,Stephanocoenia intersepta,25.22056667,-80.200865,90,27.4,Shallow,Scuba,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-001,Stephanocoenia intersepta,25.21752,-80.19336833,145,44.2,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-002,Stephanocoenia intersepta,25.21752,-80.19336833,149,45.4,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-003,Stephanocoenia intersepta,25.21752,-80.19336833,149,45.4,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-004,Stephanocoenia intersepta,25.21752,-80.19336833,144,43.9,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-005,Stephanocoenia intersepta,25.21752,-80.19336833,148,45.1,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-006,Stephanocoenia intersepta,25.21752,-80.19336833,147,44.8,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-007,Stephanocoenia intersepta,25.21752,-80.19336833,147,44.8,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-008,Stephanocoenia intersepta,25.21752,-80.19336833,146,44.5,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-009,Stephanocoenia intersepta,25.21752,-80.19336833,146,44.5,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-010,Stephanocoenia intersepta,25.21752,-80.19336833,146,44.5,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-011,Stephanocoenia intersepta,25.21752,-80.19336833,149,45.4,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-012,Stephanocoenia intersepta,25.21752,-80.19336833,148,45.1,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-013,Stephanocoenia intersepta,25.21752,-80.19336833,142,43.3,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-014,Stephanocoenia intersepta,25.21752,-80.19336833,145,44.2,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-015,Stephanocoenia intersepta,25.21752,-80.19336833,146,44.5,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-016,Stephanocoenia intersepta,25.21752,-80.19336833,144,43.9,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-017,Stephanocoenia intersepta,25.21752,-80.19336833,144,43.9,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-018,Stephanocoenia intersepta,25.21752,-80.19336833,143,43.6,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-019,Stephanocoenia intersepta,25.21752,-80.19336833,140,42.7,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-020,Stephanocoenia intersepta,25.21752,-80.19336833,139,42.4,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-021,Stephanocoenia intersepta,25.21752,-80.19336833,137,41.8,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-022,Stephanocoenia intersepta,25.21752,-80.19336833,141,43,Mesophotic,Tech Dive,9
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-023,Stephanocoenia intersepta,25.21752,-80.19336833,141,43,Mesophotic,Tech Dive,10
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-017,Stephanocoenia intersepta,25.22036,-80.20094333,92,28,Shallow,Scuba,10
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-018,Stephanocoenia intersepta,25.22036,-80.20094333,89,27.1,Shallow,Scuba,10
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-020,Stephanocoenia intersepta,25.22036,-80.20094333,91,27.7,Shallow,Scuba,10
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-022,Stephanocoenia intersepta,25.22036,-80.20094333,84,25.6,Shallow,Scuba,10
+Upper Keys,Carysfort,FK-01,8/13/19,13-VIII-19-1-012,Xestospongia muta,25.2157,-80.1924,168,51.2,Mesophotic,ROV,1
+Upper Keys,Carysfort,FK-01,8/13/19,13-VIII-19-1-013,Xestospongia muta,25.2157,-80.1924,160,48.8,Mesophotic,ROV,1
+Upper Keys,Carysfort,FK-01,8/13/19,13-VIII-19-1-019,Xestospongia muta,25.2157,-80.1924,133,40.5,Mesophotic,ROV,1
+Upper Keys,The Elbow,FK-02,8/14/19,14-VIII-19-1-009,Xestospongia muta,25.15874833,-80.21938833,157,47.9,Mesophotic,ROV,1
+Upper Keys,The Elbow,FK-02,8/14/19,14-VIII-19-1-011,Xestospongia muta,25.15874833,-80.21938833,136,41.5,Mesophotic,ROV,1
+Upper Keys,The Elbow,FK-02,8/14/19,14-VIII-19-1-014,Xestospongia muta,25.15874833,-80.21938833,142,43.3,Mesophotic,ROV,1
+Upper Keys,The Elbow,FK-03,8/14/19,14-VIII-19-2-001,Xestospongia muta,25.15517,-80.23328667,111,33.8,Mesophotic,ROV,1
+Upper Keys,The Elbow,FK-03,8/14/19,14-VIII-19-2-002,Xestospongia muta,25.15517,-80.23328667,111,33.8,Mesophotic,ROV,1
+Upper Keys,The Elbow,FK-03,8/14/19,14-VIII-19-2-004,Xestospongia muta,25.15517,-80.23328667,111,33.8,Mesophotic,ROV,1
+Upper Keys,The Elbow,FK-03,8/14/19,14-VIII-19-2-005,Xestospongia muta,25.15517,-80.23328667,111,33.8,Mesophotic,ROV,1
+Upper Keys,Grecian Rocks,FK-04,8/15/19,15-VIII-19-1-004,Xestospongia muta,25.10855167,-80.261585,165,50.3,Mesophotic,ROV,1
+Upper Keys,Grecian Rocks,FK-04,8/15/19,15-VIII-19-1-016,Xestospongia muta,25.10855167,-80.261585,145,44.2,Mesophotic,ROV,1
+Upper Keys,French Reef,FK-06,8/15/19,15-VIII-19-2-001,Xestospongia muta,25.03631167,-80.31959,160,48.8,Mesophotic,ROV,1
+Upper Keys,French Reef,FK-06,8/15/19,15-VIII-19-2-007,Xestospongia muta,25.03631167,-80.31959,42,12.8,Shallow,ROV,1
+Upper Keys,French Reef,FK-06,8/15/19,15-VIII-19-2-009,Xestospongia muta,25.03631167,-80.31959,141,43,Mesophotic,ROV,1
+Lower Keys,Big Coppitt,FK-08,8/16/19,16-VIII-19-2-007,Xestospongia muta,24.49172,-81.59309833,81,24.7,Shallow,ROV,1
+TER-North,Sherwood Forrest,Site 17,8/22/19,22-VIII-19-1-003,Xestospongia muta,24.65211,-83.103095,114,34.7,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 17,8/22/19,22-VIII-19-1-023,Xestospongia muta,24.65211,-83.103095,112,34.1,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-010,Xestospongia muta,24.64042,-83.10294333,101,30.8,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-011,Xestospongia muta,24.64042,-83.10294333,100,30.5,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-012,Xestospongia muta,24.64042,-83.10294333,101,30.8,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-013,Xestospongia muta,24.64042,-83.10294333,101,30.8,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-016,Xestospongia muta,24.64042,-83.10294333,98,29.9,Shallow,Tech Dive,1
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-1-032,Xestospongia muta,24.64042,-83.10294333,99,30.2,Mesophotic,Tech Dive,1
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-001,Xestospongia muta,24.67518667,-83.068585,67,20.4,Shallow,Scuba,1
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-002,Xestospongia muta,24.67518667,-83.068585,67,20.4,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-003,Xestospongia muta,24.67518667,-83.068585,68,20.7,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-004,Xestospongia muta,24.67518667,-83.068585,67,20.4,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-005,Xestospongia muta,24.67518667,-83.068585,66,20.1,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-006,Xestospongia muta,24.67518667,-83.068585,65,19.8,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-007,Xestospongia muta,24.67518667,-83.068585,64,19.5,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-008,Xestospongia muta,24.67518667,-83.068585,65,19.8,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-009,Xestospongia muta,24.67518667,-83.068585,68,20.7,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-010,Xestospongia muta,24.67518667,-83.068585,69,21,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-013,Xestospongia muta,24.67518667,-83.068585,66,20.1,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-014,Xestospongia muta,24.67518667,-83.068585,66,20.1,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-015,Xestospongia muta,24.67518667,-83.068585,64,19.5,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-018,Xestospongia muta,24.67518667,-83.068585,69,21,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-019,Xestospongia muta,24.67518667,-83.068585,68,20.7,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-020,Xestospongia muta,24.67518667,-83.068585,67,20.4,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-021,Xestospongia muta,24.67518667,-83.068585,69,21,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-023,Xestospongia muta,24.67518667,-83.068585,64,19.5,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-024,Xestospongia muta,24.67518667,-83.068585,66,20.1,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-027,Xestospongia muta,24.67518667,-83.068585,66,20.1,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-031,Xestospongia muta,24.67518667,-83.068585,66,20.1,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-032,Xestospongia muta,24.67518667,-83.068585,65,19.8,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-035,Xestospongia muta,24.67518667,-83.068585,66,20.1,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-037,Xestospongia muta,24.67518667,-83.068585,66,20.1,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-038,Xestospongia muta,24.67518667,-83.068585,66,20.1,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-039,Xestospongia muta,24.67518667,-83.068585,67,20.4,Shallow,Scuba,2
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-040,Xestospongia muta,24.67518667,-83.068585,66,20.1,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-041,Xestospongia muta,24.67518667,-83.068585,66,20.1,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-042,Xestospongia muta,24.67518667,-83.068585,64,19.5,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-043,Xestospongia muta,24.67518667,-83.068585,66,20.1,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-044,Xestospongia muta,24.67518667,-83.068585,65,19.8,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-045,Xestospongia muta,24.67518667,-83.068585,65,19.8,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 37,8/23/19,23-VIII-19-2-046,Xestospongia muta,24.67518667,-83.068585,66,20.1,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-001,Xestospongia muta,24.640415,-83.10294667,98,29.9,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-002,Xestospongia muta,24.640415,-83.10294667,97,29.6,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-003,Xestospongia muta,24.640415,-83.10294667,97,29.6,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-004,Xestospongia muta,24.640415,-83.10294667,100,30.5,Mesophotic,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-005,Xestospongia muta,24.640415,-83.10294667,101,30.8,Mesophotic,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-006,Xestospongia muta,24.640415,-83.10294667,100,30.5,Mesophotic,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-007,Xestospongia muta,24.640415,-83.10294667,101,30.8,Mesophotic,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-008,Xestospongia muta,24.640415,-83.10294667,96,29.3,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-009,Xestospongia muta,24.640415,-83.10294667,99,30.2,Mesophotic,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-010,Xestospongia muta,24.640415,-83.10294667,101,30.8,Mesophotic,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-011,Xestospongia muta,24.640415,-83.10294667,101,30.8,Mesophotic,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-012,Xestospongia muta,24.640415,-83.10294667,100,30.5,Mesophotic,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-013,Xestospongia muta,24.640415,-83.10294667,100,30.5,Mesophotic,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-014,Xestospongia muta,24.640415,-83.10294667,100,30.5,Mesophotic,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-015,Xestospongia muta,24.640415,-83.10294667,101,30.8,Mesophotic,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-016,Xestospongia muta,24.640415,-83.10294667,100,30.5,Mesophotic,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-017,Xestospongia muta,24.640415,-83.10294667,98,29.9,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-018,Xestospongia muta,24.640415,-83.10294667,98,29.9,Shallow,Scuba,3
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-019,Xestospongia muta,24.640415,-83.10294667,100,30.5,Mesophotic,Scuba,4
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-020,Xestospongia muta,24.640415,-83.10294667,100,30.5,Mesophotic,Scuba,4
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-021,Xestospongia muta,24.640415,-83.10294667,100,30.5,Mesophotic,Scuba,4
+TER-North,Sherwood Forrest,Site 35/36,8/23/19,23-VIII-19-4-022,Xestospongia muta,24.640415,-83.10294667,98,29.9,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-023,Xestospongia muta,24.49396,-83.09607833,108,32.9,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-024,Xestospongia muta,24.49396,-83.09607833,109,33.2,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-025,Xestospongia muta,24.49396,-83.09607833,108,32.9,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-026,Xestospongia muta,24.49396,-83.09607833,107,32.6,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-027,Xestospongia muta,24.49396,-83.09607833,108,32.9,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-028,Xestospongia muta,24.49396,-83.09607833,106,32.3,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-029,Xestospongia muta,24.49396,-83.09607833,105,32,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-030,Xestospongia muta,24.49396,-83.09607833,105,32,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-031,Xestospongia muta,24.49396,-83.09607833,105,32,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-032,Xestospongia muta,24.49396,-83.09607833,106,32.3,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-033,Xestospongia muta,24.49396,-83.09607833,109,33.2,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-034,Xestospongia muta,24.49396,-83.09607833,109,33.2,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-035,Xestospongia muta,24.49396,-83.09607833,104,31.7,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-036,Xestospongia muta,24.49396,-83.09607833,106,32.3,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 18,8/24/19,24-VIII-19-1-037,Xestospongia muta,24.49396,-83.09607833,107,32.6,Mesophotic,Tech Dive,4
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-001,Xestospongia muta,24.51780833,-83.09790167,83,25.3,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-003,Xestospongia muta,24.51780833,-83.09790167,83,25.3,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-005,Xestospongia muta,24.51780833,-83.09790167,84,25.6,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-006,Xestospongia muta,24.51780833,-83.09790167,84,25.6,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-007,Xestospongia muta,24.51780833,-83.09790167,84,25.6,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-009,Xestospongia muta,24.51780833,-83.09790167,84,25.6,Shallow,Scuba,4
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-010,Xestospongia muta,24.51780833,-83.09790167,83,25.3,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-012,Xestospongia muta,24.51780833,-83.09790167,83,25.3,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-013,Xestospongia muta,24.51780833,-83.09790167,83,25.3,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-014,Xestospongia muta,24.51780833,-83.09790167,83,25.3,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-016,Xestospongia muta,24.51780833,-83.09790167,84,25.6,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-017,Xestospongia muta,24.51780833,-83.09790167,82,25,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-019,Xestospongia muta,24.51780833,-83.09790167,83,25.3,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-020,Xestospongia muta,24.51780833,-83.09790167,83,25.3,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-022,Xestospongia muta,24.51780833,-83.09790167,83,25.3,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-029,Xestospongia muta,24.51780833,-83.09790167,84,25.6,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-031,Xestospongia muta,24.51780833,-83.09790167,83,25.3,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-033,Xestospongia muta,24.51780833,-83.09790167,82,25,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-036,Xestospongia muta,24.51780833,-83.09790167,85,25.9,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-038,Xestospongia muta,24.51780833,-83.09790167,84,25.6,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-040,Xestospongia muta,24.51780833,-83.09790167,84,25.6,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-042,Xestospongia muta,24.51780833,-83.09790167,83,25.3,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-044,Xestospongia muta,24.51780833,-83.09790167,84,25.6,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-046,Xestospongia muta,24.51780833,-83.09790167,84,25.6,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-048,Xestospongia muta,24.51780833,-83.09790167,84,25.6,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-050,Xestospongia muta,24.51780833,-83.09790167,83,25.3,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-052,Xestospongia muta,24.51780833,-83.09790167,93,28.3,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 38,8/24/19,24-VIII-19-2-054,Xestospongia muta,24.51780833,-83.09790167,83,25.3,Shallow,Scuba,5
+TER-South,Riley's Hump,Site 19,8/24/19,24-VIII-19-3-001,Xestospongia muta,24.48925667,-83.122695,123,37.5,Mesophotic,Tech Dive,5
+TER-South,Riley's Hump,Site 19,8/24/19,24-VIII-19-3-002,Xestospongia muta,24.48925667,-83.122695,119,36.3,Mesophotic,Tech Dive,5
+TER-South,Riley's Hump,Site 19,8/24/19,24-VIII-19-3-003,Xestospongia muta,24.48925667,-83.122695,118,36,Mesophotic,Tech Dive,5
+TER-South,Riley's Hump,Site 19,8/24/19,24-VIII-19-3-004,Xestospongia muta,24.48925667,-83.122695,121,36.9,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 19,8/24/19,24-VIII-19-3-005,Xestospongia muta,24.48925667,-83.122695,120,36.6,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 19,8/24/19,24-VIII-19-3-006,Xestospongia muta,24.48925667,-83.122695,119,36.3,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 19,8/24/19,24-VIII-19-3-007,Xestospongia muta,24.48925667,-83.122695,118,36,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 19,8/24/19,24-VIII-19-3-008,Xestospongia muta,24.48925667,-83.122695,119,36.3,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 19,8/24/19,24-VIII-19-3-009,Xestospongia muta,24.48925667,-83.122695,121,36.9,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 19,8/24/19,24-VIII-19-3-010,Xestospongia muta,24.48925667,-83.122695,122,37.2,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 19,8/24/19,24-VIII-19-3-011,Xestospongia muta,24.48925667,-83.122695,122,37.2,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 19,8/24/19,24-VIII-19-3-012,Xestospongia muta,24.48925667,-83.122695,119,36.3,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 19,8/24/19,24-VIII-19-3-013,Xestospongia muta,24.48925667,-83.122695,124,37.8,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 39,8/24/19,24-VIII-19-4-011,Xestospongia muta,24.51135833,-83.09516,90,27.4,Shallow,Scuba,6
+TER-South,Riley's Hump,Site 39,8/24/19,24-VIII-19-4-012,Xestospongia muta,24.51135833,-83.09516,90,27.4,Shallow,Scuba,6
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-001,Xestospongia muta,24.48466,-83.110725,161,49.1,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-002,Xestospongia muta,24.48466,-83.110725,152,46.3,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-003,Xestospongia muta,24.48466,-83.110725,152,46.3,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-004,Xestospongia muta,24.48466,-83.110725,147,44.8,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-005,Xestospongia muta,24.48466,-83.110725,146,44.5,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-006,Xestospongia muta,24.48466,-83.110725,145,44.2,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-007,Xestospongia muta,24.48466,-83.110725,144,43.9,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-009,Xestospongia muta,24.48466,-83.110725,143,43.6,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-010,Xestospongia muta,24.48466,-83.110725,145,44.2,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-014,Xestospongia muta,24.48466,-83.110725,154,46.9,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-015,Xestospongia muta,24.48466,-83.110725,154,46.9,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-016,Xestospongia muta,24.48466,-83.110725,153,46.6,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-017,Xestospongia muta,24.48466,-83.110725,152,46.3,Mesophotic,Tech Dive,6
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-018,Xestospongia muta,24.48466,-83.110725,151,46,Mesophotic,Tech Dive,7
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-019,Xestospongia muta,24.48466,-83.110725,148,45.1,Mesophotic,Tech Dive,7
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-020,Xestospongia muta,24.48466,-83.110725,146,44.5,Mesophotic,Tech Dive,7
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-021,Xestospongia muta,24.48466,-83.110725,145,44.2,Mesophotic,Tech Dive,7
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-022,Xestospongia muta,24.48466,-83.110725,145,44.2,Mesophotic,Tech Dive,7
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-023,Xestospongia muta,24.48466,-83.110725,144,43.9,Mesophotic,Tech Dive,7
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-024,Xestospongia muta,24.48466,-83.110725,142,43.3,Mesophotic,Tech Dive,7
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-025,Xestospongia muta,24.48466,-83.110725,143,43.6,Mesophotic,Tech Dive,7
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-026,Xestospongia muta,24.48466,-83.110725,142,43.3,Mesophotic,Tech Dive,7
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-027,Xestospongia muta,24.48466,-83.110725,142,43.3,Mesophotic,Tech Dive,7
+TER-South,Riley's Hump,Site 44,8/25/19,25-VIII-19-1-028,Xestospongia muta,24.48466,-83.110725,143,43.6,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-001,Xestospongia muta,24.49395667,-81.58831167,116,35.4,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-002,Xestospongia muta,24.49395667,-81.58831167,114,34.7,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-005,Xestospongia muta,24.49395667,-81.58831167,113,34.4,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-008,Xestospongia muta,24.49395667,-81.58831167,109,33.2,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-009,Xestospongia muta,24.49395667,-81.58831167,109,33.2,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-010,Xestospongia muta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-012,Xestospongia muta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-014,Xestospongia muta,24.49395667,-81.58831167,106,32.3,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-015,Xestospongia muta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-018,Xestospongia muta,24.49395667,-81.58831167,108,32.9,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-021,Xestospongia muta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-026,Xestospongia muta,24.49395667,-81.58831167,113,34.4,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-027,Xestospongia muta,24.49395667,-81.58831167,113,34.4,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-028,Xestospongia muta,24.49395667,-81.58831167,111,33.8,Mesophotic,Tech Dive,7
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-030,Xestospongia muta,24.49395667,-81.58831167,110,33.5,Mesophotic,Tech Dive,8
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-032,Xestospongia muta,24.49395667,-81.58831167,106,32.3,Mesophotic,Tech Dive,8
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-037,Xestospongia muta,24.49395667,-81.58831167,103,31.4,Mesophotic,Tech Dive,8
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-039,Xestospongia muta,24.49395667,-81.58831167,105,32,Mesophotic,Tech Dive,8
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-042,Xestospongia muta,24.49395667,-81.58831167,106,32.3,Mesophotic,Tech Dive,8
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-043,Xestospongia muta,24.49395667,-81.58831167,108,32.9,Mesophotic,Tech Dive,8
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-045,Xestospongia muta,24.49395667,-81.58831167,108,32.9,Mesophotic,Tech Dive,8
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-047,Xestospongia muta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive,8
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-1-050,Xestospongia muta,24.49395667,-81.58831167,106,32.3,Mesophotic,Tech Dive,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-059,Xestospongia muta,24.49297,-81.59892667,59,18,Shallow,Scuba,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-060,Xestospongia muta,24.49297,-81.59892667,59,18,Shallow,Scuba,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-061,Xestospongia muta,24.49297,-81.59892667,59,18,Shallow,Scuba,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-062,Xestospongia muta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-063,Xestospongia muta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-064,Xestospongia muta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-065,Xestospongia muta,24.49297,-81.59892667,59,18,Shallow,Scuba,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-066,Xestospongia muta,24.49297,-81.59892667,59,18,Shallow,Scuba,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-067,Xestospongia muta,24.49297,-81.59892667,59,18,Shallow,Scuba,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-068,Xestospongia muta,24.49297,-81.59892667,59,18,Shallow,Scuba,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-069,Xestospongia muta,24.49297,-81.59892667,58,17.7,Shallow,Scuba,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-070,Xestospongia muta,24.49297,-81.59892667,56,17.1,Shallow,Scuba,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-071,Xestospongia muta,24.49297,-81.59892667,56,17.1,Shallow,Scuba,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-072,Xestospongia muta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-073,Xestospongia muta,24.49297,-81.59892667,56,17.1,Shallow,Scuba,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-074,Xestospongia muta,24.49297,-81.59892667,55,16.8,Shallow,Scuba,8
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-075,Xestospongia muta,24.49297,-81.59892667,56,17.1,Shallow,Scuba,9
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-076,Xestospongia muta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,9
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-077,Xestospongia muta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,9
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-078,Xestospongia muta,24.49297,-81.59892667,58,17.7,Shallow,Scuba,9
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-079,Xestospongia muta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,9
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-080,Xestospongia muta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,9
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-081,Xestospongia muta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,9
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-082,Xestospongia muta,24.49297,-81.59892667,59,18,Shallow,Scuba,9
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-083,Xestospongia muta,24.49297,-81.59892667,59,18,Shallow,Scuba,9
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-084,Xestospongia muta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,9
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-085,Xestospongia muta,24.49297,-81.59892667,58,17.7,Shallow,Scuba,9
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-086,Xestospongia muta,24.49297,-81.59892667,58,17.7,Shallow,Scuba,9
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-098,Xestospongia muta,24.49297,-81.59892667,57,17.4,Shallow,Scuba,9
+Lower Keys,Big Coppitt,Site 46,8/26/19,26-VIII-19-2-099,Xestospongia muta,24.49297,-81.59892667,56,17.1,Shallow,Scuba,9
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-3-010,Xestospongia muta,24.494035,-81.58790833,110,33.5,Mesophotic,Tech Dive,9
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-3-011,Xestospongia muta,24.494035,-81.58790833,108,32.9,Mesophotic,Tech Dive,9
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-3-012,Xestospongia muta,24.494035,-81.58790833,108,32.9,Mesophotic,Tech Dive,9
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-3-013,Xestospongia muta,24.494035,-81.58790833,106,32.3,Mesophotic,Tech Dive,9
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-3-015,Xestospongia muta,24.494035,-81.58790833,106,32.3,Mesophotic,Tech Dive,9
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-3-017,Xestospongia muta,24.494035,-81.58790833,106,32.3,Mesophotic,Tech Dive,9
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-3-019,Xestospongia muta,24.494035,-81.58790833,106,32.3,Mesophotic,Tech Dive,9
+Lower Keys,Big Coppitt,Site 45,8/26/19,26-VIII-19-3-020,Xestospongia muta,24.494035,-81.58790833,106,32.3,Mesophotic,Tech Dive,9
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-1-001,Xestospongia muta,25.152185,-80.23162,117,35.7,Mesophotic,Tech Dive,9
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-1-002,Xestospongia muta,25.152185,-80.23162,117,35.7,Mesophotic,Tech Dive,9
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-1-003,Xestospongia muta,25.152185,-80.23162,118,36,Mesophotic,Tech Dive,9
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-1-004,Xestospongia muta,25.152185,-80.23162,116,35.4,Mesophotic,Tech Dive,10
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-1-005,Xestospongia muta,25.152185,-80.23162,116,35.4,Mesophotic,Tech Dive,10
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-1-006,Xestospongia muta,25.152185,-80.23162,117,35.7,Mesophotic,Tech Dive,10
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-1-007,Xestospongia muta,25.152185,-80.23162,116,35.4,Mesophotic,Tech Dive,10
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-1-008,Xestospongia muta,25.152185,-80.23162,117,35.7,Mesophotic,Tech Dive,10
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-1-009,Xestospongia muta,25.152185,-80.23162,117,35.7,Mesophotic,Tech Dive,10
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-2-001,Xestospongia muta,25.14415667,-80.252055,78,23.8,Shallow,Scuba,10
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-2-002,Xestospongia muta,25.14415667,-80.252055,72,21.9,Shallow,Scuba,10
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-2-003,Xestospongia muta,25.14415667,-80.252055,75,22.9,Shallow,Scuba,10
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-2-004,Xestospongia muta,25.14415667,-80.252055,73,22.3,Shallow,Scuba,10
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-2-005,Xestospongia muta,25.14415667,-80.252055,73,22.3,Shallow,Scuba,10
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-2-006,Xestospongia muta,25.14415667,-80.252055,70,21.3,Shallow,Scuba,10
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-2-007,Xestospongia muta,25.14415667,-80.252055,70,21.3,Shallow,Scuba,10
+Upper Keys,The Elbow,Site 51,8/27/19,27-VIII-19-2-008,Xestospongia muta,25.14415667,-80.252055,69,21,Shallow,Scuba,10
+Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,27-VIII-19-4-001,Xestospongia muta,25.15823333,-80.22064,143,43.6,Mesophotic,Tech Dive,10
+Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,27-VIII-19-4-005,Xestospongia muta,25.15823333,-80.22064,142,43.3,Mesophotic,Tech Dive,10
+Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,27-VIII-19-4-008,Xestospongia muta,25.15823333,-80.22064,141,43,Mesophotic,Tech Dive,10
+Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,27-VIII-19-4-009,Xestospongia muta,25.15823333,-80.22064,141,43,Mesophotic,Tech Dive,10
+Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,27-VIII-19-4-011,Xestospongia muta,25.15823333,-80.22064,141,43,Mesophotic,Tech Dive,10
+Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,27-VIII-19-4-013,Xestospongia muta,25.15823333,-80.22064,141,43,Mesophotic,Tech Dive,10
+Upper Keys,The Elbow,Site 49,8/27/19,27-VIII-19-5-015,Xestospongia muta,25.14404833,-80.25258833,67,20.4,Shallow,Scuba,10
+Upper Keys,The Elbow,Site 49,8/27/19,27-VIII-19-5-016,Xestospongia muta,25.14404833,-80.25258833,67,20.4,Shallow,Scuba,10
+Upper Keys,The Elbow,Site 49,8/27/19,27-VIII-19-5-017,Xestospongia muta,25.14404833,-80.25258833,67,20.4,Shallow,Scuba,10
+Upper Keys,The Elbow,Site 49,8/27/19,27-VIII-19-5-018,Xestospongia muta,25.14404833,-80.25258833,64,19.5,Shallow,Scuba,10
+Upper Keys,The Elbow,Site 49,8/27/19,27-VIII-19-5-019,Xestospongia muta,25.14404833,-80.25258833,64,19.5,Shallow,Scuba,10
+Upper Keys,The Elbow,Site 49,8/27/19,27-VIII-19-5-020,Xestospongia muta,25.14404833,-80.25258833,60,18.3,Shallow,Scuba,11
+Upper Keys,The Elbow,Site 49,8/27/19,27-VIII-19-5-021,Xestospongia muta,25.14404833,-80.25258833,63,19.2,Shallow,Scuba,11
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-1-001,Xestospongia muta,25.217545,-80.19341333,141,43,Mesophotic,Tech Dive,11
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-1-002,Xestospongia muta,25.217545,-80.19341333,142,43.3,Mesophotic,Tech Dive,11
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-1-003,Xestospongia muta,25.217545,-80.19341333,142,43.3,Mesophotic,Tech Dive,11
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-024,Xestospongia muta,25.21752,-80.19336833,149,45.4,Mesophotic,Tech Dive,11
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-025,Xestospongia muta,25.21752,-80.19336833,149,45.4,Mesophotic,Tech Dive,11
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-026,Xestospongia muta,25.21752,-80.19336833,148,45.1,Mesophotic,Tech Dive,11
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-027,Xestospongia muta,25.21752,-80.19336833,149,45.4,Mesophotic,Tech Dive,11
+Upper Keys,Carysfort,Site 1,8/28/19,28-VIII-19-3-028,Xestospongia muta,25.21752,-80.19336833,148,45.1,Mesophotic,Tech Dive,11
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-001,Xestospongia muta,25.22036,-80.20094333,88,26.8,Shallow,Scuba,11
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-002,Xestospongia muta,25.22036,-80.20094333,88,26.8,Shallow,Scuba,11
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-003,Xestospongia muta,25.22036,-80.20094333,82,25,Shallow,Scuba,11
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-004,Xestospongia muta,25.22036,-80.20094333,82,25,Shallow,Scuba,11
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-005,Xestospongia muta,25.22036,-80.20094333,82,25,Shallow,Scuba,11
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-006,Xestospongia muta,25.22036,-80.20094333,85,25.9,Shallow,Scuba,11
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-007,Xestospongia muta,25.22036,-80.20094333,84,25.6,Shallow,Scuba,11
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-008,Xestospongia muta,25.22036,-80.20094333,86,26.2,Shallow,Scuba,11
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-009,Xestospongia muta,25.22036,-80.20094333,84,25.6,Shallow,Scuba,11
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-010,Xestospongia muta,25.22036,-80.20094333,83,25.3,Shallow,Scuba,11
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-011,Xestospongia muta,25.22036,-80.20094333,83,25.3,Shallow,Scuba,11
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-012,Xestospongia muta,25.22036,-80.20094333,81,24.7,Shallow,Scuba,11
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-013,Xestospongia muta,25.22036,-80.20094333,81,24.7,Shallow,Scuba,11
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-014,Xestospongia muta,25.22036,-80.20094333,83,25.3,Shallow,Scuba,11
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-015,Xestospongia muta,25.22036,-80.20094333,82,25,Shallow,Scuba,11
+Upper Keys,Carysfort,Site 48,8/28/19,28-VIII-19-4-016,Xestospongia muta,25.22036,-80.20094333,85,25.9,Shallow,Scuba,12
