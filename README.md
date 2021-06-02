@@ -18,7 +18,7 @@ publication:
 
 ------------------------------------------------------------------------
 
-2bRAD Lab protocols adapted from [Misha Matz](https://docs.google.com/document/d/1am7L_Pa5JQ4sSx0eT5j4vdNPy5FUAtMZRsJZ0Ar5g9U/edit?usp=sharing) 
+2bRAD Lab protocols adapted from [Misha Matz](https://docs.google.com/document/d/1am7L_Pa5JQ4sSx0eT5j4vdNPy5FUAtMZRsJZ0Ar5g9U/edit?usp=sharing)  
 ITS2 lab protocols adapted from [Eckert et al. 2020](https://doi.org/10.3389/fmicb.2020.00518) and [Klepac et al. 2015](https://doi.org/10.3354/meps11369)
 
 ------------------------------------------------------------------------
