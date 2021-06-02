@@ -1,0 +1,6 @@
+clones/dd.clones.gz filter=lfs diff=lfs merge=lfs -text
+clones/sintClones.bcf filter=lfs diff=lfs merge=lfs -text
+snps/clones/dd.counts.gz filter=lfs diff=lfs merge=lfs -text
+snps/clones/sintClones.bcf filter=lfs diff=lfs merge=lfs -text
+snps/sintNoClones.bcf filter=lfs diff=lfs merge=lfs -text
+clones/dd.counts.gz filter=lfs diff=lfs merge=lfs -text

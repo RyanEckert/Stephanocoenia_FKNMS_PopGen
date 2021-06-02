@@ -1,0 +1,7 @@
+Species references
+Trench, R. (2000). Validation of some currently used invalid names of dinoflagellates. Journal of Phycology 36(5): 972-972.	Trench, R. K. and R. J. Blank (1987). Symbiodinium microadriaticum Freudenthal, S. goreauii sp. nov., S. kawagutii sp. nov. and S. pilosum sp. nov.: Gymnodinioid dinoflagellate symbionts of marine invertebrates. Journal of Phycology 23(3): 469-481.
+Hansen, G. and N. Daugbjerg (2009). Symbiodinium natans sp. nob.: A free-living dinoflagellate from Tenerife (northeast Atlantic Ocean). Journal of Phycology 45(1): 251-263.
+Trench, R. K. and L.-v. Thinh (1995). Gymnodinium linucheae sp. nov.: The dinoflagellate symbiont of the jellyfish Linuche unguiculata. European Journal of Phycology 30(2): 149-154.
+Lee, S. Y., H. J. Jeong, N. S. Kang, T. Y. Jang, S. H. Jang and T. C. Lajeunesse (2015). Symbiodinium tridacnidorum sp. nov., a dinoflagellate common to Indo-Pacific giant clams, and a revised morphological description of Symbiodinium microadriaticum Freudenthal, emended Trench & Blank. European Journal of Phycology 50(2): 155-172.
+Stand_alone_data_set_samples output by humebc on 20210401T112728; data_analysis ID: 148; Number of data_set objects as part of output = 1; Number of data_set objects as part of analysis = 128
+Data_set ID: 607; Data_set name: 20210331_eckert; submitting_user: humebc; time_stamp: 20210331T094309

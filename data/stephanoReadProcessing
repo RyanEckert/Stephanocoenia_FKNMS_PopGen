@@ -1,0 +1,60 @@
+koko
+
+mkdir 2bRAD/sint/
+mkdir 2bRAD/sint/fknms/
+mkdir 2bRAD/sint/fknms/rawReads/
+cd 2bRAD/sint/fknms/rawReads/
+
+
+## Download and concatenate raw reads from BaseSpace
+#-------------------------------------------------------------------------------
+
+echo '#!/bin/bash' > downloadReads.sh
+echo 'bs download project --concurrency=high -q -n JA21001 -o .' >> downloadReads.sh
+# -n is the project name and -o is the output directory
+
+echo "find . -name '*.gz' -exec mv {} . \;" >> downloadReads.sh
+echo 'rmdir SA*' >>downloadReads.sh
+echo 'mkdir ../concatReads' >> downloadReads.sh
+echo 'cp *.gz ../concatReads' >> downloadReads.sh
+echo 'cd ../concatReads' >> downloadReads.sh
+echo 'mergeReads.sh -o mergeTemp' >> downloadReads.sh
+# -o is the directory to put output files in
+
+echo 'rm *L00*' >> downloadReads.sh
+echo "find . -name '*.gz' -exec mv {} . \;" >> downloadReads.sh
+echo 'gunzip *.gz' >> downloadReads.sh
+echo 'rmdir mergeTemp' >> downloadReads.sh
+
+chmod +x downloadReads.sh
+
+launcher_creator.py -b 'srun downloadReads.sh' -n downloadReads -q shortq7 -t 06:00:00 -e reckert2017@fau.edu
+sbatch downloadReads.slurm
+
+
+## Trim and demultiplex reads
+#-------------------------------------------------------------------------------
+
+cd ../concatReads
+
+2bRAD_trim_launch_dedup.pl fastq > trims.sh
+launcher_creator.py -j trims.sh -n trims -q shortq7 -t 06:00:00 -e reckert2017@fau.edu
+sbatch --mem=200GB trims.slurm
+
+
+# check that we have the correct number of trim files (226 in this case)
+ls -l *.tr0 | wc -l
+
+
+mkdir ../trimmedReads
+srun mv *.tr0 ../trimmedReads &
+
+ls *.fastq | cat | sed -e 's/^/gzip -9 /' > gzip.sh
+launcher_creator.py -j gzip.sh -n gzip -q shortq7 -t 06:00:00 -e reckert2017@fau.edu
+sbatch gzip.slurm
+
+cd ../trimmedReads
+
+# rename sequence files using sampleRename.py
+# make sure you use the reverse complement of your inline BCs!
+srun sampleRename.py -i sampleList -n fk_ -f tr0
