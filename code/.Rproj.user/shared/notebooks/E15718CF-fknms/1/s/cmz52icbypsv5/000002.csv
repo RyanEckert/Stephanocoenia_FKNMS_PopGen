@@ -1,4 +1,0 @@
-"0","setwd(""../data"")"
-"0",""
-"0","if (!require(""pacman"")) install.packages(""pacman"")"
-"0","pacman::p_load(""cowplot"", ""ggrepel"", ""ggspatial"", ""paletteer"", ""patchwork"", ""rgdal"", ""rnaturalearth"", ""sf"", ""tidyverse"")"
