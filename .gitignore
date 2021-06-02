@@ -1,2 +1,8 @@
 .DS*
 .Rh*
+lab/ITS2/*.png
+lab/ITS2/*.pdf
+lab/ITS2/*.eps
+lab/2bRAD/*.png
+lab/2bRAD/*.pdf
+lab/2bRAD/*.emf
