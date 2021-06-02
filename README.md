@@ -18,7 +18,8 @@ publication:
 
 ------------------------------------------------------------------------
 
-Lab protocols adapted from [Misha Matz](https://docs.google.com/document/d/1am7L_Pa5JQ4sSx0eT5j4vdNPy5FUAtMZRsJZ0Ar5g9U/edit?usp=sharing)
+2bRAD Lab protocols adapted from [Misha Matz](https://docs.google.com/document/d/1am7L_Pa5JQ4sSx0eT5j4vdNPy5FUAtMZRsJZ0Ar5g9U/edit?usp=sharing)
+ITS2 lab protocols adapted from [Eckert et al. 2020](https://doi.org/10.3389/fmicb.2020.00518) and [Klepac et al. 2015](https://doi.org/10.3354/meps11369)
 
 ------------------------------------------------------------------------
 
@@ -26,7 +27,8 @@ Lab protocols adapted from [Misha Matz](https://docs.google.com/document/d/1am7L
 
 1.  [Protocol for DNA extraction]()
 2.  [Protocol for 2bRAD wet lab (based on https://github.com/z0on/2bRAD_denovo)]()
-3.  [2bRAD denovo analysis (adapted from https://github.com/z0on/2bRAD_denovo)]()
-4.  [Statistical analysis of SNP and ITS2 data]()
+3.  [Protocol for Symbiodiniaceae ITS2 wetlab]()
+4.  [2bRAD denovo analysis (adapted from https://github.com/z0on/2bRAD_denovo)]()
+5.  [Statistical analysis of SNP and ITS2 data]()
 
 ------------------------------------------------------------------------
