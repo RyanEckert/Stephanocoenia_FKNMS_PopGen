@@ -14,7 +14,7 @@ publication:
 
 ------------------------------------------------------------------------
 
-<img src="figures/map.png" width="425"/> <img src="figures/map.png" width="425"/> 
+<img src="figures/map.png" width="425"/>
 
 ------------------------------------------------------------------------
 
@@ -25,8 +25,8 @@ Lab protocols adapted from [Misha Matz](https://docs.google.com/document/d/1am7L
 #### Protocols and walkthroughs accompanying this manuscript:
 
 1.  [Protocol for DNA extraction]()
-2.  [Protocol for 2bRAD (based on https://github.com/z0on/2bRAD_denovo)]()
-3.  [2bRAD denovo analysis (adapted from https://github.com/z0on/2bRAD_denovo]()
+2.  [Protocol for 2bRAD wet lab (based on https://github.com/z0on/2bRAD_denovo)]()
+3.  [2bRAD denovo analysis (adapted from https://github.com/z0on/2bRAD_denovo)]()
 4.  [Statistical analysis of SNP and ITS2 data]()
 
 ------------------------------------------------------------------------
