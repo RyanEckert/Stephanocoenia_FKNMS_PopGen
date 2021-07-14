@@ -11,7 +11,7 @@
 import os, argparse, sys, glob
 
 parser = argparse.ArgumentParser(description='Prints a list of bowtie2 commands to be used with launcher_creator.py')
-parser.add_argument("-f", type=str, help="File type to add, don't include [e.g. fastq]", action = "store", default='trim')
+parser.add_argument("-f", type=str, help="File type to add, don't include . [e.g. fastq]", action = "store", default='trim')
 parser.add_argument("-g", type=str, help="Path to reference genome", action = "store", default='')
 parser.add_argument("--keep_unal", help="When used unaligned reads will be included in the sam alignment files", action = "store_true")
 parser.add_argument("--split", help="If used, split reads into unaligned/aligned files", action = "store_true")

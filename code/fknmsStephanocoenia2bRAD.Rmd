@@ -13,6 +13,7 @@ output:
 ---
 <a href="https://github.com/RyanEckert/Stephanocoenia_FKNMS_PopGen" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#2C3E50; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 ```
@@ -21,11 +22,13 @@ knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 
 #### [GitHub repository](https://github.com/RyanEckert/Stephanocoenia_FKNMS_PopGen.git){target="_blank"}
 
-# About this document
+## A B O U T &nbsp; T H I S &nbsp; D O C U M E N T
 
 This walks through the steps to process 2bRAD reads without an existing genome.
 
-Copy the code chunks into your terminal, changing the necessary portions to fit your data/ your directory structure.
+Be sure to read through what you are doing and follow instructions before copy/pasting code chunks.
+
+Copy the code chunks into your terminal, taking care to change the necessary portions to fit your data/ your directory structure, etc.
 
 First, you will need to replace ```reckert2017``` with your user name and ```reckert2017@fau.edu``` with your email throughout this code.
 
@@ -46,26 +49,37 @@ ssh reckert2017@koko-login.hpc.fau.edu
 or you can add to ~/.bashrc to load at login (use ```nano .bashrc```)
 ```{bash, load modules}
 module load angsd-0.933-gcc-9.2.0-65d64pp
+module load bayescan-2.1-gcc-8.3.0-7gakqmd
+module load qt-5.15.2-gcc-9.2.0-zi7wcem BayeScEnv/1.1
+module load bcftools-1.9-gcc-8.3.0-il4d373
 module load bowtie2-2.3.5.1-gcc-8.3.0-63cvhw5
 module load cdhit-4.8.1-gcc-8.3.0-bcay75d
+module load htslib-1.9-gcc-8.3.0-jn7ehrc
 module load kraken2-2.1.1-gcc-9.2.0-ocivj3u
+module load python-3.7.4-gcc-8.3.0-3tniqr5
 module load launcher
 module load miniconda3-4.6.14-gcc-8.3.0-eenl5dj
 module load ncbi-toolkit-22_0_0-gcc-9.2.0-jjhd2wa
 module load ngsadmix-32-gcc-8.3.0-qbnwmpq
-module load python-3.7.4-gcc-8.3.0-3tniqr5
+module load ngsRelate/v2
 module load R/3.6.1
 module load samtools-1.10-gcc-8.3.0-khgksad
+module load vcftools-0.1.14-gcc-8.3.0-safy5vc
 
 ```
 
 ### Download scripts 
 Put scripts needed into ~/bin or similar directory that is mapped in .bashrc path
+IF you don't have a ```bin``` directory in your ```$HOME``` you can make one now (```mkdir ~/bin```) 
 ```{bash, download scripts}
 cd ~/bin
 svn checkout https://github.com/RyanEckert/Stephanocoenia_FKNMS_PopGen/trunk/scripts/
 mv scripts/* .
 rm scripts
+
+wget http://www.cmpg.unibe.ch/software/PGDSpider/PGDSpider_2.0.7.1.zip
+unzip PGDSpider_2.0.7.1.zip
+rm PGDSpider_2.0.7.1.zip
 
 ```
 
@@ -75,8 +89,34 @@ chmod +x *.sh *.pl *.py
 
 ```
 
+IF not already, it is useful to add ```~/bin``` to your ```$PATH``` <br>
+This way you can easily access your executable scripts without specifying the absolute path to them. <br>
+Otherwise skip to "Build working directory"
+```{bash, bin path}
+PATH="$HOME/bin:$PATH";
+
+```
+
+To permanently add this to your ```$PATH``` add to ```.bashrc``` use ```nano``` text editor
+
+```{bash, bashrc}
+nano ~/.bashrc
+
+```
+
+ADD the following text to file under PATHS section if in your .bashrc:
+```export PATH="$HOME/bin:$PATH";``` <br>
+exit nano with ctrl+x
+
+```{bash, source bashrc}
+source ~/.bashrc
+echo $PATH
+
+```
+
 ### Build working directory
 ```{bash, wd}
+cd
 mkdir 2bRAD/sint/
 mkdir 2bRAD/sint/fknms/
 mkdir 2bRAD/sint/fknms/rawReads/
@@ -89,6 +129,20 @@ cd 2bRAD/sint/fknms/rawReads/
 ***
 
 ### Download and concatenate raw reads from BaseSpace
+
+If you have not previously, download BaseSpaceCLI
+```{bash, bs dl}
+wget "https://api.bintray.com/content/basespace/BaseSpaceCLI-EarlyAccess-BIN/latest/\$latest/amd64-linux/bs?bt_package=latest" -O $HOME/bin/bs
+
+chmod +x ~/bin/bs
+
+```
+
+Go to the website and confirm authorization by logging in to your basespace acct.
+```{bash, bs}
+bs auth
+
+```
 
 Making a script to download the reads and merge samples across 2 NovaSeq lanes
 ```{bash, download}
@@ -118,6 +172,15 @@ sbatch downloadReads.slurm
 ```
 <br>
 
+How many reads before filtering?
+```{bash, read counts}
+echo '#!/bin/bash' >rawReads
+echo readCounts.sh -e .fastq -o sintRaw >>rawReads
+
+sbatch -o rawReads.o%j -e rawReads.e%j rawReads --mail-type=ALL --mail-user=reckert2017@fau.edu
+
+```
+
 ## T R I M M I N G &nbsp; & &nbsp; F I L T E R I N G
 ***
 
@@ -138,11 +201,11 @@ ls -l *.tr0 | wc -l
 mkdir ../trimmedReads
 srun mv *.tr0 ../trimmedReads &
 
-ls *.fastq | cat | sed -e 's/^/gzip -9 /' > gzip.sh
-launcher_creator.py -j gzip.sh -n gzip -q shortq7 -t 06:00:00 -e reckert2017@fau.edu
-sbatch gzip.slurm
+zipper.py -f fastq -a -9 --launcher -e reckert2017@fau.edu
+sbatch --mem=200GB zip.slurm
 
 cd ../trimmedReads
+```
 
 Rename sequence files using sampleRename.py
 This script needs a .csv with XXX
@@ -201,6 +264,8 @@ mv *.trim ../filteredReads
 
 zipper.py -f tr0 -a -9 --launcher -e reckert2017@fau.edu
 sbatch zip.slurm
+
+cat sintFiltReads
 
 ```
 <br>
@@ -687,6 +752,240 @@ echo '#!/bin/bash' > RHet.sh
 echo heterozygosity_beagle.R sintPopStats.beagle.gz >> RHet.sh
 
 sbatch -e RHet.e%j -o RHet.o%j --mem=200GB --mail-user reckert2017@fau.edu --mail-type=ALL RHet.sh
+
+```
+
+
+## I N B R E E D I N G &nbsp; & &nbsp; R E L A T E D N E S S
+
+```{bash}
+cd ~/2bRAD/sint/fknms/ANGSD
+
+FILTERS="-uniqueOnly 1 -remove_bads 1 -minMapQ 20 -minQ 30 -dosnpstat 1 -doHWE 1 -hwe_pval 1e-5 -sb_pval 1e-5 -hetbias_pval 1e-5 -skipTriallelic 1 -minInd 187 -snp_pval 1e-6 -minMaf 0.05"
+TODO="-doMajorMinor 1 -doMaf 1 -doCounts 1 -makeMatrix 1 -doIBS 1 -doCov 1 -doGeno 8 -doBcf 1 -doPost 1 -doGlf 3"
+
+echo '#!/bin/bash' > sintNgsRelate.sh
+echo srun angsd -b bamsNoClones -GL 1 $FILTERS $TODO -P 1 -out sintNgsRelate >> sintNgsRelate.sh
+
+sbatch --mem=200GB -o sintNgsRelate.o%j -e sintNgsRelate.e%j -p shortq7 --mail-type=ALL --mail-user=reckert2017@fau.edu sintNgsRelate.sh
+
+zcat sintNgsRelate.mafs.gz | cut -f5 |sed 1d >freq
+
+echo '#!/bin/bash' > ngsRelate.sh
+echo ngsRelate -g sintNgsRelate.glf.gz -n 220 -f freq  -O newres >> ngsRelate.sh
+
+sbatch -e ngsRelate.e%j -o ngsRelate.o%j --mem=200GB --mail-user reckert2017@fau.edu --mail-type=ALL ngsRelate.sh
+
+```
+
+After everything runs, clean up directory and look at data
+```{bash, relate}
+mkdir ../ngsRelate
+
+mv freq ../ngsRelate/
+mv *singtNgs*Relate* ../ngsRelate/
+mv newres ../ngsRelate
+
+cd ../ngsRelate
+
+```
+
+
+## O U T L I E R &nbsp; D E T E C T I O N
+```{bash, bayescan}
+cd ~2bRAD/sint/fknms/
+
+mkdir bayescan
+cd bayescan
+
+srun cp ../ANGSD/sintNoClones.vcf.gz . #Note do not use the renamed version, pgdspider has a tough time parsing the samples into pops when you do
+srun gunzip sintNoClones.vcf.gz
+
+```
+
+You will have to create or ```scp``` a textfile with your .bam file names and populations
+
+Convert vcf with ```PGDSpider```
+```{bash, bayescan2}
+echo "############
+# VCF Parser questions
+PARSER_FORMAT=VCF
+# Do you want to include a file with population definitions?
+VCF_PARSER_POP_QUESTION=true
+# Only input following regions (refSeqName:start:end, multiple regions: whitespace separated):
+VCF_PARSER_REGION_QUESTION=
+# What is the ploidy of the data?
+VCF_PARSER_PLOIDY_QUESTION=DIPLOID
+# Only output following individuals (ind1, ind2, ind4, ...):
+VCF_PARSER_IND_QUESTION=
+# Output genotypes as missing if the read depth of a position for the sample is below:
+VCF_PARSER_READ_QUESTION=
+# Take most likely genotype if "PL" or "GL" is given in the genotype field?
+VCF_PARSER_PL_QUESTION=true
+# Do you want to exclude loci with only missing data?
+VCF_PARSER_EXC_MISSING_LOCI_QUESTION=false
+# Select population definition file:
+VCF_PARSER_POP_FILE_QUESTION=./fkSintBsPops.txt
+# Only output SNPs with a phred-scaled quality of at least:
+VCF_PARSER_QUAL_QUESTION=
+# Do you want to include non-polymorphic SNPs?
+VCF_PARSER_MONOMORPHIC_QUESTION=false
+# Output genotypes as missing if the phred-scale genotype quality is below:
+VCF_PARSER_GTQUAL_QUESTION=
+# GESTE / BayeScan Writer questions
+WRITER_FORMAT=GESTE_BAYE_SCAN
+# Specify which data type should be included in the GESTE / BayeScan file  (GESTE / BayeScan can only analyze one data type per file):
+GESTE_BAYE_SCAN_WRITER_DATA_TYPE_QUESTION=SNP
+############" >vcf2bayescan.spid
+
+java -Xmx1024m -Xms512m -jar ~/bin/PGDSpider_2.0.7.1/PGDSpider2-cli.jar -inputfile sintNoClones.bcf -outputfile fkSint.bayescan -spid vcf2bayescan.spid
+
+```
+
+Launch ```BayeScan``` (Takes 12+ hr depending on read count/SNPs)
+```{bash, bayescan3}
+echo '#!/bin/bash' > sintBayescan.sh
+echo bayescan fkSint.bayescan -threads=100 >> sintBayescan.sh
+
+sbatch -e sintBayescan.e%j -o sintBayescan.o%j -p mediumq7 --mail-user reckert2017@fau.edu --mail-type=ALL sintBayescan.sh
+```
+
+Extract outlier SNPs from ```BayeScan``` output
+```{bash, bayescan4}
+srun removeBayescanOutliers.pl bayescan=fkSint.baye_fst.txt vcf=sintNoClones.bcf FDR=0.05 mode=extract > fkSintVcfOutliers.vcf
+```
+
+Using BayeScEnv we can look for outliers realted to depth
+```{bash, bayescan5}
+echo "32.0 21.1 33.2 26.5 32.8 18.0 23.6 43.9" > depth.txt
+
+cp fkSint.bayescan fkSint.bayeScEnv
+
+echo '#!/bin/bash' > sintBayeScEnv.sh
+echo bayescenv fkSint.bayeScEnv -env depth.txt >> sintBayeScEnv.sh
+
+sbatch -e sintBayeScEnv.e%j -o sintBayeScEnv.o%j -p longq7 --mail-user reckert2017@fau.edu --mail-type=ALL sintBayeScEnv.sh
+
+```
+
+Extract outlier SNPs from ```BayeScEnv``` output
+```{bash, bayescan6}
+srun removeBayescanOutliers.pl bayescan=fkSint.bayeS_fst.txt vcf=sintNoClones.bcf FDR=0.05 mode=extract > fkSintBScEnvVcfOutliers.vcf
+```
+
+Looking at minor allele frequencies by population
+Split outlier ```.vcf``` by populations
+```{bash, maf}
+awk '$2 ~ /RileysHump_Mesophotic/ {print $1}' fkSintBsPops.txt > rhMeso.pop
+awk '$2 ~ /RileysHump_Shallow/ {print $1}' fkSintBsPops.txt > rhShal.pop
+awk '$2 ~ /TortugasBank_Mesophotic/ {print $1}' fkSintBsPops.txt > tbMeso.pop
+awk '$2 ~ /TortugasBank_Shallow/ {print $1}' fkSintBsPops.txt > tbShal.pop
+awk '$2 ~ /LowerKeys_Mesophotic/ {print $1}' fkSintBsPops.txt > lkMeso.pop
+awk '$2 ~ /LowerKeys_Shallow/ {print $1}' fkSintBsPops.txt > lkShal.pop
+awk '$2 ~ /UpperKeys_Mesophotic/ {print $1}' fkSintBsPops.txt > ukMeso.pop
+awk '$2 ~ /UpperKeys_Shallow/ {print $1}' fkSintBsPops.txt > ukShal.pop
+
+echo '#!/bin/bash' > vcfSplit.sh
+for pop in *.pop; do
+echo "bcftools view -S $pop fkSintVcfOutliers.vcf > ${pop/.pop/}.vcf">>vcfSplit.sh;
+done
+
+sbatch -e vcfSplit.e%j -o vcfSplit.o%j -p shortq7 --mail-user reckert2017@fau.edu --mail-type=ALL vcfSplit.sh
+
+```
+
+Calculate minor allele frequencies
+```{bash, maf2}
+echo '#!/bin/bash' > miaFreq.sh
+for file in *.vcf; do
+echo "vcftools --vcf $file --freq --out ${file/.vcf/}" >> miaFreq.sh
+done
+
+sbatch -e miaFreq.e%j -o miaFreq.o%j -p shortq7 --mail-user reckert2017@fau.edu --mail-type=ALL miaFreq.sh
+```
+
+
+Combine into one file for analysis
+```{bash, maf3}
+rm fkSintVcfOutliers.frq
+
+for file in *.frq; do
+awk '{s=(NR==1)?"POP":"\t"FILENAME;$0=$0 OFS s}1' $file > $file.1;
+sed 's/.frq*$//g' $file.1 > $file.2;
+sed 's/:/\t/g' $file.2 > $file.3;
+done
+
+rm *.frq *.frq.1 *.frq.2
+for file in *.frq.3; do
+mv $file ${file/.3/}
+done
+
+awk FNR!=1 *.frq > alleleFreq.txt
+
+echo -e "chrom\tpos\tnAlleles\tnChr\tmajAl\tmajFreq\tminAl\tminFreq\tpop" | cat - alleleFreq.txt > fkSintAlleleFreq.txt
+
+rm alleleFreq.txt
+
+```
+
+### Inbred individuals
+Looking at minor allele frequencies of inbread individuals in shallow populations
+First split ```.vcf``` into inbred and regular samples for each shallow population
+```{bash, inbredMiAF}
+for pop in *bred.pop; do
+awk '{print $1}' $pop > ${pop/.pop/}.bams;
+done
+
+echo '#!/bin/bash' > vcfInbreedSplit.sh
+for pop in *.bams; do
+echo "bcftools view -S $pop fkSintVcfOutliers.vcf > ${pop/.bams/}.vcf" >> vcfInbreedSplit.sh;
+done
+
+sbatch -e vcfInbreedSplit.e%j -o vcfInbreedSplit.o%j -p shortq7 --mail-user reckert2017@fau.edu --mail-type=ALL vcfInbreedSplit.sh
+
+```
+
+Calculate minor allele frequencies
+```{bash, maf4}
+echo '#!/bin/bash' > miaInbredFreq.sh
+for file in *bred.vcf; do
+echo "vcftools --vcf $file --freq --out ${file/.vcf/}" >> miaInbredFreq.sh
+done
+
+sbatch -e miaInbredFreq.e%j -o miaInbredFreq.o%j -p shortq7 --mail-user reckert2017@fau.edu --mail-type=ALL miaInbredFreq.sh
+```
+
+Combine into one file for analysis
+```{bash, maf5}
+for file in *bred.frq; do
+awk '{s=(NR==1)?"POP":"\t"FILENAME;$0=$0 OFS s}1' $file > $file.1;
+sed 's/.frq*$//g' $file.1 > $file.2;
+sed 's/:/\t/g' $file.2 > $file.3;
+done
+
+rm *.frq *.frq.1 *.frq.2
+
+for file in *.frq.3; do
+mv $file ${file/.3/}
+done
+
+for file in *Inbred.frq; do
+awk '{s=(NR==1)?"INBRED":"\tInbred";$0=$0 OFS s}1' $file > $file.1;
+done
+
+for file in *Outbred.frq; do
+awk '{s=(NR==1)?"INBRED":"\tOutbred";$0=$0 OFS s}1' $file > $file.1;
+done
+
+for file in *.frq.1; do
+mv $file ${file/.1/}
+done
+
+awk FNR!=1 *bred.frq > alleleFreq.txt
+
+echo -e "chrom\tpos\tnAlleles\tnChr\tmajAl\tmajFreq\tminAl\tminFreq\tpop\tinbred" | cat - alleleFreq.txt > fkSintInbredAlleleFreq.txt
+
+rm alleleFreq.txt
 
 ```
 

@@ -27,7 +27,8 @@ output:
 ***
 
 ```{r, setup, include = FALSE}
-#setup rmarkdown environment first
+# setup rmarkdown environment first
+
 knitr::opts_chunk$set(warning = FALSE, fig.align = 'left')
 knitr::opts_knit$set(root.dir = '../data')
 options(width = 88)
@@ -52,7 +53,6 @@ options("scipen" = 10)
 <br>
 
 # Map of study sites
-
 <br>
 
 ```{r, map data}
@@ -69,8 +69,8 @@ fknmsSampleSites$depthZone = factor(fknmsSampleSites$depthZone, levels = levels(
 
 fknmsBounds = read.csv("../data/fknmsSPA.csv", header = TRUE)
 
-states = st_as_sf(ne_states(country = c("United States of America")), scale = "large")
-countries = st_as_sf(ne_countries(country = c("Cuba", "Mexico", "The Bahamas"), scale = "large"))
+states = st_as_sf(ne_states(country = c("United States of America")), scale = "count")
+countries = st_as_sf(ne_countries(country = c("Cuba", "Mexico", "The Bahamas"), scale = "Large"))
 florida = read_sf("../data/shp/flKeys.shp") %>% st_transform(crs = 4326)
 bathy = read_sf("../data/shp/flBathy.shp") %>% st_transform(crs = 4326) %>% subset(subset = DATASET %in% c("fl_shelf", "fl_coast"))
 tortugasBathy = read_sf("../data/shp/tortugasBathy.shp") %>% st_transform(crs = 4326)
@@ -82,14 +82,16 @@ Next we build a hi-res polygon of FL with the study site marked and a zoomed in 
 ```{r, maps}
 flPal = paletteer_d("vapoRwave::jazzCup")[c(2:5)]
 boundPal = c("gray30", paletteer_d("vapoRwave::vapoRwave")[10])
-
+pink = paletteer_d("vapoRwave::vapoRwave")[5]
+purple = paletteer_d("vapoRwave::vapoRwave")[10]
+  
 floridaMap = ggplot() +
   geom_polypath(data = fknmsBounds[fknmsBounds$type == "Sanctuary",], aes(x = long, y = lat, group = location), alpha = 0.1, fill = "black", color = NA) +
   geom_polypath(data = fknmsBounds[fknmsBounds$location == "FKNMS2",], aes(x = long, y = lat), fill = "aliceblue", color = NA) +
   geom_polypath(data = fknmsBounds, aes(x = long, y = lat, color = type, group = location), fill = NA) +
   scale_fill_manual(values = flPal, name = "Region") +
   scale_color_manual(values = boundPal, name = "Boundaries", labels = c("FKNMS", "SPA")) +
-  geom_point(data = fknmsSites, aes(x = latDD, y = longDD, shape = depth), size = 0) +
+  geom_point(data = fknmsSites, aes(x = longDD, y = latDD, shape = depth), size = 0) +
   scale_shape_manual(values = c(24, 25), name = "Depth") +
   geom_sf(data = states, fill = "white", size = 0.25) +
   geom_sf(data = countries, fill = "white", size = 0.25) +
@@ -99,10 +101,10 @@ floridaMap = ggplot() +
   geom_segment(aes(x = -81.45, y = 24.7, xend = -83.64, yend = 29.48), size = 0.25) +
   geom_segment(aes(x = -82.95, y = 24.45, xend = -85.81, yend = 22.13), size = 0.25) +
   geom_segment(aes(x = -82.95, y = 24.75, xend = -85.81, yend = 25.45), size = 0.25) +
+  geom_rect(aes(xmin = -80.4, xmax = -80.1, ymin = 25, ymax = 25.3), fill = pink, color = "black", size = 0.35, alpha = 0.5) +
+  geom_rect(aes(xmin = -81.75, xmax = -81.45, ymin = 24.4, ymax = 24.7), fill = pink, color = "black", size = 0.25, alpha = 0.5) +
+  geom_rect(aes(xmin = -83.25, xmax = -82.95, ymin = 24.45, ymax = 24.75), fill = pink, color = "black", size = 0.25, alpha = 0.5) +
   geom_point(data = fknmsPops, aes(x = longDD, y = latDD, fill = region), shape = 21, size = 2) +
-  geom_rect(aes(xmin = -80.4, xmax = -80.1, ymin = 25, ymax = 25.3), color = paletteer_d("vapoRwave::vapoRwave")[6], fill = NA, size = 0.4) +
-  geom_rect(aes(xmin = -81.75, xmax = -81.45, ymin = 24.4, ymax = 24.7), color = paletteer_d("vapoRwave::vapoRwave")[6], fill = NA, size = 0.4) +
-  geom_rect(aes(xmin = -83.25, xmax = -82.95, ymin = 24.45, ymax = 24.75), color = paletteer_d("vapoRwave::vapoRwave")[6], fill = NA, size = 0.4)+
   coord_sf(xlim = c(-89, -77), ylim = c(22, 31)) +
   scale_x_continuous(breaks = c(seq(-90, -76, by = 2))) +
   scale_y_continuous(breaks = c(seq(22, 32, by = 2))) +
@@ -202,7 +204,11 @@ ggsave("../figures/figure1.tiff", plot = fknmsMap, width = 16, height = 16, unit
 ```{r, sample data}
 levels(fknmsSites$collection) = c("SCUBA", "Tech Dive")
 
-sampleData = fknmsSites %>% group_by(region, site)%>% summarize(latDD = first(latDD), longDD = first(longDD),depthZone = (first(depthZone)), depthRange = paste(min(depthM), "--", max(depthM), sep = ""), n = n(), date = as.character(min(date)), collection = as.character(first(collection)))%>% droplevels() %>% as.data.frame()
+sampleData = fknmsSites[-c(66,68,164,166,209,211),] %>% group_by(region, site)%>% summarize(latDD = first(latDD), longDD = first(longDD),depthZone = (first(depthZone)), depthRange = paste(min(depthM), "--", max(depthM), sep = ""), n = n(), date = as.character(min(date)), collection = as.character(first(collection)))%>% droplevels() %>% as.data.frame()
+
+# Average depth of populations
+fkPopDepths = fknmsSites[-c(66,68,164,166,209,211),] %>%  group_by(region, depthZone) %>% summarize(avgDepthM = mean(depthM), n = n())
+fkPopDepths
 
 sampleTab = sampleData
 levels(sampleTab$collection) 
@@ -234,7 +240,7 @@ sampleTabPub
 ***
 Analyzing 2bRAD generated SNPs (XXX loci) for population structure//genetic differentiation across sites and depth zones in FKNMS
 
-## Dendrogram with Clones
+## Dendrogram with clones
 Identification of any natural clones using technical replicates as a baseline for  clonality between samples.
 
 ```{r, Dendrogram With Clones, fig.dim = c(13, 4.75)}
@@ -272,7 +278,7 @@ for(i in 1:nrow(cloneDData$segments)) {
 
 cloneDendPoints$y = point[!is.na(point)]
 
-techReps = c("S066.1", "S066.2", "S066.3", "S162.1", "S162.2", "S162.3", "S205.1", "S205.2", "S205.3")
+techReps = c("SFK066.1", "SFK066.2", "SFK066.3", "SFK162.1", "SFK162.2", "SFK162.3", "SFK205.1", "SFK205.2", "SFK205.3")
 cloneDendPoints$depth = factor(cloneDendPoints$depth,levels(cloneDendPoints$depth)[c(2,1)])
 
 cloneDendPoints$pop = factor(cloneDendPoints$pop,levels(cloneDendPoints$pop)[c(4, 1, 3, 2)])
@@ -283,13 +289,13 @@ cloneDendA = ggplot() +
   geom_segment(data = segment(cloneDData), aes(x = x, y = y, xend = xend, yend = yend2), size = 0.5) +
   geom_point(data = cloneDendPoints, aes(x = x, y = y, fill = pop, shape = depth), size = 4, stroke = 0.25) +
   #scale_fill_brewer(palette = "Dark2", name = "Population") +
-  scale_fill_manual(values = flPal, name= "Population")+
-  scale_shape_manual(values = c(24, 25), name = "Depth Zone")+
+  scale_fill_manual(values = flPal, name= "Region:") +
+  scale_shape_manual(values = c(24, 25), name = "Depth Zone:") +
   geom_hline(yintercept = 0.12, color = "red", lty = 5, size = 0.75) + # creating a dashed line to indicate a clonal distance threshold
-  geom_text(data = subset(cloneDendPoints, subset = label %in% techReps), aes(x = x, y = (y - .015), label = label), angle = 90) + # spacing technical replicates further from leaf
-  geom_text(data = subset(cloneDendPoints, subset = !label %in% techReps), aes(x = x, y = (y - .010), label = label), angle = 90) +
+  geom_text(data = subset(cloneDendPoints, subset = label %in% techReps), aes(x = x, y = (y - .020), label = label), angle = 90) + # spacing technical replicates further from leaf
+  geom_text(data = subset(cloneDendPoints, subset = !label %in% techReps), aes(x = x, y = (y - .015), label = label), angle = 90) +
   labs(y = "Genetic distance (1 - IBS)") +
-  guides(fill = guide_legend(override.aes = list(shape = 22)))+
+  guides(fill = guide_legend(override.aes = list(shape = 22, size = 10)), shape = guide_legend(override.aes = list(size = 8), order = 1)) +
   theme_classic()
 
 cloneDend = cloneDendA + theme(
@@ -297,8 +303,8 @@ cloneDend = cloneDendA + theme(
   axis.text.x = element_blank(),
   axis.line.x = element_blank(),
   axis.ticks.x = element_blank(),
-  axis.title.y = element_text(size = 12, color = "black", angle = 90),
-  axis.text.y = element_text(size = 10, color = "black"),
+  axis.title.y = element_text(size = 24, color = "black", angle = 90),
+  axis.text.y = element_text(size = 20, color = "black"),
   axis.line.y = element_line(),
   axis.ticks.y = element_line(),
   panel.grid = element_blank(),
@@ -306,8 +312,8 @@ cloneDend = cloneDendA + theme(
   panel.background = element_blank(),
   plot.background = element_blank(),
   legend.key = element_blank(),
-  legend.title = element_text(size = 12),
-  legend.text = element_text(size = 10),
+  legend.title = element_text(size = 24),
+  legend.text = element_text(size = 20),
   legend.position = "bottom")
 
 # cloneDend
@@ -352,12 +358,12 @@ dendA = ggplot() +
   geom_segment(data = segment(dData), aes(x = x, y = y, xend = xend, yend = yend), size = 0.5) +
   geom_point(data = dendPoints, aes(x = x, y = y, fill = pop, shape = depth), size = 4, stroke = 0.25) +
   #scale_fill_brewer(palette = "Dark2", name = "Population") +
-  scale_fill_manual(values = flPal, name= "Region")+
-  scale_shape_manual(values = c(24, 25), name = "Depth Zone")+
+  scale_fill_manual(values = flPal, name= "Region:")+
+  scale_shape_manual(values = c(24, 25), name = "Depth Zone:")+
  # spacing technical replicates further from leaf
  # geom_text(data = dendPoints, aes(x = x, y = (y - .025), label = label), angle = 90) +
   labs(y = "Genetic distance (1 - IBS)") +
-  guides(fill = guide_legend(override.aes = list(shape = 22)))+
+  guides(fill = guide_legend(override.aes = list(shape = 22, size = 10)), shape = guide_legend(override.aes = list(size = 8), order = 1)) +
   theme_classic()
 
 dend = dendA + theme(
@@ -387,6 +393,18 @@ ggsave("../figures/dend.eps", plot = dend, height = 6, width = 37, units = "in",
 ![](../figures/dend.png)
 <br>
 
+```{r, dends}
+dendPlots = (cloneDend / dend) +
+  plot_annotation(tag_levels = 'A') +
+  plot_layout(guides = "collect") & 
+  theme(plot.tag = element_text(size = 32),
+        legend.position = "bottom")
+
+ggsave("../figures/allDend.png", plot = dendPlots, height = 13, width = 37, units = "in", dpi = 300)
+ggsave("../figures/allDend.eps", plot = dendPlots, height = 13, width = 37, units = "in", dpi = 300)
+
+```
+
 ## Analysis of Molecular Variance
 ```{r, AMOVA, fig.width = 13.4, fig.height = 5.9}
 sintVcf = read.vcfR("../data/snps/sintNoClones.bcf", verbose = FALSE)
@@ -394,7 +412,7 @@ sintVcf = read.vcfR("../data/snps/sintNoClones.bcf", verbose = FALSE)
 sintGenlightPopDepth = vcfR2genlight(sintVcf, n.cores = 2) # Converts the vcf file into a file format that poppr uses the "genlight" format
 
 locNames(sintGenlightPopDepth) = paste(sintVcf@fix[,1],sintVcf@fix[,2],sep="_")
-popData = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66,68,164,166,209,211),] %>% select("sample" = tubeID, "pop" = region, "depth" = depthZone) # Reads in population data for each sample
+popData = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% select("sample" = tubeID, "pop" = region, "depth" = depthZone) # Reads in population data for each sample
 
 popData$popdepth = paste(popData$pop, popData$depth, sep = " ")
 
@@ -480,11 +498,13 @@ sintPcoaPlot = sintPcoaPlotA +
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())
 
-sintPcoaPlot
+# sintPcoaPlot
 
 ggsave("../figures/pcoaPlot.png", plot = sintPcoaPlot, height = 3.5, width = 7, units = "in", dpi = 300)
+ggsave("../figures/pcoaPlot.pdf", plot = sintPcoaPlot, height = 3.5, width = 7, units = "in", dpi = 300)
 ggsave("../figures/pcoaPlot.tiff", plot = sintPcoaPlot, height = 3.5, width = 7, units = "in", dpi = 300)
 ```
+![](../figures/pcoaPlot.png)
 <br>
 
 ## Pairwise Fst
@@ -501,14 +521,14 @@ setPop(sintGenlightPopDepth) = ~popdepth
 sintGenlightPopDepth$pop = factor(sintGenlightPopDepth$pop, 
                                 levels(sintGenlightPopDepth$pop)[c(7, 8, 6, 5, 2, 1, 4, 3)])
                                 
-levels(sintGenlightPopDepth$pop) = c("Upper Keys \nShallow", "Upper Keys \nMesophotic", "Lower Keys \nShallow", "Lower Keys \nMesophotic", "Tortugas Bank \nShallow", "Tortugas Bank \nMesophotic", "Riley's Hump \nShallow", "Riley's Hump \nMesophotic")
+levels(sintGenlightPopDepth$pop) = c("Upper Keys\nShallow", "Upper Keys\nMesophotic", "Lower Keys\nShallow", "Lower Keys\nMesophotic", "Tortugas Bank\nShallow", "Tortugas Bank\nMesophotic", "Riley's Hump\nShallow", "Riley's Hump\nMesophotic")
 
 set.seed(694)
 fk.fst <- stamppFst(sintGenlightPopDepth, nboots = 99, percent = 95, nclusters = 2) #99 permutations
 fk.fst$Fsts
 fk.fst$Pvalues
 
-pop.order = c("Riley's Hump \nMesophotic", "Riley's Hump \nShallow", "Tortugas Bank \nMesophotic", "Tortugas Bank \nShallow", "Lower Keys \nMesophotic", "Lower Keys \nShallow", "Upper Keys \nMesophotic", "Upper Keys \nShallow")
+pop.order = c("Riley's Hump\nMesophotic", "Riley's Hump\nShallow", "Tortugas Bank\nMesophotic", "Tortugas Bank\nShallow", "Lower Keys\nMesophotic", "Lower Keys\nShallow", "Upper Keys\nMesophotic", "Upper Keys\nShallow")
 
 # reads in fst matrix
 snpFstMa <- as.matrix(fk.fst$Fsts)
@@ -538,19 +558,35 @@ snpQ = melt(snpQMa, id.vars = "Pop", value.name = "Pval", variable.name = "Pop2"
 snpQ = snpQ[snpQ$Pop != snpQ$Pop2,]
 snpQ$Qval = p.adjust(snpQ$Pval, method = "BH")
 
-snpHeatmapA = ggplot(data = snpFst, aes(Pop, Pop2, fill = Fst))+
+snpFst$region = snpFst$Pop
+snpFst$region = factor(gsub("\\n.*", "", snpFst$region))
+snpFst$region = factor(snpFst$region, levels = levels(snpFst$region)[c(4, 1, 3, 2)])
+
+snpFst$region2 = snpFst$Pop2
+snpFst$region2 = factor(gsub("\\n.*", "", snpFst$region2))
+snpFst$region2 = factor(snpFst$region2, levels = levels(snpFst$region2)[c(4, 1, 3, 2)])
+
+snpFst$Fst = sprintf('%.3f', snpFst$Fst)
+snpFst$Fst = factor(gsub("\\NA", NA, snpFst$Fst))
+snpFst$Fst = factor(gsub("\\.000", "", snpFst$Fst))
+snpFst$Fst = factor(gsub("\\-", "", snpFst$Fst))
+
+snpHeatmapA = ggplot(data = snpFst, aes(Pop, Pop2, fill = as.numeric(as.character(Fst))))+
   geom_tile(color = "white")+
-  scale_fill_gradient(low = "white", high = "#BF5E49",limit = c(0, 0.03),
-                       space = "Lab", name = expression(paste(italic("F")[ST])), na.value = "white")+
+  geom_segment(data = snpFst, aes(x = 0.475, xend = -0.62, y = Pop, yend = Pop, color = region), size = 17.5) +
+  geom_segment(data = snpFst, aes(x = Pop2, xend = Pop2, y = 0.425, yend = -0.6, color = region2), size = 50.5) +
+  scale_color_manual(values = flPal, guide = NULL) +
+  scale_fill_gradient(low = "white", high = "#BF5E49", limit = c(0, 0.03), space = "Lab", name = expression(paste(italic("F")[ST])), na.value = "white",  guide = "colourbar")+
   geom_text(data = snpFst, aes(Pop, Pop2, label = Fst), color = ifelse(snpQ$Qval <= 0.05,"black", "darkgrey"), size = ifelse(snpQ$Qval < 0.05, 6, 5), fontface = ifelse (snpQ$Qval < 0.05, "bold", "plain")) +
-  guides(fill=guide_colorbar(barwidth = 12, barheight = 1, title.position = "top", title.hjust = 0.5))+                     
-  scale_y_discrete(position = "left")+
- scale_x_discrete(limits = rev(levels(snpFst$Pop))[c(1:8)]) +
+  guides(fill = guide_colorbar(barwidth = 12, barheight = 1, title.position = "top", title.hjust = 0.5)) +
+  scale_y_discrete(position = "left") +
+  scale_x_discrete(limits = rev(levels(snpFst$Pop))[c(1:8)]) +
+  coord_cartesian(xlim = c(1, 8), ylim = c(1, 8), clip = "off") +
   theme_minimal()
 
 snpHeatmap = snpHeatmapA + theme(
-  axis.text.x = element_text(vjust = 1, size = 16, hjust = 0.5, color = "black"),
-  axis.text.y = element_text(size = 16, color = "black"),
+  axis.text.x = element_text(vjust = 1, size = 16, hjust = 0.5, color = "gray90"),
+  axis.text.y = element_text(size = 16, color = "gray90"),
   axis.title.x = element_blank(),
   axis.title.y = element_blank(),
   panel.grid.major = element_blank(),
@@ -569,36 +605,195 @@ snpHeatmap = snpHeatmapA + theme(
 ggsave("../figures/fstHeatMap.png", plot = snpHeatmap, width = 36, height = 13, units = "cm", dpi = 300)
 ggsave("../figures/fstHeatMap.eps", plot = snpHeatmap, width = 36, height = 13, units = "cm", dpi = 300)
 ```
+
 ![](../figures/fstHeatMap.png)
 <br>
 
-## Heterozygosity
+## Heterozygosity and Inbreeding
 ```{r, popStats}
+popData = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% select("sample" = tubeID, "Region" = region, "Depth" = depthZone) # Reads in population data
+popData$a = c(0:219)
+
+popData$Region = factor(popData$Region, levels = levels(popData$Region)[c(2,3,1,4)]) 
+popData$Depth = factor(popData$Depth, levels = levels(popData$Depth)[c(2,1)]) 
+
 hetAll = read.table("../data/snps/hetAllSites") 
-colnames(hetAll) = c("sample", "All Sites")
+colnames(hetAll) = c("sample", "All")
 hetAll$sample = str_pad(hetAll$sample, 3, pad = "0")
 hetAll$sample = paste("SFK",hetAll$sample, sep ="")
 
 hetSnps = read.table("../data/snps/hetSnps")
-colnames(hetSnps) = c("sample", "Variant Sites")
+colnames(hetSnps) = c("sample", "SNPs")
 hetSnps$sample = str_pad(hetSnps$sample, 3, pad = "0")
 hetSnps$sample = paste("SFK",hetSnps$sample, sep ="")
 
-popData = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% select("sample" = tubeID, "Region" = region, "depth" = depthZone) # Reads in population 
-# popData$popDepth = paste(popData$pop, popData$depth, sep = " ")
+sintBreed = read.delim("../data/snps/newres")
+  
+sintBreed2 = sintBreed %>% group_by(a) %>% select("inbreed" = Fa)
+sintBreed3 = sintBreed %>% group_by(b) %>% select("inbreed" = Fb)
 
-het = left_join(popData, hetAll, by = "sample") %>% left_join(hetSnps, by = "sample")
-het$Region = factor(het$Region, levels = levels(het$Region)[c(2,3,1,4)]) 
-het$depth = factor(het$depth, levels = levels(het$depth)[c(2,1)]) 
+sintBreed = bind_rows(sintBreed2, sintBreed3) %>% group_by(a) %>% summarize("inbreed" = mean(inbreed)) 
+sintRelate = read.delim("../data/snps/newres")
+sintRelate2 = sintRelate %>% group_by(a, b) %>% select("relate" = rab)
 
-hetStats = het %>% group_by(Region, depth) %>% dplyr::summarise(N = n(), meanAll = mean(`All Sites`), sdAll = sd(`All Sites`), seAll = sd(`All Sites`)/sqrt(N), meanSnps = mean(`Variant Sites`), sdSnps = sd(`Variant Sites`), seSnps = sd(`Variant Sites`)/sqrt(N))
+sintRelate2 = sintRelate2 %>% left_join(popData, by = "a") %>% left_join(popData, by = c("b" = "a"), suffix = c(".a", ".b")) 
 
-max(hetStats$meanAll, na.rm = TRUE)
+sintRelate2$popDepth.a = paste(sintRelate2$Region.a, sintRelate2$Depth.a, sep = " ")
+sintRelate2$popDepth.b = paste(sintRelate2$Region.b, sintRelate2$Depth.b, sep = " ")
+
+sintRelate = sintRelate2 %>% filter(popDepth.a == popDepth.b) %>% rename(Depth = Depth.a, Region = Region.a)
+
+het = left_join(popData, hetAll, by = "sample") %>% left_join(hetSnps, by = "sample") %>% mutate("inbreed" = sintBreed$inbreed)
+
+hetStats = het %>% group_by(Region, Depth) %>% dplyr::summarise(N = n(), meanAll = mean(All), sdAll = sd(All), seAll = sd(All)/sqrt(N), meanSnps = mean(SNPs), sdSnps = sd(SNPs), seSnps = sd(SNPs)/sqrt(N), meanInbreed = mean(inbreed), sdInbreed = sd(inbreed), seInbreed = sd(inbreed)/sqrt(N))
+
 min(hetStats$meanAll, na.rm = TRUE)
-max(hetStats$meanSnps, na.rm = TRUE)
+max(hetStats$meanAll, na.rm = TRUE)
 min(hetStats$meanSnps, na.rm = TRUE)
+max(hetStats$meanSnps, na.rm = TRUE)
 
-hetMelt = melt(het, id.vars = c("sample", "Region", "depth"), variable.name = "type", value.name = "heterozygosity")
+hetAllLm = lm(data = het, All~Region*Depth)
+hetSnpLm = lm(data = het, SNPs~Region*Depth)
+inbreedLm = lm(data = het, inbreed~Region*Depth)
+relateLm = lm(data = sintRelate, relate~Region*Depth)
+
+hetAllANOVA = summary(aov(hetAllLm))
+hetAllANOVA
+
+hetSnpANOVA = summary(aov(hetSnpLm))
+hetSnpANOVA
+
+inbreedANOVA = summary(aov(inbreedLm))
+inbreedANOVA
+
+relateANOVA = summary(aov(relateLm))
+relateANOVA
+
+hetTab = hetStats
+# levels(sampleTab$collection) 
+# colnames(sampleTab) = c("Region", "Site", "Latitude", "Longitude", "Depth zone", "Sampling \ndepth (m)", "n", "Sampling date", "Sampling \nmethod")
+# 
+# sampleTab$Region
+# finalTabRegion = c("Upper Keys", "", "", "", "", "Lower Keys", "", "", "Tortugas Bank", "", "", "", "Riley's Hump", "", "", "", "")
+# 
+# sampleTab$Region = finalTabRegion
+# sampleTab$Site = as.character(sampleTab$Site)
+# sampleTab$Site[1] = paste("Ian's Lumps")
+# 
+# sampleTabPub = sampleTab %>% flextable() %>%
+#   flextable::compose(part = "header", j = "n", value = as_paragraph(as_i("n"))) %>%
+#   font(fontname = "Times New Roman", part = "all") %>%
+#   fontsize(size = 10, part = "all") %>%
+#   bold(part = "header") %>%
+#   align(align = "left", part = "all") %>%
+#   autofit()
+# 
+# table1 = read_docx()
+# table1 = body_add_flextable(table1, value = sampleTabPub)
+# print(table1, target = "../tables/table1.docx")
+# 
+# sampleTabPub
+
+```
+
+Individual relatedness heatmap
+```{r, relate map}
+sintFam = sintRelate2 
+sintFam$popDepth.a = factor(sintFam$popDepth.a)
+sintFam$popDepth.b = factor(sintFam$popDepth.b)
+
+sintFam$popDepth.a = factor(sintFam$popDepth.a, levels = levels(sintFam$popDepth.a)[c(8, 7, 2, 1, 6, 5, 4, 3)])
+sintFam$popDepth.b = factor(sintFam$popDepth.b, levels = levels(sintFam$popDepth.b)[c(8, 7, 2, 1, 6, 5, 4, 3)])
+
+sintMatDat = sintFam %>% as.data.frame () %>% select(sample.a, sample.b, relate)
+nameVals <- sort(unique(unlist(sintMatDat[1:2])))
+# construct 0 matrix of correct dimensions with row and column names
+sintMat <- matrix(0, length(nameVals), length(nameVals), dimnames = list(nameVals, nameVals))
+
+# fill in the matrix with matrix indexing on row and column names
+sintMat[as.matrix(sintMatDat[c("sample.a", "sample.b")])] <- sintMatDat[["relate"]]
+lowerTriangle(sintMat, byrow = TRUE) <- upperTriangle(sintMat)
+
+sintFam = sintFam %>% arrange(popDepth.a)
+
+sintFam$sample.a = factor(sintFam$sample.a, levels = unique(sintFam$sample.a))
+sintFam$sample.a = factor(sintFam$sample.a, levels = c("SFK220", levels(sintFam$sample.a)))
+sintFam$sample.b = factor(sintFam$sample.b, levels = levels(sintFam$sample.a))
+
+sampleOrder = levels(sintFam$sample.a)
+
+# test = sintMat
+
+sintMat <- sintMat[,sampleOrder] %>%
+  .[sampleOrder,]
+
+diag(sintMat)<-NA
+
+# sintMat[upper.tri(sintMat)] <- NA
+sintMat <- as.data.frame(sintMat)
+
+sintMat$sample.a = factor(row.names(sintMat), levels = unique(sampleOrder))
+
+popData = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% select("sample.a" = tubeID, "region" = region, "depth" = depthZone) %>% mutate(popDepth = paste(region, depth, sep = "\\n"))
+
+sintMat = sintMat %>% left_join(popData)
+
+sintFam = melt(sintMat, id.vars = c("sample.a", "region", "depth", "popDepth"), value.name = "relate", variable.name = "sample.b", na.rm = FALSE)
+
+sintFam = sintFam %>% add_row(sample.a = NA, region = "Region", depth = "Depth Zone", popDepth = NA, sample.b = NA, relate = NA) %>% add_row(sample.a = NA, region = NA, depth = " ", popDepth = NA, sample.b = NA, relate = NA)
+
+sintFam$region = factor(sintFam$region)
+sintFam$region = factor(sintFam$region, levels = levels(sintFam$region)[c(2, 5, 1, 4, 3)])
+sintFam$depth = factor(sintFam$depth)
+sintFam$depth = factor(sintFam$depth, levels = levels(sintFam$depth)[c(1, 2, 4, 3)])
+
+legend_ord = c(levels(sintFam$region), levels(sintFam$depth))
+
+relateHeatmapA = ggplot(data = sintFam, aes(sample.a, sample.b, fill = relate)) +
+  geom_tile(color = "white")+
+  geom_segment(data = sintFam, aes(x = sample.a, xend = sample.a, y = 0, yend = -4, color = region), size = 1) +
+  geom_segment(data = sintFam, aes(x = 0, xend = -4, y = sample.a, yend = sample.a, color = region), size = 1) +
+  # scale_color_manual(values = flPal, guide = NULL) + 
+  geom_vline(xintercept = c(30.5, 60.5, 90.5, 120.5, 150.5, 175.5, 205.5), size = 0.1, color = "black") +
+  geom_hline(yintercept = c(15.5, 45.5, 70.5, 100.5, 130.5, 160.5, 190.5), size = 0.1, color = "black") +
+  geom_segment(data = sintFam, aes(x = sample.a, xend = sample.a, y = -2, yend = -4, color =      depth), size = 1) +
+  geom_segment(data = sintFam, aes(x = -2, xend = -4, y = sample.a, yend = sample.a, color =      depth), size = 1) +
+  scale_fill_gradientn(colors = paletteer_d("RColorBrewer::RdPu"), space = "Lab", name = "       Relatedness", na.value = "black", guide = guide_colorbar(order = 1)) +
+  scale_color_manual(breaks = legend_ord, values = c("Region" = "white", "Upper Keys" = "#28ADA8", "Lower Keys" = "#3F86BC", "Tortugas Bank" = "#7A3A9A", "Riley's Hump"  = "#392682", " " = "white", "Depth Zone" = "white", "Shallow" = "gray75", "Mesophotic" = "gray35"), name = NULL, guide = guide_legend(override.aes = list(size = 7), order = 2)) +
+  guides(color = guide_legend(override.aes = list(size = 7), order = 2), fill = guide_colorbar(order = 1), color = guide_legend(override.aes = list(size = 7), order = 3)) +
+  scale_y_discrete(limits = rev(levels(sintFam$sample.b))) +
+  theme_minimal()
+
+relateHeatmap = relateHeatmapA + theme(
+  # axis.text.x = element_text(size = 10, color = "black", angle = 90),
+  # axis.text.y = element_text(size = 10, color = "black"),
+  axis.text.x = element_blank(),
+  axis.text.y = element_blank(),
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  panel.grid.major = element_blank(),
+  panel.border = element_blank(),
+  panel.background = element_blank(),
+  axis.ticks = element_blank(),
+  # legend.position = c(0.5, 0.9),
+  # legend.direction = "horizontal",
+  legend.title = element_text(size = 14),
+  legend.text = element_text(size = 14),
+  plot.title = element_text(size = 16)
+)
+
+# relateHeatmap
+
+ggsave("../figures/relateHeatmap.png", plot = relateHeatmap, width = 27, height = 22, units = "cm", dpi = 300)
+
+```
+![](../figures/relateHeatmap.png)
+
+
+
+Making plots for heterozygosity and inbreeding
+```{r, het2}
+hetMelt = melt(het, id.vars = c("sample", "Region", "Depth"), variable.name = "type", value.name = "heterozygosity")
 
 hetTheme = theme(axis.title.x = element_blank(),
         axis.text.x = element_text(color = "black", size = 12),
@@ -607,35 +802,63 @@ hetTheme = theme(axis.title.x = element_blank(),
         axis.text.y = element_text(color = "black", size = 10),
         axis.ticks.y = element_line(color = "black"),
         legend.position = "right",
+        legend.key.size = unit(0.3, 'cm'),
         panel.border = element_rect(color = "black"),
         panel.background = element_rect(fill = "white"),
         plot.background = element_rect(fill = "white"),
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())
 
-hetPlotAll = ggplot(data = subset(hetMelt, subset = hetMelt$type == "All Sites"),aes(x = depth, y = heterozygosity, fill = Region)) +
-  geom_jitter(aes(fill = Region),shape = 21, position = position_jitterdodge()) +
-  geom_boxplot(outlier.colour = NA, alpha = 0.5) +
+dodge <- position_dodge(width = 1)
+
+hetPlotAll = ggplot(data = subset(hetMelt, subset = hetMelt$type == "All"),aes(x = Depth, y = heterozygosity, fill = Region)) +
+  geom_point(aes(color = Region),shape = 21, position = position_jitterdodge(seed = 1, dodge.width = 1), size = 0.5, alpha = 0.7) +
+  geom_violin(size = 0.25, alpha = 0.7, position = dodge, color = "gray35") +
   xlab("Depth") +
   ylab("Heterozygosity") +
-  ggtitle("All Sites") +
-  scale_fill_manual(values = rev(flPal)) +  # scale_color_manual(values = flPal) +
+  ggtitle("All loci") +
+  scale_fill_manual(values = rev(flPal)) +  
+  scale_color_manual(values = rev(flPal)) +
   theme_bw() +
   hetTheme
   
-hetPlotSnps = ggplot(data = subset(hetMelt, subset = hetMelt$type == "Variant Sites"),aes(x = depth, y = heterozygosity, fill = Region)) +
-  geom_jitter(aes(fill = Region),shape = 21, position = position_jitterdodge()) +
-  geom_boxplot(outlier.colour = NA, alpha = 0.5) +
+hetPlotSnps = ggplot(data = subset(hetMelt, subset = hetMelt$type == "SNPs"),aes(x = Depth, y = heterozygosity, fill = Region)) +
+  geom_point(aes(color = Region),shape = 21, position = position_jitterdodge(seed = 1, dodge.width = 1), size = 0.5, alpha = 0.7) +
+  geom_violin(size = 0.25, alpha = 0.7, position = dodge, color = "gray35") +
   xlab("Depth") +
   ylab("Heterozygosity") +
-  ggtitle("Variant Sites") +
+  ggtitle("SNPs") +
   scale_fill_manual(values = rev(flPal)) +
   scale_y_continuous(breaks=seq(0.1, 0.5, by = .05)) +
-  # scale_color_manual(values = flPal) +
+  scale_color_manual(values = rev(flPal)) +
   theme_bw() +
   hetTheme
 
-hetPlots = (hetPlotAll | hetPlotSnps) +
+inbreedingPlot = ggplot(data = het, aes(x = Depth, y = inbreed, fill = Region)) +
+  geom_point(aes(color = Region),shape = 21, position = position_jitterdodge(seed = 1, dodge.width = 1), size = 0.5, alpha = 0.7) +
+  geom_violin(size = 0.25, alpha = 0.7, position = dodge, color = "gray35") +
+  xlab("Depth") +
+  ylab("Inbreeding coefficient") +
+  ggtitle("Inbreeding") +
+  scale_fill_manual(values = rev(flPal)) +  
+  scale_color_manual(values = rev(flPal)) +
+  scale_y_continuous(breaks=seq(0, 0.4, by = .05)) +
+  theme_bw() +
+  hetTheme
+
+relatePlot = ggplot(data = sintRelate, aes(x = Depth, y = relate, fill = Region)) +
+  geom_point(aes(color = Region),shape = 21, position = position_jitterdodge(seed = 1, dodge.width = 1), size = 0.5, alpha = 0.7) +
+  geom_violin(size = 0.25, alpha = 0.7, position = dodge, color = "gray35") +
+  xlab("Depth") +
+  ylab("Relatedness") +
+  ggtitle("Relatedness") +
+  scale_fill_manual(values = rev(flPal)) +  
+  scale_color_manual(values = rev(flPal)) +
+  scale_y_continuous(breaks=seq(0, 0.5, by = .1)) +
+  theme_bw() +
+  hetTheme
+
+hetPlots = ((hetPlotAll | hetPlotSnps) / (inbreedingPlot | relatePlot)) +
   plot_annotation(tag_levels = 'A') +
   plot_layout(guides = "collect")& 
   theme(plot.tag = element_text(size = 16),
@@ -643,11 +866,352 @@ hetPlots = (hetPlotAll | hetPlotSnps) +
 
 # hetPlots
 
-ggsave("../figures/heterozygosityPlot.pdf", plot = hetPlots, width = 15, height = 9, units = "cm", dpi = 300)
-ggsave("../figures/heterozygosityPlot.png", plot = hetPlots, width = 15, height = 9, units = "cm", dpi = 300)
+ggsave("../figures/heterozygosityPlot.pdf", plot = hetPlots, width = 18, height = 18, units = "cm", dpi = 300)
+ggsave("../figures/heterozygosityPlot.png", plot = hetPlots, width = 18, height = 18, units = "cm", dpi = 300)
 
 ```
+
 ![](../figures/heterozygosityPlot.png)
+
+## Outliers
+
+```{r, outlier}
+bayescan = read.table("../data/snps/fkSint.baye_fst.txt",header=T) %>% mutate(loc = rownames(.), out.05 = ifelse(qval < 0.05, 1, 0), out.1 = ifelse(qval < 0.1, 1, 0))
+bayescan[bayescan[, 3]<=0.0001, 3] = 0.0001
+
+bayeScEnv = read.table("../data/snps/fkSint.bayeS_fst.txt", header=T) %>% filter(qval_g < 0.05) %>% mutate(loc = rownames(.), depthOut = 1) %>% select(loc, depthOut)
+
+bayescan = bayescan %>% left_join(bayeScEnv) 
+bayescan$depthOut = bayescan$depthOut %>% replace_na(0)
+
+sum(bayescan$out.05)
+sum(bayescan$out.1)
+sum(bayescan$depthOut)
+
+for(i in 1:nrow(bayescan)){
+  if(bayescan$depthOut[i] == 1){
+    bayescan$out.05[i] = 2
+  }
+}
+
+bayescanPlotA = ggplot(data = bayescan, aes(x = log10(qval), y = fst, color = as.factor(out.05), alpha = as.factor(out.05))) +  
+  geom_point(size = 1) +
+  geom_vline(xintercept = log10(0.05), linetype = 2, color = purple) +
+  xlab(expression(log[10]*"("*italic("q")*"-value)")) +
+  ylab(expression(italic("F")[ST])) +
+  scale_x_reverse() +
+  scale_color_manual(values = c("grey45", purple, pink)) +
+  scale_alpha_manual(values = c(0.25, 0.25, 0.5)) +
+  theme_bw()
+
+bayescanPlot = bayescanPlotA +
+        theme(axis.title.x = element_text(color = "black", size = 12),
+        axis.text.x = element_text(color = "black", size = 12),
+        axis.ticks.x = element_line(color = "black"),
+        axis.title.y = element_text(color = "black", size = 12),
+        axis.text.y = element_text(color = "black", size = 10),
+        axis.ticks.y = element_line(color = "black"),
+        legend.position = "none",
+        legend.key.size = unit(0.3, 'cm'),
+        panel.border = element_rect(color = "black"),
+        panel.background = element_rect(fill = "white"),
+        plot.background = element_rect(fill = "white"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+# bayescanPlot
+
+ggsave("../figures/outliers.pdf", plot = bayescanPlot, width = 14, height = 8, units = "cm", dpi = 300)
+ggsave("../figures/outliers.png", plot = bayescanPlot, width = 14, height = 8, units = "cm", dpi = 300)
+
+```
+![](../figures/outliers.png)
+
+
+Now we can look at the minor allele frequencies of the outliers by population
+```{r, mAF}
+fkSintAF = read.delim("../data/snps/fkSintAlleleFreq.txt")
+
+fkSintAF$chromLoc = paste(fkSintAF$chrom,fkSintAF$pos)
+
+fkSintAF$pop = factor(fkSintAF$pop, levels = levels(fkSintAF$pop)[c(3, 4, 5, 6, 1, 2, 7, 8)], labels = c("Riley's Hump\nMesophotic", "Riley's Hump\nShallow", "Tortugas Bank\nMesophotic", "Tortugas Bank\nShallow", "Lower Keys\nMesophotic", "Lower Keys\nShallow", "Upper Keys\nMesophotic", "Upper Keys\nShallow"))
+
+fkSintAF = fknmsSites[-c(66,68,164,166,209,211),] %>%  group_by(region, depthZone) %>% summarize(avgDepthM = mean(depthM)) %>% mutate(pop = paste(region, depthZone, sep = "\n")) %>% select(pop, region, depthZone, avgDepthM) %>% left_join(fkSintAF, .)
+
+fkSintAF$pop = factor(fkSintAF$pop)
+fkSintAF$pop = factor(fkSintAF$pop, levels = levels(fkSintAF$pop)[c(3, 4, 5, 6, 1, 2, 7, 8)])
+
+fkSintAF$depthZone = factor(fkSintAF$depthZone, levels = levels(fkSintAF$depthZone)[c(2, 1)])
+
+mafPlotA = ggplot(data = fkSintAF, aes(x = chromLoc, y = pop, fill = minFreq)) +  
+  geom_tile()+
+  geom_segment(data = fkSintAF, aes(x = -5, xend = -196, y = pop, yend = pop, color = region), size = 10.5) +
+  scale_color_manual(values = flPal, guide = NULL) +
+  scale_fill_gradientn(colours = paletteer_d("RColorBrewer::RdPu"), limit = c(0, 1), name = "Minor allele \nfrequency")+
+  xlab("Outlier locus") +
+  ylab("Population") +
+  coord_cartesian(xlim = c(-1, 592), clip = "off") +
+  theme_bw()
+
+mafPlot = mafPlotA +
+        theme(axis.title.x = element_text(color = "black", size = 12),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.y = element_text(color = "black", size = 12),
+        axis.text.y = element_text(color = "gray90", size = 10),
+        axis.ticks.y = element_blank(),
+        legend.position = "right",
+        legend.key.size = unit(0.3, 'cm'),
+        panel.border = element_rect(color = "black", size = 0.25),
+        panel.background = element_rect(fill = "white"),
+        plot.background = element_rect(fill = "white"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+# mafPlot
+
+# ggsave("../figures/outlierMiAF.pdf", plot = mafPlot, width = 14, height = 8, units = "cm", dpi = 300)
+# ggsave("../figures/outlierMiAF.png", plot = mafPlot, width = 14, height = 8, units = "cm", dpi = 300)
+
+```
+
+```{r, mAF2}
+mafDensPlotA = ggplot(data = fkSintAF, aes(x = minFreq, group = pop, fill = NA, linetype = depthZone, color = region)) + 
+  geom_density(alpha = 0.5, size = 0.25) +
+  xlab("Outlier locus minor allele frequency") +
+  ylab("Density") +
+  scale_color_manual(values = flPal, name = "Region") +
+  scale_fill_manual(values = flPal, name = "Region") +
+  scale_linetype(name = "Depth zone") +
+  theme_bw()
+
+mafDensPlot = mafDensPlotA +
+        theme(axis.title.x = element_text(color = "black", size = 12),
+        axis.text.x = element_text(color = "black", size = 10),
+        axis.ticks.x = element_line(color = "black"),
+        axis.title.y = element_text(color = "black", size = 12),
+        axis.text.y = element_text(color = "black", size = 10),
+        axis.ticks.y = element_line(color = "black"),
+        legend.position = "right",
+        legend.key.size = unit(0.3, 'cm'),
+        panel.border = element_rect(color = "black"),
+        panel.background = element_rect(fill = "white"),
+        plot.background = element_rect(fill = "white"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+  
+# mafDensPlot
+
+```
+
+Linear regression of minor allele frequencies by depth
+```{r, mAF3}
+mafLm = summary(lm(data = fkSintAF, minFreq ~ avgDepthM))
+r2 = round(mafLm$r.squared, 3)
+
+mafLrPlotA = ggplot(data = fkSintAF, aes(x = avgDepthM, y = minFreq)) +
+  geom_violin(aes(group = pop, fill = region, linetype = depthZone, color = region), size = 0.25, width = 2, alpha = 0.5, scale = "width") +
+  geom_smooth(method = "lm", color = pink, size = 0.25) +
+  annotate(geom = "text", x = 39, y = 0.11,label = bquote(~italic(R^2)~" = "~.(r2)*", "~italic(p)~" < 0.001"), size = 2.5) +
+  xlab("Population depth (m)") +
+  ylab("Outlier locus \nminor allele frequency") +
+  scale_fill_manual(values = flPal, name = "Region") +
+  scale_color_manual(values = flPal, name = "Region") +
+  scale_linetype(name = "Depth zone") +
+  theme_bw()
+
+mafLrPlot = mafLrPlotA +
+        theme(axis.title.x = element_text(color = "black", size = 12),
+        axis.text.x = element_text(color = "black", size = 10),
+        axis.ticks.x = element_line(color = "black"),
+        axis.title.y = element_text(color = "black", size = 12),
+        axis.text.y = element_text(color = "black", size = 10),
+        axis.ticks.y = element_line(color = "black"),
+        legend.position = "right",
+        legend.key.size = unit(0.3, 'cm'),
+        panel.border = element_rect(color = "black"),
+        panel.background = element_rect(fill = "white"),
+        plot.background = element_rect(fill = "white"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+# mafLrPlot
+
+```
+
+### Inbred outliers
+
+Subsetting the inbred shallow individuals to look at their minor allele frequencies vs other shallow individuals
+```{r, inbred shallow}
+shalInbred = sintBreed
+shalInbred$a = c(1:220)
+bams = read.delim("../data/snps/bamsNoClones", header = FALSE) %>% mutate(a = c(1:220))
+pops = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% select("Region" = region, "Depth" = depthZone) %>% mutate(a = c(1:220), pop = paste(Region, Depth, sep = " ")) %>% mutate(across(where(is.character), str_remove_all, pattern = fixed("'")))  %>% 
+  mutate(across(where(is.character), str_remove_all, pattern = fixed(" ")))# Reads in population data
+
+shalBams = bams %>% left_join(pops) %>% left_join(shalInbred) %>% select(-a) %>% filter(Depth == "Shallow")
+shalBams$pop = factor(shalBams$pop)
+
+head(shalBams)
+
+shalInbredBams =  shalBams %>% filter(inbreed >= 0.25) %>% select(V1, pop) %>% group_split(pop) %>% setNames(unique(shalBams$pop))
+
+shalOutbredBams = shalBams %>% filter(inbreed < 0.25) %>% select(V1, pop) %>% group_split(pop) %>% setNames(unique(shalBams$pop))
+
+write.table(shalOutbredBams$UpperKeysShallow, "../data/snps/shalUKOutbred.pop", row.names = FALSE, col.names = FALSE, quote = FALSE)
+write.table(shalOutbredBams$LowerKeysShallow, "../data/snps/shalLKOutbred.pop", row.names = FALSE, col.names = FALSE, quote = FALSE)
+write.table(shalOutbredBams$TortugasBankShallow, "../data/snps/shalTBOutbred.pop", row.names = FALSE, col.names = FALSE, quote = FALSE)
+write.table(shalOutbredBams$RileysHumpShallow, "../data/snps/shalRHOutbred.pop", row.names = FALSE, col.names = FALSE, quote = FALSE)
+
+write.table(shalInbredBams$UpperKeysShallow, "../data/snps/shalUKInbred.pop", row.names = FALSE, col.names = FALSE, quote = FALSE)
+write.table(shalInbredBams$LowerKeysShallow, "../data/snps/shalLKInbred.pop", row.names = FALSE, col.names = FALSE, quote = FALSE)
+write.table(shalInbredBams$TortugasBankShallow, "../data/snps/shalTBInbred.pop", row.names = FALSE, col.names = FALSE, quote = FALSE)
+write.table(shalInbredBams$RileysHumpShallow, "../data/snps/shalRHInbred.pop", row.names = FALSE, col.names = FALSE, quote = FALSE)
+
+
+```
+Use these files to split outlier ```.vcf``` into inbred//outbred groups in each shallow population 
+
+```{r, inbredMiAF}
+shalInbred = shalBams
+shalInbred$inbred = NA
+
+for(i in 1:nrow(shalInbred)) {
+  if(shalInbred$inbreed[i] >= 0.25) {
+   shalInbred$inbred[i] = "Inbred"
+  } else {
+    shalInbred$inbred[i] = "Outbred"
+  }
+}
+
+shalInbred = shalInbred %>% mutate(pop = paste(Region, inbred)) 
+shalInbred = shalInbred %>% group_by(pop) %>% summarize (avgInbreed = mean(inbreed)) 
+
+fkSintInbredAF = read.delim("../data/snps/fkSintInbredAlleleFreq.txt")
+
+fkSintInbredAF$chromLoc = paste(fkSintInbredAF$chrom,fkSintInbredAF$pos)
+
+fkSintInbredAF$pop = factor(fkSintInbredAF$pop, levels = levels(fkSintInbredAF$pop)[c(3, 4, 5, 6, 1, 2, 7, 8)], labels = c("Riley's Hump", "Riley's Hump", "Tortugas Bank", "Tortugas Bank", "Lower Keys", "Lower Keys", "Upper Keys", "Upper Keys"))
+
+fkSintInbredAF = fkSintInbredAF %>% mutate(region = pop) %>% select(-pop)
+fkSintInbredAF = fkSintInbredAF %>% mutate(pop = paste(region, inbred)) 
+fkSintInbredAF = fkSintInbredAF %>% left_join(shalInbred)
+
+fkSintInbredAF$pop = factor(fkSintInbredAF$pop)
+fkSintInbredAF$pop = factor(fkSintInbredAF$pop, levels = levels(fkSintInbredAF$pop)[c(4, 3, 6, 5, 2, 1, 8, 7)], labels = c("Riley's Hump\nOutbred", "Riley's Hump\nInbred", "Tortugas Bank\nOutbred", "Tortugas Bank\nInbred", "Lower Keys\nOutbred", "Lower Keys\nInbred", "Upper Keys\nOutbred", "Upper Keys\nInbred"))
+
+fkSintInbredAF$region = factor(fkSintInbredAF$region, levels = levels(fkSintInbredAF$region)[c(4,3,2,1)])
+
+fkSintInbredAF$inbred = factor(fkSintInbredAF$inbred , levels = levels(fkSintInbredAF$inbred )[c(2,1)])
+
+mafInbredPlotA = ggplot(data = fkSintInbredAF, aes(x = chromLoc, y = pop, fill = minFreq)) +  
+  geom_tile() +
+  geom_segment(data = fkSintInbredAF, aes(x = -5, xend = -200, y = pop, yend = pop, color = region), size = 10.5) +
+  scale_fill_gradientn(colours = paletteer_d("RColorBrewer::RdPu"), limit = c(0, 1), name = "Minor allele \nfrequency")+
+  scale_color_manual(values = flPal, guide = NULL) +
+  xlab("Outlier locus") +
+  ylab("Shallow population") +
+  coord_cartesian(xlim = c(-1, 592), clip = "off", expand = TRUE) +
+  theme_bw()
+
+mafInbredPlot = mafInbredPlotA +
+        theme(axis.title.x = element_text(color = "black", size = 12),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.y = element_text(color = "black", size = 12),
+        axis.text.y = element_text(color = "gray90", size = 10),
+        axis.ticks.y = element_blank(),
+        legend.position = "right",
+        legend.key.size = unit(0.3, 'cm'),
+        panel.border = element_rect(color = "black", size = .25),
+        panel.background = element_rect(fill = "white"),
+        plot.background = element_rect(fill = "white"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+# mafInbredPlot
+
+# ggsave("../figures/outlierMiAFInbred.pdf", plot = mafInbredPlot, width = 14, height = 8, units = "cm", dpi = 300)
+# ggsave("../figures/outlierMiAFInbred.png", plot = mafInbredPlot, width = 14, height = 8, units = "cm", dpi = 300)
+
+```
+
+```{r, inbredMiAF2}
+mafDensInbredPlotA = ggplot(data = fkSintInbredAF, aes(x = minFreq, group = pop, fill = NA, linetype = inbred, color = region)) + 
+  geom_density(alpha = 0.5, size = 0.25) +
+  xlab("Outlier locus minor allele frequency") +
+  ylab("Density") +
+  scale_color_manual(values = flPal, name = "Region") +
+  scale_fill_manual(values = flPal, name = "Region") +
+  scale_linetype(name = "Inbred") +
+  theme_bw()
+
+mafDensInbredPlot = mafDensInbredPlotA +
+        theme(axis.title.x = element_text(color = "black", size = 12),
+        axis.text.x = element_text(color = "black", size = 10),
+        axis.ticks.x = element_line(color = "black"),
+        axis.title.y = element_text(color = "black", size = 12),
+        axis.text.y = element_text(color = "black", size = 10),
+        axis.ticks.y = element_line(color = "black"),
+        legend.position = "right",
+        legend.key.size = unit(0.3, 'cm'),
+        panel.border = element_rect(color = "black"),
+        panel.background = element_rect(fill = "white"),
+        plot.background = element_rect(fill = "white"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+  
+# mafDensInbredPlot
+
+```
+
+```{r, inbredMiAF3}
+mafInbredLm = summary(lm(data = fkSintInbredAF, minFreq ~ avgInbreed))
+inbredR2 = round(mafInbredLm$r.squared, 3)
+
+mafLrInbredPlotA = ggplot(data = fkSintInbredAF, aes(x = avgInbreed, y = minFreq)) +
+  geom_violin(aes(group = pop, fill = region, linetype = inbred, color = region), size = 0.25, alpha = 0.5, width = 0.025, scale = "width") +
+  geom_smooth(method = "lm", color = pink, size = 0.25) +
+  annotate(geom = "text", x = .25, y = 0.15,label = bquote(~italic(R^2)~" = "~.(inbredR2)*", "~italic(p)~" < 0.001"), size = 2.5) +
+  xlab("Mean inbreeding coefficient") +
+  ylab("Outlier locus \nminor allele frequency") +
+  scale_fill_manual(values = flPal, name = "Region") +
+  scale_color_manual(values = flPal, name = "Region") +
+  scale_linetype(name = "Inbreeding") +
+  theme_bw()
+
+mafLrInbredPlot = mafLrInbredPlotA +
+        theme(axis.title.x = element_text(color = "black", size = 12),
+        axis.text.x = element_text(color = "black", size = 10),
+        axis.ticks.x = element_line(color = "black"),
+        axis.title.y = element_text(color = "black", size = 12),
+        axis.text.y = element_text(color = "black", size = 10),
+        axis.ticks.y = element_line(color = "black"),
+        legend.position = "right",
+        legend.key.size = unit(0.3, 'cm'),
+        panel.border = element_rect(color = "black"),
+        panel.background = element_rect(fill = "white"),
+        plot.background = element_rect(fill = "white"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+
+# mafPlotsAll = mafPlot | mafLrPlot &
+#   theme(legend.position = "right")
+# 
+# mafPlotsInbred = mafInbredPlot | mafLrInbredPlot &
+#   theme(legend.position = "right")
+
+mafPlots = (mafPlot | mafLrPlot) / (mafInbredPlot | mafLrInbredPlot) +
+  plot_annotation(tag_levels = 'A') &
+  theme(plot.tag = element_text(size = 16))
+
+ggsave("../figures/outlierMiAF.pdf", plot = mafPlots, width = 28, height = 18, units = "cm", dpi = 300)
+ggsave("../figures/outlierMiAF.png", plot = mafPlots, width = 28, height = 18, units = "cm", dpi = 300)
+
+```
+![](../figures/outlierMiAF.png)
+
+<br>
 
 ## *S. intersepta* isolation by distance
 First we can create a function to calculate geographic distances between lat/lons:
@@ -803,20 +1367,16 @@ ggsave("../figures/mantelPlot.tiff", plot = sintIBSdepthMantel, width = 12, heig
 ggsave("../figures/mantelPlot.pdf", plot = sintIBSdepthMantel, width = 12, height = 7, units = "cm", dpi = 300)
 ggsave("../figures/mantelPlot.png", plot = sintIBSdepthMantel, width = 12, height = 7, units = "cm", dpi = 300)
 ```
+
 ![](../figures/mantelPlot.png)
 
+<br>
 
 ## ADMIXTURE Plot
 Population structure plot from NGSadmix/CLUMPAK results.
 Based on most probable values for K (2,4).
 
 ```{r, ADMIXTURE}
-# colPal = c("#f98400", "#fa9626", "#fcbc75", "#fddfbd")
-# colPal = c("#5B1A18", "#9D4A28", "#D67236", "#F1BB7B")
-# colPal = c("#5B1A18", "#b75c2f", "#F1BB7B", "#d18650")
-# colPal = c("#8C4A3B", "#BF5E49", "#F2DCDC", "#BF8173")
-# colPal = c("#b75c2f", "#d18650", "#f8dbb9", "#F1BB7B")
-# colPal = c("#F1BB7B", "#f8dbb9", "#b75c2f", "#d18650")
 kColPal = c("#BF5E49", "#BF8173", "#F1BB7B",  "#D18650")
 
 admixpops = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% select("sample" = tubeID, "pop" = region, "depth" = depthZone)
@@ -848,14 +1408,14 @@ fkSintAdmixMelt = melt(fkSintAdmix, id.vars=c("sample", "pop", "depth", "popdept
 fkSintAdmixMelt$Ancestry = factor(fkSintAdmixMelt$Ancestry, levels = rev(levels(fkSintAdmixMelt$Ancestry)))
 
 popAnno = data.frame(x1 = c(0.5, 0.5, 0.5, 0.5), x2 = c(30.5, 30.5, 30.5, 30.5),
-                     y1 = -0.17, y2 = -0.17, sample = NA, Ancestry = NA, depth = "Mesophotic", 
+                     y1 = -0.19, y2 = -0.19, sample = NA, Ancestry = NA, depth = "Mesophotic", 
                      ord  = NA, Fraction = NA,
                      pop = c("Riley's Hump", "Tortugas Bank", 
                                   "Lower Keys", "Upper Keys"))
 popAnno$pop = factor(popAnno$pop, levels = levels(popAnno$pop)[c(4, 1, 3, 2)])
 
 admixTheme = theme_bw()+
-  theme(plot.title = element_text(hjust = 0.5),
+  theme(plot.title = element_text(hjust = 0.5, size = 10),
   panel.grid = element_blank(),
   panel.background = element_rect(fill = "black", colour = "grey25"),
   panel.border = element_rect(fill = NA, color = "black", size = 1, linetype = "solid"),
@@ -869,47 +1429,50 @@ admixTheme = theme_bw()+
   strip.background.x = element_blank(),
   strip.background.y = element_blank(),
   strip.text = element_text(size = 10),
-  strip.text.y.left = element_text(angle = 90),
+  strip.text.y.left = element_text(size = 10, angle = 90),
   strip.text.x.bottom = element_text(vjust = -.1, color = "grey90"),
   legend.key = element_blank(),
   legend.position = "none",
-  legend.title = element_text(size = 18))
+  legend.title = element_text(size = 8))
 
 admixPlotK2A = ggplot(data = subset(fkSintAdmixMelt, subset = fkSintAdmixMelt$Ancestry %in% c("cluster2.1", "cluster2.2")), aes(x = ord, y = Fraction, fill = Ancestry, order = sample)) +
-    geom_segment(data = popAnno, aes(x = x1, xend = x2, y = y1, yend = y2, color = pop), size = 8) +
+    geom_segment(data = popAnno, aes(x = x1, xend = x2, y = y1, yend = y2, color = pop), size = 7) +
   geom_bar(stat = "identity", position = "fill", width = 1, colour = "grey25", size = 0.2) +
   facet_grid(depth ~ pop, scales = "free", switch = "both", space = "free") +
   scale_x_discrete(expand = c(0.01, 0.01)) +
   scale_y_continuous(expand = c(0.005, 0.005)) +
   scale_fill_manual(values = kColPal[c(1,3)]) +
   scale_color_manual(values = flPal) +
-  ggtitle(expression(paste(italic("K")," = 2", sep =""))) +
+  # ggtitle(expression(paste(italic("K")," = 2", sep =""))) +
   # coord_cartesian(expand = TRUE, clip = "off")
   coord_cartesian(ylim = c(-0.01, 1.01), clip = "off")
 
 admixPlotK2 = admixPlotK2A + admixTheme
 
 admixPlotK4A = ggplot(data = subset(fkSintAdmixMelt, subset = !(fkSintAdmixMelt$Ancestry %in% c("cluster2.1", "cluster2.2"))), aes(x = ord, y = Fraction, fill = Ancestry, order = sample)) +
-    geom_segment(data = popAnno, aes(x = x1, xend = x2, y = y1, yend = y2, color = pop), size = 8) +
+    geom_segment(data = popAnno, aes(x = x1, xend = x2, y = y1, yend = y2, color = pop), size = 7) +
   geom_bar(stat = "identity", position = "fill", width = 1, colour = "grey25", size = 0.2) +
   facet_grid(depth ~ pop, scales = "free", switch = "both", space = "free") +
   scale_x_discrete(expand = c(0.01, 0.01)) +
   scale_y_continuous(expand = c(0.005, 0.005)) +
   scale_fill_manual(values = kColPal) +
   scale_color_manual(values = flPal) +
-  ggtitle(expression(paste(italic("K")," = 4", sep =""))) +
-# coord_cartesian(expand = TRUE, clip = "off")
+  # ggtitle(expression(paste(italic("K")," = 4", sep =""))) +
+  # coord_cartesian(expand = TRUE, clip = "off")
   coord_cartesian(ylim = c(-.01, 1.01), clip = "off")
+ 
+admixPlotK4 = admixPlotK4A + admixTheme
+# admixPlotK4 = admixPlotK4A + admixTheme + 
+#   theme(strip.text.y.left = element_blank())
 
-admixPlotK4 = admixPlotK4A + admixTheme + 
-  theme(strip.text.y.left = element_blank())
-
-admixPlot = admixPlotK2 | admixPlotK4
+admixPlot = (admixPlotK2 / admixPlotK4)
 
 # admixPlot
 
-ggsave("../figures/admixturePlot.png", plot = admixPlot, width = 22, height = 7, units = "cm", dpi = 300)
-ggsave("../figures/admixturePlot.eps", plot = admixPlot, width = 22, height = 7, units = "cm", dpi = 300)
+ggsave("../figures/admixturePlot.png", plot = admixPlot, width = 22, height = 8, units = "cm", dpi = 300)
+ggsave("../figures/admixturePlot.eps", plot = admixPlot, width = 22, height = 8, units = "cm", dpi = 300)
+
+ggsave("../figures/admixturePlot.eps", plot = admixPlot, width = 12, height = 12, units = "cm", dpi = 300)
 
 ```
 ![](../figures/admixturePlot.png)
