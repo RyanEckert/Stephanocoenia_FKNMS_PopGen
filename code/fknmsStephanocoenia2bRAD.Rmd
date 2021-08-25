@@ -132,7 +132,7 @@ cd 2bRAD/sint/fknms/rawReads/
 
 If you have not previously, download BaseSpaceCLI
 ```{bash, bs dl}
-wget "https://api.bintray.com/content/basespace/BaseSpaceCLI-EarlyAccess-BIN/latest/\$latest/amd64-linux/bs?bt_package=latest" -O $HOME/bin/bs
+wget "https://launch.basespace.illumina.com/CLI/latest/amd64-linux/bs" -O $HOME/bin/bs
 
 chmod +x ~/bin/bs
 
@@ -265,7 +265,7 @@ mv *.trim ../filteredReads
 zipper.py -f tr0 -a -9 --launcher -e reckert2017@fau.edu
 sbatch zip.slurm
 
-cat sintFiltReads
+cat sintFiltReadCounts
 
 ```
 <br>
@@ -291,21 +291,29 @@ srun samtools faidx symbConcatGenome.fasta
 
 Mapping reads to concatenated Symbiodinaceae genome
 ```{bash, map zoox}
+cd ~/2bRAD/past/sefl/filteredReads
+
 mkdir symbionts
 SYMGENOME=~/bin/symGenomes/symbConcatGenome
 
 2bRAD_bowtie2_launcher.py -g $SYMGENOME -f .trim -n zooxMaps --split -u un -a zoox --aldir symbionts --launcher -e reckert2017@fau.edu
 
-sbatch --mem=200GB zooxMaps.slurm
+sbatch zooxMaps.slurm
 
 ```
 
 Checking Symbiodiniaceae read mapping rates
 ```{bash, zoox alignments}
-ls *trim | cut -d '.' -f 1 >align1
-grep "% overall" zooxMaps.e* | cut -d ' ' -f 1 >align2
-paste <(awk -F' ' '{print $1}' align1) <(awk -F' ' '{print $1}' align2) >zooxAlignmentRates
-rm align1 align2
+>zooxAlignmentRates
+for F in `ls *trim`; do
+M=`grep -E '^[ATGCN]+$' $F | wc -l | grep -f - zooxMaps.e* -A 4 | tail -1 | perl -pe 's/zooxMaps\.e\d+-|% overall alignment rate//g'` ;
+echo "$F.sam $M">>zooxAlignmentRates;
+done
+
+# ls *trim | cut -d '.' -f 1 >align1
+# grep "% overall" zooxMaps.e* | cut -d ' ' -f 1 >align2
+# paste <(awk -F' ' '{print $1}' align1) <(awk -F' ' '{print $1}' align2) >zooxAlignmentRates
+# rm align1 align2
 
 less zooxAlignmentRates
 
@@ -313,16 +321,19 @@ less zooxAlignmentRates
 
 Clean up directory
 ```{bash, clean up zoox}
-rm *.sam
-
 zipper.py -f .trim -a -9 --launcher -e reckert2017@fau.edu
 sbatch --mem=200GB zip.slurm
 
+mv *.sam symbionts/
+
+cd ~/2bRAD/sint/fknms/
+mv filteredReads/symbionts .
 ```
 
 ### Uniquing reads 
 'stacking' individual trimmed fastq reads:
 ```{bash, denovo construction}
+cd filteredReads
 ls *.trim.un | perl -pe 's/^(.+)$/uniquerOne.pl $1 >$1\.uni/' > unique
 
 launcher_creator.py -j unique -n unique -q shortq7 -t 06:00:00 -e reckert2017@fau.edu
@@ -544,6 +555,7 @@ rm *.un
 
 ```
 
+
 ##  G E N O T Y P I N G
 ***
 "FUZZY genotyping" with ANGSD - without calling actual genotypes but working with genotype likelihoods at each SNP. Optimal for low-coverage data (<10x).
@@ -588,6 +600,8 @@ cat quality.txt
 
 ```
 ```scp``` dd.pdf to laptop to look at distribution of base quality scores, fraction of sites in each sample passing coverage thresholds and fraction of sites passing genotyping rates cutoffs. Use these to guide choices of ```-minQ```,  ```-minIndDepth``` and ```-minInd``` filters in subsequent ```ANGSD``` runs
+
+![](../data/snps/clones/dd.png)
 
 ### Identifying clones and technical replicates
 ```{bash, ANGSD clones}
@@ -708,6 +722,34 @@ grep "filtering:" sintNoClones.e*
 
 ```
 24,670 SNPs
+
+
+## S Y M B I O N T S ##
+
+```{bash, sym}
+cd ~/2bRAD/sint/fknms/symbionts
+
+>s2b
+for file in *.sam; do
+echo "samtools sort -O bam -o ${file/.sam/}.bam $file && samtools index ${file/.sam/}.bam">>s2b;
+done
+
+launcher_creator.py -j s2b -n s2b -t 6:00:00 -N 5 -e reckert2017@fau.edu -q shortq7
+sbatch s2b.slurm
+
+```
+
+Count reads mapping to each chromosome for concatenated Symbiodiniaceae genome
+```{bash, sym2}
+>zooxReads
+
+for i in *.bam; do
+echo $i >>zooxReads;
+samtools idxstats $i | cut -f 1,3 >>zooxReads;
+done
+
+```
+
 
 ## H E T E R O Z Y G O S I T Y
 ***
