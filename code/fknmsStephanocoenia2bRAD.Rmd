@@ -725,9 +725,17 @@ grep "filtering:" sintNoClones.e*
 
 
 ## S Y M B I O N T S ##
+***
 
 ```{bash, sym}
-cd ~/2bRAD/sint/fknms/symbionts
+cd ~/2bRAD/sint/fknms/
+mv mappedReads/symbionts .
+cd symbionts
+
+SYMGENOME=~/bin/symGenomes/symbConcatGenome
+2bRAD_bowtie2_launcher.py -f zoox -g $SYMGENOME --launcher -e reckert2017@fau.edu
+
+sbatch --mem=100GB maps.slurm
 
 >s2b
 for file in *.sam; do
@@ -799,6 +807,7 @@ sbatch -e RHet.e%j -o RHet.o%j --mem=200GB --mail-user reckert2017@fau.edu --mai
 
 
 ## I N B R E E D I N G &nbsp; & &nbsp; R E L A T E D N E S S
+***
 
 ```{bash}
 cd ~/2bRAD/sint/fknms/ANGSD
@@ -834,6 +843,8 @@ cd ../ngsRelate
 
 
 ## O U T L I E R &nbsp; D E T E C T I O N
+***
+
 ```{bash, bayescan}
 cd ~2bRAD/sint/fknms/
 

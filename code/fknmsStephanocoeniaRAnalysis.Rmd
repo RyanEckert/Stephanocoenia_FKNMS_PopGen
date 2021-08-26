@@ -798,8 +798,6 @@ ggsave("../figures/relateHeatmap.png", plot = relateHeatmap, width = 27, height 
 ```
 ![](../figures/relateHeatmap.png)
 
-
-
 Making plots for heterozygosity and inbreeding
 ```{r, het2}
 hetMelt = melt(het, id.vars = c("sample", "Region", "Depth"), variable.name = "type", value.name = "heterozygosity")
