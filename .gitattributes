@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+code/fknmsSint.RData filter=lfs diff=lfs merge=lfs -text
+data/snps/bayesAss/fkSintBayesAss.txt filter=lfs diff=lfs merge=lfs -text
