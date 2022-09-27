@@ -6,3 +6,5 @@ lab/ITS2/*.eps
 lab/2bRAD/*.png
 lab/2bRAD/*.pdf
 lab/2bRAD/*.emf
+figures/*.svg
+figures/presentations
