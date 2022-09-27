@@ -63,7 +63,6 @@ pacman::p_load("cowplot", "car", "ggrepel", "ggspatial", "paletteer", "patchwork
 options("scipen" = 10)
 
 load(".RData")
-save.image(".RData")
 ```
 
 <br>
@@ -1222,12 +1221,12 @@ mafLrInbredPlot = ggplot(data = fkSintInbredAF, aes(x = avgInbreed, y = minFreq)
 ```
 
 ```{r, mafPlots}
-mafPlots = (mafPlot | mafLrPlot) / (mafInbredPlot | mafLrInbredPlot) +
+mafPlots = (mafLrPlot| mafLrInbredPlot) +
   plot_annotation(tag_levels = 'A') &
   theme(plot.tag = element_text(size = 16))
 
-ggsave("../figures/figure3.png", plot = mafPlots, width = 25, height = 15, units = "cm", dpi = 300)
-ggsave("../figures/figure3.svg", plot = mafPlots, width = 25, height = 15, units = "cm", dpi = 300)
+ggsave("../figures/figure3.png", plot = mafPlots, width = 25, height = 8, units = "cm", dpi = 300)
+ggsave("../figures/figure3.svg", plot = mafPlots, width = 25, height = 8, units = "cm", dpi = 300)
 
 ```
 
