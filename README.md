@@ -4,7 +4,7 @@
 
 ### Ryan Eckert -- <ryan.j.eckert@gmail.com>
 ### [ryanjeckert.weebly.com](https://ryanjeckert.weebly.com)
-### version: June 02, 2021
+### version: September 27, 2022
 
 ------------------------------------------------------------------------
 This repository contains scripts and data associated with the
@@ -13,6 +13,7 @@ publication:
 **[XXX](https://)**
 
 ------------------------------------------------------------------------
+Population genetic analyses can provide useful data on species’ regional connectivity and diversity which can inform conservation and restoration efforts. In this study, we quantified the genetic connectivity and diversity of *Stephanocoenia intersepta* corals from shallow (<30 m) to mesophotic (30–45 m) depths across Florida Keys National Marine Sanctuary (FKNMS). Using 2bRAD-seq methods, we generated a suite of >24,000 single nucleotide polymorphism (SNP) markers to identify genetic structuring of shallow and mesophotic *S. intersepta* populations. We estimated recent genetic migration rates and determined that mesophotic populations were relatively larger sources than shallow populations, particularly in the Lower Keys and Tortugas Bank. Throughout the region, shallow *S. intersepta* populations exhibited lower heterozygosity and higher minor allele frequencies of outlier SNP loci. Shallow *S. intersepta* populations also exhibited significantly higher levels of intrapopulation relatedness and inbreeding relative to mesophotic populations, providing potential evidence of co-recruitment of sibling groups, or “sweepstakes reproductive success”. Additionally, Symbiodiniaceae communities among *S. intersepta* populations were compared using the ITS2 region and SymPortal analysis framework. We identified Symbiodiniaceae from the genera *Symbiodinium*, *Breviolum*, and *Cladocopium*. Symbiodiniaceae communities varied significantly across depth and location and were loosely correlated with host population structure and genotype. Together, these data demonstrate that despite population genetic structuring across depth, mesophotic populations may provide refuge potential for shallow populations moving forward and remain important contributors to the overall genetic diversity of this species throughout the region. This study highlights the importance of including mesophotic as well as shallow coral populations in population genetic assessments and provides information and data useful for future management and restoration efforts within the FKNMS.
 
 <img src="figures/map.png" width="425"/>
 
