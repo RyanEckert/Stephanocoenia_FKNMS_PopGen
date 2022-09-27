@@ -1,0 +1,187 @@
+---
+title: "Symbiodiniaceae *ITS2* sequencing library preparation"
+author: "Ryan Eckert -- ryan.j.eckert@gmail.com"
+output:
+  html_document:
+    theme: flatly
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+    keep_md: no
+---
+
+<a href="https://github.com/RyanEckert" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#2C3E50; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+---
+
+```{r, setup, include = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+if (!require("pacman")) install.packages("pacman")
+
+pacman::p_load(kableExtra)
+
+barcodeMM = read.csv("barcodeMM.csv")
+its2MM = read.csv("its2MM.csv")
+its2PCR = read.csv("its2PCR.csv")
+bcPCR = read.csv("bcPCR.csv")
+its2Primers = read.csv("its2Primers.csv")
+bcPrimers = read.csv("bcPrimers.csv")
+
+```
+
+#### version: `r Sys.Date() %>% format(format="%B %d, %Y")`  
+
+***
+
+# About this protocol
+
+This protocol is used to amplify Symbiodiniaceae *ITS2* region for high throughput sequencing 
+
+***
+    
+<br>
+
+# Symbiodiniaceae *ITS2* amplification 
+
+Adapted from [Klepac et al. 2013](https://doi.org/10.3354/meps11369){target="_blank"} and [Eckert et al. 2020](https://doi.org/10.3389/fmicb.2020.00518){target="_blank"}. 
+
+Starting with **clean** DNA template that was quantified **fluorescently** will greatly increase amplification success
+
+<br>
+
+## *ITS2* PCR
+
+```{r, its2 master mix}
+kable(its2MM, col.names = (c("Reagent","1 rxn"))) %>%
+    kable_styling(bootstrap_options = c("condensed", "hover","striped"), full_width = FALSE,
+                  position = 'float_left') %>%
+  column_spec(1, width = "12em") %>%
+  column_spec(2, width = "15em") %>%
+  row_spec(8, bold = TRUE) %>%
+  add_header_above(c("Master mix recipe"=2), line = FALSE, font_size = "Large", align = 'left')
+
+kable(its2PCR, col.names = (c("","",""))) %>%
+    kable_styling(bootstrap_options = c("condensed"), full_width = FALSE,
+                  position = 'right') %>%
+  column_spec(1:2, width = "5em") %>%
+  row_spec(2:4, bold = TRUE, background = "#2C3E50", color = "white") %>%
+  row_spec(0, bold = FALSE) %>%
+  add_header_above(c("PCR profile"=3), line = FALSE, font_size = "Large", align = 'left')
+```
+
+<br><br><br><br><br><br>
+
+1. Amplify samples with the *SYM_VAR* forward and reverse primers (see SYM_VAR_5.8SII and SYM_VAR_REV under [Primer sequence information](#primer-sequence-information))
+    
+    + Avoid over-amplification, don't run  more than 28 cycles <br><br> 
+    
+2. Visualize on a gel using 3 µL of PCR product
+
+3. Clean PCR product with Zymo DCC-5
+  
+    + Change the binding buffer:DNA ratio to 5:1 for PCR product <br><br>  
+
+***
+
+<br>
+
+## Cleaning PCR products  
+
+Here we're cleaning with Zymo DCC-5, but you can use any clean-up method
+
+<br> 
+
+1.	Set NFW for elution step in heat block at 65 °C
+
+2.	Add to your eluted DNA a 5:1 volume of Binding Buffer:DNA (e.g. 125 µL BB:25 µL PCR product) and vortex thoroughly, spin down
+
+3.	Transfer the entire mixture (~150 µL) to a provided Zymo-Spin Column in a collection tube
+
+4.	Centrifuge 16,000 x g for 2 minutes @ room temperature, discard flow through
+    
+    + Check to make sure all of the solution has passed through the filter, if not then spin the filter column again 
+    
+    + Issues with getting binding buffer to pass through the filter suggests that there may be too much DNA for the filter and it is getting clogged, consider scraping less tissue in the beginning of the protocol <br><br>
+
+5. Add 200 μL DNA Wash Buffer to the column and centrifuge at 16,000 x g for 1 min @ room temperature, *repeat*
+
+6. Transfer the column to a new labeled 1.5 mL tube and elute by adding 15--20 µL of heated NFW directly to the column matrix and incubate at room temperature for 3--5 min
+
+7. Centrifuge for 2 min to elute DNA 
+    
+    + Ensure the DNA has completely eluted before discarding the column, if there is too much DNA you may have to spin the column twice to ensure you have all of the sample <br><br>
+
+8. Qubit cleaned sample and dilute with NFW for a final concentration of 5--10 ng/µL.
+
+***
+
+<br>
+
+ 
+# Symbiodiniaceae *ITS2* library barcoding 
+
+Now run a short PCR (7 cycles maximum) to incorporate a unique combination of indexed Illumina p5 and p7 adapters to each sample to pool for sequencing
+
+<br>
+
+## Barcoding PCR                                    
+```{r, barcode master mix}
+kable(barcodeMM, col.names = (c("Reagent","1 rxn"))) %>%
+    kable_styling(bootstrap_options = c("condensed", "hover","striped"), full_width = FALSE,
+                  position = 'float_left') %>%
+  column_spec(1, width = "10em") %>%
+  column_spec(2, width = "16em") %>%
+  row_spec(8, bold = TRUE) %>%
+  add_header_above(c("Master mix recipe"=2), line = FALSE, font_size = "Large", align = 'left')
+
+kable(bcPCR, col.names = (c("","",""))) %>%
+    kable_styling(bootstrap_options = c("condensed"), full_width = FALSE,
+                  position = 'right') %>%
+  column_spec(1:2, width = "5em") %>%
+  column_spec(3, width = "7em") %>%
+  row_spec(2:4, bold = TRUE, background = "#2C3E50", color = "white") %>%
+  row_spec(0, bold = FALSE) %>%
+  add_header_above(c("PCR profile"=3), line = FALSE, font_size = "Large", align = 'left')
+  
+```  
+
+<br><br><br><br><br><br>
+
+1. Use cleaned and diluted samples in a PCR to incorporate barcoded MiSeq-adapter primers (see [Primer sequence information](#primer-sequence-information) for information on indexed primers).
+
+2. Check samples on agarose gel, you should see a single band ~450 bp
+
+3. Clean PCR products and pool libraries for sequencing on MiSeq 2x250 bp
+
+***
+
+<br>
+
+# Primer sequence information 
+
+The ITS2 forward and reverse primer sequences are universal ITS2 sequences (SYM_VAR_5.8SII/SYM_VAR_REV; [Hume et al. 2018](https://doi.org/10.7717/peerj.4816)) that include a linker region so that any of the barcode/index primers can be incorporated  
+
+```{r, its2 primer sequences}
+kable(its2Primers, col.names = (c("Primer","Sequence: 5'- MiSeq adapter + SYM_VAR -3'"))) %>%
+  kable_styling(bootstrap_options = c("condensed", "hover","striped"), full_width = FALSE, 
+                position = 'left') %>%
+  column_spec(1, width = "8em") %>%
+  column_spec(2, width = "43em")
+```  
+    
+Indexed primers that also contain the Illumina adapter needed to bind to the flow cell of the MiSeq platform can then be added to the amplified products. Dual indexing (placing unique barcode sequences on both the forward and reverse primers is a cost-efficient way to include more samples while purchasing less barcode primers (i.e. 20 forward and 20 reverse barcode primers can label up to 400 unique samples).
+
+```{r, bc primer sequences}
+kable(bcPrimers, col.names = (c("Primer","Sequence: 5'-Illumina p5(or)p7 + Index + MiSeq adapter-3'"))) %>%
+  kable_styling(bootstrap_options = c("condensed", "hover","striped"), full_width = FALSE, 
+                position = 'left') %>%
+  column_spec(1, width = "7em") %>%
+  column_spec(2, width = "37em")
+
+```
+
+For more primer and barcode examples:<br>
+
+* [https://wikis.utexas.edu/display/GSAF/Illumina+-+all+flavors](https://wikis.utexas.edu/display/GSAF/Illumina+-+all+flavors){target="_blank"}
+* [https://wikis.utexas.edu/display/GSAF/rRNA+bacterial+gene+and+fungal+ITS+metagenomics+samples](https://wikis.utexas.edu/display/GSAF/rRNA+bacterial+gene+and+fungal+ITS+metagenomics+samples){target="_blank"}

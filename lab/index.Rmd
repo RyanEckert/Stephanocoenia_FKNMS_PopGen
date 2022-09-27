@@ -143,7 +143,7 @@ kable(dispBuff, col.names = (c("Reagent", "Volume (µL)", "Master Mix for 24 sam
 
 20.	Add 1000 µL of 70% EtOH @ RT
 
-    - Gently wash EtOH around tube and invert to mix <br><br>
+    + Gently wash EtOH around tube and invert to mix <br><br>
     
 21.	Centrifuge at 20,000 x g for 10 min at 4 ºC
 
@@ -164,7 +164,9 @@ kable(dispBuff, col.names = (c("Reagent", "Volume (µL)", "Master Mix for 24 sam
 
 # Cleaning genomic DNA with Zymo Clean & Concentrator-5 Kit 
 
-After extracting genomic DNA, Zymo DNA Clean & Concentrator-5 (D4014) is used to clean DNA and remove inhibitors prior to running PCR, this protocol has a few slight modifications from the manufacturer’s protocol.
+After extracting genomic DNA, Zymo DNA Clean & Concentrator-5 (D4014) is used to clean DNA and remove inhibitors prior to running PCR, this protocol has a few slight modifications from the manufacturer’s protocol
+
+<br> 
 
 1.	Set NFW for elution step in heat block at 65 °C
 
