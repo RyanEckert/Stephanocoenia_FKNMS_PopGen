@@ -17,7 +17,7 @@ ls *$extension | cut -d '.' -f 1 >count1
 
 if [ "$fastq" = "false" ]; then
 for file in *$extension; do
-grep "@" $file | wc -l >>count2;
+cat $file | wc -l | xargs -n 1 bash -c 'echo $(($1 / 4))' args >>count2;
 done
 else
 for file in *$extension; do

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+    <idinfo>
+        <citation>
+            <citeinfo>
+                <origin/>
+                <pubdate>20060201</pubdate>
+                <title>Shoreline Polygon 1:12,000 Scale Florida 2004</title>
+                <geoform>vector digital data</geoform>
+                <onlink>https://myfwc.com/research</onlink>
+            </citeinfo>
+        </citation>
+        <descript>
+            <abstract>This GIS data set represents the shoreline for Florida.</abstract>
+            <purpose>Florida's shoreline was heads-up digitized using ARC Map software and color aerial photography downloaded from Labins.org as DOQQs (which were taken/captured in the beginning and throughout the 2004 year depending on the Water Management District and have approximately 1:12,000 scale accuracy). Included is all of Florida's coast, inner-coastal (Bays, Harbors, etc.), coastal rivers (Approximately 10 miles on average or to the end of the river traced), coastal canals, coastal lakes connected to the ocean and all of Lake Okeechobee and the St. Johns River.</purpose>
+            <supplinf>Please consider this shoreline to be a draft product. Use at your own risk. FWRI staff heads-up digitized the shoreline using 2004 DOQQs. In some cases 2004 were not available and 1999 or 1994 source imagery was used. FWRI and other agencies have conducted a QC of this shoreline, but we are still finding errors with it in specific locations, including missing islands, and some areas that have less detailed linework. Please assist us with the QC process by reporting any errors you find to GISLibrarian@MyFWC.com. Please include information that describes the problem and a description or screen shot to assist us in locating the area of concern. Please also include contact information in case we need additional clarification from you.We ask that you do not redistribute this file; instead refer users to FWRI for the most recent update. We will incorporate corrections as they are reported.Prior to July 1, 2004, the Fish and Wildlife Research Institute (FWRI) was known as the Florida Marine Research Institute (FMRI). The institute name has not been changed in historical data sets or references to work completed by the Florida Marine Research Institute. The institute name has been changed in references to ongoing research, new research, and contact information.</supplinf>
+        </descript>
+        <timeperd>
+            <timeinfo>
+                <sngdate>
+                    <caldate>20040101</caldate>
+                </sngdate>
+            </timeinfo>
+            <current>ground condition</current>
+        </timeperd>
+        <status>
+            <progress>Complete</progress>
+            <update>None planned</update>
+        </status>
+        <spdom>
+            <bounding>
+                <westbc>-87.661866</westbc>
+                <eastbc>-79.810505</eastbc>
+                <northbc>31.120416</northbc>
+                <southbc>24.353607</southbc>
+            </bounding>
+        </spdom>
+        <keywords>
+            <theme>
+                <themekt>ISO 19115 Topic Category</themekt>
+                <themekey>imageryBaseMapsEarthCover</themekey>
+            </theme>
+            <theme>
+                <themekt>FWRI Theme</themekt>
+                <themekey>shoreline</themekey>
+                <themekey>GIS</themekey>
+                <themekey>mapping</themekey>
+                <themekey>coastal</themekey>
+            </theme>
+            <theme>
+                <themekt>Operational Tiers</themekt>
+                <themekey>Information Science and Management</themekey>
+                <themekey>Center for Spatial Analysis</themekey>
+                <themekey>GIS Data Management and Technical Services</themekey>
+                <themekey>Florida Fish and Wildlife Research Institute</themekey>
+            </theme>
+            <place>
+                <placekt>Water Management Districts</placekt>
+                <placekey>St. Johns River Water Management District</placekey>
+                <placekey>Southwest Florida Water Management District</placekey>
+                <placekey>South Florida Water Management District</placekey>
+                <placekey>Suwannee River Water Management District</placekey>
+                <placekey>Northwest Florida Water Management District</placekey>
+            </place>
+            <place>
+                <placekt>FWC Region</placekt>
+                <placekey>FWC Region-North Central</placekey>
+                <placekey>FWC Region-Northeast</placekey>
+                <placekey>FWC Region-South</placekey>
+                <placekey>FWC Region-Southwest</placekey>
+                <placekey>FWC Region-Northwest</placekey>
+            </place>
+            <place>
+                <placekt>FWRI Place</placekt>
+                <placekey>Florida</placekey>
+                <placekey>statewide</placekey>
+            </place>
+        </keywords>
+        <accconst>We ask that you do not redistribute this file; instead refer users to FWRI for the most recent update. We will incorporate corrections as they are reported. All data must be verified by Principal Investigator or Group Database Analyst prior to release. It is strongly recommended that this data is directly acquired from FWC and not indirectly through other sources which may have changed the data in some way. FWC makes no claims as to the data's suitability for other purposes.</accconst>
+        <useconst>Please consider this shoreline to be a draft product. Use at your own risk. We ask that you do not redistribute this file; instead refer users to FWRI for the most recent update. We will incorporate corrections as they are reported.Acknowledgement of the FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute) as the data source would be appreciated in any products developed from these data, and such acknowledgment as is standard for citation and legal practices for data source is expected by users of this data. Please cite the original metadata when using portions of the record to create a similar record of slightly altered data, such as reprojection. If any data are modified or adjusted, please share the edited information with FWC. Users should be aware that comparison with other data sets for the same area from other time periods may be inaccurate due to inconsistencies resulting from changes in mapping conventions, data collection, and computer processes over time. FWC shall not be liable for improper or incorrect use of this data. These data are not legal documents and are not to be used as such. This is not a survey data set and should not be utilized as such. These data are not to be used for navigation.</useconst>
+        <ptcontac>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute)</cntorg>
+                    <cntper>GISLibrarian</cntper>
+                </cntorgp>
+                <cntaddr>
+                    <addrtype>mailing and physical</addrtype>
+                    <address>Florida Fish and Wildlife Research Institute</address>
+                    <address>100 Eighth Avenue Southeast</address>
+                    <city>St. Petersburg</city>
+                    <state>FL</state>
+                    <postal>33701-5095</postal>
+                    <country>AF</country>
+                </cntaddr>
+                <cntvoice>727-896-8626</cntvoice>
+                <cntfax>727-823-0166</cntfax>
+                <cntemail>GISLibrarian@MyFWC.com</cntemail>
+            </cntinfo>
+        </ptcontac>
+        <secinfo>
+            <secsys>FWRI-DC</secsys>
+            <sechandl>Please consider this shoreline to be a draft product. Use at your own risk. We ask that you do not redistribute this file; instead refer users to FWRI for the most recent update.</sechandl>
+        </secinfo>
+        <native>ESRI ArcMap 9.0</native>
+    </idinfo>
+    <dataqual>
+        <attracc>
+            <attraccr>Attributes are as accurate as the source data.</attraccr>
+        </attracc>
+        <logic>These data are topologically and logically consistent.</logic>
+        <complete>These data are complete for coastal areas of the state of Florida.</complete>
+        <posacc>
+            <horizpa>
+                <horizpar>Labins one-meter DOQQ's (approximately 1:12,000 scale accuracy) were used to trace shoreline and divided into Florida's five Water Management Districts. FWRI did not conduct a QC, Quality Control, but instead got a non-biased QC from Florida's five WMD's.</horizpar>
+            </horizpa>
+        </posacc>
+        <lineage>
+            <srcinfo>
+                <srccite>
+                    <citeinfo>
+                        <pubdate>20010101</pubdate>
+                        <title>ISM_CSA_benthic_south_fl</title>
+                    </citeinfo>
+                </srccite>
+                <srcscale>48000</srcscale>
+                <typesrc>hardcopyPhoto</typesrc>
+                <srctime>
+                    <timeinfo>
+                        <sngdate>
+                            <caldate>19920101</caldate>
+                        </sngdate>
+                    </timeinfo>
+                    <srccurr>ground condition</srccurr>
+                </srctime>
+                <srccitea>ISM_CSA_benthic_south_fl</srccitea>
+                <srccontr>Shoreline from this data set was used as a base in some areas.</srccontr>
+            </srcinfo>
+            <srcinfo>
+                <srccite>
+                    <citeinfo>
+                        <pubdate>20040101</pubdate>
+                        <title>2004 USGS Digital Orthophoto Quarter Quadrangles</title>
+                    </citeinfo>
+                </srccite>
+                <srcscale>12000</srcscale>
+                <typesrc>onLine</typesrc>
+                <srctime>
+                    <timeinfo>
+                        <sngdate>
+                            <caldate>20040101</caldate>
+                        </sngdate>
+                    </timeinfo>
+                    <srccurr>ground condition</srccurr>
+                </srctime>
+                <srccitea>2004 USGS Digital Orthophoto Quarter Quadrangles</srccitea>
+                <srccontr>Florida Aerial Digital Color Photographs</srccontr>
+            </srcinfo>
+            <srcinfo>
+                <srccite>
+                    <citeinfo>
+                        <title>ISM_CSA_fl_40k</title>
+                    </citeinfo>
+                </srccite>
+                <srcscale>40000</srcscale>
+                <typesrc>hardcopy</typesrc>
+                <srccitea>ISM_CSA_fl_40k</srccitea>
+                <srccontr>Used as a base in some areas.</srccontr>
+            </srcinfo>
+            <procstep>
+                <procdesc>Florida's shoreline was heads-up digitized using ARC Map software and color aerial photography downloaded from Labins.org. (DOQQs were captured throughout 2004, depending on the water management district and have approximately 1:12,000 scale accuracy). The extent to which rivers were digitized upstream was similar to FWRI's 1:40,000 scale shoreline data set, or if vegetation in the imagery prevented digitizing the full extent of the river, it was digitized as far as it was visible.Some existing shoreline data were used as a base in some areas, including a 1999 shoreline provided by Northwest Florida Water Management District, a 1999 Indian River Lagoon shoreline provided by the St. Johns River Water Management District, the FWRI 1:40,000 scale shoreline, and a shoreline used for the 1992 South Florida benthic mapping project. Even when a base shoreline was used for reference, it was updated to match the DOQQs.Some quarter quads were not available for 2004. The following quarter quads were used from previous years:From 1999:2822sw, 2722ne, 0909se, 0907se, 0907sw, 0906se, 0906sw, 0905sw, 0807ne, 0807se, 0713se, 0713sw, 0710sw, 0517se, 0614sw, 0516se, 0516sw, 0512neFrom 1994:1302ne, 0908se, 0807nw, 0807sw, 0712nw, 0709se, 0623se, 0623sw, 0615se, 0516ne, 0516nw, 0515nw, 0515sw</procdesc>
+                <procdate>20060202</procdate>
+            </procstep>
+            <procstep>
+                <procdesc>The Indian River Lagoon portion of the shoreline was replaced with SJRWMD's 2008 Indian River Lagoon Shoreline. The SFWMD's 2004 LULC shoreline replaced the shoreline within the District's boundaries to improve accuracy. Also, the entire east coast was edited to remove several topological errors that can be described as small zig-zags within the shoreline.</procdesc>
+                <procdate>20110928</procdate>
+            </procstep>
+            <procstep>
+                <procdesc>Small gaps between shorline segments were introduced from integration of LU/LC shoreline. Those gaps were identified using topology rules and closed using toplogy tools and manual vertex edits.</procdesc>
+                <procdate>20111001</procdate>
+            </procstep>
+        </lineage>
+    </dataqual>
+    <spdoinfo>
+        <direct>Vector</direct>
+        <ptvctinf>
+            <sdtsterm>
+                <sdtstype>GT-polygon composed of chains</sdtstype>
+                <ptvctcnt>10761</ptvctcnt>
+            </sdtsterm>
+            <sdtsterm>
+                <sdtstype>Complete chain</sdtstype>
+                <ptvctcnt>18103</ptvctcnt>
+            </sdtsterm>
+        </ptvctinf>
+    </spdoinfo>
+    <distinfo>
+        <distrib>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute)</cntorg>
+                    <cntper>GISLibrarian</cntper>
+                </cntorgp>
+                <cntaddr>
+                    <addrtype>mailing and physical</addrtype>
+                    <address>Florida Fish and Wildlife Research Institute</address>
+                    <address>100 Eighth Avenue Southeast</address>
+                    <city>St. Petersburg</city>
+                    <state>FL</state>
+                    <postal>33701-5095</postal>
+                    <country>AF</country>
+                </cntaddr>
+                <cntvoice>727-896-8626</cntvoice>
+                <cntfax>727-823-0166</cntfax>
+                <cntemail>GISLibrarian@MyFWC.com</cntemail>
+            </cntinfo>
+        </distrib>
+        <distliab>This data set is in the public domain, and the recipient may not assert any proprietary rights thereto nor represent it to anyone as other than a FWC-FWRI produced data set; it is provided "as-is" without warranty of any kind, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose. The user assumes all responsibility for the accuracy and suitability of this data set for a specific application. In no event will the staff of the Fish and Wildlife Research Institute be liable for any damages, including lost profits, lost savings, or other incidental or consequential damages arising from the use of or the inability to use this data set.</distliab>
+        <stdorder>
+            <digform>
+                <digtinfo>
+                    <formname>SHP</formname>
+                </digtinfo>
+                <digtopt>
+                    <onlinopt>
+                        <computer>
+                            <networka>
+                                <networkr>http://research.myfwc.com/</networkr>
+                            </networka>
+                        </computer>
+                    </onlinopt>
+                </digtopt>
+            </digform>
+            <fees>None. However, persons or organizations requesting information must provide transfer media if FTP is not available and must pay express shipping costs if express shipping is required.</fees>
+            <ordering>Contact GIS Librarian by e-mail, telephone, or letter explaining which products are needed and providing a brief description of how the products will be used. Also, provide name and address of the person or organization requesting the products.</ordering>
+            <turnarnd>Usually within 10 business days, although, complex requests may take longer</turnarnd>
+        </stdorder>
+    </distinfo>
+    <metainfo>
+        <metd>20150722</metd>
+        <metc>
+            <cntinfo>
+                <cntorgp>
+                    <cntorg>FWC-FWRI (Florida Fish and Wildlife Conservation Commission-Fish and Wildlife Research Institute)</cntorg>
+                    <cntper>GISLibrarian</cntper>
+                </cntorgp>
+                <cntaddr>
+                    <addrtype>mailing and physical</addrtype>
+                    <address>100 Eighth Avenue Southeast</address>
+                    <address>Florida Fish and Wildlife Research Institute</address>
+                    <city>St. Petersburg</city>
+                    <state>FL</state>
+                    <postal>33701-5095</postal>
+                    <country>AF</country>
+                </cntaddr>
+                <cntvoice>727-896-8626</cntvoice>
+                <cntfax>727-823-0166</cntfax>
+                <cntemail>GISLibrarian@MyFWC.com</cntemail>
+            </cntinfo>
+        </metc>
+        <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+        <metstdv>FGDC-STD-001-1998</metstdv>
+        <mettc>local time</mettc>
+        <metac>No restrictions on metadata.</metac>
+        <metuc>Metadata must be distributed with the data set.</metuc>
+        <metsi>
+            <metscs>FWRI-MC</metscs>
+            <metshd>Metadata must be distributed with the data set.</metshd>
+        </metsi>
+    </metainfo>
+</metadata>

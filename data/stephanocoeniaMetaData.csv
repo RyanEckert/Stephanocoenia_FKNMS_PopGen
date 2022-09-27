@@ -1,4 +1,4 @@
-﻿Sample,sampleID,tubeID,region,location,site,date,species,latDD,longDD,depthFt,depthM,depthZone,collection
+﻿Sample,sampleID,tubeID,site,location,siteID,date,species,latDD,longDD,depthFt,depthM,depthZone,collection
 SFK001,22-VIII-19-1-002,SFK001,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,115,35.1,Mesophotic,Tech Dive
 SFK002,22-VIII-19-1-004,SFK002,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,113,34.4,Mesophotic,Tech Dive
 SFK003,22-VIII-19-1-006,SFK003,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,115,35.1,Mesophotic,Tech Dive

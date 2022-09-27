@@ -397,10 +397,10 @@ sbatch tar.slurm
 
 ```
 
-Alternatively, we can build a custom database, which can include the Symbiodiniaceae genomes
+### *Alternatively*, we can build a custom database, which can include the Symbiodiniaceae genomes
 ```{bash, kraken custom}
 echo '#!/bin/bash' >krakendb.sh
-echo kraken2-build --download-taxonomy --db ~/bin/krakenDB >>>krakendb.sh
+echo kraken2-build --download-taxonomy --db ~/bin/krakenDB >>krakendb.sh
 echo kraken2-build --download-library archaea --threads 16 --db ~/bin/krakenDB >>krakendb.sh
 echo kraken2-build --download-library bacteria --threads 16 --db ~/bin/krakenDB >>krakendb.sh
 echo kraken2-build --download-library viral --threads 16 --db ~/bin/krakenDB >>krakendb.sh
@@ -413,7 +413,7 @@ sbatch --mem=200GB -p longq7 -e krakenDB.e%j -o krakenDB.o%j krakendb.sh
 
 ```
 
-Format and add Symbiodiniaceae genomes to the database
+#### Format and add Symbiodiniaceae genomes to the database
 ```{bash, kraken custom symbiodiniaceae}
 cd ~/bin/symGenomes
 
@@ -439,9 +439,10 @@ sbatch --mem=200GB -o kdbAdd.o%j -e kdbAdd.e%j kdbAdd
 
 ```
 
-Finally, build the database
+#### Finally, build the database
 ```{bash, kraken build}
 echo '#!/bin/bash' >kdbBuild
+echo kraken2-build --download-taxonomy --threads 16 --db /mnt/beegfs/home/reckert2017/bin/krakenDB >>kdbBuild
 echo kraken2-build --build --db ~/bin/krakenDB >>kdbBuild
 sbatch --mem=200GB -o kdbBuild.o%j -e kdbBuild.e%j kdbBuild
 
@@ -769,6 +770,8 @@ echo heterozygosity_beagle.R sintNoClones.beagle.gz >> RHetVar.sh
 
 sbatch -e RHet.e%j -o RHet.o%j --mem=200GB --mail-user reckert2017@fau.edu --mail-type=ALL RHetVar.sh
 
+cp RHet.e* hetSnps
+
 mkdir angsdPopStats
 
 ```
@@ -803,6 +806,7 @@ echo heterozygosity_beagle.R sintPopStats.beagle.gz >> RHet.sh
 
 sbatch -e RHet.e%j -o RHet.o%j --mem=200GB --mail-user reckert2017@fau.edu --mail-type=ALL RHet.sh
 
+cp RHet.e* hetAllSites
 ```
 
 
@@ -1117,3 +1121,150 @@ zip -r fkSintQ.zip fkSintQ
 ```scp``` .zip and formatted logfile to local machine and upload to ```CLUMPAK``` (http://clumpak.tau.ac.il/bestK.html) and structure selector (https://lmme.ac.cn/StructureSelector/index.html)
 
 ```scp``` sintNoClones* to local machine for further analyses with ```R```
+
+## M I G R A T I O N &nbsp; M O D E L I N G
+To use BayesAss3 (XXX) we first need to convert our ANGSD output into genotype format 
+```{bash, bayesass}
+cd~/2bRAD/sint/fknms
+mkdir bayesAss
+
+cd bayesAss
+cp ../ANGSD/sintNoClones.bcf .
+cp ../bayescan/fkSintBsPops.txt .
+
+echo "# VCF Parser questions
+PARSER_FORMAT=VCF
+
+# Only output SNPs with a phred-scaled quality of at least:
+VCF_PARSER_QUAL_QUESTION=
+# Select population definition file:
+VCF_PARSER_POP_FILE_QUESTION=./fkSintBsPops.txt
+# What is the ploidy of the data?
+VCF_PARSER_PLOIDY_QUESTION=DIPLOID
+# Do you want to include a file with population definitions?
+VCF_PARSER_POP_QUESTION=true
+# Output genotypes as missing if the phred-scale genotype quality is below:
+VCF_PARSER_GTQUAL_QUESTION=
+# Do you want to include non-polymorphic SNPs?
+VCF_PARSER_MONOMORPHIC_QUESTION=false
+# Only output following individuals (ind1, ind2, ind4, ...):
+VCF_PARSER_IND_QUESTION=
+# Only input following regions (refSeqName:start:end, multiple regions: whitespace separated):
+VCF_PARSER_REGION_QUESTION=
+# Output genotypes as missing if the read depth of a position for the sample is below:
+VCF_PARSER_READ_QUESTION=
+# Take most likely genotype if "PL" or "GL" is given in the genotype field?
+VCF_PARSER_PL_QUESTION=true
+# Do you want to exclude loci with only missing data?
+VCF_PARSER_EXC_MISSING_LOCI_QUESTION=true
+
+# Immanc (BayesAss) Writer questions
+WRITER_FORMAT=IMMANC
+
+# Specify the locus/locus combination you want to write to the Immanc (BayesAss) file:
+IMMANC_WRITER_LOCUS_COMBINATION_QUESTION=
+# Specify which data type should be included in the Immanc (BayesAss)) file  (Immanc (BayesAss) can only analyze one data type per file):
+IMMANC_WRITER_DATA_TYPE_QUESTION=SNP" >fkSintBA.spid
+
+
+module load pgdspider-2.1.1.2-gcc-9.2.0-ghxvd4c 
+
+pgdSpider=/opt/ohpc/pub/spack/opt/spack/linux-centos7-x86_64/gcc-9.2.0/pgdspider-2.1.1.2-ghxvd4c4ieqngkbutakc7x6j4pfkqm5e/bin/PGDSpider2-cli.jar
+
+echo '#!/bin/bash' > pgdSpider.sh
+echo "java -Xmx1024m -Xms512m -jar $pgdSpider -inputformat VCF -outputformat IMMANC vcf -inputfile sintNoClones.bcf -outputfile fkSintBayesAss.txt -spid fkSintBA.spid" >>pgdSpider.sh
+
+sbatch -e pgdSpider.e%j -o pgdSpider.o%j -p mediumq7 --mail-user reckert2017@fau.edu --mail-type=ALL pgdSpider.sh
+
+```
+
+
+```{sh, bayesass2}
+## Default params:
+#MCMC reps: 1,000,000
+#burn in: 100,000
+#sampling freq: 100
+#delta migration (1): 0.1
+#delta allele freq (3): 0.1
+#delta inbreeding (4): 0.1
+
+## Herrera params:
+#MCMC reps: 100,000,000
+#burn in: 50,000,000
+#sampling freq: 1,000
+#delta migration: 0.35
+#delta allele freq: 0.9
+#delta inbreeding: 0.09
+
+rm sintNoClones.bcf
+rm fkSintBsPops.txt
+
+module load gcc-9.2.0-gcc-8.3.0-ebpgkrt gsl-2.5-gcc-9.2.0-i6lf4jb netlib-lapack-3.9.1-gcc-9.2.0-gcqg2b2 BayesAss/3.0.4.2
+
+# Run a test with verbose [-v] output to see the acceptance rates in the terminal (takes a few minutes to compute)
+# check the output file [less BATest.o*] and kill the job once you get output with acceptance rates [scancel {yourJobID}]
+# After ~10—15 min you should start seeing output in the BATest.o* file
+
+echo '#!/bin/bash' > BATest
+echo BA3SNP -v -i 5000000 -b 500000 -n 100 fkSintBayesAss.txt >> BATest
+
+sbatch -e BATest.e%j -o BATest.o%j -p shortq7 --mail-user reckert2017@fau.edu --mail-type=ALL BATest
+#logP(M): -638.54 logL(G): -3494125.80 logL: -3494764.33 % done: [0.00] % accepted: (0.41, 0.01, 0.80, 0.06, 0.76)
+
+# we are looking for 20—60% acceptance, ideally somewhere near 20—30%
+# relationships between mixing parameters and acceptance rates are inverse
+# defaults are 0.1 (all parameters are scale 0—1)
+# increase [-m] increase [-a] and decrease [-f]
+
+echo '#!/bin/bash' > BATest
+echo BA3SNP -v -i 5000000 -b 500000 -n 1000 -m 0.2 -a 0.6 -f 0.04 fkSintBayesAss.txt >> BATest
+
+sbatch -e BATest.e%j -o BATest.o%j -p shortq7 --mail-user reckert2017@fau.edu --mail-type=ALL BATest
+# % accepted: (0.26, 0.02, 0.29, 0.15, 0.76)
+
+echo '#!/bin/bash' > BATest
+echo BA3SNP -v -i 5000000 -b 500000 -n 1000 -m 0.2 -a 0.6 -f 0.03 fkSintBayesAss.txt >> BATest
+# % accepted: (0.26, 0.02, 0.29, 0.20, 0.76)
+
+echo '#!/bin/bash' > BATest
+echo BA3SNP -v -i 5000000 -b 500000 -n 1000 -m 0.2 -a 0.6 -f 0.025 fkSintBayesAss.txt >> BATest
+
+sbatch -e BATest.e%j -o BATest.o%j -p shortq7 --mail-user reckert2017@fau.edu --mail-type=ALL BATest
+# % accepted: (0.25, 0.01, 0.28, 0.23, 0.76)
+```
+
+Make and launch 10 iterations of BayesAss, each in its own run directory so we can keep all trace files (saved as 'BA3trace.txt' and would overwrite if not in separate directories). We are using [-s $RANDOM] to use a random start seed for each independent run
+
+```{sh, bayesass3}
+module load gcc-9.2.0-gcc-8.3.0-ebpgkrt gsl-2.5-gcc-9.2.0-i6lf4jb netlib-lapack-3.9.1-gcc-9.2.0-gcqg2b2 BayesAss/3.0.4.2
+
+#for i in {01..10}; do
+#echo '#!/bin/bash' > BayesAss$i.sh
+#echo BA3SNP -v -u -s $RANDOM -i 5000000 -b 500000 -n 100 -m 0.2 -a 0.6 -f 0.025 -t -o fkSintBARun${i}Out.txt ../fkSintBayesAss.txt >> BayesAss$i.sh;
+#mkdir run$i;
+#mv BayesAss$i.sh run$i;
+#cd run$i;
+#sbatch -e BayesAss$i.e%j -o BayesAss$i.o%j -p longq7 --mail-user reckert2017@fau.edu --mail-type=ALL BayesAss$i.sh
+#cd ..;
+#done
+
+for i in {01..10}; do
+echo '#!/bin/bash' > BayesAss$i.sh
+echo BA3SNP -v -u -s $RANDOM -i 6500000 -b 3000000 -n 100 -m 0.2 -a 0.6 -f 0.025 -t -o fkSintBARun${i}Out.txt ../fkSintBayesAss.txt >> BayesAss$i.sh;
+mkdir run$i;
+mv BayesAss$i.sh run$i;
+cd run$i;
+sbatch -e BayesAss$i.e%j -o BayesAss$i.o%j -p longq7 --mem=100GB --exclusive --mail-user reckert2017@fau.edu --mail-type=ALL BayesAss$i.sh
+cd ..;
+done
+
+# after all runs complete copy files to main BayesAss directory
+cd ~/2bRAD/sint/fknms/bayesAss
+
+cp run*/*Out.txt .
+
+for i in {01..10}; do 
+cp ../run$i/BA3trace.txt BA3trace$i.txt;
+done
+
+```
