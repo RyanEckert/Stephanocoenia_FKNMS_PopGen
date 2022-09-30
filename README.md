@@ -1,6 +1,9 @@
 # Stephanocoenia_FKNMS_PopGen
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo/7130750.svg)](https://doi.org/)
+[![DOI](https://zenodo.org/badge/321702565.svg)](https://zenodo.org/badge/latestdoi/321702565)
+
+
 
 ### Ryan Eckert -- <ryan.j.eckert@gmail.com>
 ### [ryanjeckert.weebly.com](https://ryanjeckert.weebly.com)
