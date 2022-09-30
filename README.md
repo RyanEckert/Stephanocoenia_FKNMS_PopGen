@@ -1,6 +1,6 @@
 # Stephanocoenia_FKNMS_PopGen
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo/7130749.svg))](https://doi.org/10.5281/zenodo.7130749)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo/7130749.svg)](https://doi.org/10.5281/zenodo.7130749)
 
 
 
