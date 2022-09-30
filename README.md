@@ -26,9 +26,9 @@ ITS2 lab protocols adapted from [Eckert et al. 2020](https://doi.org/10.3389/fmi
 
 #### Protocols and walkthroughs accompanying this manuscript:
 
-1.  [Protocol for DNA extraction](https://ryaneckert.github.io/Stephanocoenia_FKNMS_PopGen/lab/)
-2.  [Protocol for 2bRAD wet lab (based on https://github.com/z0on/2bRAD_denovo)](https://ryaneckert.github.io/Stephanocoenia_FKNMS_PopGen/lab/2bRAD/)
-3.  [Protocol for Symbiodiniaceae ITS2 wetlab](https://ryaneckert.github.io/Stephanocoenia_FKNMS_PopGen/lab/ITS2/)
+1.  [Protocol for DNA extraction](https://ryaneckert.github.io/labProtocols/dnaExtraction/)
+2.  [Protocol for 2bRAD wet lab (based on https://github.com/z0on/2bRAD_denovo)](https://ryaneckert.github.io/labProtocols/2bRAD/)
+3.  [Protocol for Symbiodiniaceae ITS2 wetlab](https://ryaneckert.github.io/labProtocols/its2/)
 4.  [2bRAD denovo analysis (adapted from https://github.com/z0on/2bRAD_denovo)](https://ryaneckert.github.io/Stephanocoenia_FKNMS_PopGen/data/)
 5.  [Statistical analysis of SNP and ITS2 data](https://ryaneckert.github.io/Stephanocoenia_FKNMS_PopGen/code/)
 
