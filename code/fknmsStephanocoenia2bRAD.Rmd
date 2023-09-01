@@ -10,7 +10,7 @@ output:
 knit: (function(input, ...) {
     rmarkdown::render(
       input,
-      output_file = 'index.html',
+      output_file = '../data/index.html',
       envir = globalenv()
     )
   })
@@ -21,7 +21,7 @@ knit: (function(input, ...) {
 knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 ```
 
-#### version: `r library(magrittr)` `r Sys.Date() %>% format(format="%B %d, %Y")`
+#### version: `r library(magrittr)` `r Sys.Date() %>% format(format="%d %B, %Y")`
 
 #### [GitHub repository](https://github.com/RyanEckert/Stephanocoenia_FKNMS_PopGen.git){target="_blank"}
 
@@ -730,7 +730,7 @@ ggsave("../figures/cloneDend.png", plot = cloneDend, height = 8, width = 35, uni
 ggsave("../figures/cloneDend.eps", plot = cloneDend, height = 8, width = 35, units = "in", dpi = 300)
 
 ```
-![](../figures/cloneDend.png)
+![](../figures/rmd/cloneDend.png)
 
 ### Removing clones and re-running ANGSD
 ```{bash, ANGSD no clones}

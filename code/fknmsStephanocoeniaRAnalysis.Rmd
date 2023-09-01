@@ -7,9 +7,13 @@ output:
     toc: yes
     toc_depth: 3
     toc_float: yes
-  pdf_document:
-    toc: yes
-    toc_depth: '3'
+knit: (function(input, ...) {
+    rmarkdown::render(
+      input,
+      output_file = '../data/index.html',
+      envir = globalenv()
+    )
+  })
 ---
 
 <a href="https://github.com/RyanEckert/Stephanocoenia_FKNMS_PopGen" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#2C3E50; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
@@ -17,7 +21,7 @@ output:
 ```{=html}
 <style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 ```
-#### version: `r library(magrittr)` `r Sys.Date() %>% format(format="%B %d, %Y")`
+#### version: `r library(magrittr)` `r Sys.Date() %>% format(format="%d %B, %Y")`
 
 #### [GitHub repository](https://github.com/RyanEckert/Stephanocoenia_FKNMS_PopGen.git){target="_blank"}
 
@@ -58,7 +62,8 @@ pacman::p_load("cowplot", "car", "ggrepel", "ggspatial", "paletteer", "patchwork
 
 options("scipen" = 10)
 
-# load("fknmsSint.RData")
+load("fknmsSint.RData")
+
 ```
 
 <br>
@@ -146,12 +151,10 @@ floridaMap = ggplot() +
   scale_x_continuous(breaks = c(seq(-84, -79, by = 1))) +
   scale_y_continuous(breaks = c(seq(23, 27, by = 1))) +
   annotation_scale(location = "br", pad_x = unit(1.35, "cm"), text_pad = unit(-3.75, "cm")) +
-  # guides(fill = guide_legend(override.aes = list(shape = 22, color = "black", size = 4), ncol = 2, order = 1), shape = guide_legend(override.aes = list(size = 3), order = 2), color = guide_legend(override.aes = list(fill = "black", alpha = 0.1), order = 3)) +
   guides(fill = guide_legend(override.aes = list(shape = 22, color = "black", size = 2, stroke = 0.25), order = 1), shape = guide_legend(override.aes = list(size = 2, stroke = 0.25), order = 2), color = "none") +
   theme_bw() +
   theme(panel.background = element_rect(fill = "aliceblue"),
-        # panel.background = element_rect(fill = "aliceblue", size = 0),
-        # panel.border = element_blank(),
+
         plot.background = element_blank(),
         panel.border = element_rect(color = "black", size = 1, fill = NA),
         axis.title = element_blank(),
@@ -159,13 +162,8 @@ floridaMap = ggplot() +
         axis.text = element_text(color = "black"),
         legend.position = c(0.905, 0.875),
         legend.box.background = element_rect(linewidth = 0.35, fill = "white"),
-        # legend.position = "bottom",
-        # legend.direction = "vertical",
-        # legend.box = "horizontal",
         legend.title = element_text(color = "black", size = 8),
         legend.text = element_text(color = "black", size = 8),
-        # legend.key.size = unit(-0.25, "cm"),
-        # legend.box.margin = ggplot2::margin(t = -0.25, unit = "cm"),
         legend.spacing = unit(-5, "pt"),
         legend.key.size = unit(5, "pt"),
         legend.background = element_blank()
@@ -217,14 +215,12 @@ inset = ggplot() +
 # inset
 
 upperKeys = inset +
-  # annotation_scale(location = "br") +
   annotation_scale(location = "bl", pad_x = unit(1.9, "cm")) +
   coord_sf(xlim = c(-80.4, -80.1), ylim = c(25.0, 25.3)) +
   scale_x_continuous(breaks = c(seq(-80.4, -80.0, by = .1))) +
   scale_y_continuous(breaks = c(seq(25.0, 25.3, by = .1)))
 
 lowerKeys = inset +
-  # annotation_scale(location = "br") +
   annotation_scale(location = "bl", pad_x = unit(1.9, "cm")) +
   coord_sf(xlim = c(-81.75, -81.45), ylim = c(24.4, 24.7)) +
   scale_x_continuous(breaks = c(seq(-81.7, -81.3, by = .1))) +
@@ -241,9 +237,7 @@ dryTortugas = ggplot() +
   geom_point(data = fknmsSites, aes(x = longDD, y = latDD, fill = site, shape = depthZone), size = 1.5) +
   geom_sf(data = florida, fill = "white", size = 0.25) +
   scale_shape_manual(values = c(24, 25), name = "Depth") +
-  # annotation_scale(location = "br", pad_x = unit(1.9, "cm")) +
   annotation_scale(location = "bl", pad_x = unit(1.9, "cm")) +
-  # coord_sf(xlim = c(-83.25, -82.95), ylim = c(24.45, 24.75)) +
   coord_sf(xlim = c(-83.25, -82.95), ylim = c(24.45, 24.75)) +
   scale_x_continuous(breaks = c(seq(-83.2, -82.9, by = .1))) +
   scale_y_continuous(breaks = c(seq(24.4, 24.7, by = .1))) +
@@ -426,7 +420,6 @@ cloneBams = read.csv("../data/stephanocoeniaMetaData.csv") # list of bam files
 cloneMa = as.matrix(read.table("../data/snps/clones/sintClones.ibsMat")) # reads in IBS matrix produced by ANGSD 
 
 dimnames(cloneMa) = list(cloneBams[,1],cloneBams[,1])
-# clonesHc = hclust(as.dist(cloneMa),"ave")
 
 clonePops = cloneBams$site
 cloneDepth = cloneBams$depthZone
@@ -552,7 +545,6 @@ dendPoints$pop = factor(dendPoints$pop, levels(dendPoints$pop)[c(4, 1, 3, 2)])
 dendNoCloneA = ggplot() +
   geom_segment(data = segment(dData), aes(x = x, y = y, xend = xend, yend = yend2), size = 0.5) +
   geom_point(data = dendPoints, aes(x = x, y = y, fill = pop, shape = depth), size = 4, stroke = 0.25) +
-  # geom_text(data = dendPoints, aes(x = x, y = (y - .01), label = label), angle = 90) + 
   scale_fill_manual(values = flPal, name= "Site:")+
   scale_shape_manual(values = c(24, 25), name = "Depth Zone:")+
  # spacing technical replicates further from leaf
@@ -579,9 +571,6 @@ dendNoClone = dendNoCloneA + theme(
   legend.position = "bottom")
 
 # dend
-
-# ggsave("../figures/rmd/dend.png", plot = dend, height = 6, width = 37, units = "in", dpi = 300)
-
 
 ```
 
@@ -632,7 +621,6 @@ dendPoints$cluster = factor(dendPoints$cluster)
 dendLA = ggplot() +
   geom_segment(data = segment(dData), aes(x = x, y = y, xend = xend, yend = yend2), size = 0.5) +
   geom_point(data = dendPoints, aes(x = x, y = y, fill = cluster, shape = depth), size = 4, stroke = 0.25) +
-  # geom_text(data = dendPoints, aes(x = x, y = (y - .01), label = label), angle = 90) + 
   scale_fill_manual(values = kColPal, name= "Lineage:")+
   scale_shape_manual(values = c(24, 25), name = "Depth Zone:")+
  # spacing technical replicates further from leaf
@@ -658,9 +646,7 @@ dendL = dendLA + theme(
   legend.text = element_text(size = 20),
   legend.position = "bottom")
 
-dendL
-
-# ggsave("../figures/rmd/dend.png", plot = dend, height = 6, width = 37, units = "in", dpi = 300)
+# dendL
 
 ```
 
@@ -723,7 +709,6 @@ levels(pcangsd$cluster) = c("Blue", "Teal", "Green", "Yellow", "Admixed")
 
 pcangsd = merge(pcangsd, aggregate(cbind(mean.x = PC1, mean.y = PC2)~popdepth, pcangsd, mean), by="popdepth")
 
-# pcMean = pcangsd %>% group_by(popdepth) %>% filter(row_number()==1)
 ```
 
 ```{r}
@@ -751,12 +736,9 @@ pcaTheme = theme(axis.title.x = element_text(color = "black", size = 10),
         panel.grid.minor = element_blank())
 
 pcaPlot12SA = ggplot() +
-  # geom_hline(yintercept = 0, color = "gray90", size = 0.5) +
-  # geom_vline(xintercept = 0, color = "gray90", size = 0.5) +
   geom_hline(yintercept = 0, color = "gray90", size = 0.25) +
   geom_vline(xintercept = 0, color = "gray90", size = 0.25) +
   geom_point(data = pcangsd, aes(x = PC1, y = PC2, fill = pop, shape = depth, color = pop), stroke = 0, size = 2.5, alpha = 0.5, show.legend = FALSE) +
-  # geom_point(data = pcangsd, aes(x = mean.x, y = mean.y, fill = pop, shape = depth), color = "black", size = 2.75, alpha = 1) +
   geom_point(data = pcangsd, aes(x = mean.x, y = mean.y, fill = pop, shape = depth), color = "black", size = 2.75, alpha = 1, stroke = 0.25) +
   scale_shape_manual(values = c(24, 25), name = "Depth Zone") +
   scale_fill_manual(values = flPal, name = "Site") +
@@ -767,25 +749,10 @@ pcaPlot12SA = ggplot() +
 
 pcaPlot12S = pcaPlot12SA +
   pcaTheme +
-  
-  # theme_classic() +
-  # theme(axis.text = element_blank(),
-  #       axis.ticks = element_blank(),
-  #       panel.background = element_blank(),
-  #       plot.background = element_blank(),
-  #       # legend.position = "bottom",
-  #       axis.line = element_line(color = "black", linewidth = 0.2),
-  #       legend.spacing = unit(-5, "pt"),
-  #       legend.key.size = unit(0.3, 'cm'),
-  #       legend.key = element_blank(),
-  #       legend.background = element_blank()) +
-  # theme(legend.position = c(0.15,0.28))
-
   theme(legend.position = c(0.17, 0.23))
 
 pcaPlot12S
 
-# ggsave("../figures/poster/pca.svg", plot = pcaPlot12S, height = 7, width = 10, units = "cm", dpi = 600)
 
 pcaPlot12LA = ggplot() +
   geom_hline(yintercept = 0, color = "gray90", size = 0.5) +
@@ -819,18 +786,14 @@ pcaPlot23L = pcaPlot23LA +
 Put all plots together
 ```{r, pca 1 plot}
 pcaPlots = ((pcaPlot12S + theme(axis.title.y = element_text(margin = ggplot2::margin(r = -20, unit = "pt")))) | pcaPlot12L | pcaPlot23L) +
-  plot_annotation(tag_levels = 'A') &#+
-  # plot_layout(guides = "collect") & 
+  plot_annotation(tag_levels = 'A') &
   theme(plot.tag = element_text(size = 18),
         panel.background = element_rect(fill = "white"),
-        # legend.position = "bottom",
         legend.spacing = unit(-5, "pt"),
         legend.key = element_blank(),
         legend.background = element_blank())
 
 pcaPlots
-
-# ggsave("../figures/pca.png", plot = pcaPlots, height = 5, width = 15, units = "in", dpi = 300)
 
 ```
 
@@ -868,13 +831,9 @@ popAnno$pop = factor(popAnno$pop, levels = levels(popAnno$pop)[c(4, 1, 3, 2)])
 Make admixture plots
 ```{r, admix plots}
 admixPlotA = ggplot(data = fkSintAdmixMelt, aes(x = ord, y = Fraction, fill = Ancestry, order = sample)) +
-    # geom_segment(data = popAnno, aes(x = x1, xend = x2, y = y1, yend = y2, color = pop), size = 6) +
   geom_segment(data = popAnno, aes(x = x1, xend = x2, y = -.12, yend = -.12, color = pop), size = 7) +
   geom_bar(stat = "identity", position = "fill", width = 1, colour = "grey25", size = 0.2) +
   facet_grid(factor(depth) ~ pop, switch = "both") +
-  # scale_x_discrete(expand = c(0.01, 0.01)) +
-  # scale_y_continuous(expand = c(0.005, 0.005)) +
-
   geom_text(data = (fkSintAdmixMelt %>% filter(depth == "Mesophotic", pop %in% c("Riley's Hump", "Tortugas Bank"), sample %in% c(	
 "SFK001", "SFK100"), Ancestry == "cluster1")), x = 15.5, y = -.1, aes(label = pop), size = 3.5, color = "#FFFFFF") +
   geom_text(data = (fkSintAdmixMelt %>% filter(depth == "Mesophotic", pop %in% c("Lower Keys", "Upper Keys"), sample %in% c(	
@@ -882,9 +841,6 @@ admixPlotA = ggplot(data = fkSintAdmixMelt, aes(x = ord, y = Fraction, fill = An
   
   scale_fill_manual(values = kColPal) +
   scale_color_manual(values = flPal) +
-  # ggtitle(expression(paste(italic("K")," = 2", sep =""))) +
-  # coord_cartesian(expand = TRUE, clip = "off")
-  # coord_cartesian(ylim = c(0.008, 0.998), xlim = c(0.8, 30.4), clip = "off") + 
   scale_x_discrete(expand = c(0.005, 0.005)) +
   scale_y_continuous(expand = c(0.001, 0.001)) +
   coord_cartesian(ylim = c(0.0, 1.0), clip = "off") +
@@ -894,10 +850,8 @@ admixPlot = admixPlotA +
   theme_bw()+
   theme(plot.title = element_text(hjust = 0.5, size = 10),
   panel.grid = element_blank(),
-  # panel.background = element_rect(fill = "gray85", colour = NA, size = 0),
   panel.background = element_blank(),
   plot.background = element_blank(),
-  # panel.border = element_rect(fill = NA, color = "black", size = 0.5, linetype = "solid"),
   panel.border = element_rect(fill = NA, color = "black", size = 0.5, linetype = "solid"),
   panel.spacing.x = grid:::unit(0.0125, "lines"),
   panel.spacing.y = grid:::unit(0.0125, "lines"),
@@ -910,8 +864,6 @@ admixPlot = admixPlotA +
   strip.background.y = element_blank(),
   strip.text = element_text(size = 8),
   strip.text.y.left = element_text(size = 10, angle = 90),
-  # strip.text.x.bottom = element_text(vjust = -.1, color = "black"),
-  # strip.text.x.bottom = element_text(vjust = 1, color = "black"),
   strip.text.x.bottom = element_text(vjust = 1, color = NA),
   legend.key = element_blank(),
   legend.position = "none",
@@ -1032,7 +984,7 @@ snpHeatmap = snpHeatmapA + theme(
 
 ```
 
-![](../figures/fstHeatMap.png) <br>
+![](../figures/rmd/fstHeatMap.png) <br>
 
 ### Structure plots
 ```{r, fig1}
@@ -1045,7 +997,6 @@ ggsave("../figures/figure2.png", plot = structurePlots, height = 6.5, width = 10
 
 ggsave("../figures/figure2.svg", plot = structurePlots, height = 6.5, width = 10, units = "in", dpi = 300)
 ```
-
 
 
 ## Lineage demographics
@@ -1091,8 +1042,6 @@ lineageViolin = lineageViolinA + theme(
 
 lineageViolin
 
-# ggsave("../figures/poster/lineage.svg", plot = lineageViolin, height = 4  , width = 6, units = "in", dpi = 600)
-
 ```
 
 
@@ -1123,7 +1072,6 @@ fstMa$Pop = factor(row.names(fstMa), levels = unique(pop.order))
 
 
 # melt matrix data (turn from matrix into long dataframe)
-# snpFstMa$Pop = factor(row.names(snpFstMa), levels = unique(pop.order))
 fst = melt(fstMa, id.vars = "Pop", value.name = "Fst", variable.name = "Pop2", na.rm = FALSE)
 
 fst$Fst = round(fst$Fst, 3)
@@ -1209,9 +1157,8 @@ swPlotA = ggplot(data = swData, aes(x = year, y = Ne_median, ymin = Ne_12.5., ym
   scale_color_manual(values = kColPal[c(1:4)]) +
   scale_alpha_manual(values = c(0.25, 0.25, 0.35, 0.4)) +
   scale_x_continuous(name = "KYA", limits = c(0,5.25e5), breaks = c(1e5,2e5,3e5,4e5,5e5), labels = c("100","200", "300", "400", "500")) +
-  # scale_x_reverse(name = "KYA")+#, limits = c(0, 5.25e5), breaks = c(1e5,2e5,3e5,4e5,5e5), labels = c("100","200", "300", "400", "500")) +
   scale_y_continuous(name = bquote(italic(N[e])~"(x10"^"3"*")"), limits = c(0,14e5), breaks = c(2.5e5,5e5,7.5e5,10e5,12.5e5), labels = c("250","500", "750", "1000", "1250"))+
-  # scale_y_continuous(name = bquote("Effective population"~"(x10"^"3"*")"), limits = c(0,14e5), breaks = c(2.5e5,5e5,7.5e5,10e5,12.5e5), labels = c("250","500", "750", "1000", "1250"), position = "right")+
+
   coord_cartesian(xlim = c(5.25e5, 0), expand = FALSE) +
   theme_bw()
 
@@ -1230,8 +1177,6 @@ swPlot = swPlotA + theme(
 )
 
 swPlot
-
-# ggsave("../figures/poster/stairwayPlot.svg", plot = swPlot, height = 4, width = 6, units = "in", dpi = 600)
 
 ```
 
@@ -1269,12 +1214,6 @@ hetAll$sample = paste("SFK",hetAll$sample, sep ="")
 
 sintBreed = read.delim("../data/snps/fkSint.indF", header = FALSE)
 
-# sintBreed = read.delim("../data/snps/filtRelate")
-  
-# sintBreed2 = sintBreed %>% group_by(a) %>% dplyr::select("inbreed" = Fa)
-# sintBreed3 = sintBreed %>% group_by(b) %>% dplyr::select("inbreed" = Fb)
-
-# sintBreed = bind_rows(sintBreed2, sintBreed3) %>% group_by(a) %>% summarise("inbreed" = mean(inbreed)) 
 sintRelate = read.delim("../data/snps/filtRelate")
 sintRelate2 = sintRelate %>% group_by(a, b) %>% dplyr::select("Rab" = rab, "theta" = theta)
 
@@ -1319,7 +1258,6 @@ hetTabPub = hetTab %>% dplyr::select(-Theta) %>%
   flextable::compose(part = "header", j = "n", value = as_paragraph(as_i("n"))) %>%
    flextable::compose(part = "header", j = "Ha", value = as_paragraph(as_i("H"), as_sub("A"))) %>%
   flextable::compose(part = "header", j = "F", value = as_paragraph(as_i("F"))) %>%
-  # flextable::compose(part = "header", j = "Rab", value = as_paragraph(as_i("R"), as_i(as_sub("AB")))) %>%
   flextable::compose(part = "header", j = "Rab", value = as_paragraph(as_i("R"), as_i(as_sub("AB")))) %>%
   flextable::font(fontname = "Times New Roman", part = "all") %>%
   flextable::fontsize(size = 10, part = "all") %>%
@@ -1360,9 +1298,7 @@ hetPlotKA = ggplot(data = het %>% filter(cluster != "Admixed"), aes(x = cluster,
   scale_fill_discrete(type = kColPal, name = "Lineage") +
   xlab("Lineage") +
   ylab("Heterozygosity") +
-  # scale_color_discrete(type = kColPal2, name = "Lineage") +
   scale_y_continuous(breaks = seq(0.0022, 0.0038, 0.0004)) +
-  # coord_flip(clip = "off", xlim = c(1,4.5)) +
   coord_cartesian(expand = TRUE, xlim = c(0.85, 4)) +
   theme_bw()
 
@@ -1452,7 +1388,6 @@ nuclDivPlot = ggplot(piAll, aes(x = depth, y = tPps)) +
   scale_fill_manual(values = kColPal) +
   labs(x='Depth (m)', y = bquote("Nucleotide diversity ("*pi*")"), shape = 'Lineage') +
   annotate(geom = "text", x = 30, y = 0.0048, label = bquote(italic(R^2)~"="~.(r2)), size = 3) + 
-  # scale_y_continuous(labels = function(x) format(x, scientific = TRUE)) +
   theme_bw() +
   theme(axis.title.y = element_text(color = "black", size = 12),
         axis.title.x = element_text(color = "black", size = 12),
@@ -1479,6 +1414,7 @@ lineagePlots = (lineageViolin | hetPlotK | inbreedingPlot) / (nuclDivPlot | swPl
 ggsave("../figures/figure3.png", plot = lineagePlots, height = 7, width = 12, units = "in", dpi = 300)
 
 ggsave("../figures/figure3.svg", plot = lineagePlots, height = 7, width = 12, units = "in", dpi = 300)
+
 ```
 
 ### Outliers
@@ -1529,12 +1465,12 @@ bayescanPlot = bayescanPlotA +
 
 # bayescanPlot
 
-ggsave("../figures/figureS3.svg", plot = bayescanPlot, width = 14, height = 8, units = "cm", dpi = 300)
-ggsave("../figures/figureS3.png", plot = bayescanPlot, width = 14, height = 8, units = "cm", dpi = 300)
+ggsave("../figures/figureS2.svg", plot = bayescanPlot, width = 14, height = 8, units = "cm", dpi = 300)
+ggsave("../figures/figureS2.png", plot = bayescanPlot, width = 14, height = 8, units = "cm", dpi = 300)
 
 ```
 
-![](../figures/outliers.png)
+![](../figures/figureS2.png)
 
 
 ## Isolation by distance and redundancy analysis
@@ -1639,8 +1575,8 @@ sintIBDPlot = sintIBDPlotA +
 
 sintIBDPlot
 
-ggsave("../figures/figureS4.png", plot = sintIBDPlot, height = 10, width = 16, units = "cm", dpi = 300)
-ggsave("../figures/figureS4.svg", plot = sintIBDPlot, height = 8, width = 14, units = "cm", dpi = 300)
+ggsave("../figures/figureS3.png", plot = sintIBDPlot, height = 10, width = 16, units = "cm", dpi = 300)
+ggsave("../figures/figureS3.svg", plot = sintIBDPlot, height = 8, width = 14, units = "cm", dpi = 300)
 
 ```
 
@@ -1770,7 +1706,7 @@ sintRdaPoints$sample = sintI2P$sample
 head(sintRdaPoints)
 
 sintDbrdaData1 = sintI2P %>% left_join(sintRdaPoints) %>% left_join((pcangsd %>% dplyr::select(sample, "K" = cluster)))
-# sintDbrdaData1 = sintI2P %>% left_join(sintRdaPoints)
+
 head(sintDbrdaData1)
 tail(sintDbrdaData1)
 
@@ -1778,7 +1714,7 @@ envLoad = as.data.frame(sintDbrda$CCA$biplot)
 envLoad$var = row.names(envLoad)
 
 sintDbrdaData = merge(sintDbrdaData1, aggregate(cbind(mean.x = dbRDA1, mean.y = dbRDA2)~popdepth, sintDbrdaData1, mean), by="popdepth") %>% merge(., aggregate(cbind(mean.x.K = dbRDA1, mean.y.K = dbRDA2)~K, sintDbrdaData1, mean), by="K")
-# sintDbrdaData = merge(sintDbrdaData1, aggregate(cbind(mean.x = dbRDA1, mean.y = dbRDA2)~popdepth, sintDbrdaData1, mean), by="popdepth")
+
 
 sintDbrdaData$depth = factor(sintDbrdaData$depth)
 sintDbrdaData$depth = factor(sintDbrdaData$depth, levels(sintDbrdaData$depth)[c(2,1)])
@@ -2013,7 +1949,7 @@ migrate
 
 ```
 
-![](../figures/migrate.png)
+![](../figures/presentations/migrateMap.png)
 
 ```{r, migration map}
 baSumm$mean = as.numeric(baSumm$mean)
@@ -2047,7 +1983,6 @@ migrateMap = ggplot() +
   geom_sf(data = florida, fill = "white", size = 0.25) +
 
 #SHALLOW SOURCES
-#ggtitle("Shallow sources") +
   geom_curve(data = baMapData[2,], aes(x = longDD.j, y = latDD.j, xend = longDD.i, yend = latDD.i-0.03, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = -3) +
     geom_curve(data = baMapData[7,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.03, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = 0.25, na.rm = TRUE) +
   geom_curve(data = baMapData[11,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.02, yend = latDD.i-0.02, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = 0.2, na.rm = TRUE) +
@@ -2057,7 +1992,6 @@ migrateMap = ggplot() +
   geom_curve(data = baMapData[25,], aes(x = longDD.j, y = latDD.j, xend = longDD.i-0.05, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = -0.2, na.rm = TRUE) +
 
 #MESO SOURCES
-#ggtitle("Mesophotic sources") +
 geom_curve(data = baMapData[4,], aes(x = longDD.j, y = latDD.j, xend = longDD.i, yend = latDD.i+0.03, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = -3, na.rm = TRUE) +
 geom_curve(data = baMapData[c(3, 6),], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.02, yend = latDD.i-0.02, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = -0.2, na.rm = TRUE) +
 geom_curve(data = baMapData[8,], aes(x = longDD.j, y = latDD.j, xend = longDD.i, yend = latDD.i+0.03, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = 0.2, na.rm = TRUE) +
@@ -2265,12 +2199,10 @@ theme_bw()
 its2ProfsPlot = its2ProfsPlotA +
 theme(plot.title = element_text(),
   panel.grid = element_blank(),
-  # panel.background = element_rect(fill = "gray25", colour = "gray25"),
     panel.background = element_blank(),
   panel.border = element_rect(fill = NA, color = "black", size = 0.75, linetype = "solid"),
   plot.background = element_blank(),
   legend.background = element_blank(),
-    # panel.border = element_rect(fill = NA, color = "black", size = 0, linetype = "solid"),
   panel.spacing.x = grid:::unit(0.05, "lines"),
   panel.spacing.y = grid:::unit(0.05, "lines"),
   axis.text.x = element_blank(),
@@ -2283,21 +2215,17 @@ theme(plot.title = element_text(),
   strip.text = element_text(size = 12),
   strip.text.y.left = element_text(angle = 90),
   strip.text.x.bottom = element_text(vjust = .75, color = NA),
-  # strip.text.x.bottom = element_text(vjust = .75, color = "black"),
   legend.key.size = unit(0.75, "line"),
   legend.key = element_blank(),
-  # legend.title = element_text(size = 10),
   legend.title = element_text(size = 10, angle = 90),
   legend.text = element_text(size = 8),
-  # legend.position = "bottom")
   legend.position = "bottom")
 
-its2ProfsPlot
+# its2ProfsPlot
 
-# ggsave("../figures/poster/its2.svg", plot = its2ProfsPlot, height = 8.75, width = 20, units = "cm", dpi = 600)
 ```
 
-![](../figures/its2ProfilePlot.png) <br><br>
+![](../figures/rmd/its2ProfilePlot.png) <br><br>
 
 ## SNP vs ITS2 genera
 
@@ -2405,8 +2333,6 @@ symGenera$depth = factor(symGenera$depth, levels = levels(symGenera$depth)[c(2, 
 symGenera$site = factor(symGenera$site)
 symGenera$site = factor(symGenera$site, levels = levels(symGenera$site)[c(2, 3, 1, 4)])
 
-# symGenera$barPlotOrder[is.na(symGenera$barPlotOrder)] <- 30
-
 #turn into melted dataframe with otustack() and remove "summ" rows
 gssSym = otuStack(symGenera, count.columns = c(5:length(symGenera[1, ])),
  condition.columns = c(1:4)) %>% filter(otu != "summ") %>% droplevels()
@@ -2452,7 +2378,6 @@ zooxSNPA = ggplot(data = subset(gssSymPlot, subset = otu %in% c("Symbiodinium", 
 zooxSNP = zooxSNPA + theme(plot.title = element_text(),
   panel.grid = element_blank(),
   panel.background = element_blank(),
-  # panel.background = element_rect(fill = "gray25", colour = "grey25"),
   panel.border = element_rect(fill = NA, color = "black", size = 0.75, linetype = "solid"),
   panel.spacing.x = grid:::unit(0.05, "lines"),
   panel.spacing.y = grid:::unit(0.05, "lines"),
@@ -2508,7 +2433,6 @@ zooxITSA = ggplot(data = subset(gssSymPlot, subset = !(otu %in% c("Symbiodinium"
 zooxITS = zooxITSA + theme(plot.title = element_text(),
   panel.grid = element_blank(),
   panel.background = element_blank(),
-  # panel.background = element_rect(fill = "gray25", colour = "grey25"),
   panel.border = element_rect(fill = NA, color = "black", size = 0.75, linetype = "solid"),
   panel.spacing.x = grid:::unit(0.05, "lines"),
   panel.spacing.y = grid:::unit(0.05, "lines"),
@@ -2522,7 +2446,6 @@ zooxITS = zooxITSA + theme(plot.title = element_text(),
   strip.text = element_text(size = 12),
   strip.text.y.left = element_text(size = 12, angle = 90),
   strip.text.x.bottom = element_text(vjust = -.1, color = NA),
-  # strip.text.x.bottom = element_text(vjust = -.1, color = "gray90"),
   legend.title = element_text(size = 10),
   legend.text = element_text(size = 8, face = "italic"),
   legend.key = element_blank(),
