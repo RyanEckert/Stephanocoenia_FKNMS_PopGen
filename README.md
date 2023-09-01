@@ -7,7 +7,7 @@
 
 ### Ryan Eckert -- <ryan.j.eckert@gmail.com>
 ### [ryanjeckert.weebly.com](https://ryanjeckert.weebly.com)
-### version: September 1, 2023
+### version: 01 September, 2023
 
 ------------------------------------------------------------------------
 This repository contains scripts and data associated with the
