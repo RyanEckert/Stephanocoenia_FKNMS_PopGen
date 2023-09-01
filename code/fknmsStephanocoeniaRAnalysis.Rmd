@@ -54,11 +54,11 @@ if (!require("pacman")) install.packages("pacman")
 
 pacman::p_load_gh("pmartinezarbizu/pairwiseAdonis/pairwiseAdonis", "ropensci/rnaturalearthhires", "KarstensLab/microshades")
 
-pacman::p_load("cowplot", "car", "ggrepel", "ggspatial", "paletteer", "patchwork", "rgdal", "rnaturalearth", "sf", "Hmisc", "MCMC.OTU", "pairwiseAdonis", "RColorBrewer", "Redmonder", "flextable", "lubridate", "officer", "adegenet", "dendextend", "gdata", "ggdendro", "hierfstat", "kableExtra", "poppr", "reshape2", "StAMPP", "vcfR", "vegan", "boa", "magick", "rgeos", "sdmpredictors", "ggcorrplot", "tidyverse", "TeachingDemos", "LaplacesDemon", "adespatial", "ggnewscale", "ggbeeswarm", "multcomp", "rstatix")
+pacman::p_load("cowplot", "car", "ggrepel", "ggspatial", "paletteer", "patchwork", "rgdal", "rnaturalearth", "sf", "Hmisc", "MCMC.OTU", "pairwiseAdonis", "RColorBrewer", "Redmonder", "flextable", "lubridate", "officer", "adegenet", "dendextend", "gdata", "ggdendro", "hierfstat", "kableExtra", "poppr", "reshape2", "StAMPP", "vcfR", "vegan", "boa", "magick", "rgeos", "sdmpredictors", "ggcorrplot", "tidyverse", "TeachingDemos", "LaplacesDemon", "adespatial", "ggnewscale", "ggbeeswarm", "multcomp", "rstatix", "R.utils")
 
 options("scipen" = 10)
 
-load("fknmsSint.RData")
+# load("fknmsSint.RData")
 ```
 
 <br>
@@ -380,8 +380,7 @@ map = (floridaMap +
   inset_element(rhShal, top = 0.209, right = 0.11, bottom = 0.109, left = 0.01, ignore_tag = TRUE) +
   inset_element(rhMeso, top = 0.119, right = 0.11, bottom = 0.019, left = 0.01, ignore_tag = TRUE) +
   inset_element(tbShal, top = 0.338, right = 0.278, bottom = 0.238, left = 0.178, ignore_tag = TRUE) +
-  inset_element(tbMeso, top = 0.248, right = 0.278, bottom = 0.148, left = 0.178, ignore_tag = TRUE) + 
-  plot_annotation(tag_levels = "A")
+  inset_element(tbMeso, top = 0.248, right = 0.278, bottom = 0.148, left = 0.178, ignore_tag = TRUE)
   )
 
 ggsave("../figures/figure1.png", plot = map, height = 7, width = 7, units = "in", dpi = 300)
@@ -927,7 +926,10 @@ admixPlot = admixPlotA +
 Calculating differentiation with Pairwise Fst
 
 ```{r, fst calculation}
+gunzip("../data/snps/sintNoClones.bcf.gz")
 sintVcf = read.vcfR("../data/snps/sintNoClones.bcf", verbose = FALSE)
+gzip("../data/snps/sintNoClones.bcf")
+
 sintGenlightPopDepth = vcfR2genlight(sintVcf, n.cores = 8) # Converts the vcf file into a file format that poppr uses the "genlight" format
 locNames(sintGenlightPopDepth) = paste(sintVcf@fix[,1],sintVcf@fix[,2],sep="_")
 popData = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% dplyr::select("sample" = tubeID, "pop" = site, "depth" = depthZone) # Reads in population data for each sample
