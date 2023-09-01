@@ -84,6 +84,34 @@ wget http://www.cmpg.unibe.ch/software/PGDSpider/PGDSpider_2.0.7.1.zip
 unzip PGDSpider_2.0.7.1.zip
 rm PGDSpider_2.0.7.1.zip
 
+git clone https://github.com/Rosemeis/pcangsd.git
+cd pcangsd
+
+conda activate 2bRAD
+
+pip install --user -r requirements.txt
+python setup.py build_ext --inplace
+pip3 install -e .
+
+cd ~/bin
+
+git clone https://bitbucket.org/simongravel/moments.git
+cd moments
+
+conda activate 2bRAD
+
+conda install -c bioconda moments
+
+pip install --user -r requirements.txt
+python setup.py build_ext --inplace
+pip3 install -e .
+
+svn checkout https://github.com/xiaoming-liu/stairway-plot-v2.git
+
+mv stairway-plot-v2.git/trunk/stairway_plot_v2.1.1.zip .
+unzip stairway_plot_v2.1.1.zip
+rm -r stairway_plot_v2.1.1.zip stairway-plot-v2.git
+
 ```
 
 Make all scripts executable
@@ -225,7 +253,6 @@ Run below if you don't have a conda env. set up, otherwise you can skip to the n
 module load miniconda3-4.6.14-gcc-8.3.0-eenl5dj
 conda config --add channels defaults
 conda config --add channels bioconda
-conda config --add channels conda-forge
 conda create -n 2bRAD cutadapt
 
 ```
@@ -251,7 +278,7 @@ sbatch -o trimse.o%j -e trimse.e%j --mem=200GB trimse.sh
 
 Do we have expected number of *.trim files created?
 ```{bash, trim files}
-conda deactivate 2bRAD
+conda deactivate
 ls -l *.trim | wc -l
 
 ```
@@ -766,93 +793,6 @@ done
 
 ```
 
-
-## H E T E R O Z Y G O S I T Y
-***
-Calculating Heterozygosity across all loci (variant//invariant) using ```ANGSD``` and ```R``` script from Misha Matz (https://github.com/z0on/2bRAD_denovo)
-
-```{bash, het}
-echo '#!/bin/bash' > RHetVar.sh
-echo heterozygosity_beagle.R sintNoClones.beagle.gz >> RHetVar.sh
-
-sbatch -e RHet.e%j -o RHet.o%j --mem=200GB --mail-user reckert2017@fau.edu --mail-type=ALL RHetVar.sh
-
-cp RHet.e* hetSnps
-
-mkdir angsdPopStats
-
-```
-
-Note there are no MAF or snp filters so as not to affect allelic frequencies that may change heterozygosity calculations
-```{bash, het filt}
-FILTERS="-uniqueOnly 1 -remove_bads 1  -skipTriallelic 1 -minMapQ 20 -minQ 30 -doHWE 1 -sb_pval 1e-5 -hetbias_pval 1e-5 -minInd 187"
-
-TODO="-doMajorMinor 1 -doMaf 1 -dosnpstat 1 -doPost 2 -doGeno 11 -doGlf 2"
-
-echo '#!/bin/bash' > sintPopStats.sh
-echo srun angsd -b bamsNoClones -GL 1 $FILTERS $TODO -P 1 -out sintPopStats >> sintPopStats.sh
-
-sbatch --mem=200GB -o sintPopStats.o%j -e sintPopStats.e%j -p shortq7 --mail-type=ALL --mail-user=reckert2017@fau.edu sintPopStats.sh
-
-mv sintPopStats* angsdPopStats/
-cd angsdPopStats
-
-```
-
-How many sites?
-```{bash, site count}
-grep "filtering:" sintPopStats.e*
-
-```
-2,190,950 sites
-
-Calculate heterozygosity
-```{bash, het calc}
-echo '#!/bin/bash' > RHet.sh
-echo heterozygosity_beagle.R sintPopStats.beagle.gz >> RHet.sh
-
-sbatch -e RHet.e%j -o RHet.o%j --mem=200GB --mail-user reckert2017@fau.edu --mail-type=ALL RHet.sh
-
-cp RHet.e* hetAllSites
-```
-
-
-## I N B R E E D I N G &nbsp; & &nbsp; R E L A T E D N E S S
-***
-
-```{bash}
-cd ~/2bRAD/sint/fknms/ANGSD
-
-FILTERS="-uniqueOnly 1 -remove_bads 1 -minMapQ 20 -minQ 30 -dosnpstat 1 -doHWE 1 -hwe_pval 1e-5 -sb_pval 1e-5 -hetbias_pval 1e-5 -skipTriallelic 1 -minInd 187 -snp_pval 1e-6 -minMaf 0.05"
-TODO="-doMajorMinor 1 -doMaf 1 -doCounts 1 -makeMatrix 1 -doIBS 1 -doCov 1 -doGeno 8 -doBcf 1 -doPost 1 -doGlf 3"
-
-echo '#!/bin/bash' > sintNgsRelate.sh
-echo srun angsd -b bamsNoClones -GL 1 $FILTERS $TODO -P 1 -out sintNgsRelate >> sintNgsRelate.sh
-
-sbatch --mem=200GB -o sintNgsRelate.o%j -e sintNgsRelate.e%j -p shortq7 --mail-type=ALL --mail-user=reckert2017@fau.edu sintNgsRelate.sh
-
-zcat sintNgsRelate.mafs.gz | cut -f5 |sed 1d >freq
-
-echo '#!/bin/bash' > ngsRelate.sh
-echo ngsRelate -g sintNgsRelate.glf.gz -n 220 -f freq  -O newres >> ngsRelate.sh
-
-sbatch -e ngsRelate.e%j -o ngsRelate.o%j --mem=200GB --mail-user reckert2017@fau.edu --mail-type=ALL ngsRelate.sh
-
-```
-
-After everything runs, clean up directory and look at data
-```{bash, relate}
-mkdir ../ngsRelate
-
-mv freq ../ngsRelate/
-mv *singtNgs*Relate* ../ngsRelate/
-mv newres ../ngsRelate
-
-cd ../ngsRelate
-
-```
-
-
 ## O U T L I E R &nbsp; D E T E C T I O N
 ***
 
@@ -866,6 +806,7 @@ srun cp ../ANGSD/sintNoClones.vcf.gz . #Note do not use the renamed version, pgd
 srun gunzip sintNoClones.vcf.gz
 
 ```
+
 
 You will have to create or ```scp``` a textfile with your .bam file names and populations
 
@@ -936,125 +877,32 @@ Extract outlier SNPs from ```BayeScEnv``` output
 ```{bash, bayescan6}
 srun removeBayescanOutliers.pl bayescan=fkSint.bayeS_fst.txt vcf=sintNoClones.bcf FDR=0.05 mode=extract > fkSintBScEnvVcfOutliers.vcf
 ```
-
-Looking at minor allele frequencies by population
-Split outlier ```.vcf``` by populations
-```{bash, maf}
-awk '$2 ~ /RileysHump_Mesophotic/ {print $1}' fkSintBsPops.txt > rhMeso.pop
-awk '$2 ~ /RileysHump_Shallow/ {print $1}' fkSintBsPops.txt > rhShal.pop
-awk '$2 ~ /TortugasBank_Mesophotic/ {print $1}' fkSintBsPops.txt > tbMeso.pop
-awk '$2 ~ /TortugasBank_Shallow/ {print $1}' fkSintBsPops.txt > tbShal.pop
-awk '$2 ~ /LowerKeys_Mesophotic/ {print $1}' fkSintBsPops.txt > lkMeso.pop
-awk '$2 ~ /LowerKeys_Shallow/ {print $1}' fkSintBsPops.txt > lkShal.pop
-awk '$2 ~ /UpperKeys_Mesophotic/ {print $1}' fkSintBsPops.txt > ukMeso.pop
-awk '$2 ~ /UpperKeys_Shallow/ {print $1}' fkSintBsPops.txt > ukShal.pop
-
-echo '#!/bin/bash' > vcfSplit.sh
-for pop in *.pop; do
-echo "bcftools view -S $pop fkSintVcfOutliers.vcf > ${pop/.pop/}.vcf">>vcfSplit.sh;
-done
-
-sbatch -e vcfSplit.e%j -o vcfSplit.o%j -p shortq7 --mail-user reckert2017@fau.edu --mail-type=ALL vcfSplit.sh
-
-```
-
-Calculate minor allele frequencies
-```{bash, maf2}
-echo '#!/bin/bash' > miaFreq.sh
-for file in *.vcf; do
-echo "vcftools --vcf $file --freq --out ${file/.vcf/}" >> miaFreq.sh
-done
-
-sbatch -e miaFreq.e%j -o miaFreq.o%j -p shortq7 --mail-user reckert2017@fau.edu --mail-type=ALL miaFreq.sh
-```
-
-
-Combine into one file for analysis
-```{bash, maf3}
-rm fkSintVcfOutliers.frq
-
-for file in *.frq; do
-awk '{s=(NR==1)?"POP":"\t"FILENAME;$0=$0 OFS s}1' $file > $file.1;
-sed 's/.frq*$//g' $file.1 > $file.2;
-sed 's/:/\t/g' $file.2 > $file.3;
-done
-
-rm *.frq *.frq.1 *.frq.2
-for file in *.frq.3; do
-mv $file ${file/.3/}
-done
-
-awk FNR!=1 *.frq > alleleFreq.txt
-
-echo -e "chrom\tpos\tnAlleles\tnChr\tmajAl\tmajFreq\tminAl\tminFreq\tpop" | cat - alleleFreq.txt > fkSintAlleleFreq.txt
-
-rm alleleFreq.txt
-
-```
-
-### Inbred individuals
-Looking at minor allele frequencies of inbread individuals in shallow populations
-First split ```.vcf``` into inbred and regular samples for each shallow population
-```{bash, inbredMiAF}
-for pop in *bred.pop; do
-awk '{print $1}' $pop > ${pop/.pop/}.bams;
-done
-
-echo '#!/bin/bash' > vcfInbreedSplit.sh
-for pop in *.bams; do
-echo "bcftools view -S $pop fkSintVcfOutliers.vcf > ${pop/.bams/}.vcf" >> vcfInbreedSplit.sh;
-done
-
-sbatch -e vcfInbreedSplit.e%j -o vcfInbreedSplit.o%j -p shortq7 --mail-user reckert2017@fau.edu --mail-type=ALL vcfInbreedSplit.sh
-
-```
-
-Calculate minor allele frequencies
-```{bash, maf4}
-echo '#!/bin/bash' > miaInbredFreq.sh
-for file in *bred.vcf; do
-echo "vcftools --vcf $file --freq --out ${file/.vcf/}" >> miaInbredFreq.sh
-done
-
-sbatch -e miaInbredFreq.e%j -o miaInbredFreq.o%j -p shortq7 --mail-user reckert2017@fau.edu --mail-type=ALL miaInbredFreq.sh
-```
-
-Combine into one file for analysis
-```{bash, maf5}
-for file in *bred.frq; do
-awk '{s=(NR==1)?"POP":"\t"FILENAME;$0=$0 OFS s}1' $file > $file.1;
-sed 's/.frq*$//g' $file.1 > $file.2;
-sed 's/:/\t/g' $file.2 > $file.3;
-done
-
-rm *.frq *.frq.1 *.frq.2
-
-for file in *.frq.3; do
-mv $file ${file/.3/}
-done
-
-for file in *Inbred.frq; do
-awk '{s=(NR==1)?"INBRED":"\tInbred";$0=$0 OFS s}1' $file > $file.1;
-done
-
-for file in *Outbred.frq; do
-awk '{s=(NR==1)?"INBRED":"\tOutbred";$0=$0 OFS s}1' $file > $file.1;
-done
-
-for file in *.frq.1; do
-mv $file ${file/.1/}
-done
-
-awk FNR!=1 *bred.frq > alleleFreq.txt
-
-echo -e "chrom\tpos\tnAlleles\tnChr\tmajAl\tmajFreq\tminAl\tminFreq\tpop\tinbred" | cat - alleleFreq.txt > fkSintInbredAlleleFreq.txt
-
-rm alleleFreq.txt
-
-```
+<br>
 
 ## P O P U L A T I O N &nbsp; S T R U C T U R E
 ***
+
+### pcangsd
+Using ```pcangsd``` to discern population structure
+
+```{bash, pcangsd install}
+cd ~/2bRAD/sint/fknms
+mkdir pcangsd
+cd pcangsd
+
+cp ../ANGSD/sintNoClones.beagle .
+gzip sintNoClones.beagle
+
+source activate 2bRAD
+
+echo '#!/bin/bash' > pcangsd.sh
+echo 'pcangsd -b sintNoClones.beagle.gz -o fkSintPcangsd --admix --inbreedSamples --pcadapt --selection' >> pcangsd
+
+launcher_creator.py -j pcangsd -n pcangsd -q shortq7 -t 06:00:00 -e $EMAIL -w 1 -N 1
+sbatch pcangsd.slurm
+
+```
+
 Calculate population structure from genotype likelihoods using ```NGSadmix``` for K from 2 to 11 : FIRST remove all clones/genotyping replicates! (we did this).
 ```{bash, ngsadmix}
 mkdir ../ngsAdmix
@@ -1129,6 +977,531 @@ zip -r fkSintQ.zip fkSintQ
 
 ```scp``` sintNoClones* to local machine for further analyses with ```R```
 
+### Running ANGSD within lineages
+Since we have 4 distinct lineages, we will pare down SNPs to only those found within all lineages. This helps avoid issues of ascertainment bias.
+
+```{bash, angsd lineage}
+cd ~/2bRAD/sint/fknms/ANGSD
+
+FILTERS="-uniqueOnly 1 -remove_bads 1 -minMapQ 20 -minQ 25 -dosnpstat 1 -doHWE 1 -hwe_pval 1e-5 -sb_pval 1e-5 -hetbias_pval 1e-5 -skipTriallelic 1 -snp_pval 1e-5 -minMaf 0.05"
+
+TODO="-doMajorMinor 1 -doMaf 1 -doGeno 8 -doPost 1 -doGlf 2"
+
+echo "angsd -b blueBams -GL 1 -P 1 $FILTERS $TODO -minInd 104 -out sintBlueSnps
+angsd -b tealBams -GL 1 -P 1 $FILTERS $TODO -minInd 32 -out sintTealSnps
+angsd -b greenBams -GL 1 -P 1 $FILTERS $TODO -minInd 24 -out sintGreenSnps
+angsd -b yellowBams -GL 1 -P 1 $FILTERS $TODO -minInd 12 -out sintYellowSnps" > kSnps
+
+launcher_creator.py -j kSnps -n kSnps -q shortq7 -t 06:00:00 -e $EMAIL -w 2 -N 1
+
+sbatch kSnps.slurm
+
+```
+<br>
+
+Filtering down the sites to those found within each lineage with the given ANGSD filtering criteria
+```{bash, angsd lineage2}
+for file in sint*Snps.geno.gz; do
+echo '#!/bin/bash' > ${file%%.*}.sh;
+echo "zcat $file | awk '{print \$1\"\t\"\$2}' > ${file%%.*}sites" >> ${file%%.*}.sh;
+sbatch -e ${file%%.*}.e%j -o ${file%%.*}.o%j -p shortq7 --mem=100GB --mail-user reckert2017@fau.edu --mail-type=ALL ${file%%.*}.sh;
+done
+
+srun awk '(++c[$0])==(ARGC-1)' *Snpssites > sitesToDo
+
+mkdir filteredSNPS
+
+mv sint*Snps* filteredSNPS/
+mv kSnps* filteredSNPS/
+
+```
+<br>
+
+Now index the sites file and run angsd on all samples with only the reduced number of sites using ```-sites``` flag
+
+```{bash, angsd lineage3}
+angsd sites index sitesToDo
+
+FILTERS="-uniqueOnly 1 -remove_bads 1 -minMapQ 20 -minQ 25 -dosnpstat 1 -doHWE 1 -hwe_pval 1e-5 -sb_pval 1e-5 -hetbias_pval 1e-5 -skipTriallelic 1 -snp_pval 1e-5 -minMaf 0.05"
+
+TODO="-doMajorMinor 1 -doMaf 1 -doCounts 1 -makeMatrix 1 -doIBS 1 -doCov 1 -doGeno 8 -doBcf 1 -doPost 1 -doGlf 2"
+
+echo "angsd -b bamsNoClones -sites sitesToDo -GL 1 -P 1 $FILTERS $TODO -minInd 176 -out sintFiltSnps" > sintFiltSnps
+
+launcher_creator.py -j sintFiltSnps -n sintFiltSnps -q shortq7 -t 06:00:00 -e $EMAIL -w 2 -N 1
+sbatch sintFiltSnps.slurm
+
+
+mv sintFilt* filteredSNPS/
+```
+<br>
+
+## I N B R E E D I N G &nbsp; A N D &nbsp; R E L A T E D N E S S
+
+### Running ngsRelate on filtered SNPs
+
+```{bash, relate}
+cd ~/2bRAD/sint/fknms/ANGSD
+
+FILTERS="-uniqueOnly 1 -remove_bads 1 -minMapQ 20 -minQ 25 -dosnpstat 1 -doHWE 1 -hwe_pval 1e-5 -sb_pval 1e-5 -hetbias_pval 1e-5 -skipTriallelic 1 -snp_pval 1e-5 -minMaf 0.05"
+
+TODO="-doMajorMinor 1 -doMaf 1 -doCounts 1 -makeMatrix 1 -doIBS 1 -doCov 1 -doGeno 8 -doBcf 1 -doPost 1 -doGlf 3"
+
+echo '#!/bin/bash' > sintFiltRelate.sh
+echo srun angsd -b bamsNoClones -GL 1 -sites sitesToDo $FILTERS $TODO -P 1 -minInd 176 -out sintFiltRelate >> sintFiltRelate.sh
+
+sbatch --mem=200GB -o sintFiltRelate.o%j -e sintFiltRelate.e%j -p shortq7 --mail-type=ALL --mail-user=reckert2017@fau.edu sintFiltRelate.sh
+
+cd ngsRelate
+mv ~/2bRAD/sint/fknms/ANGSD/*Relate* .
+
+zcat sintFiltRelate.mafs.gz | cut -f5 |sed 1d >freq
+
+echo '#!/bin/bash' > ngsFiltRelate.sh
+echo ngsRelate -g sintFiltRelate.glf.gz -n 220 -f freq  -O filtRelate >> ngsFiltRelate.sh
+
+sbatch -e ngsFiltRelate.e%j -o ngsFiltRelate.o%j --mem=200GB --mail-user reckert2017@fau.edu --mail-type=ALL ngsFiltRelate.sh
+
+```
+<br>
+
+## S I T E &nbsp; F R E Q U E N C Y &nbsp; S P E C T R A
+Running SFS calculations within lineage to use for Fst and to run ```StairwayPlot```
+
+```{bash, sfs}
+cd ~/2bRAD/sint/fknms/ANGSD
+
+## scp bamsClusters text file to directory
+
+awk 'BEGIN { FS=" " } $2 == "Blue" { print $1 }' bamsClusters >> blueBams
+awk 'BEGIN { FS=" " } $2 == "Teal" { print $1 }' bamsClusters >> tealBams
+awk 'BEGIN { FS=" " } $2 == "Green" { print $1 }' bamsClusters >> greenBams
+awk 'BEGIN { FS=" " } $2 == "Yellow" { print $1 }' bamsClusters >> yellowBams
+
+
+## No filters to distort allelic frequencies
+
+FILTERS="-uniqueOnly 1 -remove_bads 1 -skipTriallelic 1 -minMapQ 30 -minQ 35 -doHWE 1 -sb_pval 1e-5 -hetbias_pval 1e-5 -maxHetFreq 0.5"
+TODO="-doMajorMinor 1 -doMaf 1 -dosnpstat 1 -doPost 2 -doGeno 11 -doGlf 2"
+
+echo "angsd -b blueBams -GL 1 $FILTERS $TODO -P 1 -minInd 104 -out sintBlueSFS
+angsd -b tealBams -GL 1 $FILTERS $TODO -P 1 -minInd 32 -out sintTealSFS
+angsd -b greenBams -GL 1 $FILTERS $TODO -P 1 -minInd 24 -out sintGreenSFS
+angsd -b yellowBams -GL 1 $FILTERS $TODO -P 1 -minInd 12 -out sintYellowSFS" > sfsClusters
+
+launcher_creator.py -j sfsClusters -n sfsClusters -q shortq7 -t 06:00:00 -e $EMAIL -N 1
+sbatch sfsClusters.slurm
+
+
+for file in sint*SFS.geno.gz; do
+echo '#!/bin/bash' > ${file%%.*}.sh;
+echo "zcat $file | awk '{print \$1\"\t\"\$2}' > ${file%%.*}sites" >> ${file%%.*}.sh;
+sbatch -e ${file%%.*}.e%j -o ${file%%.*}.o%j -p longq7 --mem=100GB --mail-user reckert2017@fau.edu --mail-type=ALL ${file%%.*}.sh;
+done
+
+```
+<br>
+
+Now, compile common sites from all lineages using awk
+
+```{bash, sfs2}
+srun awk '(++c[$0])==(ARGC-1)' *SFSsites > sfsSitesToDo
+
+cat sfsSitesToDo | wc -l
+
+#index sites for ANGSD and re-run ANGSD using ```-sites```
+angsd sites index sfsSitesToDo
+
+export GENOME_FASTA=~/2bRAD/sint/fknms/mappedReads/sint_denovo_cc.fasta
+
+TODO="-doSaf 1 -ref $GENOME_FASTA -anc $GENOME_FASTA -doMaf 1 -doMajorMinor 4"
+
+echo "angsd -sites sfsSitesToDo -b blueBams -GL 1 -P 1 $TODO -out sintBlue
+angsd -sites sfsSitesToDo -b tealBams -GL 1 -P 1 $TODO -out sintTeal
+angsd -sites sfsSitesToDo -b greenBams -GL 1 -P 1 $TODO -out sintGreen
+angsd -sites sfsSitesToDo -b yellowBams -GL 1 -P 1 $TODO -out sintYellow" >sfs
+
+launcher_creator.py -j sfs -n sfs -q shortq7 -t 06:00:00 -e $EMAIL -N 1
+sbatch sfs.slurm
+
+```
+<br>
+
+Once all jobs run:
+```{bash, sfs3}
+mkdir ../SFS
+mv sfs* ../SFS
+mv sintBlue* ../SFS
+mv sintTeal* ../SFS
+mv sintGreen* ../SFS
+mv sintYellow* ../SFS
+
+cd ../SFS
+
+###-- 1d-SFS
+echo "realSFS sintBlue.saf.idx >sintBlue.sfs
+realSFS sintTeal.saf.idx >sintTeal.sfs
+realSFS sintGreen.saf.idx >sintGreen.sfs
+realSFS sintYellow.saf.idx >sintYellow.sfs" >realSFS
+
+launcher_creator.py -j realSFS -n realSFS -q shortq7 -t 06:00:00 -e $EMAIL -w 4 -N 1
+sbatch realSFS.slurm
+
+
+###-- 2d-SFS
+echo "realSFS sintBlue.saf.idx sintTeal.saf.idx -P 20 > pBlTl.sfs ; realSFS fst index sintBlue.saf.idx sintTeal.saf.idx -sfs pBlTl.sfs -fstout pBlTl
+realSFS sintBlue.saf.idx sintGreen.saf.idx -P 20 > pBlGn.sfs ; realSFS fst index sintBlue.saf.idx sintGreen.saf.idx -sfs pBlGn.sfs -fstout pBlGn
+realSFS sintBlue.saf.idx sintYellow.saf.idx -P 20 > pBlYl.sfs ; realSFS fst index sintBlue.saf.idx sintYellow.saf.idx -sfs pBlYl.sfs -fstout pBlYl
+realSFS sintTeal.saf.idx sintGreen.saf.idx -P 20 > pTlGn.sfs ; realSFS fst index sintTeal.saf.idx sintGreen.saf.idx -sfs pTlGn.sfs -fstout pTlGn
+realSFS sintTeal.saf.idx sintYellow.saf.idx -P 20 > pTlYl.sfs ; realSFS fst index sintTeal.saf.idx sintYellow.saf.idx -sfs pTlYl.sfs -fstout pTlYl
+realSFS sintGreen.saf.idx sintYellow.saf.idx -P 20 > pGnYl.sfs ; realSFS fst index sintGreen.saf.idx sintYellow.saf.idx -sfs pGnYl.sfs -fstout pGnYl" >2dSFS
+
+launcher_creator.py -j 2dSFS -n 2dSFS -q shortq7 -t 06:00:00 -e $EMAIL -w 20 -N 1
+sbatch 2dSFS.slurm
+
+```
+
+### Global Fst between lineages
+```{bash, fst}
+realSFS fst stats pBlYl.fst.idx
+realSFS fst stats pTlYl.fst.idx
+realSFS fst stats pGnYl.fst.idx
+realSFS fst stats pBlTl.fst.idx
+realSFS fst stats pBlGn.fst.idx
+realSFS fst stats pTlGn.fst.idx
+
+launcher_creator.py -j sintKFst -n sintKFst -q shortq7 -t 06:00:00 -e $EMAIL -N 1
+sbatch sintKFst.slurm
+
+```
+<br>
+
+### StairwayPlot2
+
+First, we filter Fst outliers from sites:
+```{bash, fst2}
+FILTERS="-minMapQ 20 -minQ 25 -minInd 88 -doHWE 1 -sb_pval 1e-5 -hetbias_pval 1e-5 -uniqueOnly 1 -remove_bads 1 -skipTriallelic 1 -snp_pval 1e-5 -minMaf 0.05"
+-sites sitesToDo -GL 1 -P 1 -uniqueOnly 1 -remove_bads 1 -minMapQ 20 -minQ 25 -dosnpstat 1 -doHWE 1 -hwe_pval 1e-5 -sb_pval 1e-5 -hetbias_pval 1e-5 -skipTriallelic 1 -snp_pval 1e-5 -minMaf 0.05 -doMajorMinor 1 -doMaf 1 -doCounts 1 -makeMatrix 1 -doIBS 1 -doCov 1 -doGeno 8 -doBcf 1 -doPost 1 -doGlf 2 -minInd 187 -out sintFiltSnps
+
+TODO="-doMajorMinor 4 -ref $GENOME_FASTA -doMaf 1 -dosnpstat 1 -doPost 2 -doBcf 1 --ignore-RG 0 -doGeno 11 -doCounts 1"
+
+
+mkdir ~/2bRAD/sint/fknms/filteredSNPS/bayescan
+cd ~/2bRAD/sint/fknms/filteredSNPS/bayescan
+
+```
+<br>
+
+Create a file called vcf2bayescan.spid containing this text:
+```{bash, spid}
+echo "############
+# VCF Parser questions
+PARSER_FORMAT=VCF
+# Do you want to include a file with population definitions?
+VCF_PARSER_POP_QUESTION=true
+# Only input following regions (refSeqName:start:end, multiple regions: whitespace separated):
+VCF_PARSER_REGION_QUESTION=
+# What is the ploidy of the data?
+VCF_PARSER_PLOIDY_QUESTION=DIPLOID
+# Only output following individuals (ind1, ind2, ind4, ...):
+VCF_PARSER_IND_QUESTION=
+# Output genotypes as missing if the read depth of a position for the sample is below:
+VCF_PARSER_READ_QUESTION=
+# Take most likely genotype if "PL" or "GL" is given in the genotype field?
+VCF_PARSER_PL_QUESTION=true
+# Do you want to exclude loci with only missing data?
+VCF_PARSER_EXC_MISSING_LOCI_QUESTION=false
+# Select population definition file:
+VCF_PARSER_POP_FILE_QUESTION=./bspops.txt
+# Only output SNPs with a phred-scaled quality of at least:
+VCF_PARSER_QUAL_QUESTION=
+# Do you want to include non-polymorphic SNPs?
+VCF_PARSER_MONOMORPHIC_QUESTION=false
+# Output genotypes as missing if the phred-scale genotype quality is below:
+VCF_PARSER_GTQUAL_QUESTION=
+# GESTE / BayeScan Writer questions
+WRITER_FORMAT=GESTE_BAYE_SCAN
+# Specify which data type should be included in the GESTE / BayeScan file  (GESTE / BayeScan can only analyze one data type per file):
+GESTE_BAYE_SCAN_WRITER_DATA_TYPE_QUESTION=SNP
+############" >vcf2bayescan.spid
+
+```
+<br> 
+
+Need a file "bspops" that has samples **in .bams order** with the assigned populations/lineages
+```{bash, pops}
+cp ../../ANGSD/bamsClusters ./bspops.txt
+
+cp ../ANGSD/sintFiltSnps.bcf .
+
+srun java -Xmx1024m -Xms512m -jar ~/bin/PGDSpider_2.0.7.1/PGDSpider2-cli.jar -inputfile sintFiltSnps.bcf -outputfile sintFilt.bayescan -spid vcf2bayescan.spid
+
+
+echo "bayescan sintFilt.bayescan -threads=100" >bayeScan
+
+launcher_creator.py -j bayeScan -n bayeScan -q mediumq7 -t 06:00:00 -e $EMAIL -N 5
+sbatch bayeScan.slurm
+
+cut -d" " -f2- sintFilt.baye_fst.txt > sintFst
+
+## removing all the .bcf data before snps
+tail --lines=+70 sintFiltSnps.bcf | cut -f 1,2 | paste --delimiters "\t" - sintFst > sint.baye_fst_pos.txt
+
+```
+<br>
+
+Identify sites with *q*-value < 0.5
+```{bash, fst filt}
+
+cp ../../ANGSD/sfsSitesToDo .
+
+awk '$5<0.5 {print $1"\t"$2}' sint.baye_fst_pos.txt > ss_bayeOuts
+
+grep -Fvxf ss_bayeOuts sfsSitesToDo > sitesToDo_filtBaye
+
+cp sitesToDo_filtBaye ../../ANGSD
+cd  ../../ANGSD
+
+angsd sites index sitesToDo_filtBaye
+
+export GENOME_FASTA=~/2bRAD/sint/fknms/mappedReads/sint_denovo_cc.fasta
+
+TODO="-doSaf 1 -anc $GENOME_FASTA -ref $GENOME_FASTA -doMaf 1 -doMajorMinor 4"
+
+echo "angsd -sites sitesToDo_filtBaye -b blueBams -GL 1 -P 1 $TODO -out sintBlueSFSbaye
+angsd -sites sitesToDo_filtBaye -b tealBams -GL 1 -P 1 $TODO -out sintTealSFSbaye
+angsd -sites sitesToDo_filtBaye -b greenBams -GL 1 -P 1 $TODO -out sintGreenSFSbaye
+angsd -sites sitesToDo_filtBaye -b yellowBams -GL 1 -P 1 $TODO -out sintYellowSFSbaye" >sfs_filtBaye
+
+launcher_creator.py -j sfs_filtBaye -n sfs_filtBaye -q shortq7 -t 06:00:00 -e $EMAIL -N 1
+sbatch sfs_filtBaye.slurm
+
+mv *SFS* ../SFS
+mv *sfs* ../SFS
+
+```
+
+Generating per-population SFS
+```{bash, sfs4}
+cd ../SFS
+
+echo "realSFS sintBlueSFSbaye.saf.idx -fold 1 >sintFiltBlue.sfs
+realSFS sintTealSFSbaye.saf.idx -fold 1 >sintFiltTeal.sfs
+realSFS sintGreenSFSbaye.saf.idx -fold 1 >sintFiltGreen.sfs
+realSFS sintYellowSFSbaye.saf.idx -fold 1 >sintFiltYellow.sfs" >sintFiltSFS
+
+launcher_creator.py -j sintFiltSFS -n sintFiltSFS -q shortq7 -t 06:00:00 -e $EMAIL -N 1
+sbatch sintFiltSFS.slurm
+
+```
+<br>
+
+Making blueprint files for StairwayPlot
+```{bash, swplot}
+mkdir swPlot
+cd swPlot
+
+# SWplot only wants the mutations, so have to omit first number in SFS file (0 mutations).
+
+# L = cat sitesToDo_filtBaye | wc -l 
+# which in our case =1830041
+
+echo "#input setting
+popid: sintBlue # id of the population (no white space)
+nseq: 262 # number of sequences (2*n)
+L: 1830041 # total number of observed nucleic sites, including polymorphic and monomorphic
+whether_folded: true # whethr the SFS is folded (true or false)
+SFS: 54968.740090 18444.475031 9443.254125 6460.637387 4497.061230 3519.062453 2895.388432 2422.638318 1956.686134 1717.620993 1378.797384 1416.463385 1227.364278 1021.759822 1073.007228 873.080148 845.752484 800.981800 595.181349 794.836408 571.203766 628.706337 527.980210 429.664844 721.559927 315.050869 481.708978 307.300287 394.221545 394.074502 466.456788 274.440765 363.386447 273.479395 296.832588 320.575804 315.126815 252.266556 213.566298 275.958738 257.535768 185.436902 340.324052 175.413491 179.986660 138.658719 287.299094 47.316965 238.946119 266.961035 111.840623 223.114384 45.279077 165.697377 296.385206 83.585503 214.297286 125.366633 111.661200 219.281119 139.052795 160.386831 131.614256 76.786039 157.239727 159.636010 60.218127 143.194085 99.001725 148.481068 84.514873 126.043678 104.077862 96.209692 141.031878 149.956901 101.599229 56.392862 101.079956 80.280370 135.261593 40.235595 27.424630 121.969309 189.776245 74.226144 50.242446 84.001571 107.542195 31.137798 29.916997 67.201712 131.755256 60.641361 64.148078 116.233605 108.268881 36.805898 51.451547 51.855920 67.043933 99.173703 25.902900 28.275804 101.866575 47.917146 36.437218 48.157593 146.198005 27.417829 34.145564 72.762140 95.264702 6.290856 58.686022 89.500602 76.097667 40.816598 63.178597 39.973295 69.971593 108.340421 51.045114 61.909694 103.159211 33.569557 142.186072 6.764939 112.449083 86.473221 155.056690
+#smallest_size_of_SFS_bin_used_for_estimation: 1 # default is 1; to ignore singletons, uncomment this line and change this number to 2
+#largest_size_of_SFS_bin_used_for_estimation: 131 # default is nseq/2 for folded SFS
+pct_training: 0.67 # percentage of sites for training
+nrand: 65 130 195 260 # number of random break points for each try (separated by white space)
+project_dir: sintBlue # project directory
+stairway_plot_dir: $HOME/bin/stairway_plot/stairway_plot_es # directory to the stairway plot files
+ninput: 200 # number of input files to be created for each estimation
+#random_seed: 6
+#output setting
+mu: 2e-8 # assumed mutation rate per site per generation
+year_per_generation: 15 # assumed generation time (in years)
+#plot setting
+plot_title: sintBlue # title of the plot
+xrange: 0.1,10000 # Time (1k year) range; format: xmin,xmax; "0,0" for default
+yrange: 0,0 # Ne (1k individual) range; format: xmin,xmax; "0,0" for default
+xspacing: 2 # X axis spacing
+yspacing: 2 # Y axis spacing
+fontsize: 12 # Font size" >sintBlue.blueprint
+
+
+echo "#input setting
+popid: sintTeal # id of the population (no white space)
+nseq: 80 # number of sequences ->
+L: 1830041 # total number of observed nucleic sites, including polymorphic and monomorphic
+whether_folded: true # whethr the SFS is folded (true or false)
+SFS: 19027.916655 8774.712038 5079.474815 3679.957335 2677.663655 2157.865160 1778.801580 1440.323144 1319.701029 998.536711 934.144099 871.915368 812.451003 750.938932 623.670542 540.641827 671.476401 526.080209 501.266127 456.155482 447.647628 330.610513 426.093935 326.858819 276.638676 294.294057 347.649095 269.002785 189.682393 303.585744 226.318022 274.625068 201.149769 196.103761 173.848938 191.193373 267.200748 249.900867 248.353637 325.131914
+#smallest_size_of_SFS_bin_used_for_estimation: 1 # default is 1; to ignore singletons, uncomment this line and change this number to 2
+#largest_size_of_SFS_bin_used_for_estimation: 80 # default is nseq/2 for folded SFS
+pct_training: 0.67 # percentage of sites for training
+nrand: 19 39 58 78 # number of random break points for each try (separated by white space)
+project_dir: sintTeal # project directory
+stairway_plot_dir: $HOME/bin/stairway_plot/stairway_plot_es # directory to the stairway plot files
+ninput: 200 # number of input files to be created for each estimation
+#random_seed: 6
+#output setting
+mu: 2e-8 # assumed mutation rate per site per generation
+year_per_generation: 15 # assumed generation time (in years)
+#plot setting
+plot_title: sintTeal # title of the plot
+xrange: 0.1,10000 # Time (1k year) range; format: xmin,xmax; "0,0" for default
+yrange: 0,0 # Ne (1k individual) range; format: xmin,xmax; "0,0" for default
+xspacing: 2 # X axis spacing
+yspacing: 2 # Y axis spacing
+fontsize: 12 # Font size" >sintTeal.blueprint
+
+
+echo "#input setting
+popid: sintGreen # id of the population (no white space)
+nseq: 62 # number of sequences
+L: 1830041 # total number of observed nucleic sites, including polymorphic and monomorphic
+whether_folded: true # whethr the SFS is folded (true or false)
+SFS: 18387.776643 7847.061378 4651.990927 3141.107325 2303.550391 1773.451011 1508.736063 1285.307124 1143.097857 949.314445 859.933600 748.766734 719.856903 655.836831 564.083017 512.608619 517.212306 456.491290 461.208427 387.023802 341.543152 363.322278 311.201884 282.317211 353.999771 232.677877 288.694402 321.652486 380.855557 268.842073 519.097976
+#smallest_size_of_SFS_bin_used_for_estimation: 1 # default is 1; to ignore singletons, uncomment this line and change this number to 2
+#largest_size_of_SFS_bin_used_for_estimation: 80 # default is nseq/2 for folded SFS
+pct_training: 0.67 # percentage of sites for training
+nrand: 15 30 45 60 # number of random break points for each try (separated by white space)
+project_dir: sintGreen # project directory
+stairway_plot_dir: $HOME/bin/stairway_plot/stairway_plot_es # directory to the stairway plot files
+ninput: 200 # number of input files to be created for each estimation
+#random_seed: 6
+#output setting
+mu: 2e-8 # assumed mutation rate per site per generation
+year_per_generation: 15 # assumed generation time (in years)
+#plot setting
+plot_title: sintGreen # title of the plot
+xrange: 0.1,10000 # Time (1k year) range; format: xmin,xmax; "0,0" for default
+yrange: 0,0 # Ne (1k individual) range; format: xmin,xmax; "0,0" for default
+xspacing: 2 # X axis spacing
+yspacing: 2 # Y axis spacing
+fontsize: 12 # Font size" >sintGreen.blueprint
+
+
+echo "#input setting
+popid: sintYellow # id of the population (no white space)
+nseq: 30 # number of sequences
+L: 1830041 # total number of observed nucleic sites, including polymorphic and monomorphic 
+whether_folded: true # whethr the SFS is folded (true or false)
+SFS: 16199.629544 7221.873982 4153.983827 2802.707609 2381.014773 1825.956297 1494.476878 1079.971463 1099.834349 768.376639 713.072962 618.778692 676.597541 626.859962 790.416252
+#smallest_size_of_SFS_bin_used_for_estimation: 1 # default is 1; to ignore singletons, uncomment this line and change this number to 2
+#largest_size_of_SFS_bin_used_for_estimation: 80 # default is nseq/2 for folded SFS
+pct_training: 0.67 # percentage of sites for training
+nrand: 7 14 21 28 # number of random break points for each try (separated by white space)
+project_dir: sintYellow # project directory
+stairway_plot_dir: $HOME/bin/stairway_plot/stairway_plot_es # directory to the stairway plot files
+ninput: 200 # number of input files to be created for each estimation
+#random_seed: 6
+#output setting
+mu: 2e-8 # assumed mutation rate per site per generation
+year_per_generation: 15 # assumed generation time (in years)
+#plot setting
+plot_title: sintYellow # title of the plot
+xrange: 0.1,10000 # Time (1k year) range; format: xmin,xmax; "0,0" for default
+yrange: 0,0 # Ne (1k individual) range; format: xmin,xmax; "0,0" for default
+xspacing: 2 # X axis spacing
+yspacing: 2 # Y axis spacing
+fontsize: 12 # Font size" >sintYellow.blueprint
+
+```
+
+
+Create batch files and launch:
+```{bash, swplot2}
+for blueprint in *blueprint; do
+java -cp $HOME/bin/stairway_plot/stairway_plot_es Stairbuilder $blueprint;
+done
+
+
+# split each .sh script and launch all (second job waiting with dependency on first finishing)
+
+for file in *.sh; do
+grep -B 805 "# Step 2: determine number of break points" $file > ${file%.*}1;
+grep -A 805 "# Step 2: determine number of break points" $file > ${file%.*}2;
+echo '#!/bin/bash' | cat - ${file%.*}2 >temp;
+mv temp ${file%.*}2;
+launcher_creator.py -j ${file%.*}1 -n ${file%.*}1 -q shortq7 -t 06:00:00 -e $EMAIL -N 5;
+DEP=$(sbatch ${file%.*}1.slurm) && sbatch --dependency=afterok:${DEP##* } -e ${file%.*}2.e%j -o ${file%.*}2.o%j -p shortq7 --mem=200GB --mail-user reckert2017@fau.edu --mail-type=ALL ${file%.*}2;
+done
+
+launcher_creator.py -j sintYellow.blueprint1 -n sintYellow.blueprint1 -q shortq7 -t 06:00:00 -e $EMAIL -N 5;
+DEP=$(sbatch sintYellow.blueprint1.slurm) && sbatch --dependency=afterok:${DEP##* } -e sintYellow.blueprint2.e%j -o sintYellow.blueprint2.o%j -p shortq7 --mem=200GB --mail-user reckert2017@fau.edu --mail-type=ALL sintYellow.blueprint2;
+
+```
+
+After all have run:
+```{bash, swplot4}
+mv sint*/*final.summary .
+
+```
+<br>
+
+## H E T E R O Z Y G O S I T Y
+***
+Calculating Heterozygosity across all loci (variant//invariant) using ```ANGSD``` and ```R``` script from Misha Matz (https://github.com/z0on/2bRAD_denovo)
+
+```{bash, het}
+cd ~/2bRAD/sint/fknms/ANGSD
+cp ../SFS/sfsSitesToDo .
+
+angsd sites index sfsSitesToDo
+
+export GENOME_FASTA=~/2bRAD/sint/fknms/mappedReads/sint_denovo_cc.fasta
+
+FILTERS="-maxHetFreq 0.5 -uniqueOnly 1 -remove_bads 1 -skipTriallelic 1 -minMapQ 25 -minQ 30 -doHWE 1 -sb_pval 1e-5 -hetbias_pval 1e-5 -minInd 187"
+TODO="-ref $GENOME_FASTA -makeMatrix 1 -doIBS 1 -doCov 1 -doGeno 32 -doPost 1 -doGlf 2 -doCounts 1 -doMajorMinor 1 -dosnpstat 1 -doMaf 1"
+
+echo "angsd -sites sfsSitesToDo -b bamsNoClones -GL 1 -P 1 $TODO $FILTERS -out sintHet" >angsdHet
+
+launcher_creator.py -j angsdHet -n angsdHet -q shortq7 -t 06:00:00 -e $EMAIL -N 1
+sbatch angsdHet.slurm
+
+mkdir ../heterozygosity
+cp sintHet* ../heterozygosity/
+
+cd ../heterozygosity
+
+echo heterozygosity_beagle.R sintHet.beagle.gz >filtHet
+
+launcher_creator.py -j filtHet -n filtHet -q mediumq7 -t 24:00:00 -e $EMAIL -N 1
+sbatch filtHet.slurm
+
+tail -n 220 filtHet.e* > sintHet
+
+```
+
+## N U C L E O T I D E &nbsp; D I V E R S I T Y
+
+```{bash, nd}
+cd ~/2bRAD/sint/fknms/
+mkdir theta
+cd ANGSD
+
+GENOME_FASTA=~/2bRAD/sint/fknms/mappedReads/sint_denovo_cc.fasta
+
+>kThetas
+
+for POP in yellow green teal blue; do
+echo "angsd -b ${POP}Bams -GL 1 -P 1 -sites sitesToDo_filtBaye -anc $GENOME_FASTA -doSaf 1 -out ${POP}Out &&\
+realSFS ${POP}Out.saf.idx -fold 1 > ${POP}Out.sfs &&\
+realSFS saf2theta ${POP}Out.saf.idx -sfs ${POP}Out.sfs -outname ${POP} -fold 1 &&\
+thetaStat do_stat ${POP}.thetas.idx" >> kThetas
+done
+
+launcher_creator.py -j kThetas -n kThetas -q shortq7 -t 6:00:00 -e $EMAIL -w 4 -N 1
+sbatch kThetas.slurm
+
+mv *theta* ../theta
+
+```
+<br>
+
 ## M I G R A T I O N &nbsp; M O D E L I N G
 To use BayesAss3 (XXX) we first need to convert our ANGSD output into genotype format 
 ```{bash, bayesass}
@@ -1184,7 +1557,7 @@ echo "java -Xmx1024m -Xms512m -jar $pgdSpider -inputformat VCF -outputformat IMM
 sbatch -e pgdSpider.e%j -o pgdSpider.o%j -p mediumq7 --mail-user reckert2017@fau.edu --mail-type=ALL pgdSpider.sh
 
 ```
-
+<br>
 
 ```{sh, bayesass2}
 ## Default params:
@@ -1194,14 +1567,6 @@ sbatch -e pgdSpider.e%j -o pgdSpider.o%j -p mediumq7 --mail-user reckert2017@fau
 #delta migration (1): 0.1
 #delta allele freq (3): 0.1
 #delta inbreeding (4): 0.1
-
-## Herrera params:
-#MCMC reps: 100,000,000
-#burn in: 50,000,000
-#sampling freq: 1,000
-#delta migration: 0.35
-#delta allele freq: 0.9
-#delta inbreeding: 0.09
 
 rm sintNoClones.bcf
 rm fkSintBsPops.txt
@@ -1216,6 +1581,7 @@ echo '#!/bin/bash' > BATest
 echo BA3SNP -v -i 5000000 -b 500000 -n 100 fkSintBayesAss.txt >> BATest
 
 sbatch -e BATest.e%j -o BATest.o%j -p shortq7 --mail-user reckert2017@fau.edu --mail-type=ALL BATest
+
 #logP(M): -638.54 logL(G): -3494125.80 logL: -3494764.33 % done: [0.00] % accepted: (0.41, 0.01, 0.80, 0.06, 0.76)
 
 # we are looking for 20—60% acceptance, ideally somewhere near 20—30%
@@ -1244,16 +1610,6 @@ Make and launch 10 iterations of BayesAss, each in its own run directory so we c
 
 ```{sh, bayesass3}
 module load gcc-9.2.0-gcc-8.3.0-ebpgkrt gsl-2.5-gcc-9.2.0-i6lf4jb netlib-lapack-3.9.1-gcc-9.2.0-gcqg2b2 BayesAss/3.0.4.2
-
-#for i in {01..10}; do
-#echo '#!/bin/bash' > BayesAss$i.sh
-#echo BA3SNP -v -u -s $RANDOM -i 5000000 -b 500000 -n 100 -m 0.2 -a 0.6 -f 0.025 -t -o fkSintBARun${i}Out.txt ../fkSintBayesAss.txt >> BayesAss$i.sh;
-#mkdir run$i;
-#mv BayesAss$i.sh run$i;
-#cd run$i;
-#sbatch -e BayesAss$i.e%j -o BayesAss$i.o%j -p longq7 --mail-user reckert2017@fau.edu --mail-type=ALL BayesAss$i.sh
-#cd ..;
-#done
 
 for i in {01..10}; do
 echo '#!/bin/bash' > BayesAss$i.sh

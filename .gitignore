@@ -7,4 +7,5 @@ lab/2bRAD/*.png
 lab/2bRAD/*.pdf
 lab/2bRAD/*.emf
 figures/*.svg
-figures/presentations
+figures/poster
+code/*.RData*
