@@ -10,7 +10,7 @@ output:
 knit: (function(input, ...) {
     rmarkdown::render(
       input,
-      output_file = '../data/index.html',
+      output_file = '../code/index.html',
       envir = globalenv()
     )
   })
