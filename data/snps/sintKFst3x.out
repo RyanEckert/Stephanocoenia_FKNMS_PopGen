@@ -1,0 +1,7 @@
+pop1	pop2	fst	weightedFst
+Blue	Yellow	0.005407	0.162474
+Teal	Yellow	0.009443	0.184036
+Green	Yellow	0.011405	0.209234
+Blue	Teal	0.002585	0.047964
+Blue	Green	0.006805	0.185205
+Teal	Green	0.010492	0.210652

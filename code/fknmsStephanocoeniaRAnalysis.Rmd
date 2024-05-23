@@ -58,11 +58,11 @@ if (!require("pacman")) install.packages("pacman")
 
 pacman::p_load_gh("pmartinezarbizu/pairwiseAdonis/pairwiseAdonis", "ropensci/rnaturalearthhires", "KarstensLab/microshades")
 
-pacman::p_load("cowplot", "car", "ggrepel", "ggspatial", "paletteer", "patchwork", "rgdal", "rnaturalearth", "sf", "Hmisc", "MCMC.OTU", "pairwiseAdonis", "RColorBrewer", "Redmonder", "flextable", "lubridate", "officer", "adegenet", "dendextend", "gdata", "ggdendro", "hierfstat", "kableExtra", "poppr", "reshape2", "StAMPP", "vcfR", "vegan", "boa", "magick", "rgeos", "sdmpredictors", "ggcorrplot", "tidyverse", "TeachingDemos", "LaplacesDemon", "adespatial", "ggnewscale", "ggbeeswarm", "multcomp", "rstatix", "R.utils")
+pacman::p_load("cowplot", "car", "ggrepel", "ggspatial", "paletteer", "patchwork", "rgdal", "rnaturalearth", "sf", "Hmisc", "MCMC.OTU", "pairwiseAdonis", "RColorBrewer", "Redmonder", "flextable", "lubridate", "officer", "adegenet", "dendextend", "gdata", "ggdendro", "hierfstat", "kableExtra", "poppr", "reshape2", "StAMPP", "vcfR", "vegan", "boa", "magick", "rgeos", "sdmpredictors", "ggcorrplot", "tidyverse", "TeachingDemos", "LaplacesDemon", "adespatial", "ggnewscale", "ggbeeswarm", "multcomp", "rstatix", "R.utils", "graph4lg")
 
 options("scipen" = 10)
 
-load("fknmsSint.RData")
+# load("fknmsSint.RData")
 
 ```
 
@@ -70,19 +70,26 @@ load("fknmsSint.RData")
 
 Making color palettes to use throughout all plots
 ```{r, colors}
-flPal = c(paletteer_d("vapoRwave::jazzCup")[c(1, 3:4)], "#4B31B3")
+# flPal = c(paletteer_d("vapoRwave::jazzCup")[c(1, 3:4)], "#4B31B3")
+# flPal = c("#D72000", "#FFAD0A", "#1BB6AF", "#132157")
+# flPal = c("#E73F74", "#F2B701", "#3969AC", "#7F3C8D")
+
+flPal = paletteer_c("viridis::turbo", n = 9, direction = -1)[c(6:9)]
 
 boundPal = c("gray30", paletteer_d("vapoRwave::vapoRwave")[10])
 
-teal = "#089099FF"
+pink = "#FF6A8BFF"
 
 purple = paletteer_d("vapoRwave::vapoRwave")[10]
 
-kColPal = c(paletteer_d("rcartocolor::BluYl")[c(7, 5, 3)], "#f5e97a", "lavender")
+kColPal = c(paletteer_d("rcartocolor::BluYl")[c(7, 5, 3)], "#f5e97a", "azure3")
 
 profPal = rev(c(microshades_palette("micro_green", 5), microshades_palette("micro_cvd_turquoise", 5),  microshades_palette("micro_cvd_orange", 3),microshades_palette("micro_cvd_purple", 1, lightest = F), microshades_palette("micro_purple", 5)))
 
-colPalZoox = c("#807dba", "#F09163", "#48C9B0", "#FEEDA0")
+# colPalZoox = c("#807dba", "#F09163", "#48C9B0", "#FEEDA0")
+
+# colPalZoox = c("#6A4C93",  "#0091AD", "#ACF39D", "#FF007F")
+colPalZoox = c("#6A4C93",  "#1BE7FF", "#c6fca2", "#FF7C96")
 
 ```
 
@@ -127,13 +134,13 @@ arrow and scale bar to the main map.
 
 ```{r, maps}
 floridaMap = ggplot() +
-  geom_polygon(data = fknmsBounds[fknmsBounds$type == "Sanctuary",], aes(x = long, y = lat, group = location), alpha = 0.1, fill = "black", color = NA) +
+  geom_polygon(data = fknmsBounds[fknmsBounds$type == "Sanctuary",], aes(x = long, y = lat, group = location), alpha = 0.1, fill = "black", color =  "black") +
   geom_polygon(data = fknmsBounds[fknmsBounds$location == "FKNMS2",], aes(x = long, y = lat), fill = "aliceblue", color = NA) +
-  geom_polygon(data = fknmsBounds, aes(x = long, y = lat, color = type, group = location), fill = NA) +
+  # geom_polygon(data = fknmsBounds, aes(x = long, y = lat, color = type, group = location), fill = NA, linewidth = 0) +
   scale_fill_manual(values = flPal, name = "Site") +
   scale_color_manual(values = boundPal, name = "Boundaries", labels = c("FKNMS", "SPA")) +
-  geom_point(data = fknmsSites, aes(x = longDD, y = latDD, shape = depthZone), size = 0) +
-  scale_shape_manual(values = c(24, 25), name = "Depth") +
+  geom_point(data = fknmsSites, aes(x = longDD, y = latDD, shape = depthZone), color = NA, fill = NA) +
+  scale_shape_manual(values = c(21, 23), name = "Depth") +
   geom_sf(data = florida, fill = "white", linewidth = 0.15) +
   geom_sf(data = cuba, fill = "white", linewidth = 0.15) +
   geom_sf(data = bahamas, fill = "white", linewidth = 0.15) +
@@ -143,15 +150,15 @@ floridaMap = ggplot() +
   geom_segment(aes(x = -81.45, y = 24.7, xend = -80.78, yend = 24.28), linewidth = 0.25) +
   geom_segment(aes(x = -83.25, y = 24.75, xend = -84.183, yend = 24.28), linewidth = 0.25) +
   geom_segment(aes(x = -82.95, y = 24.75, xend = -82.74, yend = 24.28), linewidth = 0.25) +
-  geom_rect(aes(xmin = -80.4, xmax = -80.1, ymin = 25, ymax = 25.3), fill = teal, color = "black", linewidth = 0.25, alpha = 0.5) +
-  geom_rect(aes(xmin = -81.75, xmax = -81.45, ymin = 24.4, ymax = 24.7), fill = teal, color = "black", linewidth = 0.25, alpha = 0.5) +
-  geom_rect(aes(xmin = -83.25, xmax = -82.95, ymin = 24.45, ymax = 24.75), fill = teal, color = "black", linewidth = 0.25, alpha = 0.5) +
-  geom_point(data = fknmsPops, aes(x = longDD, y = latDD, fill = site), shape = 21, size = 2) +
+  geom_rect(aes(xmin = -80.4, xmax = -80.1, ymin = 25, ymax = 25.3), fill = NA, color = "black", linewidth = 0.25, alpha = 0.5) +
+  geom_rect(aes(xmin = -81.75, xmax = -81.45, ymin = 24.4, ymax = 24.7), fill = NA, color = "black", linewidth = 0.25, alpha = 0.5) +
+  geom_rect(aes(xmin = -83.25, xmax = -82.95, ymin = 24.45, ymax = 24.75), fill = NA, color = "black", linewidth = 0.25, alpha = 0.5) +
+  geom_point(data = fknmsPops, aes(x = longDD, y = latDD, fill = site), shape = 22, size = 2) +
   coord_sf(xlim = c(-84, -79), ylim = c(23, 27)) +
   scale_x_continuous(breaks = c(seq(-84, -79, by = 1))) +
   scale_y_continuous(breaks = c(seq(23, 27, by = 1))) +
-  annotation_scale(location = "br", pad_x = unit(1.35, "cm"), text_pad = unit(-3.75, "cm")) +
-  guides(fill = guide_legend(override.aes = list(shape = 22, color = "black", size = 2, stroke = 0.25), order = 1), shape = guide_legend(override.aes = list(size = 2, stroke = 0.25), order = 2), color = "none") +
+  annotation_scale(location = "br", pad_x = unit(1.35, "cm"), text_pad = unit(-4, "cm")) +
+  guides(fill = guide_legend(override.aes = list(shape = 22, color = "black", size = 2, stroke = 0.25), order = 1), shape = guide_legend(override.aes = list(size = c(2.25, 2), stroke = 0.25, color = "black"), order = 2), color = "none") +
   theme_bw() +
   theme(panel.background = element_rect(fill = "aliceblue"),
 
@@ -169,12 +176,12 @@ floridaMap = ggplot() +
         legend.background = element_blank()
         )
 
-# floridaMap
+floridaMap
 
 largeMap = inset = ggplot() +
   geom_sf(data = states, fill = "white", linewidth = 0.3) +
   geom_sf(data = countries, fill = "white", linewidth = 0.3) +
-  geom_rect(aes(xmin = -84, xmax = -79, ymin = 23, ymax = 27), color = teal, fill = teal, alpha = 0.25, linewidth = 0.5) +
+  geom_rect(aes(xmin = -84, xmax = -79, ymin = 23, ymax = 27), color = "black", fill = NA, alpha = 0.25, linewidth = 0.5) +
   geom_rect(aes(xmin = -78.8, xmax = -77, ymin = 22.2, ymax = 22.6), fill = "aliceblue", color = NA) +
   annotation_scale(location = "bl", pad_x = unit(2.25, "cm")) +
   annotation_north_arrow(location = "tr", style = north_arrow_minimal(), pad_x = unit(-0.3, "cm")) +
@@ -199,9 +206,10 @@ inset = ggplot() +
   geom_polygon(data = fknmsBounds, aes(x = long, y = lat, color = type, group = location), fill = NA) +
   scale_fill_manual(values = flPal, name = "Site") +
   scale_color_manual(values = boundPal, name = "Boundaries", labels = c("FKNMS", "SPA")) +
-  geom_point(data = fknmsSampleSites, aes(x = longDD, y = latDD, fill = site, shape = depthZone), size = 1.5) +
+  geom_point(data = fknmsSampleSites, aes(x = longDD, y = latDD, fill = site, shape = depthZone, size = depthZone)) +
   geom_sf(data = florida, fill = "white", size = 0.15) +
-  scale_shape_manual(values = c(24, 25), name = "Depth") +
+  scale_shape_manual(values = c(21, 23), name = "Depth") +
+  scale_size_manual(values = c(1.625, 1.5)) +
   theme_bw() +
   theme(legend.title = element_text(size = 9, face = "bold"),
         axis.ticks = element_blank(),
@@ -234,9 +242,10 @@ dryTortugas = ggplot() +
   geom_polygon(data = fknmsBounds, aes(x = long, y = lat, color = type, group = location), fill = NA) +
   scale_fill_manual(values = flPal, name = "Site") +
   scale_color_manual(values = boundPal, name = "Boundaries", labels = c("FKNMS", "SPA")) +
-  geom_point(data = fknmsSites, aes(x = longDD, y = latDD, fill = site, shape = depthZone), size = 1.5) +
+  geom_point(data = fknmsSites, aes(x = longDD, y = latDD, fill = site, shape = depthZone, size = depthZone)) +
   geom_sf(data = florida, fill = "white", size = 0.25) +
-  scale_shape_manual(values = c(24, 25), name = "Depth") +
+  scale_shape_manual(values = c(21, 23), name = "Depth") +
+  scale_size_manual(values = c(1.625, 1.5)) +
   annotation_scale(location = "bl", pad_x = unit(1.9, "cm")) +
   coord_sf(xlim = c(-83.25, -82.95), ylim = c(24.45, 24.75)) +
   scale_x_continuous(breaks = c(seq(-83.2, -82.9, by = .1))) +
@@ -253,6 +262,7 @@ dryTortugas = ggplot() +
 
 ```
 
+
 ```{r, map with admixture}
 popData = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% dplyr::select("sample" = tubeID, "pop" = site, "depth" = depthZone, "depthm" = depthM)
 
@@ -260,7 +270,7 @@ popData$popdepth = as.factor(paste(popData$pop, popData$depth, sep = ""))
 
 popData$popdepth = factor(popData$popdepth, levels(popData$popdepth)[c(4, 3, 6, 5, 2, 1, 8, 7)])
 
-pcadmix = read.table("../data/snps/k/ClumppK4.output") %>%dplyr::select(V6, V7, V8, V9)
+pcadmix = read.table("../data/snps/k/Clumpp3xK4.output") %>%dplyr::select(V6, V7, V8, V9)
 pcadmix %>% summarise(sum(V6),sum(V7), sum(V8), sum(V9)) 
 
 pcadmix = popData %>% cbind(pcadmix) %>% rename("cluster1" = "V6", "cluster2" = "V7", "cluster3" = "V8", "cluster4" = "V9") %>%dplyr::select(order(colnames(.))) 
@@ -282,7 +292,7 @@ pieDf = siteLineages %>% group_by(popdepth) %>% mutate("ymax" = cumsum(Freq)) %>
 ukMeso = ggplot() +
     geom_rect(aes(ymax=1, ymin = 0, xmax = 4, xmin = 2), fill = flPal[1], alpha = 1) +
   geom_rect(data = pieDf%>% filter(popdepth == "UpperKeysMesophotic"), aes(ymax=ymax, ymin = ymin, xmax = 4, xmin = 3, fill = cluster), color = "black", size = 0.25) +
-  annotate(geom = "text", x = 2, y = 0.75, label = "43.9", size = 2.5, fontface = "bold") +
+  annotate(geom = "text", x = 2, y = 0.75, label = "43.9", size = 2.5, fontface = "bold", color = "black") +
   scale_fill_manual(values = pieCol)+
   coord_polar(theta="y") +
   xlim(c(2, 4)) +
@@ -302,7 +312,7 @@ lkMeso = ggplot() +
 tbMeso = ggplot() +
     geom_rect(aes(ymax=1, ymin = 0, xmax = 4, xmin = 2), fill = flPal[3], alpha = 1) +
   geom_rect(data = pieDf%>% filter(popdepth == "TortugasBankMesophotic"), aes(ymax=ymax, ymin = ymin, xmax = 4, xmin = 3, fill = cluster), color = "black", size = 0.25) +
-  annotate(geom = "text", x = 2, y = 0.75, label = "32.0", size = 2.5, fontface = "bold", color = "#ffffff") +
+  annotate(geom = "text", x = 2, y = 0.75, label = "32.0", size = 2.5, fontface = "bold", color = "white") +
   scale_fill_manual(values = pieCol)+
   coord_polar(theta="y") +
   xlim(c(2, 4)) +
@@ -312,7 +322,7 @@ tbMeso = ggplot() +
 rhMeso = ggplot() +
     geom_rect(aes(ymax=1, ymin = 0, xmax = 4, xmin = 2), fill = flPal[4], alpha = 1) +
   geom_rect(data = pieDf %>% filter(popdepth == "Riley'sHumpMesophotic"), aes(ymax=ymax, ymin = ymin, xmax = 4, xmin = 3, fill = cluster), color = "black", size = 0.25) +
-  annotate(geom = "text", x = 2, y = 0.75, label = "33.2", size = 2.5, fontface = "bold", color = "#ffffff") +
+  annotate(geom = "text", x = 2, y = 0.75, label = "33.2", size = 2.5, fontface = "bold", color = "white") +
   scale_fill_manual(values = pieCol)+
   coord_polar(theta="y") +
   xlim(c(2, 4)) +
@@ -320,9 +330,9 @@ rhMeso = ggplot() +
   theme(legend.position = "none", panel.background = element_blank())
 
 ukShal = ggplot() +
-    geom_rect(aes(ymax=1, ymin = 0, xmax = 4, xmin = 2), fill = "#BCF5F7") +
+    geom_rect(aes(ymax=1, ymin = 0, xmax = 4, xmin = 2), fill = flPal[1]) +
   geom_rect(data = pieDf%>% filter(popdepth == "UpperKeysShallow"), aes(ymax=ymax, ymin = ymin, xmax = 4, xmin = 3, fill = cluster), color = "black", size = 0.25) +
-  annotate(geom = "text", x = 2, y = 0.75, label = "23.6", size = 2.5, fontface = "bold") +
+  annotate(geom = "text", x = 2, y = 0.75, label = "23.6", size = 2.5, fontface = "bold", color = "black") +
   scale_fill_manual(values = pieCol)+
   coord_polar(theta="y") +
   xlim(c(2, 4)) +
@@ -330,7 +340,7 @@ ukShal = ggplot() +
   theme(legend.position = "none", panel.background = element_blank())
 
 lkShal = ggplot() +
-    geom_rect(aes(ymax=1, ymin = 0, xmax = 4, xmin = 2), fill = "#76BDF3") +
+    geom_rect(aes(ymax=1, ymin = 0, xmax = 4, xmin = 2), fill = flPal[2]) +
   geom_rect(data = pieDf%>% filter(popdepth == "LowerKeysShallow"), aes(ymax=ymax, ymin = ymin, xmax = 4, xmin = 3, fill = cluster), color = "black", , size = 0.25) +
   annotate(geom = "text", x = 2, y = 0.75, label = "18.0", size = 2.5, fontface = "bold") +
   scale_fill_manual(values = pieCol)+
@@ -340,9 +350,9 @@ lkShal = ggplot() +
   theme(legend.position = "none", panel.background = element_blank())
 
 tbShal = ggplot() +
-    geom_rect(aes(ymax=1, ymin = 0, xmax = 4, xmin = 2), fill = "#A969C9") +
+    geom_rect(aes(ymax=1, ymin = 0, xmax = 4, xmin = 2), fill = flPal[3]) +
   geom_rect(data = pieDf%>% filter(popdepth == "TortugasBankShallow"), aes(ymax=ymax, ymin = ymin, xmax = 4, xmin = 3, fill = cluster), color = "black", size = 0.25) +
-  annotate(geom = "text", x = 2, y = 0.75, label = "21.1", size = 2.5, fontface = "bold", color = "#ffffff") +
+  annotate(geom = "text", x = 2, y = 0.75, label = "21.1", size = 2.5, fontface = "bold", color = "white") +
   scale_fill_manual(values = pieCol)+
   coord_polar(theta="y") +
   xlim(c(2, 4)) +
@@ -350,9 +360,9 @@ tbShal = ggplot() +
   theme(legend.position = "none", panel.background = element_blank())
 
 rhShal = ggplot() +
-  geom_rect(aes(ymax=1, ymin = 0, xmax = 4, xmin = 2), fill = "#765DD8") +
+  geom_rect(aes(ymax=1, ymin = 0, xmax = 4, xmin = 2), fill = flPal[4]) +
   geom_rect(data = pieDf %>% filter(popdepth == "Riley'sHumpShallow"), aes(ymax=ymax, ymin = ymin, xmax = 4, xmin = 3, fill = cluster), color = "black", size = 0.25) +
-  annotate(geom = "text", x = 2, y = 0.75, label = "26.4", size = 2.5, fontface = "bold", color = "#ffffff") +
+  annotate(geom = "text", x = 2, y = 0.75, label = "26.4", size = 2.5, fontface = "bold", color = "white") +
   scale_fill_manual(values = pieCol)+
   coord_polar(theta = "y") +
   xlim(c(2, 4)) +
@@ -417,7 +427,8 @@ baseline for clonality between samples.
 ```{r, Dendrogram With Clones, fig.dim = c(13, 4.75)}
 cloneBams = read.csv("../data/stephanocoeniaMetaData.csv") # list of bam files
 
-cloneMa = as.matrix(read.table("../data/snps/clones/sintClones.ibsMat")) # reads in IBS matrix produced by ANGSD 
+# cloneMa = as.matrix(read.table("../data/snps/clones/sintClones.ibsMat")) # reads in IBS matrix produced by ANGSD 
+cloneMa = as.matrix(read.table("~/Desktop/angsd3x/sintClones3x.ibsMat")) # reads in IBS matrix produced by ANGSD 
 
 dimnames(cloneMa) = list(cloneBams[,1],cloneBams[,1])
 
@@ -457,14 +468,14 @@ cloneDendPoints$pop = factor(cloneDendPoints$pop)
 cloneDendPoints$pop = factor(cloneDendPoints$pop,levels(cloneDendPoints$pop)[c(4, 1, 3, 2)])
 
 cloneDendA = ggplot() +
-  geom_rect(aes(xmin = 44.25, xmax = 47.75, ymin = 0.03, ymax = 0.085), fill = teal, alpha = 0.4) +
-  geom_rect(aes(xmin = 154.25, xmax = 157.75, ymin = 0.065, ymax = 0.12), fill = teal, alpha = 0.4) +
-  geom_rect(aes(xmin = 172.25, xmax = 175.75, ymin = 0.065, ymax = 0.12), fill = teal, alpha = 0.4) +
+  geom_rect(aes(xmin = 47.25, xmax = 50.75, ymin = 0.03, ymax = 0.085), fill = pink, alpha = 0.4) +
+  geom_rect(aes(xmin = 164.25, xmax = 167.75, ymin = 0.065, ymax = 0.12), fill = pink, alpha = 0.4) +
+  geom_rect(aes(xmin = 219.25, xmax = 222.75, ymin = 0.065, ymax = 0.12), fill = pink, alpha = 0.4) +
   geom_segment(data = segment(cloneDData), aes(x = x, y = y, xend = xend, yend = yend2), size = 0.5) +
   geom_point(data = cloneDendPoints, aes(x = x, y = y, fill = pop, shape = depth), size = 4, stroke = 0.25) +
   scale_fill_manual(values = flPal, name= "Site:") +
-  scale_shape_manual(values = c(24, 25), name = "Depth Zone:") +
-  geom_hline(yintercept = 0.118, color = teal, lty = 5, size = 1) + # creating a dashed line to indicate a clonal distance threshold
+  scale_shape_manual(values = c(21, 23), name = "Depth Zone:") +
+  geom_hline(yintercept = 0.12, color = pink, lty = 5, size = 1) + # creating a dashed line to indicate a clonal distance threshold
   geom_text(data = subset(cloneDendPoints, subset = label %in% techReps), aes(x = x, y = (y - .02), label = label), angle = 90) + # spacing technical replicates further from leaf
   geom_text(data = subset(cloneDendPoints, subset = !label %in% techReps), aes(x = x, y = (y - .015), label = label), angle = 90) +
   labs(y = "Genetic distance (1 - IBS)") +
@@ -489,9 +500,9 @@ cloneDend = cloneDendA + theme(
   legend.text = element_text(size = 20),
   legend.position = "bottom")
 
-cloneDend
+# cloneDend
 
-ggsave("../figures/rmd/cloneDend.png", plot = cloneDend, height = 8, width = 35, units = "in", dpi = 300)
+ggsave("../figures/rmd/cloneDend3x.png", plot = cloneDend, height = 8, width = 35, units = "in", dpi = 300)
 
 ```
 
@@ -505,84 +516,13 @@ following pop-gen analyses.
 ```{r, Dendrogram nah Clones, fig.dim = c(13, 4.75)}
 bams = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66,68,164,166,209,211),] # list of bams files and their populations (tech reps removed)
 
-ma = as.matrix(read.table("../data/snps/sintNoClones.ibsMat")) # reads in IBS matrix produced by ANGSD
+ma = as.matrix(read.table("../data/snps/sintNoClones3x.ibsMat")) # reads in IBS matrix produced by ANGSD
+# ma = as.matrix(read.table("../data/snps/sintNoClones.ibsMat")) # reads in IBS matrix produced by ANGSD
 
 dimnames(ma) = list(bams[,1],bams[,1])
 
 pops = bams$site
 depth = bams$depthZone
-
-dend = ma %>% as.dist() %>% hclust(.,"ave") %>% as.dendrogram()
-dData = dend %>% dendro_data()
-
-# Making the branches hang shorter so we can easily see clonal groups
-dData$segments$yend2 = dData$segments$yend
-for(i in 1:nrow(dData$segments)) {
-  if (dData$segments$yend2[i] == 0) {
-    dData$segments$yend2[i] = (dData$segments$y[i] - 0.01)}}
-
-dendPoints = dData$labels
-dendPoints$pop = pops[order.dendrogram(dend)]
-dendPoints$depth = depth[order.dendrogram(dend)]
-rownames(dendPoints) = dendPoints$label
-
-# Making points at the leaves to place symbols for populations
-point = as.vector(NA)
-for(i in 1:nrow(dData$segments)) {
-  if (dData$segments$yend[i] == 0) {
-    point[i] = dData$segments$y[i] - 0.01
-  } else {
-    point[i] = NA}}
-
-dendPoints$y = point[!is.na(point)]
-
-dendPoints$depth = factor(dendPoints$depth)
-dendPoints$depth = factor(dendPoints$depth, levels(dendPoints$depth)[c(2,1)])
-
-dendPoints$pop = factor(dendPoints$pop)
-dendPoints$pop = factor(dendPoints$pop, levels(dendPoints$pop)[c(4, 1, 3, 2)])
-
-dendNoCloneA = ggplot() +
-  geom_segment(data = segment(dData), aes(x = x, y = y, xend = xend, yend = yend2), size = 0.5) +
-  geom_point(data = dendPoints, aes(x = x, y = y, fill = pop, shape = depth), size = 4, stroke = 0.25) +
-  scale_fill_manual(values = flPal, name= "Site:")+
-  scale_shape_manual(values = c(24, 25), name = "Depth Zone:")+
- # spacing technical replicates further from leaf
-  labs(y = "Genetic distance (1 - IBS)") +
-  guides(fill = guide_legend(override.aes = list(shape = 22, size = 10), ncol = 2), shape = guide_legend(override.aes = list(size = 8), ncol = 1, order = 1)) +
-  coord_cartesian(xlim = c(5, 218)) +
-  theme_classic()
-
-dendNoClone = dendNoCloneA + theme(
-  axis.title.x = element_blank(),
-  axis.text.x = element_blank(),
-  axis.line.x = element_blank(),
-  axis.ticks.x = element_blank(),
-  axis.title.y = element_text(size = 24, color = "black", angle = 90),
-  axis.text.y = element_text(size = 20, color = "black"),
-  axis.line.y = element_line(),
-  axis.ticks.y = element_line(),
-  panel.grid = element_blank(),
-  panel.border = element_blank(),
-  panel.background = element_blank(),
-  legend.key = element_blank(),
-  legend.title = element_text(size = 24),
-  legend.text = element_text(size = 20),
-  legend.position = "bottom")
-
-# dend
-
-```
-
-![](../figures/rmd/dend.png) <br>
-
-```{r, dend lineage}
-ma = as.matrix(read.table("../data/snps/sintFiltSnps.ibsMat")) # reads in IBS matrix produced by ANGSD
-
-dimnames(ma) = list(pcadmix[,9],pcadmix[,9])
-
-pops = pcadmix$pop
-depth = pcadmix$depth
 cluster = pcadmix$cluster
 
 dend = ma %>% as.dist() %>% hclust(.,"ave") %>% as.dendrogram()
@@ -618,11 +558,41 @@ dendPoints$pop = factor(dendPoints$pop, levels(dendPoints$pop)[c(4, 1, 3, 2)])
 
 dendPoints$cluster = factor(dendPoints$cluster)
 
+dendNoCloneA = ggplot() +
+  geom_segment(data = segment(dData), aes(x = x, y = y, xend = xend, yend = yend2), size = 0.5) +
+  geom_point(data = dendPoints, aes(x = x, y = y, fill = pop, shape = depth), size = 4, stroke = 0.25) +
+  scale_fill_manual(values = flPal, name= "Site:")+
+  scale_shape_manual(values = c(21, 23), name = "Depth Zone:")+
+ # spacing technical replicates further from leaf
+  labs(y = "Genetic distance (1 - IBS)") +
+  guides(fill = guide_legend(override.aes = list(shape = 22, size = 10), ncol = 2), shape = guide_legend(override.aes = list(size = 8), ncol = 1, order = 1)) +
+  coord_cartesian(xlim = c(5, 218)) +
+  theme_classic()
+
+dendNoClone = dendNoCloneA + theme(
+  axis.title.x = element_blank(),
+  axis.text.x = element_blank(),
+  axis.line.x = element_blank(),
+  axis.ticks.x = element_blank(),
+  axis.title.y = element_text(size = 24, color = "black", angle = 90),
+  axis.text.y = element_text(size = 20, color = "black"),
+  axis.line.y = element_line(),
+  axis.ticks.y = element_line(),
+  panel.grid = element_blank(),
+  panel.border = element_blank(),
+  panel.background = element_blank(),
+  legend.key = element_blank(),
+  legend.title = element_text(size = 24),
+  legend.text = element_text(size = 20),
+  legend.position = "bottom")
+
+# dendNoClone
+
 dendLA = ggplot() +
   geom_segment(data = segment(dData), aes(x = x, y = y, xend = xend, yend = yend2), size = 0.5) +
   geom_point(data = dendPoints, aes(x = x, y = y, fill = cluster, shape = depth), size = 4, stroke = 0.25) +
   scale_fill_manual(values = kColPal, name= "Lineage:")+
-  scale_shape_manual(values = c(24, 25), name = "Depth Zone:")+
+  scale_shape_manual(values = c(21, 23), name = "Depth Zone:")+
  # spacing technical replicates further from leaf
   labs(y = "Genetic distance (1 - IBS)") +
   guides(fill = guide_legend(override.aes = list(shape = 22, size = 10), ncol = 3), shape = guide_legend(override.aes = list(size = 8), ncol = 1, order = 1)) +
@@ -650,6 +620,9 @@ dendL = dendLA + theme(
 
 ```
 
+![](../figures/rmd/dend.png) <br>
+
+
 ### Dendrogram plots
 
 ```{r, dendplots2}
@@ -672,12 +645,12 @@ ggsave("../figures/figureS1.svg", plot = dendPlots, height = 19.5, width = 35, u
 ### PCA
 
 ```{r, pcangsd}
-cov = read.table("../data/snps/fkSintPcangsd.cov") %>% as.matrix()
+cov = read.table("../data/snps/pcangsd/fkSintPcangsd3x.cov") %>% as.matrix()
 
-pcadmix = read.table("../data/snps/k/ClumppK4.output") %>% dplyr::select(V6, V7, V8, V9)
-pcadmix %>% summarise(sum(V6),sum(V7), sum(V8), sum(V9)) 
+pcAdmix = read.table("../data/snps/k/Clumpp3xK4.output") %>% dplyr::select(V6, V7, V8, V9)
+pcAdmix %>% summarise(sum(V6),sum(V7), sum(V8), sum(V9)) 
 
-pcadmix = pcadmix %>% rename("cluster1" = "V6", "cluster2" = "V7", "cluster3" = "V8", "cluster4" = "V9") %>%dplyr::select(order(colnames(.)))
+pcAdmix = pcAdmix %>% rename("cluster1" = "V6", "cluster2" = "V7", "cluster3" = "V8", "cluster4" = "V9") %>%dplyr::select(order(colnames(.)))
   
 pcaEig = eigen(cov)
 sintPcaVar = pcaEig$values/sum(pcaEig$values)*100
@@ -700,19 +673,31 @@ pcangsd$PC2 = pcaEig$vectors[,2]
 pcangsd$PC3 = pcaEig$vectors[,3]
 pcangsd$PC4 = pcaEig$vectors[,4]
 
-pcangsdClust = pcadmix %>% mutate(cluster = ifelse(cluster1 < 0.75 & cluster2 < 0.75  & cluster3 < 0.75 & cluster4 < 0.75, "NA", ifelse(cluster1 >=0.75, 1, ifelse(cluster2 >= 0.75, 2, ifelse(cluster3 >= 0.75, 3,ifelse(cluster4 >= 0.75, 4, 0))))))
+pcangsdClust = pcAdmix %>% mutate(cluster = ifelse(cluster1 < 0.75 & cluster2 < 0.75  & cluster3 < 0.75 & cluster4 < 0.75, "NA", ifelse(cluster1 >=0.75, 1, ifelse(cluster2 >= 0.75, 2, ifelse(cluster3 >= 0.75, 3,ifelse(cluster4 >= 0.75, 4, 0))))))
+
+# pcangsdClust$clusterX = as.vector(d_clust$classification)
 
 pcangsd = pcangsd %>% mutate(pcangsdClust)
 
 pcangsd$cluster = as.factor(pcangsd$cluster)
 levels(pcangsd$cluster) = c("Blue", "Teal", "Green", "Yellow", "Admixed")
 
+bamsClusters = pcangsd %>% dplyr::select(sample, cluster) %>% dplyr::arrange(sample) 
+bamsSamples = read.delim("../data/snps/bamsNoClones", header = FALSE)
+bamsClusters$sample = bamsSamples$V1
+
+# bamsClusters = as.data.frame(bamsClusters)
+
+write.table(x = bamsClusters, file = "../data/snps/bamsClusters", sep = "\t", row.names = FALSE, col.names = FALSE, quote = FALSE)
+
 pcangsd = merge(pcangsd, aggregate(cbind(mean.x = PC1, mean.y = PC2)~popdepth, pcangsd, mean), by="popdepth")
+
+adonis2(pcangsd[,c(10:13)]~pop*depth, data = pcangsd, method = "euclidean")
 
 ```
 
 ```{r}
-pcangsd %>% group_by(depth,cluster) %>% summarize(n = n())
+pcangsd %>% group_by(depth,cluster) %>% summarise(n = n())
 
 ```
 
@@ -740,7 +725,7 @@ pcaPlot12SA = ggplot() +
   geom_vline(xintercept = 0, color = "gray90", size = 0.25) +
   geom_point(data = pcangsd, aes(x = PC1, y = PC2, fill = pop, shape = depth, color = pop), stroke = 0, size = 2.5, alpha = 0.5, show.legend = FALSE) +
   geom_point(data = pcangsd, aes(x = mean.x, y = mean.y, fill = pop, shape = depth), color = "black", size = 2.75, alpha = 1, stroke = 0.25) +
-  scale_shape_manual(values = c(24, 25), name = "Depth Zone") +
+  scale_shape_manual(values = c(21, 23), name = "Depth Zone") +
   scale_fill_manual(values = flPal, name = "Site") +
   scale_color_manual(values = flPal, name = "Site") +
   labs(x = paste0("PC 1 (", format(round(sintPcaVar[1], 1), nsmall = 1)," %)"), y = paste0("PC 2 (", format(round(sintPcaVar[2], 1), nsmall = 1), " %)")) +
@@ -758,7 +743,7 @@ pcaPlot12LA = ggplot() +
   geom_hline(yintercept = 0, color = "gray90", size = 0.5) +
   geom_vline(xintercept = 0, color = "gray90", size = 0.5) +
   geom_point(data = pcangsd, aes(x = PC1, y = PC2, fill = cluster, shape = depth), color = "black", size = 2, alpha = 1, show.legend = TRUE) +
-  scale_shape_manual(values = c(24,25), name = "Depth Zone") +
+  scale_shape_manual(values = c(21, 23), name = "Depth Zone") +
   scale_fill_manual(values = kColPal, name = "Lineage") +
   labs(x = paste0("PC 1 (", format(round(sintPcaVar[1], 1), nsmall = 1)," %)"), y = paste0("PC 2 (", format(round(sintPcaVar[2], 1), nsmall = 1), " %)")) +
   guides(shape = "none", fill = guide_legend(override.aes = list(shape = 22, size = 2, fill = kColPal, alpha = NA), order = 1, ncol = 1))+
@@ -772,7 +757,7 @@ pcaPlot23LA = ggplot() +
   geom_hline(yintercept = 0, color = "gray90", size = 0.5) +
   geom_vline(xintercept = 0, color = "gray90", size = 0.5) +
   geom_point(data = pcangsd, aes(x = PC3, y = PC2, fill = cluster, shape = depth), color = "black", size = 2, alpha = 1, show.legend = TRUE) +
-  scale_shape_manual(values = c(24,25), name = "Depth Zone") +
+  scale_shape_manual(values = c(21, 23), name = "Depth Zone") +
   scale_fill_manual(values = kColPal, name = "Lineage") +
   labs(x = paste0("PC 3 (", format(round(sintPcaVar[3], 1), nsmall = 1)," %)"), y = paste0("PC 2 (", format(round(sintPcaVar[2], 1), nsmall = 1), " %)")) +
   guides(shape = guide_legend(override.aes = list(size = 2, stroke = 0.5, alpha = NA), order = 2, ncol = 1), fill = guide_legend(override.aes = list(shape = 22, size = 2, fill = kColPal, alpha = NA), order = 1, ncol = 1, byrow = TRUE))+
@@ -805,7 +790,7 @@ Prepare admixture outputs for plotting
 fkSintAdmix = pcangsd %>%dplyr::select(-PC1, -PC2, -PC3, -PC4, -cluster, -depthm, -mean.x, -mean.y)
 fkSintAdmix$pop = factor(fkSintAdmix$pop, levels(fkSintAdmix$pop)[c( 4, 3, 2, 1)])
 
-fkSintAdmix = arrange(fkSintAdmix, pop, depth, -cluster1, -cluster2, cluster3)
+fkSintAdmix = arrange(fkSintAdmix, pop, depth, -cluster1, -cluster2, cluster4)
 popCounts = fkSintAdmix %>% group_by(pop, depth) %>% summarise(n = n())
 
 popCounts
@@ -835,10 +820,9 @@ admixPlotA = ggplot(data = fkSintAdmixMelt, aes(x = ord, y = Fraction, fill = An
   geom_bar(stat = "identity", position = "fill", width = 1, colour = "grey25", size = 0.2) +
   facet_grid(factor(depth) ~ pop, switch = "both") +
   geom_text(data = (fkSintAdmixMelt %>% filter(depth == "Mesophotic", pop %in% c("Riley's Hump", "Tortugas Bank"), sample %in% c(	
-"SFK001", "SFK100"), Ancestry == "cluster1")), x = 15.5, y = -.1, aes(label = pop), size = 3.5, color = "#FFFFFF") +
+"SFK001", "SFK100"), Ancestry == "cluster1")), x = 15.5, y = -.1, aes(label = pop), size = 4, color = "#FFFFFF") +
   geom_text(data = (fkSintAdmixMelt %>% filter(depth == "Mesophotic", pop %in% c("Lower Keys", "Upper Keys"), sample %in% c(	
 "SFK101", "SFK201"), Ancestry == "cluster1")), x = 15.5, y = -.1, aes(label = pop), size = 3.5, color = "#000000") +
-  
   scale_fill_manual(values = kColPal) +
   scale_color_manual(values = flPal) +
   scale_x_discrete(expand = c(0.005, 0.005)) +
@@ -848,13 +832,13 @@ theme_bw()
   
 admixPlot = admixPlotA + 
   theme_bw()+
-  theme(plot.title = element_text(hjust = 0.5, size = 10),
+  theme(
   panel.grid = element_blank(),
-  panel.background = element_blank(),
+  panel.background = element_rect(fill = "gray70"),
   plot.background = element_blank(),
-  panel.border = element_rect(fill = NA, color = "black", size = 0.5, linetype = "solid"),
-  panel.spacing.x = grid:::unit(0.0125, "lines"),
-  panel.spacing.y = grid:::unit(0.0125, "lines"),
+  panel.border = element_rect(fill = NA, color = "black", size = 0.75, linetype = "solid"),
+  panel.spacing.x = grid:::unit(0.05, "lines"),
+  panel.spacing.y = grid:::unit(0.05, "lines"),
   axis.text.x = element_blank(),
   axis.text.y = element_blank(),
   axis.ticks.x = element_blank(),
@@ -869,135 +853,11 @@ admixPlot = admixPlotA +
   legend.position = "none",
   legend.title = element_text(size = 8))
 
-# admixPlot
+
+
+admixPlot
 
 ```
-
-### Population differentiation
-
-Calculating differentiation with Pairwise Fst
-
-```{r, fst calculation}
-gunzip("../data/snps/sintNoClones.bcf.gz")
-sintVcf = read.vcfR("../data/snps/sintNoClones.bcf", verbose = FALSE)
-gzip("../data/snps/sintNoClones.bcf")
-
-sintGenlightPopDepth = vcfR2genlight(sintVcf, n.cores = 8) # Converts the vcf file into a file format that poppr uses the "genlight" format
-locNames(sintGenlightPopDepth) = paste(sintVcf@fix[,1],sintVcf@fix[,2],sep="_")
-popData = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% dplyr::select("sample" = tubeID, "pop" = site, "depth" = depthZone) # Reads in population data for each sample
-popData$popdepth = paste(popData$pop, popData$depth, sep = " ")
-
-strata(sintGenlightPopDepth) = data.frame(popData)
-setPop(sintGenlightPopDepth) = ~popdepth
-
-sintGenlightPopDepth$pop = factor(sintGenlightPopDepth$pop)
-sintGenlightPopDepth$pop = factor(sintGenlightPopDepth$pop, 
-                                levels(sintGenlightPopDepth$pop)[c(7, 8, 6, 5, 2, 1, 4, 3)])
-                                
-levels(sintGenlightPopDepth$pop) = c("Upper Keys\nShallow", "Upper Keys\nMesophotic", "Lower Keys\nShallow", "Lower Keys\nMesophotic", "Tortugas Bank\nShallow", "Tortugas Bank\nMesophotic", "Riley's Hump\nShallow", "Riley's Hump\nMesophotic")
-
-set.seed(694)
-fk.fst <- stamppFst(sintGenlightPopDepth, nboots = 1, percent = 95, nclusters = 8) 
-
-fk.fst
-
-```
-
-Now organize the data to plot
-
-```{r, fst organization}
-pop.order = c("Riley's Hump\nMesophotic", "Riley's Hump\nShallow", "Tortugas Bank\nMesophotic", "Tortugas Bank\nShallow", "Lower Keys\nMesophotic", "Lower Keys\nShallow", "Upper Keys\nMesophotic", "Upper Keys\nShallow")
-
-# reads in fst matrix
-snpFstMa <- as.matrix(fk.fst)
-upperTriangle(snpFstMa, byrow = TRUE) <- lowerTriangle(snpFstMa)
-snpFstMa <- snpFstMa[,pop.order] %>%
-  .[pop.order,]
-snpFstMa[upper.tri(snpFstMa)] <- NA
-snpFstMa <- as.data.frame(snpFstMa)
-
-# rearrange and reformat matrix
-snpFstMa$Pop = factor(row.names(snpFstMa), levels = unique(pop.order))
-
-# melt matrix data (turn from matrix into long dataframe)
-snpFstMa$Pop = factor(row.names(snpFstMa), levels = unique(pop.order))
-snpFst = melt(snpFstMa, id.vars = "Pop", value.name = "Fst", variable.name = "Pop2", na.rm = FALSE)
-
-snpFst$Fst = round(snpFst$Fst, 3)
-snpFst = snpFst %>% mutate(Fst = replace(Fst, Fst < 0, 0))
-
-snpFst$site = snpFst$Pop
-snpFst$site = factor(gsub("\\n.*", "", snpFst$site))
-snpFst$site = factor(snpFst$site, levels = levels(snpFst$site)[c(4, 1, 3, 2)])
-
-snpFst$site2 = snpFst$Pop2
-snpFst$site2 = factor(gsub("\\n.*", "", snpFst$site2))
-snpFst$site2 = factor(snpFst$site2, levels = levels(snpFst$site2)[c(4, 1, 3, 2)])
-
-snpFst$Fst = sprintf('%.3f', snpFst$Fst)
-snpFst$Fst = factor(gsub("\\NA", NA, snpFst$Fst))
-snpFst$Fst = factor(gsub("\\.000", "", snpFst$Fst))
-snpFst$Fst = factor(gsub("\\-", "", snpFst$Fst))
-
-levels(snpFst$Pop) = c("RH\nMeso", "RH\nShallow", "TB\nMeso", "TB\nShallow", "LK\nMeso", "LK\nShallow", "UK\nMeso", "UK \nShallow")
-levels(snpFst$Pop2) = c("RH\nMeso", "RH\nShallow", "TB\nMeso", "TB\nShallow", "LK\nMeso", "LK\nShallow", "UK\nMeso", "UK \nShallow")
-
-```
-
-<br>
-
-Plotting fst data as a heatmap
-
-```{r, fstHeatMap, fig.width = 13.4, fig.height = 5.9}
-snpHeatmapA = ggplot(data = snpFst, aes(Pop, Pop2, fill = as.numeric(as.character(Fst)))) +
-  geom_tile(color = "white") +
-  geom_segment(data = snpFst, aes(x = 0.475, xend = -0.5, y = Pop, yend = Pop, color = site), size = 9.75) +
-  geom_segment(data = snpFst, aes(x = Pop2, xend = Pop2, y = 0.45, yend = -0.55, color = site2), size = 16.75) +
-  scale_color_manual(values = flPal, guide = NULL) +
-  scale_fill_gradient(low = "gray95", high = "gray35", limit = c(0, 0.03), space = "Lab", name = expression(paste(italic("F")[ST])), na.value = "white",  guide = "colourbar") +
-  geom_text(data = snpFst, aes(Pop, Pop2, label = Fst), color = "black", size = 3.25) +
-  guides(fill = guide_colorbar(barwidth = 6, barheight = 0.5, title.position = "top", title.hjust = 0.5)) +
-  geom_text(data = (snpFst %>% filter(site %in% c("Riley's Hump", "Tortugas Bank"), Pop2 == "RH\nMeso")), y = -.05, aes(x = Pop, label = Pop), size = 3, color = "#FFFFFF", family = "sans") +
-  geom_text(data = (snpFst %>% filter(site %in% c("Lower Keys", "Upper Keys"), Pop2 == "LK\nMeso")), y = -.05, aes(x = Pop, label = Pop), size = 3, color = "#000000", family = "sans") +
-  geom_text(data = (snpFst %>% filter(site %in% c("Riley's Hump", "Tortugas Bank"), Pop2 == "RH\nMeso")), x = -.025, aes(y = Pop, label = Pop), size = 3, color = "#FFFFFF", family = "sans") +
-  geom_text(data = (snpFst %>% filter(site %in% c("Lower Keys", "Upper Keys"), Pop2 == "LK\nMeso")), x = -.025, aes(y = Pop, label = Pop), size = 3, color = "#000000", family = "sans") +
-  scale_y_discrete(position = "left") +
-  scale_x_discrete(limits = rev(levels(snpFst$Pop))[c(1:8)]) +
-  coord_cartesian(xlim = c(1, 8), ylim = c(1, 8), clip = "off") +
-  theme_minimal()
-
-snpHeatmap = snpHeatmapA + theme(
-  axis.text.x = element_text(vjust = 2, size = 10, hjust = 0.5, color = NA),
-  axis.text.y = element_text(size = 10, color = NA, margin = margin(r = -5)),
-  axis.title.x = element_blank(),
-  axis.title.y = element_blank(),
-  panel.grid.major = element_blank(),
-  panel.border = element_blank(),
-  axis.ticks = element_blank(),
-  legend.position = c(0.5, 0.9),
-  legend.direction = "horizontal",
-  legend.title = element_text(size = 10),
-  legend.text = element_text(size = 8)
-)
-
-# snpHeatmap
-
-```
-
-![](../figures/rmd/fstHeatMap.png) <br>
-
-### Structure plots
-```{r, fig1}
-structurePlots = ((pcaPlots / (admixPlot | snpHeatmap))) + 
-  plot_layout(widths = c( 1, 1.5)) +
-  plot_annotation(tag_levels = "A") &
-  theme(plot.tag = element_text(size = 16, face = "plain"))
-
-ggsave("../figures/figure2.png", plot = structurePlots, height = 6.5, width = 10, units = "in", dpi = 300)
-
-ggsave("../figures/figure2.svg", plot = structurePlots, height = 6.5, width = 10, units = "in", dpi = 300)
-```
-
 
 ## Lineage demographics
 
@@ -1052,13 +912,13 @@ Measuring with global weighted FST calculated from SFS
 First prepare and sort FST for plotting
 
 ```{r}
-### FST ###
 pop.order = c("Blue", "Teal", "Green", "Yellow")
 
-# reads in fst matrix
-fstMa1 <- read.csv("../data/snps/kFst.csv")
-row.names(fstMa1) <- fstMa1$pop1 
-fstMa = fstMa1 %>%dplyr::select(-pop1) %>% as.matrix()
+# reads in fst 
+fstMa1 <- read.delim("../data/snps/sintKFst3x.out") %>% dplyr::select(-fst) %>% df_to_pw_mat(., "pop1", "pop2", "weightedFst")
+
+fstMa1
+fstMa = fstMa1
 
 upperTriangle(fstMa, byrow = TRUE) <- lowerTriangle(fstMa)
 fstMa <- fstMa[,pop.order] %>%
@@ -1075,7 +935,6 @@ fstMa$Pop = factor(row.names(fstMa), levels = unique(pop.order))
 fst = melt(fstMa, id.vars = "Pop", value.name = "Fst", variable.name = "Pop2", na.rm = FALSE)
 
 fst$Fst = round(fst$Fst, 3)
-fst = fst %>% mutate(Fst = replace(Fst, Fst < 0, 0))
 
 fst$site = fst$Pop
 fst$site = factor(gsub("\\n.*", "", fst$site))
@@ -1087,24 +946,20 @@ fst$site2 = factor(fst$site2, levels = levels(fst$site2)[c(1, 3, 2, 4)])
 
 fst$Pop2 = factor(fst$Pop2, levels = levels(fst$Pop2)[c(4, 3, 2, 1)])
 
-fst$Fst = sprintf('%.3f', fst$Fst)
-fst$Fst = factor(gsub("\\NA", NA, fst$Fst))
-fst$Fst = factor(gsub("\\.000", "", fst$Fst))
-fst$Fst = factor(gsub("\\-", "", fst$Fst))
-
 ```
 
 Construct a heatmap of FST values
 
 ```{r, fstPlot}
-fstHeatmapA = ggplot(data = fst, aes(Pop, Pop2, fill = as.numeric(as.character(Fst)))) +
+fstHeatmapA = ggplot(data = fst %>% filter(Fst != 0), aes(Pop, Pop2, fill = as.numeric(as.character(Fst)))) +
   geom_tile(color = "white") +
-  geom_segment(data = fst, aes(x = 0.475, xend = 0.15, y = Pop2, yend = Pop2, color = site2), size = 21.25) + #colored boxes for Y-axis labels
-  geom_segment(data = fst, aes(x = Pop, xend = Pop, y = 0.2, yend = 0.475, color = site), size = 25) + #colored boxes for X-axis labels
+  geom_segment(data = fst, aes(x = 0.475, xend = 0.25, y = Pop2, yend = Pop2, color = site2), size = 21.25) + #colored boxes for Y-axis labels
+  geom_segment(data = fst, aes(x = Pop, xend = Pop, y = 0.2, yend = 0.475, color = site), size = 41) + #colored boxes for X-axis labels
   scale_color_manual(values = kColPal, guide = NULL) +
-  scale_fill_gradient(low = "gray95", high = "gray35", limit = c(0, 0.23), space = "Lab", name = expression(paste(italic("F")[ST])), na.value = NA,  guide = "colourbar") +
-  geom_text(data = fst, aes(Pop, Pop2, label = Fst), color = "black", size = 3.5) +
-  guides(fill = guide_colorbar(barwidth = 7.5, barheight = 0.75, title.position = "top", title.hjust = 0.5)) +
+  scale_fill_gradient(low = "white", high = "#EA526F", limit = c(0, 0.22), space = "Lab", name = expression(paste(italic("F")[ST])), na.value = NA,  guide = "colourbar") +
+
+  geom_text(data = fst %>% filter(Fst != 0), aes(Pop, Pop2, label = Fst), color = "black", size = 3.5, fontface = "bold") +
+  guides(fill = guide_colorbar(barwidth = 7.5, barheight = 0.75, title.position = "top", title.hjust = 0.5, direction = "horizontal", ticks.colour = "black", frame.colour = "black")) +
   scale_y_discrete(position = "left", limits = rev(levels(fst$Pop2))) +
   scale_x_discrete(limits = levels(fst$Pop2)[c(1:4)]) +
   coord_cartesian(xlim = c(1, 4), ylim = c(1, 4), clip = "off") +
@@ -1121,7 +976,6 @@ fstHeatmap = fstHeatmapA + theme(
   legend.title = element_text(size = 8, color = "black"),
   legend.text = element_text(size = 8, color = "black"),
   legend.position = c(0.6, 0.9),
-  legend.direction = "horizontal",
   plot.background = element_blank(),
   panel.background = element_blank(),
 )
@@ -1207,14 +1061,14 @@ finalTabSite = c("Upper Keys", "", "Lower Keys","", "Tortugas Bank", "", "Riley'
 
 sampleTab$Site = finalTabSite
 
-hetAll = read.table("../data/snps/sintHet") 
+hetAll = read.table("../data/snps/sintHet3x") 
 colnames(hetAll) = c("sample", "He")
 hetAll$sample = str_pad(hetAll$sample, 3, pad = "0")
 hetAll$sample = paste("SFK",hetAll$sample, sep ="")
 
-sintBreed = read.delim("../data/snps/fkSint.indF", header = FALSE)
+sintBreed = read.delim("../data/snps/fkSintF.indF", header = FALSE)
 
-sintRelate = read.delim("../data/snps/filtRelate")
+sintRelate = read.delim("../data/snps/fkSintFiltRelate3x")
 sintRelate2 = sintRelate %>% group_by(a, b) %>% dplyr::select("Rab" = rab, "theta" = theta)
 
 sintRelate2 = sintRelate2 %>% left_join(popData, by = "a") %>% left_join(popData, by = c("b" = "a"), suffix = c(".a", ".b")) 
@@ -1230,46 +1084,9 @@ sintRelateMean = sintRelate %>% group_by(Site, Depth) %>% dplyr::summarize(N = n
 
 het = left_join(popData, hetAll, by = "sample") %>% mutate("inbreed" = sintBreed$V1) %>% left_join((pcangsd %>% dplyr::select(sample, cluster)) , by = "sample") %>% dplyr::select(-a)
 
-hetStats = het %>% group_by(Site, Depth) %>% summarise(N = n(), meanAll = mean(He), sdAll = sd(He), seAll = sd(He)/sqrt(N), meanInbreed = mean(inbreed), sdInbreed = sd(inbreed), seInbreed = sd(inbreed)/sqrt(N)) %>% left_join(sintRelateMean)
+hetStats = het %>% group_by(cluster) %>% summarise(N = n(), meanAll = mean(He), sdAll = sd(He), seAll = sd(He)/sqrt(N), meanInbreed = mean(inbreed), sdInbreed = sd(inbreed), seInbreed = sd(inbreed)/sqrt(N))
 
-min(hetStats$meanAll, na.rm = TRUE)
-max(hetStats$meanAll, na.rm = TRUE)
-
-hetTab = hetStats %>% arrange(desc(Site))
-
-hetTab$n = hetTab$N
-hetTab$Ha = paste(round(hetTab$meanAll, 4), "±", round(hetTab$seAll, 5), sep = " ")
-hetTab$F =  paste(round(hetTab$meanInbreed, 2), "±", round(hetTab$seInbreed, 3), sep = " ")
-hetTab$Rab =  paste(round(hetTab$meanRab, 2), "±", round(hetTab$seRab, 3), sep = " ")
-hetTab$Theta =  paste(round(hetTab$meanTheta, 2), "±", round(hetTab$seTheta, 4), sep = " ")
-
-hetTab$`Sampling \ndepth (m)` = sampleTab$`Sampling \ndepth (m)`
-hetTab$`Average \ndepth (m)` = sampleTab$`Average \ndepth (m)`
-
-hetTab = hetTab %>% dplyr::select(Site, Depth, `Sampling \ndepth (m)`, `Average \ndepth (m)`, n, Ha, F, Rab, Theta)
-colnames(hetTab)[2] = "Depth \nzone"
-
-finalTabSite = c("Upper Keys", "", "Lower Keys", "", "Tortugas Bank", "", "Riley's Hump", "")
-
-hetTab$Site = finalTabSite
-
-hetTabPub = hetTab %>% dplyr::select(-Theta) %>% 
-  flextable() %>%
-  flextable::compose(part = "header", j = "n", value = as_paragraph(as_i("n"))) %>%
-   flextable::compose(part = "header", j = "Ha", value = as_paragraph(as_i("H"), as_sub("A"))) %>%
-  flextable::compose(part = "header", j = "F", value = as_paragraph(as_i("F"))) %>%
-  flextable::compose(part = "header", j = "Rab", value = as_paragraph(as_i("R"), as_i(as_sub("AB")))) %>%
-  flextable::font(fontname = "Times New Roman", part = "all") %>%
-  flextable::fontsize(size = 10, part = "all") %>%
-  flextable::bold(part = "header") %>%
-  flextable::align(align = "left", part = "all") %>%
-  flextable::autofit()
-
-table2 = read_docx()
-table2 = body_add_flextable(table2, value = hetTabPub)
-print(table2, target = "../tables/table2.docx")
-
-hetTabPub
+hetStats
 
 ```
 
@@ -1286,7 +1103,10 @@ hF = hetAov$statistic[[1]]
 
 hetPH = games_howell_test(He ~ cluster, data = subset(het, subset = het$cluster!="Admixed"), conf.level = 0.95) %>% as.data.frame()
 
-hetLetters = data.frame(x = factor(c("Blue", "Teal", "Green", "Yellow")), y = c(0.0039, 0.0039, 0.0039, 0.0039),  grp = c("a", "bc", "b", "c"))
+
+# hetLetters = data.frame(x = factor(c("Blue", "Teal", "Green", "Yellow")), y = c(0.0039, 0.0039, 0.0039, 0.0039),  grp = c("a", "bc", "b", "c"))
+
+hetLetters = data.frame(x = factor(c("Blue", "Teal", "Green", "Yellow")), y = c(0.0039, 0.0039, 0.0039, 0.0039),  grp = c("a", "b", "c", "b"))
 
 hetPlotKA = ggplot(data = het %>% filter(cluster != "Admixed"), aes(x = cluster, y = He)) +
   geom_beeswarm(aes(fill = cluster), shape = 21, size = 2, cex = 0.75, alpha = 0.5) + 
@@ -1329,7 +1149,8 @@ iF = ibAov$statistic[[1]]
 
 ibPH = games_howell_test(inbreed ~ cluster, data = subset(het, subset = het$cluster!="Admixed"), conf.level = 0.95) %>% as.data.frame()
 
-inbreedLetters = data.frame(x = factor(c("Blue", "Teal", "Green", "Yellow")), y = c(0.38, 0.38, 0.38, 0.38),  grp = c("a", "b", "c", "d"))
+
+inbreedLetters = data.frame(x = factor(c("Blue", "Teal", "Green", "Yellow")), y = c(0.38, 0.38, 0.38, 0.38),  grp = c("a", "b", "c", "c"))
 
 inbreedingPlot = ggplot(data = het %>% filter(cluster!="Admixed"), aes(x = cluster, y = inbreed)) +
   geom_beeswarm(aes(fill = cluster), shape = 21, size = 2, cex = 1.5, alpha = 0.5) +
@@ -1353,7 +1174,7 @@ inbreedingPlot = ggplot(data = het %>% filter(cluster!="Admixed"), aes(x = clust
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())
 
-# inbreedingPlot
+inbreedingPlot
 
 ```
 
@@ -1361,17 +1182,18 @@ inbreedingPlot = ggplot(data = het %>% filter(cluster!="Admixed"), aes(x = clust
 
 ```{r, pi}
 # mean depth for lineages
-subset(pcangsd, subset = pcangsd$cluster!="Admixed") %>% group_by(cluster) %>% summarize(depth = mean(depthm))
+subset(pcangsd, subset = pcangsd$cluster!="Admixed") %>% group_by(cluster) %>% summarise(depth = mean(depthm))
 
-npgList = list(read_tsv("../data/snps/blue.thetas.idx.pestPG") %>% mutate(lineage = "Blue", depth = 31.4),
-               read_tsv("../data/snps/teal.thetas.idx.pestPG") %>% mutate(lineage = "Teal", depth = 26.3),
-               read_tsv("../data/snps/green.thetas.idx.pestPG") %>% mutate(lineage = "Green", depth = 22.5),
-               read_tsv("../data/snps/yellow.thetas.idx.pestPG")%>% mutate(lineage = "Yellow", depth = 20.2))
+npgList = list(read_tsv("../data/snps/blue3x.thetas.idx.pestPG") %>% mutate(lineage = "Blue", depth = 31.4),
+               read_tsv("../data/snps/teal3x.thetas.idx.pestPG") %>% mutate(lineage = "Teal", depth = 26.3),
+               read_tsv("../data/snps/green3x.thetas.idx.pestPG") %>% mutate(lineage = "Green", depth = 22.5),
+               read_tsv("../data/snps/yellow3x.thetas.idx.pestPG")%>% mutate(lineage = "Yellow", depth = 20.2))
 
 piAll = purrr::reduce(npgList, rbind) %>% 
   group_by(lineage) %>% 
   mutate(tPps = tP/nSites) %>%
-  summarize(tPps = mean(tPps), depth = min(depth))
+  dplyr::summarize(tPps = mean(tPps), depth = max(depth))
+
 
 piAll$lineage = as.factor(piAll$lineage)
 piAll$lineage = factor(piAll$lineage, levels(piAll$lineage)[c(1, 3, 2, 4)])
@@ -1382,7 +1204,7 @@ summary(lmpi)
 r2 = round(summary(lmpi)$r.squared, 3)
 
 nuclDivPlot = ggplot(piAll, aes(x = depth, y = tPps)) +
-  geom_smooth(se = FALSE, color = 'black', method='lm', linewidth = 0.75) +
+  geom_smooth(se = F, color = 'black', method='lm', linewidth = 0.75) +
   geom_point(aes(fill = lineage),shape = 21, size = 3) +
   scale_color_manual(values = kColPal) +
   scale_fill_manual(values = kColPal) +
@@ -1401,11 +1223,21 @@ nuclDivPlot = ggplot(piAll, aes(x = depth, y = tPps)) +
         panel.grid.minor = element_blank())
 
 nuclDivPlot
+
+```
+
+
+```{r, Ne}
+piAll$Ne = (piAll$tPps)/(4*2e-8)
+piAll
+
+subset(pcangsd, subset = pcangsd$cluster!="Admixed") %>% group_by(cluster) %>% summarise(range(depthm))
+
 ```
 
 ### Lineage plots
 ```{r, lineage plots}
-lineagePlots = (lineageViolin | hetPlotK | inbreedingPlot) / (nuclDivPlot | swPlot | fstHeatmap) +
+lineagePlots = (lineageViolin | hetPlotK | inbreedingPlot) / ( swPlot | fstHeatmap) +
   plot_annotation(tag_levels = "A") &
   theme(plot.tag = element_text(size = 14))
 
@@ -1417,362 +1249,80 @@ ggsave("../figures/figure3.svg", plot = lineagePlots, height = 7, width = 12, un
 
 ```
 
-### Outliers
 
-```{r, outlier}
-bayescan = read.table("../data/snps/fkSint.baye_fst.txt",header=T) %>% mutate(loc = rownames(.), out.05 = ifelse(qval < 0.05, 1, 0), out.1 = ifelse(qval < 0.1, 1, 0))
-bayescan[bayescan[, 3]<=0.0001, 3] = 0.0001
-
-bayeScEnv = read.table("../data/snps/fkSint.bayeS_fst.txt", header=T) %>% filter(qval_g < 0.05) %>% mutate(loc = rownames(.), depthOut = 1) %>% dplyr::select(loc, depthOut)
-
-bayescan = bayescan %>% left_join(bayeScEnv) 
-bayescan$depthOut = bayescan$depthOut %>% replace_na(0)
-
-sum(bayescan$out.05)
-sum(bayescan$out.1)
-sum(bayescan$depthOut)
-
-for(i in 1:nrow(bayescan)){
-  if(bayescan$depthOut[i] == 1){
-    bayescan$out.05[i] = 2
-  }
-}
-
-bayescanPlotA = ggplot(data = bayescan, aes(x = log10(qval), y = fst, color = as.factor(out.05), alpha = as.factor(out.05))) +  
-  geom_point(size = 1) +
-  geom_vline(xintercept = log10(0.05), linetype = 2, color = purple) +
-  xlab(expression(log[10]*"("*italic("q")*"-value)")) +
-  ylab(expression(italic("F")[ST])) +
-  scale_x_reverse() +
-  scale_color_manual(values = c("grey45", purple, teal)) +
-  scale_alpha_manual(values = c(0.25, 0.25, 0.5)) +
-  theme_bw()
-
-bayescanPlot = bayescanPlotA +
-        theme(axis.title.x = element_text(color = "black", size = 12),
-        axis.text.x = element_text(color = "black", size = 12),
-        axis.ticks.x = element_line(color = "black"),
-        axis.title.y = element_text(color = "black", size = 12),
-        axis.text.y = element_text(color = "black", size = 10),
-        axis.ticks.y = element_line(color = "black"),
-        legend.position = "none",
-        legend.key.size = unit(0.3, 'cm'),
-        panel.border = element_rect(color = "black"),
-        panel.background = element_rect(fill = "white"),
-        plot.background = element_rect(fill = "white"),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank())
-
-# bayescanPlot
-
-ggsave("../figures/figureS2.svg", plot = bayescanPlot, width = 14, height = 8, units = "cm", dpi = 300)
-ggsave("../figures/figureS2.png", plot = bayescanPlot, width = 14, height = 8, units = "cm", dpi = 300)
-
-```
-
-![](../figures/figureS2.png)
-
-
-## Isolation by distance and redundancy analysis
-
+## Isolation by distance
 ### *S. intersepta* isolation by distance
 
-Procrustes analysis using IBS distance matrix and geographic locations
+#### Mantel's test
+```{r, SNP mantel}
+# Isolation by distance
+library(geosphere)
 
-```{r, IBD}
-sintIBS = read.table("../data/snps/sintFiltSnps.ibsMat")%>% as.matrix() %>% as.dist(diag = FALSE)
+#Get the geographic distances in km
+coords  = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% 
+dplyr::select(longDD, latDD)
 
-popData = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% dplyr::select("sample" = tubeID, "Site" = site, "Depth" = depthZone) %>% mutate(popDepth = paste(Site, Depth))
+dGeo = as.dist((distm(coords, fun = distGeo)/1000), diag = TRUE)
+snpDist = as.dist(read.table("../data/snps/sintFiltSnps.ibsMat"), diag = TRUE)
 
-coords = fknmsSites %>% group_by(site, depthZone, siteID) %>% summarise(latDD = first(latDD), longDD = first(longDD)) %>% filter(siteID %in% c("Ian's Lumps Site 52", "Site 48", "Site 47", "Site 45", "Site 35/36", "Site 37", "Site 39", "Site 19")) %>% dplyr::select(-site) %>% mutate(popDepth = paste(site, depthZone)) %>% droplevels()
-
-coords = coords[-5,]
-
-sintIBD = popData %>% left_join(coords) %>% dplyr::select(-site, -depthZone, -popDepth)
-rownames(sintIBD) = sintIBD$sample
-
-sintProj = st_as_sf(x = sintIBD, coords = c("longDD", "latDD"), crs = "+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0") %>% st_transform(crs = 5070) 
-
-sintIBD2 = sintIBD %>% dplyr::select(-longDD, -latDD) %>% cbind(st_coordinates(sintProj))
-
-set.seed(694) 
-ibd = protest(X = sintIBD2[,c(5, 6)], Y = cmdscale(sintIBS), choices = c(1, 2), permutations = 9999, symmetric = FALSE)
-
-ibd
-  
-plot(ibd, kind = 2)
-plot(ibd, kind = 1)
+# Test IBD
+set.seed(694)
+snpIBD = mantel.randtest(dGeo, snpDist, nrepet = 9999)
+snpIBD
 
 ```
 
+#### SNP Mantel plot
+```{r, SNP mantel plot, fig.dim = c(4.9, 4.9)}
+snpGenDist =  melt(as.matrix(snpDist), varnames = c("row", "col"), value.name = "dist")
+snpGenDist = snpGenDist[snpGenDist$row != snpGenDist$col,]
 
-We can make a plot demonstrating the lack of IBD from the procruestes analysis
+geo = melt(as.matrix(dGeo), varnames = c("row", "col"), value.name = "geo")
+geo = geo[geo$row != geo$col,]
 
-```{r, ibdPlot}
-ibdPlot = procrustes(X = sintIBD2[,c(5, 6)], Y = cmdscale(sintIBS), choices = c(1, 2), symmetric = FALSE)
+snpMantelDF = data.frame(cbind(snpGenDist$dist, geo$geo))
+colnames(snpMantelDF) = c("dist", "geo")
 
-sintIBDPlotData = cbind(ibdPlot$X, ibdPlot$Yrot) %>% as.data.frame()
-rownames(sintIBDPlotData) = rownames(ibdPlot$X)
-colnames(sintIBDPlotData) = c("lon", "lat", "ibs1", "ibs2")
-sintIBDPlotData$sample = row.names(sintIBDPlotData)
-sintIBDPlotData$sample = gsub(pattern = "\\.2", "", sintIBDPlotData$sample)
-sintIBDPlotData = sintIBDPlotData %>% left_join(popData) %>% relocate(sample, .before = lon)
-
-sintIBDPlotData$Depth = factor(sintIBDPlotData$Depth)
-sintIBDPlotData$Depth = factor(sintIBDPlotData$Depth, levels(sintIBDPlotData$Depth)[c(2,1)])
-sintIBDPlotData$Site = factor(sintIBDPlotData$Site)
-sintIBDPlotData$Site = factor(sintIBDPlotData$Site, levels(sintIBDPlotData$Site)[c(4, 1, 3, 2)])
-  
-head(sintIBDPlotData)
-
-convertedIBD = sintIBDPlotData %>% mutate(lon = lon+ibdPlot$translation[1], lat = lat+ibdPlot$translation[2], ibs1 = ibs1+ibdPlot$translation[1], ibs2 = ibs2+ibdPlot$translation[2])
-
-sintIBDPlotPops = convertedIBD %>% dplyr::select(Site, Depth, lon, lat) %>% group_by(lon, lat)
-
-#Calculate the angle of rotation, and then the slope of the rotated axis
-ibdTheta = acos(ibdPlot$rotation[1,1]) 
-ibdSlope = tan(ibdTheta)
-
-#Calculate the y-intercepts for rotated axes
-ibdInt = ibdPlot$translation[2] - (ibdSlope*ibdPlot$translation[1])
-ibdInt2 = ibdPlot$translation[2] - (-1/ibdSlope*ibdPlot$translation[1])
-
-florida2 = st_transform(florida, crs = 5070)
-
-sintIBDPlotA = ggplot() +
-  geom_sf(data = florida2, fill = "white", size = 0.25) +
-  geom_abline(intercept = ibdInt, slope = ibdSlope, color = "gray75", linetype = 2) +
-  geom_abline(intercept = ibdInt2, slope = -(1/ibdSlope), color = "gray75", linetype = 2) +
-    geom_segment(data = convertedIBD, aes(x = ibs1, y = ibs2, xend = lon, yend = lat, color = Site), alpha = 0.5) +
-  geom_point(data = convertedIBD, aes(x = ibs1, y = ibs2, color = Site), shape = 16, alpha = 0.5)+
-  geom_point(data = sintIBDPlotPops, aes(x = lon, y = lat, fill = Site, shape = Depth), size = 2) +
-    annotate(geom = "label", x = 1344053.08266 , y = 368848.804494, label = "           ", size = 10) +
-  annotate(geom = "text", x = 1340417.86738 , y = 372764.041467, label = "Procrustes analysis:", size = 3) +
-  annotate(geom = "text", x = 1345669.60498, y = 364652.694261, label = "italic(t[0]) == 0.1156*','~italic(p) == 0.074", parse = TRUE, size = 3) +
-  scale_color_manual(values = flPal) +
-  scale_fill_manual(values = flPal) +
-  scale_shape_manual(values = c(24, 25), name = "Depth zone") +
-  coord_sf(default_crs = sf::st_crs(5070), ylim = c(250000, 375000), xlim = c(1320000, 1600000)) +
-  annotation_scale(location = "br") +
-  annotation_north_arrow(location = "br", which_north = "true", style = north_arrow_minimal(), pad_x = unit(-0.25, "cm") , pad_y = unit(0.75, "cm")) +
-  guides(color = "none", fill = guide_legend(override.aes = list(shape = 15, color = flPal, size = 3), ncol =2, order = 1), shape = guide_legend(ncol = 1)) +
+snpMantelA = ggplot(data = snpMantelDF, aes(x = geo, y = dist)) +
+  scale_fill_gradientn(colors = paletteer_d("wesanderson::Zissou1")) +
+  stat_density_2d(aes(fill = stat(density)), n = 300, contour = FALSE, geom = "raster") +
+  geom_smooth(method = lm, col = "black", fill = "gray40", fullrange = TRUE) +
+  geom_point(shape = 21, fill = "gray40", alpha = 0.25) +
+  scale_x_continuous(limits = c(0,300), expand = c(0,0)) +
+  scale_y_continuous(limits = c(0.25,0.5), breaks = seq(0.25,0.5, by = 0.05), expand = c(0,0)) +
+  annotate("label", x = 225, y = 0.46, 
+           label = paste("r = ", round(snpIBD$obs, 3), "; p = ", snpIBD$pvalue), 
+           size = 4, alpha = 0.6) +             
+  labs(x = "Geographic distance (km)", y = expression(paste("Genetic distance "))) +
+  ggtitle("SNP") +
   theme_bw()
 
-sintIBDPlot = sintIBDPlotA +
-  theme(panel.background = element_rect(fill = "aliceblue"),
-        panel.border = element_rect(color = "black", size = 0.75, fill = NA),
-        axis.title = element_blank(),
-        axis.ticks = element_line(color = "black"),
-        axis.text = element_text(color = "black", size = 8),
-        legend.position = "bottom",
-        legend.direction = "vertical",
-        legend.box = "horizontal",
-        legend.key = element_blank(),
-        legend.background = element_blank(),
-        legend.title = element_text(color = "black", size = 8),
-        legend.text = element_text(color = "black", size = 8)
-        )
+snpMantel = snpMantelA + theme(
+  axis.title.x = element_blank(),
+  axis.text.x = element_text(size = 12, color = "black"),
+  axis.ticks.x = element_line(color = "black"),
+  axis.line.x = element_blank(),
+  axis.title.y = element_text(color = "black"),
+  axis.text.y = element_text(size = 12, color = "black"),
+  axis.ticks.y = element_line(color = "black"),
+  axis.line.y = element_blank(),
+  panel.border = element_rect(size = 1.2, color = "black"),
+  plot.margin = margin(0.2,0.5,0.1,0.1, unit = "cm"),
+  legend.position = "none")
 
-sintIBDPlot
-
-ggsave("../figures/figureS3.png", plot = sintIBDPlot, height = 10, width = 16, units = "cm", dpi = 300)
-ggsave("../figures/figureS3.svg", plot = sintIBDPlot, height = 8, width = 14, units = "cm", dpi = 300)
+snpMantel
 
 ```
 
 <br> 
-
-### Distance-based redundancy analysis (dbRDA)
-
-```{r, dbRDA}
-# Set directory for sdmPredictors to download/search for previously downloaded datasets 
-# Also allow more than 60 seconds to download larger datasets before timing out
-options(sdmpredictors_datadir="../data/snps/bioOracle", timeout = max(300, getOption("timeout")))
-
-sintMa = as.dist(read.table("../data/snps/sintFiltSnps.ibsMat"))
-popData = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% dplyr::select(Sample, site, depthZone, latDD, longDD, depthM)
-
-datasets = list_datasets(terrestrial = FALSE, marine = TRUE, freshwater = FALSE)
-
-# Extract present-day data sets
-present = list_layers(datasets) %>% dplyr::select(dataset_code, layer_code, name, units, description, contains("cellsize"), version) %>% filter(version == 22) %>% filter(layer_code %in% c("BO22_damean", "BO22_parmean", "BO22_ph", "BO22_curvelmax_bdmean", "BO22_salinitymean_bdmean", "BO22_salinitymean_ss", "BO22_curvelmean_ss", "BO22_curvelmean_bdmean", "BO22_dissoxmean_bdmean", "BO22_lightbotmax_bdmean", "BO22_lightbotmean_bdmean", "BO22_nitratemean_bdmean", "BO22_tempmax_bdmean", "BO22_tempmean_bdmean", "BO22_tempmean_ss", "BO22_ppmean_ss", "BO22_dissoxmean_ss", "BO22_ppmean_bdmean", "BO22_chlomean_ss", "BO22_chlomean_bdmean"))
-
-envVar = load_layers(present$layer_code)
-
-envData = data.frame(popData, raster::extract(envVar, popData[,5:4]))
-
-# See what data are highly colinear
-corData = rcorr(as.matrix(envData[,c(7:ncol(envData))]), type = "pearson")
-corDataFlat = melt(corData$r, value.name = "r")
-pDataFlat = melt(corData$P, value.name = "p")
-corDataBind = corDataFlat %>% left_join(pDataFlat, by = c("Var1","Var2"))
-
-ggplot(corDataBind) +
-  geom_tile(aes(x = Var1, y = Var2, fill = r)) +
-  scale_fill_gradient2(low = "#3B9AB2FF", high = "#F21A00FF") +
-  geom_text(data = filter(corDataBind, r >= 0.7, p < 0.05),aes(x = Var1, y = Var2, label = round(r, 2))) +
-    geom_text(data = filter(corDataBind, r <= -0.7, p < 0.05),aes(x = Var1, y = Var2, label = round(r, 2))) +
-  theme_bw() +
-  theme(axis.text.x = element_text(angle = 90))
-
-# Removing correlated data and biologically irrelevant measurements
-envData2 = envData %>% dplyr::select("BO22_curvelmean_ss", "depthM", "BO22_lightbotmean_bdmean", "BO22_tempmean_bdmean", "BO22_ppmean_bdmean")
-
-# Checking again to make sure we've eliminated all colinearity
-corData2 = cor(envData2)
-corMelt2 = melt(corData2)
-
-ggplot(corMelt2) +
-  geom_tile(aes(x = Var1, y = Var2, fill = value)) +
-  scale_fill_gradient2(low = "#3B9AB2FF", high = "#F21A00FF") +
-  geom_text(data = corMelt2[corMelt2$value >= 0.7,],aes(x = Var1, y = Var2, label = round(value, 2))) +
-    geom_text(data = corMelt2[corMelt2$value <= -0.7,],aes(x = Var1, y = Var2, label = round(value, 2))) +
-  theme_bw() +
-  theme(axis.text.x = element_text(angle = 90))
-
-```
-
-Looks good now!
-
-Now we check variance inflation factors(VIF) to see if there is any multi-colinearity (VIF ≥ 10) between explanatory variables
-
-```{r, vif}
-vif = diag(solve(cor(envData2)))
-vif
-
-```
-
-No issues with the VIF measures so we can continue to run the redundancy analysis
-
-```{r, rda}
-dbrda0 = dbrda(sintMa ~ 1, data = envData2)
-dbrda1 = dbrda(sintMa ~ ., data = envData2)
-anova(dbrda1)
-RsquareAdj(dbrda1)
-
-```
-
-The model explains some of the genetic variation we see.
-Now we can run forward selection to find the best model that explains the data without over-fitting.
-
-```{r, rda2}
-set.seed(092)
-bestDbrda = ordiR2step(dbrda0, dbrda1, permutations = how(nperm = 9999), R2permutations = 9999, direction = "forward")
-
-bestDbrda$anova
-
-```
-
-
-Depth and Primary productivity are the environmental variables that best explain the variation (although only 2.18%).
-
-```{r, variance partitioning}
-model = envData2 %>% dplyr::select("Depth" = depthM, "PP" = BO22_ppmean_bdmean)
-
-sintDbrda = dbrda(sintMa ~ Depth + PP, model)
-
-dbrdaVarPart = varpart(as.dist(sintMa), ~ Depth, ~ PP, data = model)
-dbrdaDepth = dbrda(sintMa ~ Depth, data = model)
-dbrdaPP = dbrda(sintMa ~ PP, data = model)
-
-dbrdaVarPart
-
-set.seed(003)
-anova(sintDbrda)
-
-set.seed(002)
-anova.cca(dbrdaDepth)
-
-set.seed(001)
-anova(dbrdaPP)
-
-```
-
-Now create the best model and prepare to plot
-
-```{r, plot dbRDA}
-sintRdaVar = round(sintDbrda$CA$eig/sum(sintDbrda$CA$eig)*100, 1)
-head(sintRdaVar)
-
-sintRdaVarFit = round(sintDbrda$CCA$eig/sum(sintDbrda$CCA$eig)*100, 1)
-head(sintRdaVarFit)
-
-sintI2P = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66,68,164,166,209,211),] %>% dplyr::select("sample" = tubeID, "pop" = site, "depth" = depthZone)
-
-sintI2P$popdepth = paste(sintI2P$pop, sintI2P$depth)
-
-sintRdaPoints = as.data.frame(scores(sintDbrda)$sites)
-sintRdaPoints$sample = sintI2P$sample
-head(sintRdaPoints)
-
-sintDbrdaData1 = sintI2P %>% left_join(sintRdaPoints) %>% left_join((pcangsd %>% dplyr::select(sample, "K" = cluster)))
-
-head(sintDbrdaData1)
-tail(sintDbrdaData1)
-
-envLoad = as.data.frame(sintDbrda$CCA$biplot)
-envLoad$var = row.names(envLoad)
-
-sintDbrdaData = merge(sintDbrdaData1, aggregate(cbind(mean.x = dbRDA1, mean.y = dbRDA2)~popdepth, sintDbrdaData1, mean), by="popdepth") %>% merge(., aggregate(cbind(mean.x.K = dbRDA1, mean.y.K = dbRDA2)~K, sintDbrdaData1, mean), by="K")
-
-
-sintDbrdaData$depth = factor(sintDbrdaData$depth)
-sintDbrdaData$depth = factor(sintDbrdaData$depth, levels(sintDbrdaData$depth)[c(2,1)])
-sintDbrdaData$pop = factor(sintDbrdaData$pop)
-sintDbrdaData$pop = factor(sintDbrdaData$pop, levels(sintDbrdaData$pop)[c(4, 1, 3, 2)])
-
-head(sintDbrdaData)
-
-```
-
-Now plot the dbRDA
-```{r, dbRDA plots}
-sintDbrdaPlotA = ggplot() +
-  geom_hline(yintercept = 0, color = "gray90", size = 0.5) +
-  geom_vline(xintercept = 0, color = "gray90", size = 0.5) +
-  geom_point(data = sintDbrdaData, aes(x = dbRDA1, y = dbRDA2, fill = K, shape = depth), color = "black", size = 2, alpha = 1) +
-  scale_shape_manual(values = c(24, 25), name = "Depth Zone") +
-  geom_segment(data = envLoad, aes(x = 0, y = 0, xend = dbRDA1, yend = dbRDA2), color = "#F5065B", arrow = arrow(length = unit(0.15, "cm"), type = "open"), size = 0.65) +
-  geom_text(data = envLoad[1,], aes(x = dbRDA1, y = dbRDA2-0.15, label = var), color = "#F5065B", size = 3, fontface = "bold") +
-   geom_text(data = envLoad[2,], aes(x = dbRDA1-0.1, y = dbRDA2-0.05, label = var), color = "#F5065B", size = 3, fontface = "bold") +
-  scale_fill_manual(values = kColPal, name = "Lineage") +
-  scale_color_manual(values = kColPal, name = "Lineage", guide = NULL) +
-  labs(title = expression(italic("S. intersepta")), x = paste0("dbRDA 1 (", sintRdaVarFit[1], "% [",sintRdaVar[1], "%])"), y = paste0("dbRDA 2 (", sintRdaVarFit[2], "% [",sintRdaVar[2], "%])")) +
-  guides(shape = guide_legend(override.aes = list(size = 3, stroke = 0.5, alpha = 1), order = 2), fill = guide_legend(override.aes = list(shape = 22, size = 4, alpha = NA, fill = kColPal), order = 1))+
-  theme_bw()
-
-sintDbrdaPlot = sintDbrdaPlotA +
-  theme(plot.title = element_text(color = "black", size = 12),
-        axis.title.x = element_text(color = "black", size = 10),
-        axis.text.x = element_blank(),
-        axis.ticks.x = element_blank(),
-        axis.line.x = element_blank(),
-        axis.title.y = element_text(color = "black", size = 10),
-        axis.text.y = element_blank(),
-        axis.ticks.y = element_blank(),
-        axis.line.y = element_blank(),
-        legend.spacing = unit(-5, "pt"),
-        legend.key.size = unit(5, "pt"),
-        legend.position = c(1.1495, 0.5),
-        legend.title = element_text(size = 10),
-        legend.text = element_text(size = 8),
-        panel.border = element_rect(color = "black", size = 1),
-        panel.background = element_rect(fill = "white"),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank())
-
-# sintDbrdaPlot
-
-```
-![](../figures/figure5.png)
-<br>
 
 ## Genetic connectivity
 
 Checking deviance among model runs from BayesAss we ran on HPC
 
 ```{r, BA3 traces}
-fileList = substr(list.files("../data/snps/bayesAss/", "BA3trace.*.txt$"),1,10)
+# fileList = substr(list.files("../data/snps/bayesAss/", "BA3trace.*.txt$"),1,10)
+fileList = substr(list.files("../data/snps/BA3/", "BA3trace.*.txt$"),1,11)
 
 bayesian_deviance <- function(trace, burnin = 0, sampling.interval = 0){
   if(burnin == 0) stop('No burnin specified')
@@ -1783,16 +1333,28 @@ bayesian_deviance <- function(trace, burnin = 0, sampling.interval = 0){
 }
 
 for(i in 1:length(fileList)){
-  assign(fileList[i], read.delim(paste("../data/snps/bayesAss/", fileList[i], ".txt", sep = ""))) %>% dplyr::select(-last_col())
-  print(paste(fileList[i], bayesian_deviance(get(fileList[i]), burnin = 3000000, sampling.interval = 100)))
+  assign(fileList[i], read.delim(paste("../data/snps/BA3/", fileList[i], ".txt", sep = ""))) %>% dplyr::select(-last_col())
+  print(paste(fileList[i], bayesian_deviance(get(fileList[i]), burnin = 10000000, sampling.interval = 100)))
 }
+
+# [1] "BA3trace.01 1078700.5909"
+# [1] "BA3trace.02 1078407.0012"
+# [1] "BA3trace.03 1078727.4004"
+# [1] "BA3trace.04 1078794.1071"
+# [1] "BA3trace.05 1078778.0004"
+# [1] "BA3trace.06 1078681.4417"
+# [1] "BA3trace.07 1078710.4509"
+# [1] "BA3trace.08 1078817.9814"
+# [1] "BA3trace.09 1078717.2801"
+# [1] "BA3trace.10 1078433.2838"
 
 ```
 
 All traces have similar deviance (this is good!).
-Using the trace with the lowest deviance (BA3trace09.txt, in this case)
+Using the trace with the lowest deviance (BA3trace.02.txt, in this case)
+
 ```{r, BA3}
-bayesAss = read.delim("../data/snps/bayesAss/BA3trace09.txt") %>% filter(State > 3000000) %>% dplyr::select(-State, -LogProb, -X)
+bayesAss = read.delim("../data/snps/BA3/BA3trace.02.txt") %>% filter(State > 10000000) %>% dplyr::select(-State, -LogProb, -X)
 
 baMean = bayesAss %>% summarise(across(everything(), list(mean))) %>% t() %>% as_tibble() %>% rename(., mean=V1) %>% mutate(pops = colnames(bayesAss))
 
@@ -1918,8 +1480,8 @@ migrateA = ggplot(data = baSumm, aes(pop.i, pop.j))+
   guides(fill = guide_colorbar(ticks.colour = "black", barwidth = 1, barheight = 10, frame.colour = "black")) +
   # new_scale("fill") +
   geom_tile(data = subset(baSumm, subset = baSumm$mean<0.65), aes(fill = as.numeric(as.character(mean))), color = "white") +
-  scale_fill_gradientn(colours = paletteer_c("viridis::viridis", n = 10)[3:10], limit = c(0,0.25), space = "Lab", name = expression(paste(italic("m"))), na.value = "transparent",  guide = "colourbar", values = c(0, 0.05, 0.1, 0.15, 0.2,0.5,0.75,1)) +
-  
+  scale_fill_gradientn(colours = paletteer_c("viridis::mako", n = 10, direction = -1)[c(1:7)], limit = c(0,0.27), space = "Lab", name = expression(paste(italic("m"))), na.value = "transparent",  guide = "colourbar", values = c(0, 0.05, 0.1, 0.15, 0.2,0.5,0.75,1)) +
+  # scale_fill_gradientn(colours = paletteer_d("khroma::smoothrainbow"), limit = c(0,0.27), space = "Lab", name = expression(paste(italic("m"))), na.value = "transparent",  guide = "colourbar", values = c(0, 0.05, 0.1, 0.15, 0.2,0.5,0.75,1)) +
   geom_text(data = baSumm, aes(x = pop.i, y = pop.j, label = paste(mean, "\n", sep = "")), color = ifelse(baSumm$mean > 0.6, "white", "gray5"), fontface = ifelse(as.numeric(baSumm$hpdLow)>0, "bold", "plain"), size = ifelse(as.numeric(baSumm$hpdLow)>0, 4.75, 4)) +
   geom_text(data = baSumm, aes(x = pop.i, y = pop.j, label = paste("\n(",hpdLow,"–",hpdHigh, ")", sep = "")), color = ifelse(baSumm$mean > 0.6, "white", "gray5"), size = 3.25) +
   
@@ -1982,32 +1544,61 @@ for(x in 1:nrow(baMapData)) {
 migrateMap = ggplot() +
   geom_sf(data = florida, fill = "white", size = 0.25) +
 
-#SHALLOW SOURCES
-  geom_curve(data = baMapData[2,], aes(x = longDD.j, y = latDD.j, xend = longDD.i, yend = latDD.i-0.03, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = -3) +
-    geom_curve(data = baMapData[7,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.03, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = 0.25, na.rm = TRUE) +
-  geom_curve(data = baMapData[11,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.02, yend = latDD.i-0.02, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = 0.2, na.rm = TRUE) +
-  geom_curve(data = baMapData[13,], aes(x = longDD.j, y = latDD.j, xend = longDD.i-0.04, yend = latDD.i+0.01, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = 1.25, na.rm = TRUE) +
-  geom_curve(data = baMapData[16,], aes(x = longDD.j, y = latDD.j, xend = longDD.i +0.03, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = -0.25, na.rm = TRUE) +
-  geom_curve(data = baMapData[20,], aes(x = longDD.j, y = latDD.j, xend = longDD.i-0.04, yend = latDD.i+0.02, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = -0.2, na.rm = TRUE) +
-  geom_curve(data = baMapData[25,], aes(x = longDD.j, y = latDD.j, xend = longDD.i-0.05, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = -0.2, na.rm = TRUE) +
+# SHALLOW SOURCES
+geom_curve(data = baMapData[6,], aes(x = longDD.j, y = latDD.j, xend = longDD.i-0.02, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = -1.5) +
 
-#MESO SOURCES
-geom_curve(data = baMapData[4,], aes(x = longDD.j, y = latDD.j, xend = longDD.i, yend = latDD.i+0.03, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = -3, na.rm = TRUE) +
-geom_curve(data = baMapData[c(3, 6),], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.02, yend = latDD.i-0.02, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = -0.2, na.rm = TRUE) +
-geom_curve(data = baMapData[8,], aes(x = longDD.j, y = latDD.j, xend = longDD.i, yend = latDD.i+0.03, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = 0.2, na.rm = TRUE) +
-geom_curve(data = baMapData[10,], aes(x = longDD.j, y = latDD.j, xend = longDD.i +0.03, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = -0.25, na.rm = TRUE) +
-geom_curve(data = baMapData[12,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.02, yend = latDD.i-0.04, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = -0.35, na.rm = TRUE) +
-geom_curve(data = baMapData[15,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.02, yend = latDD.i+0.02, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = -0.2, na.rm = TRUE) +
-geom_curve(data = baMapData[17,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.03, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = -.35, na.rm = TRUE) +
-geom_curve(data = baMapData[19,], aes(x = longDD.j, y = latDD.j, xend = longDD.i-0.04, yend = latDD.i+0.02, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = -0.2, na.rm = TRUE) +
-geom_curve(data = baMapData[21,], aes(x = longDD.j, y = latDD.j, xend = longDD.i, yend = latDD.i-0.02, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = -9, na.rm = TRUE) +
-geom_curve(data = baMapData[27,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.03, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = 2, na.rm = TRUE) +
-geom_curve(data = baMapData[c(24, 29),], aes(x = longDD.j, y = latDD.j, xend = longDD.i-0.03, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = 0.2, na.rm = TRUE) +
-geom_curve(data = baMapData[c(23, 28),], aes(x = longDD.j, y = latDD.j, xend = longDD.i-0.04, yend = latDD.i+0.01, color = site.j, linetype = depth.j, size = mean), arrow = arrow(type = "open", length = unit(0.03, "npc")), alpha = 0.7,  curvature = -0.2, na.rm = TRUE) +
-  scale_fill_manual(values = flPal, name = "Source site") +
+geom_curve(data = baMapData[8,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.01, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = -0.2) +
+
+geom_curve(data = baMapData[9,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.02, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = 0.2) +
+
+geom_curve(data = baMapData[12,], aes(x = longDD.j, y = latDD.j, xend = longDD.i-0.03, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = 1.1) +  
+
+geom_curve(data = baMapData[14,], aes(x = longDD.j, y = latDD.j, xend = longDD.i, yend = latDD.i-0.02, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = -4) + 
+
+geom_curve(data = baMapData[16,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.01, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = -0.1) + 
+
+geom_curve(data = baMapData[17,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.01, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = 0.2) + 
+
+  
+# MESO SOURCES  
+geom_curve(data = baMapData[2,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.01, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = 0.2) +     
+
+geom_curve(data = baMapData[3,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.01, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = -0.2) +       
+
+geom_curve(data = baMapData[5,], aes(x = longDD.j, y = latDD.j, xend = longDD.i-0.01, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = -1) +    
+
+geom_curve(data = baMapData[7,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.01, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = 0.4) + 
+
+geom_curve(data = baMapData[10,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.01, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = -0.3) + 
+
+geom_curve(data = baMapData[11,], aes(x = longDD.j, y = latDD.j, xend = longDD.i-0.01, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = 1.4) +  
+
+geom_curve(data = baMapData[15,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.02, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = 0.2) +  
+  
+geom_curve(data = baMapData[18,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.01, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = -0.2) + 
+  
+geom_curve(data = baMapData[20,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.01, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = 0.3) +    
+  
+geom_curve(data = baMapData[21,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.01, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = -0.2) +
+
+geom_curve(data = baMapData[24,], aes(x = longDD.j, y = latDD.j, xend = longDD.i-0.01, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = 0.2) +
+
+geom_curve(data = baMapData[25,], aes(x = longDD.j, y = latDD.j, xend = longDD.i-0.01, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = -6) +
+
+geom_curve(data = baMapData[27,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.01, yend = latDD.i-0.01, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = -0.4) +
+
+geom_curve(data = baMapData[28,], aes(x = longDD.j, y = latDD.j, xend = longDD.i-0.01, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = 0.2) +
+
+geom_curve(data = baMapData[30,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.02, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = 2) +
+
+geom_curve(data = baMapData[31,], aes(x = longDD.j, y = latDD.j, xend = longDD.i-0.01, yend = latDD.i-0.01, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = 0.3) +
+  
+geom_curve(data = baMapData[23,], aes(x = longDD.j, y = latDD.j, xend = longDD.i+0.01, yend = latDD.i, color = site.j, linetype = depth.j, size = mean), alpha = 0.7, arrow = arrow(type = "open", length = unit(0.03, "npc")), curvature = -0.1) +
+
+  scale_fill_manual(values = migratePal, name = "Source site") +
   scale_color_manual(values = migratePal, guide = NULL) +
-  scale_shape_manual(values = c(24, 25), name = "Depth") +
-  scale_size(range = c(0.5, 2), breaks = c(0.02,0.06,0.1,0.14,0.18,0.22),name = expression(paste("Migration (", italic("m"), ")", sep = "")), guide = guide_legend(ncol = 1, order = 5)) +
+  scale_shape_manual(values = c(21, 23), name = "Depth") +
+  scale_size(range = c(0.5, 2), breaks = c(0.02,0.06,0.1,0.14,0.18,0.22,0.26),name = expression(paste("Migration (", italic("m"), ")", sep = "")), guide = guide_legend(ncol = 1, order = 5)) +
   geom_point(data = fknmsPopsMigrate, aes(x = longDD, y = latDD, fill = site, shape = depthZone), size = 3.5) +
   scale_linetype_manual(values = lines, name = "Source depth") +
   coord_sf(xlim = c(-83.1, -80.25), ylim = c(24.3, 25.3)) +
@@ -2015,7 +1606,7 @@ geom_curve(data = baMapData[c(23, 28),], aes(x = longDD.j, y = latDD.j, xend = l
   scale_y_continuous(breaks = c(seq(24, 26, by = .2))) +
   annotation_scale(location = "br") +
   annotation_north_arrow(location = "br", which_north = "true", style = north_arrow_minimal(), pad_x = unit(-0.25, "cm") , pad_y = unit(0.75, "cm")) +
-  guides(fill = guide_legend(override.aes = list(shape = 22, color = NA, size = 4),ncol = 1, order = 1, reverse = TRUE), shape = guide_legend(override.aes = list(size = 3), order = 2)) +
+  guides(fill = guide_legend(override.aes = list(shape = 22, color = NA, size = 4),ncol = 2, order = 1, reverse = TRUE), shape = guide_legend(override.aes = list(size = 3), order = 2), size = guide_legend(ncol = 4), order = 3) +
   theme_bw() +
   theme(panel.background = element_rect(fill = "aliceblue"),
         panel.border = element_rect(color = "black", size = 0.75, fill = NA),
@@ -2025,10 +1616,10 @@ geom_curve(data = baMapData[c(23, 28),], aes(x = longDD.j, y = latDD.j, xend = l
         axis.text = element_text(color = "black"),
         plot.title = element_blank(),
         legend.key.size = unit(15, "pt"),
-        legend.spacing = unit(-5, "pt"),
-        legend.position = "right",
+        legend.spacing = unit(10, "pt"),
+        legend.position = "bottom",
         legend.direction = "vertical",
-        legend.box = "vertical",
+        legend.box = "horizontal",
         legend.background = element_blank()
   )
 
@@ -2036,13 +1627,12 @@ migrateMap
 
 ```
 
-Putting the plots together into a single figure panel
+
 ```{r, migrationFigure}
-migrationPlots = (migrate/(migrateMap) + theme(legend.box.margin = margin(-20, 0, 0, 0))) + plot_layout(heights = c(1, 1.1)) + plot_annotation(tag_levels = 'A') & theme(plot.tag = element_text(size = 20))
 
-ggsave("../figures/figure5.png", plot = migrationPlots, width = 28, height = 24, units = "cm", dpi = 300)
+ggsave("../figures/figure4.png", plot = migrateMap, width = 28, height = 12, units = "cm", dpi = 300)
 
-ggsave("../figures/figure5.svg", plot = migrationPlots, width = 28, height = 25, units = "cm", dpi = 300)
+ggsave("../figures/figure4.svg", plot = migrateMap, width = 28, height = 12, units = "cm", dpi = 300)
 
 ```
 
@@ -2104,11 +1694,11 @@ Read in *SymPortal* outputs for *ITS2* type
 profiles
 
 ```{r, profile data prep, results = 'hide'}
-stephanocoeniaMetaData = read.csv("../data/stephanocoeniaMetaData.csv", header = TRUE, check.names = FALSE)[-c(66, 68, 164, 166, 209, 211),] %>% dplyr::select(c(Sample = tubeID, site, depthM, depthZone))
+stephanocoeniaMetaData = read.csv("../data/stephanocoeniaMetaData.csv", header = TRUE, check.names = FALSE)[-c(66, 68, 164, 166, 209, 211),] %>% dplyr::select(c(sample = tubeID, site, depthM, depthZone))
 
-its2Profs = read.csv("../data/ITS2/148_20210301_DBV_20210401T112728.profiles.absolute.abund_CLEAN.csv", header = TRUE, check.names = FALSE) 
+its2Profs = read.csv("../data/ITS2/148_20210301_DBV_20210401T112728.profiles.absolute.abund_CLEAN.csv", header = TRUE, check.names = FALSE) %>% rename(sample = Sample)
 
-its2Profs = stephanocoeniaMetaData %>% right_join(its2Profs) %>% arrange(Sample) 
+its2Profs = stephanocoeniaMetaData %>% right_join(its2Profs) %>% arrange(sample) 
 
 its2Profs$site = factor(its2Profs$site)
 its2Profs$site = factor(its2Profs$site, levels(its2Profs$site)[c( 2, 3, 1, 4)])
@@ -2147,14 +1737,18 @@ apply(its2ProfsPerc[, c(6:(ncol(its2ProfsPerc)))], 1, function(x) {
 sum(x, na.rm = T)
 })
 
+admixOrd = fkSintAdmix %>% dplyr::select(sample, ord) 
+pcangsdITS = pcangsd %>% dplyr::select(sample, cluster)
+
+its2ProfsPerc = its2ProfsPerc %>% left_join(admixOrd) %>% relocate(ord,.after = barPlotOrder) %>% left_join(pcangsdITS) %>% relocate(cluster, .after = depthZone)
 ```
 
 Everything looks good and is ready to plot 
 <br>
 
 ```{r, prepare profiles for plotting 2, results = 'hide'}
-gssProf = otuStack(its2ProfsPerc, count.columns = c(6:length(its2ProfsPerc[1, ])),
- condition.columns = c(1:5)) %>% filter(otu != "summ") %>% droplevels() # remove summ rows
+gssProf = otuStack(its2ProfsPerc, count.columns = c(8:length(its2ProfsPerc[1, ])),
+ condition.columns = c(1:7)) %>% filter(otu != "summ") %>% droplevels() # remove summ rows
 
 levels(gssProf$otu)
 levels(gssProf$depthZone)
@@ -2169,23 +1763,28 @@ levels(gssProf$site)
 
 ```{r, construct profile barplot, fig.show = 'hide'}
 zooxAnno = data.frame(x1 = c(0.5, 0.5, 0.5, 0.5), x2 = c(30.5, 30.5, 30.5, 30.5),
-                     y1 = -0.12, y2 = -0.12, site = c("Riley's Hump", "Tortugas Bank", "Lower Keys", "Upper Keys"))
+                     y1 = -0.22, y2 = -0.22, site = c("Riley's Hump", "Tortugas Bank", "Lower Keys", "Upper Keys"))
 
 zooxAnno$site = factor(zooxAnno$site)
 zooxAnno$site = factor(zooxAnno$site, levels = levels(zooxAnno$site)[c(2, 3, 1, 4)])
 
 
 gssProfPlot = gssProf %>% left_join(zooxAnno, by = "site")
-
-its2ProfsPlotA = ggplot(gssProfPlot, aes(x = barPlotOrder, y = count, fill = otu)) +
+gssProfPlot$ord = as.numeric(gssProfPlot$ord)
+  
+its2ProfsPlotA = ggplot(gssProfPlot, aes(x = ord, y = count, fill = otu)) +
   geom_bar(position = "stack", stat = "identity", color = "gray25", size = 0.25) + 
   scale_fill_manual(values = profPal, name = expression(paste(italic("ITS2"), " type profile"))) +
-  scale_color_manual(values = rev(flPal)) +
+ 
+  geom_segment(data = gssProfPlot, aes(x = ord-0.5, xend = ord+0.5, color = cluster), y = -.07, yend = -.07, linewidth = 4) +
+  scale_color_manual(values = kColPal, guide = "none") +
+  ggnewscale::new_scale_color() +
   
   geom_segment(data = gssProfPlot %>% filter(depthZone == "Mesophotic"), aes(x = x1, xend = x2, y = y1, yend = y2, color = site), linewidth = 7) +
+  scale_color_manual(values = rev(flPal)) +
   
-   geom_text(data = (gssProfPlot %>% filter(depthZone == "Mesophotic", site %in% c("Riley's Hump", "Tortugas Bank"), Sample %in% c("SFK001", "SFK100"), otu == "A4")), x = 15.5, y = -.1, aes(label = site), size = 4.4, color = "#FFFFFF") +
-  geom_text(data = (gssProfPlot %>% filter(depthZone == "Mesophotic", site %in% c("Lower Keys", "Upper Keys"), Sample %in% c("SFK101", "SFK201"), otu == "A4")), x = 15.5, y = -.1, aes(label = site), size = 4.4, color = "#000000") +
+   geom_text(data = (gssProfPlot %>% filter(depthZone == "Mesophotic", site %in% c("Riley's Hump", "Tortugas Bank"), sample %in% c("SFK001", "SFK100"), otu == "A4")), x = 15.5, y = -.205, aes(label = site), size = 4, color = "#FFFFFF") +
+  geom_text(data = (gssProfPlot %>% filter(depthZone == "Mesophotic", site %in% c("Lower Keys", "Upper Keys"), sample %in% c("SFK101", "SFK201"), otu == "A4")), x = 15.5, y = -.205, aes(label = site), size = 4, color = "#000000") +
   labs(title = expression(italic("SymPortal")), fill = expression(paste(italic("ITS2"), " type profile"))) +
   
   guides(color = "none", fill = guide_legend(ncol = 3, reverse = FALSE)) +
@@ -2199,12 +1798,13 @@ theme_bw()
 its2ProfsPlot = its2ProfsPlotA +
 theme(plot.title = element_text(),
   panel.grid = element_blank(),
-    panel.background = element_blank(),
+  # panel.background = element_blank(),
+  panel.background = element_rect(fill = "gray70"),
   panel.border = element_rect(fill = NA, color = "black", size = 0.75, linetype = "solid"),
   plot.background = element_blank(),
   legend.background = element_blank(),
   panel.spacing.x = grid:::unit(0.05, "lines"),
-  panel.spacing.y = grid:::unit(0.05, "lines"),
+  panel.spacing.y = grid:::unit(0.78, "lines"),
   axis.text.x = element_blank(),
   axis.text.y = element_blank(),
   axis.ticks.x = element_blank(),
@@ -2219,7 +1819,7 @@ theme(plot.title = element_text(),
   legend.key = element_blank(),
   legend.title = element_text(size = 10, angle = 90),
   legend.text = element_text(size = 8),
-  legend.position = "bottom")
+  legend.position = "right")
 
 # its2ProfsPlot
 
@@ -2227,18 +1827,38 @@ theme(plot.title = element_text(),
 
 ![](../figures/rmd/its2ProfilePlot.png) <br><br>
 
+### Structure plots
+```{r, fig1}
+
+structurePlots = ((pcaPlot12S + theme(axis.title.y = element_text(margin = ggplot2::margin(r = -20, unit = "pt")))) | pcaPlot12L | pcaPlot23L)/((admixPlot + labs(title = expression(paste(italic("S. intersepta"))))) | (its2ProfsPlot + guides(color = "none", fill = guide_legend(ncol = 1, reverse = FALSE)) + labs(title = "Symbiodiniaceae", fill = expression(paste(italic("ITS2"), " type profile"))) + theme(legend.title = element_text(size = 8, angle = 0), plot.title = element_text(size = 10), legend.text = element_text(size = 6), strip.text.y.left = element_text(angle = 90, size = 10),strip.text.x = element_text(size = 8)))) +
+plot_annotation(tag_levels = 'A') &
+  theme(plot.tag = element_text(size = 16),
+        plot.title = element_text(size = 10),
+        plot.title.position =  "panel",
+        legend.spacing = unit(-5, "pt"),
+        legend.key = element_blank(),
+        legend.background = element_blank())
+
+
+
+ggsave("../figures/figure2.png", plot = structurePlots, height = 6.6, width = 12, units = "in", dpi = 300)
+
+ggsave("../figures/figure2.svg", plot = structurePlots, height = 6.6, width = 12, units = "in", dpi = 300)
+```
+
+
 ## SNP vs ITS2 genera
 
 Pulling genera of Symbiodiniaceae from SNPS and comparing to genera of ITS2 profiles from ```SymPortal```
 
 ```{r, zoox comp}
-popData = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% dplyr::select("Sample" = tubeID, "site" = site, "depth" = depthZone)
+popData = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% dplyr::select("sample" = tubeID, "site" = site, "depth" = depthZone)
 
 zoox = read.delim("../data/snps/symbionts/zooxReads", header = FALSE, check.names = FALSE)
 
 head(zoox)
 
-#Reconstruct read mapping output into dataframe usable for analysis
+# Reconstruct read mapping output into dataframe usable for analysis
 zoox$V2[is.na(zoox$V2)] <- as.character(zoox$V1[is.na(zoox$V2)])
 zoox$V1 = gsub(pattern = "fk_*", "chr", zoox$V1)
 zoox$V2 = gsub(".trim.*", "", zoox$V2)
@@ -2251,15 +1871,15 @@ for(i in zooxLst){
   zooxMaps = rbind(zooxMaps, data.frame(t(i)))
 }
 
-#remove tech reps
+# remove tech reps
 zooxMaps = zooxMaps[-c(66, 68, 164, 166, 209, 211),]
 
-#rename columns and samples to match other ITS2 dataframe
+# rename columns and samples to match other ITS2 dataframe
 zooxMaps$X1 = gsub("fk_S", "SFK", zooxMaps$X1)
 zooxMaps$X1 = gsub("\\.[1-3]", "", zooxMaps$X1)
-colnames(zooxMaps) = c("Sample",zoox$V1[c(2:20)])
+colnames(zooxMaps) = c("sample",zoox$V1[c(2:20)])
 
-#convert characters to numeric
+# convert characters to numeric
 str(zooxMaps)
 
 for(i in c(2:20)){
@@ -2268,31 +1888,31 @@ for(i in c(2:20)){
 
 str(zooxMaps)
 
-#collapse fake chromosomes into representativ genera
+# collapse fake chromosomes into representative genera
 zooxMaps$Symbiodinium = rowSums(zooxMaps[2:6])
 zooxMaps$Breviolum = rowSums(zooxMaps[7:10])
 zooxMaps$Cladocopium = rowSums(zooxMaps[11:16])
 zooxMaps$Durusdinium = rowSums(zooxMaps[17:20])
 
-#keep genera totals and turn into proportions for barplot
+# keep genera totals and turn into proportions for barplot
 zooxMaps = zooxMaps[,c(1, 21:24)]
 zooxProp = zooxMaps
 zooxProp$sum = apply(zooxProp[, c(2:length(zooxProp[1,]))], 1, function(x) {
 sum(x, na.rm = T)
 })
-zooxProp = cbind(zooxProp$Sample, (zooxProp[, c(2:(ncol(zooxProp)-1))]
+zooxProp = cbind(zooxProp$sample, (zooxProp[, c(2:(ncol(zooxProp)-1))]
 / zooxProp$sum))
 
-colnames(zooxProp)[1] = "Sample"
+colnames(zooxProp)[1] = "sample"
 
 head(zooxProp)
 
-#Check that all samples total to 1
+# Check that all samples total to 1
 apply(zooxProp[, c(2:(ncol(zooxProp)))], 1, function(x) {
 sum(x, na.rm = T)
 })
 
-#add sample metadata to proportions
+# add sample metadata to proportions
 snpSym = popData %>% left_join(zooxProp)
 
 ```
@@ -2307,17 +1927,17 @@ symGenera$itsBreviolum = rowSums(symGenera[12:14])
 symGenera$itsCladocopium = rowSums(symGenera[15:24])
 symGenera$itsDurusdinium = 0  
 
-symGenera = symGenera %>% dplyr::select(Sample, barPlotOrder, itsSymbiodinium, itsBreviolum, itsCladocopium, itsDurusdinium)
+symGenera = symGenera %>% dplyr::select(sample, barPlotOrder, itsSymbiodinium, itsBreviolum, itsCladocopium, itsDurusdinium) %>% left_join(admixOrd) %>% relocate(ord, .after = barPlotOrder)
 
 #convert to proportions
-symGenera$sum = apply(symGenera[, c(3:length(symGenera[1,]))], 1, function(x) {
+symGenera$sum = apply(symGenera[, c(4:length(symGenera[1,]))], 1, function(x) {
 sum(x, na.rm = T)
 })
 
-symGeneraProp = cbind(symGenera$Sample, symGenera[, c(3:(ncol(symGenera)-1))]
+symGeneraProp = cbind(symGenera$sample, symGenera[, c(4:(ncol(symGenera)-1))]
 / symGenera$sum)
 
-colnames(symGeneraProp)[1] = "Sample"
+colnames(symGeneraProp)[1] = "sample"
 
 #Check that all samples total to 1
 apply(symGeneraProp[,c(2:5)], 1, function(x) {
@@ -2325,7 +1945,7 @@ sum(x, na.rm = T)
 })
 
 #construct combined dataframe
-symGenera = symGenera %>% dplyr::select(Sample, barPlotOrder) %>% left_join(snpSym) %>%  left_join(symGeneraProp) 
+symGenera = symGenera %>% dplyr::select(sample, ord) %>% left_join(snpSym) %>%  left_join(symGeneraProp) 
 
 symGenera$depth = factor(symGenera$depth)
 symGenera$depth = factor(symGenera$depth, levels = levels(symGenera$depth)[c(2, 1)])
@@ -2350,17 +1970,21 @@ levels(gssSym$site)
 
 SNPs:
 ```{r, symComp2}
-gssSymPlot = gssSym %>% left_join(zooxAnno, by = "site")
+gssSymPlot = gssSym %>% left_join(zooxAnno, by = "site") %>% left_join(pcangsdITS)
+gssSymPlot$ord = as.numeric(gssSymPlot$ord)
 
-zooxSNPA = ggplot(data = subset(gssSymPlot, subset = otu %in% c("Symbiodinium", "Breviolum", "Cladocopium", "Durusdinium" )), aes(x = barPlotOrder, y = count, fill = otu, order = barPlotOrder)) +
+zooxSNPA = ggplot(data = subset(gssSymPlot, subset = otu %in% c("Symbiodinium", "Breviolum", "Cladocopium", "Durusdinium" )), aes(x = ord, y = count, fill = otu, order = ord)) +
   geom_point(aes(x=1, y=0.5, fill = otu), shape = 22, size = 0) +
   geom_bar(stat = "identity", position = "stack", colour = "grey25", width = 1, size = 0.2, show.legend = FALSE) +
   xlab("Population") +
-  scale_color_manual(values = rev(flPal)) +
+  
   scale_fill_manual(values = colPalZoox, name = "Symbiodiniaceae genus") +
-
-    
-  geom_segment(data = (subset(gssSymPlot, subset = otu %in% c("Symbiodinium", "Breviolum", "Cladocopium", "Durusdinium" )) %>% filter(depth == "Mesophotic")), aes(x = x1, xend = x2, y = y1, yend = y2, color = site), size = 7) +
+   geom_segment(data = (subset(gssSymPlot, subset = otu %in% c("Symbiodinium", "Breviolum", "Cladocopium", "Durusdinium" )) %>% filter(depth == "Mesophotic")), aes(x = x1, xend = x2, y = y1, yend = y2, color = site), size = 7) +
+  scale_color_manual(values = rev(flPal), guide = "none") +
+  ggnewscale::new_scale_color() +
+  
+  geom_segment(data = (subset(gssSymPlot, subset = otu %in% c("Symbiodinium", "Breviolum", "Cladocopium", "Durusdinium" ))), aes(x = ord-0.5, xend = ord+0.5, color = cluster), y = -.07, yend = -.07, linewidth = 4) +
+  scale_color_manual(values = kColPal, name = "Lineage") +
   
   coord_cartesian(ylim = c(0, 1), xlim = c(0.5, 30.5), clip = "off") +
 
@@ -2368,19 +1992,20 @@ zooxSNPA = ggplot(data = subset(gssSymPlot, subset = otu %in% c("Symbiodinium", 
   scale_y_continuous(expand = c(0.001, 0.001)) +
   facet_grid(factor(depth) ~ site, drop = TRUE, scales = "free", switch = "both", space = "free") +
 
-    geom_text(data = subset(gssSymPlot, subset = otu == "Symbiodinium") %>% filter(Sample %in% c("SFK095", "SFK015")), x = 15.5, y = -.1, aes(label = site), size = 4.4, color = "#FFFFFF") +
-  geom_text(data = subset(gssSymPlot, subset = otu == "Symbiodinium") %>% filter(Sample %in% c("SFK195", "SFK156")), x = 15.5, y = -.1, aes(label = site), size = 4.4, color = "#000000") +
+    geom_text(data = subset(gssSymPlot, subset = otu == "Symbiodinium") %>% filter(sample %in% c("SFK095", "SFK015")), x = 15.5, y = -.205, aes(label = site), size = 4.4, color = "#FFFFFF") +
+  geom_text(data = subset(gssSymPlot, subset = otu == "Symbiodinium") %>% filter(sample %in% c("SFK195", "SFK156")), x = 15.5, y = -.205, aes(label = site), size = 4.4, color = "#000000") +
 
   ggtitle("2bRAD") +
-  guides(fill = guide_legend(override.aes = list(size = 5), ncol = 1), color = "none")  +
+  guides(color = guide_legend(override.aes = list(size = 4), ncol = 1), fill = "none")  +
   theme_bw()
 
 zooxSNP = zooxSNPA + theme(plot.title = element_text(),
   panel.grid = element_blank(),
-  panel.background = element_blank(),
+  # panel.background = element_blank(),
+  panel.background = element_rect(fill = "gray70"),
   panel.border = element_rect(fill = NA, color = "black", size = 0.75, linetype = "solid"),
   panel.spacing.x = grid:::unit(0.05, "lines"),
-  panel.spacing.y = grid:::unit(0.05, "lines"),
+  panel.spacing.y = grid:::unit(0.82, "lines"),
   axis.text.x = element_blank(),
   axis.text.y = element_blank(),
   axis.ticks.x = element_blank(),
@@ -2392,14 +2017,14 @@ zooxSNP = zooxSNPA + theme(plot.title = element_text(),
   strip.text.y.left = element_text(size = 12, angle = 90),
   strip.text.x.bottom = element_text(vjust = -.1, color = NA),
   legend.title = element_text(size = 10),
-  legend.text = element_text(size = 8, face = "italic"),
-  legend.key.size = unit(0.5, "line"),
+  legend.text = element_text(size = 8),
+  legend.key.size = unit(0.75, "line"),
   legend.key = element_blank(),
   legend.position = "bottom",
   legend.direction = "vertical",
   legend.box = "horizontal")
 
-zooxSNP
+# zooxSNP
 
 ```
 
@@ -2407,14 +2032,18 @@ zooxSNP
 
 ITS2:
 ```{r, symITS}
-zooxITSA = ggplot(data = subset(gssSymPlot, subset = !(otu %in% c("Symbiodinium", "Breviolum", "Cladocopium", "Durusdinium" ))), aes(x = barPlotOrder, y = count, fill = otu, order = barPlotOrder)) +
+zooxITSA = ggplot(data = subset(gssSymPlot, subset = !(otu %in% c("Symbiodinium", "Breviolum", "Cladocopium", "Durusdinium" ))), aes(x = ord, y = count, fill = otu, order = ord)) +
   geom_point(aes(x=1, y=0.5, fill = otu), shape = 22, size = 0) +
   geom_bar(stat = "identity", position = "stack", colour = "grey25", width = 1, size = 0.2, show.legend = FALSE) +
   xlab("Population") +
   scale_fill_manual(values = colPalZoox, name = "Symbiodiniaceae genus", labels = c("Symbiodinium", "Breviolum", "Cladocopium", "Durusdinium")) +
+
+    geom_segment(data = (subset(gssSymPlot, subset = !otu %in% c("Symbiodinium", "Breviolum", "Cladocopium", "Durusdinium" ))), aes(x = ord-0.5, xend = ord+0.5, color = cluster), y = -.07, yend = -.07, linewidth = 4) +
+  scale_color_manual(values = kColPal, guide = "none") +
+  ggnewscale::new_scale_color() +
+    
+  geom_segment(data = (subset(gssSymPlot, subset = !otu %in% c("Symbiodinium", "Breviolum", "Cladocopium", "Durusdinium" )) %>% filter(depth == "Mesophotic")), aes(x = x1, xend = x2, y = y1, yend = y2, color = site), size = 7) +
   scale_color_manual(values = rev(flPal)) +
-  
-  geom_segment(data = (subset(gssSymPlot, subset = !(otu %in% c("Symbiodinium", "Breviolum", "Cladocopium", "Durusdinium" )))%>% filter(depth == "Mesophotic")), aes(x = x1, xend = x2, y = y1, yend = y2, color = site), size = 7) +
   
   coord_cartesian(ylim = c(0, 1), xlim = c(0.5, 30.5), clip = "off") +
 
@@ -2422,20 +2051,20 @@ zooxITSA = ggplot(data = subset(gssSymPlot, subset = !(otu %in% c("Symbiodinium"
   scale_y_continuous(expand = c(0.001, 0.001)) +
   facet_grid(factor(depth) ~ site, drop = TRUE, scales = "free", switch = "both", space = "free") +
 
-  geom_text(data = subset(gssSymPlot, subset = otu == "itsSymbiodinium") %>% filter(Sample %in% c("SFK095", "SFK015")), x = 15.5, y = -.1, aes(label = site), size = 4.4, color = "#FFFFFF") +
-  geom_text(data = subset(gssSymPlot, subset = otu == "itsSymbiodinium") %>% filter(Sample %in% c("SFK195", "SFK156")), x = 15.5, y = -.1, aes(label = site), size = 4.4, color = "#000000") +
+  geom_text(data = subset(gssSymPlot, subset = otu == "itsSymbiodinium") %>% filter(sample %in% c("SFK095", "SFK015")), x = 15.5, y = -.205, aes(label = site), size = 4.4, color = "#FFFFFF") +
+  geom_text(data = subset(gssSymPlot, subset = otu == "itsSymbiodinium") %>% filter(sample %in% c("SFK195", "SFK156")), x = 15.5, y = -.205, aes(label = site), size = 4.4, color = "#000000") +
   
-  
-  guides(fill = guide_legend(override.aes = list(size = 5), ncol = 1), color = "none")  +
+  guides(fill = guide_legend(override.aes = list(size = 4), ncol = 1), color = "none")  +
   labs(title = expression(italic("ITS2"))) +
   theme_bw()
 
 zooxITS = zooxITSA + theme(plot.title = element_text(),
   panel.grid = element_blank(),
-  panel.background = element_blank(),
+  # panel.background = element_blank(),
+  panel.background = element_rect(fill = "gray70"),
   panel.border = element_rect(fill = NA, color = "black", size = 0.75, linetype = "solid"),
   panel.spacing.x = grid:::unit(0.05, "lines"),
-  panel.spacing.y = grid:::unit(0.05, "lines"),
+  panel.spacing.y = grid:::unit(0.82, "lines"),
   axis.text.x = element_blank(),
   axis.text.y = element_blank(),
   axis.ticks.x = element_blank(),
@@ -2449,7 +2078,7 @@ zooxITS = zooxITSA + theme(plot.title = element_text(),
   legend.title = element_text(size = 10),
   legend.text = element_text(size = 8, face = "italic"),
   legend.key = element_blank(),
-  legend.key.size = unit(0.1, "line"),
+  legend.key.size = unit(0.5, "line"),
   legend.position = "bottom",
   legend.direction = "vertical",
   legend.box = "horizontal")
@@ -2461,7 +2090,9 @@ zooxITS = zooxITSA + theme(plot.title = element_text(),
 ### Symbiodiniaceae barplots
 
 ```{r, its2 plots}
-its2Plots = (its2ProfsPlot + theme(legend.position = "right",  legend.title = element_text(angle = 0)) & guides(color = "none", fill = guide_legend(ncol = 1, reverse = FALSE)))/zooxITS/zooxSNP +
+# its2Plots = (its2ProfsPlot + theme(legend.position = "right",  legend.title = element_text(angle = 0)) & guides(color = "none", fill = guide_legend(ncol = 1, reverse = FALSE)))/zooxITS/zooxSNP +
+
+its2Plots = zooxITS/zooxSNP +
   plot_annotation(tag_levels = "A") &
   theme(plot.tag = element_text(size = 16), 
         axis.text = element_blank(),
@@ -2470,20 +2101,21 @@ its2Plots = (its2ProfsPlot + theme(legend.position = "right",  legend.title = el
         legend.title = element_text(color = "black", size = 10),
         legend.text = element_text(color = "black", size = 8))
 
-ggsave("../figures/figure6.png", plot = its2Plots, height = 26, width = 20, units = "cm", dpi = 300)
+ggsave("../figures/figure5.png", plot = its2Plots, height = 18, width = 20, units = "cm", dpi = 300)
 
-ggsave("../figures/figure6.svg", plot = its2Plots, height = 26, width = 20, units = "cm", dpi = 300)
+ggsave("../figures/figure5.svg", plot = its2Plots, height = 18, width = 20, units = "cm", dpi = 300)
 
 ```
+
 
 ### Procrustes analysis
 Comparing the two outputs with procrustes analysis
 ```{r, its & snps comp}
-popData = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% dplyr::select("Sample" = tubeID, "site" = site, "depth" = depthZone)
+popData = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% dplyr::select("sample" = tubeID, "site" = site, "depth" = depthZone)
 
-symSnpDf = zooxMaps %>% left_join(popData) %>% relocate(c(site, depth), .after = Sample) %>% filter(!row_number()==131) %>% mutate(dataSet = "SNPs") %>% relocate(dataSet, .after = Sample)
+symSnpDf = zooxMaps %>% left_join(popData) %>% relocate(c(site, depth), .after = sample) %>% filter(!row_number()==131) %>% mutate(dataSet = "SNPs") %>% relocate(dataSet, .after = sample)
 
-rownames(symSnpDf) = symSnpDf$Sample
+rownames(symSnpDf) = symSnpDf$sample
 
 symITS2 = its2Profs
 symITS2$Symbiodinium = rowSums(symITS2[6:11])
@@ -2491,9 +2123,9 @@ symITS2$Breviolum = rowSums(symITS2[12:14])
 symITS2$Cladocopium = rowSums(symITS2[15:24])
 symITS2$Durusdinium = 0  
 
-symITS2Df = symITS2 %>% dplyr::select(Sample, Symbiodinium, Breviolum, Cladocopium, Durusdinium) %>% left_join(popData) %>% relocate(c(site, depth), .after = Sample) %>% arrange(Sample) %>% mutate(dataSet = "ITS2") %>% relocate(dataSet, .after = Sample)
+symITS2Df = symITS2 %>% dplyr::select(sample, Symbiodinium, Breviolum, Cladocopium, Durusdinium) %>% left_join(popData) %>% relocate(c(site, depth), .after = sample) %>% arrange(sample) %>% mutate(dataSet = "ITS2") %>% relocate(dataSet, .after = sample)
 
-rownames(symITS2Df) = symITS2Df$Sample
+rownames(symITS2Df) = symITS2Df$sample
 
 #create distance matrices
 symSnpdist = vegdist(decostand(symSnpDf[c(5:ncol(symSnpDf))], method = "normalize"), method = "bray")
@@ -2553,10 +2185,10 @@ sintSymGenProcPlotA = ggplot() +
   geom_point(data = symGenProcPlotData, aes(x = x1*(1-symGenProcPlot$scale), y = y1*(1-symGenProcPlot$scale), fill = site, shape = depth), size = 2) +
   annotate(geom = "label", x = 0.172, y = 0.172, label = "           ", size = 10) +
   annotate(geom = "text", x = 0.172, y = 0.1825, label = "Procrustes analysis:", size = 3) +
-  annotate(geom = "text", x = 0.172, y = 0.165, label = "italic(t[0]) == 0.9175 *','~italic(p) < 0.0001", parse = TRUE, size = 3) +
+  annotate(geom = "text", x = 0.172, y = 0.165, label = "italic(t[0]) == 0.919 *','~italic(p) < 0.0001", parse = TRUE, size = 3) +
   scale_color_manual(values = flPal) +
   scale_fill_manual(values = flPal, name = "Site") +
-  scale_shape_manual(values = c(24, 25), name = "Depth zone") +
+  scale_shape_manual(values = c(21, 23), name = "Depth zone") +
   guides(color = "none", fill = guide_legend(override.aes = list(shape = 15, color = flPal, size = 3), ncol =2, order = 1), shape = guide_legend(ncol = 1)) +
   theme_bw()
 
@@ -2584,7 +2216,7 @@ sintSymGenProcPlot
 ## *S. intersepta* genetic distance vs Symbiodiniaceae B-C distance
 
 ```{r, procrustes its2 snps}
-its2DistA = its2Profs %>% arrange(Sample)
+its2DistA = its2Profs %>% arrange(sample)
 its2Dist = its2DistA[c(6:ncol(its2Profs))] %>% decostand("normalize") %>% vegdist(method = "bray")
 its2PCoA = cmdscale(its2Dist, eig = TRUE, x.ret = TRUE)
 
@@ -2641,8 +2273,7 @@ gamma/alpha
 set.seed(694) 
 its2dispS = betadisper(vegdist(decostand(its2Profs[, c(6:ncol(its2Profs))], "normalize")), its2Profs$site)
 
-set.seed(694) 
-permutest(its2dispS, permutations = 9999)
+anova(its2dispS)
 
 ```
 
@@ -2663,15 +2294,31 @@ its2dispD = betadisper(vegdist(decostand(its2Profs[, c(6:ncol(its2Profs))], "nor
 
 its2dispD
 
+anova(its2dispD)
 
-set.seed(694)
-its2dispDPerm = permutest(its2dispD, permutations = 9999)
-
-its2dispDPerm
-  
 ```
 
 Depth does significantly affect beta diversity.<br> <br>
+
+```{r, betadispersion by depth}
+its2ProfsLineage = its2Profs %>% left_join(dplyr::select(pcangsd,sample,cluster)) %>% filter(cluster != "Admixed") %>% droplevels()
+
+alpha = with(its2ProfsLineage, tapply(specnumber(its2ProfsLineage[, c(6:24)]), cluster, mean))
+alpha
+
+gamma = with(its2ProfsLineage, specnumber(its2ProfsLineage[, c(6:24)], cluster))
+gamma
+
+gamma/alpha
+
+set.seed(694)
+its2dispL = betadisper(vegdist(decostand(its2ProfsLineage[, c(6:(ncol(its2ProfsLineage)-1))], "normalize")), its2ProfsLineage$cluster)
+
+anova(its2dispL)
+  
+```
+
+No significant effect of Lineage on betadiversity.<br>
 
 ## Running PERMANOVA in R
 
@@ -2682,13 +2329,15 @@ permutations, and test the effects of Site, Depth, and the interaction
 between Site and Depth.
 
 ```{r, permanova}
+its2ProfsLineage = its2Profs %>% left_join(dplyr::select(pcangsd,sample,cluster)) %>% filter(cluster != "Admixed") %>% droplevels()
+
 set.seed(694)
-its2Adonis = adonis2(decostand(its2Profs[, c(6:ncol(its2Profs))], "normalize") ~ site * depthZone, data = its2Profs, permutations = 9999, method = "bray")
+its2Adonis = adonis2(decostand(its2ProfsLineage[, c(6:((ncol(its2ProfsLineage)-1)))], "normalize") ~ cluster*depthZone*site, data = its2ProfsLineage, permutations = 9999, method = "bray")
 
 its2Adonis 
 
 set.seed(694)
-its2PWAdonis = pairwise.adonis(decostand(its2Profs[,c(6:ncol(its2Profs))], "normalize"), factors = its2Profs$site, sim.method = "bray", p.adjust.m = "fdr", perm = 9999)
+its2PWAdonis = pairwise.adonis(decostand(its2Profs[,c(6:(ncol(its2Profs)))], "normalize"), factors = its2Profs$site, sim.method = "bray", p.adjust.m = "fdr", perm = 9999)
 
 its2PWAdonis
 
@@ -2717,185 +2366,15 @@ table4 = read_docx()
 table4 = body_add_flextable(table4, value = its2PWAdonis2Tab)
 print(table4, target = "../tables/table4.docx")
 
+
+set.seed(694)
+its2PWAdonis3 = pairwise.adonis(decostand(its2ProfsLineage[, c(6:(ncol(its2ProfsLineage)-1))], "normalize"), factors = its2ProfsLineage$cluster, sim.method = "bray", p.adjust.m = "fdr", perm = 9999)
+
+its2PWAdonis3
+
 ```
 
 <br><br>
-
-## Symbiodiniaceae dbRDA
-
-```{r, its2 dbRDA}
-options(sdmpredictors_datadir="../data/snps/bioOracle", timeout = max(300, getOption("timeout")))
-
-flPal = paletteer_d("vapoRwave::jazzCup")[c(2:5)]
-
-popData = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66, 68, 164, 166, 209, 211),] %>% dplyr::select(Sample, site, depthZone, latDD, longDD, depthM)
-
-its2DistA = its2Profs %>% arrange(Sample)
-its2Dist = vegdist(decostand(its2DistA[, c(6:ncol(its2DistA))], "normalize"), method = "bray")
-datasets = list_datasets(terrestrial = FALSE, marine = TRUE, freshwater = FALSE)
-
-# Extract present-day data sets
-present = list_layers(datasets) %>% dplyr::select(dataset_code, layer_code, name, units, description, contains("cellsize"), version) %>% filter(version == 22) %>% filter(layer_code %in% c("BO22_damean", "BO22_parmean", "BO22_ph", "BO22_curvelmax_bdmean", "BO22_salinitymean_bdmean", "BO22_salinitymean_ss", "BO22_curvelmean_ss", "BO22_curvelmean_bdmean", "BO22_dissoxmean_bdmean", "BO22_lightbotmax_bdmean", "BO22_lightbotmean_bdmean", "BO22_nitratemean_bdmean", "BO22_tempmax_bdmean", "BO22_tempmean_bdmean", "BO22_ppmean_ss", "BO22_ppmean_bdmean", "BO22_chlomean_ss", "BO22_chlomean_bdmean"))
-
-envVar = load_layers(present$layer_code)
-
-itsEnvData = data.frame(popData, raster::extract(envVar, popData[,5:4]))[-131,]
-
-corData = rcorr(as.matrix(itsEnvData[,c(6:ncol(itsEnvData))]), type = "pearson")
-corDataFlat = melt(corData$r, value.name = "r")
-pDataFlat = melt(corData$P, value.name = "p")
-corDataBind = corDataFlat %>% left_join(pDataFlat, by = c("Var1","Var2"))
-
-ggplot(corDataBind) +
-  geom_tile(aes(x = Var1, y = Var2, fill = r)) +
-  scale_fill_gradient2(low = "#3B9AB2FF", high = "#F21A00FF") +
-  geom_text(data = filter(corDataBind, r >= 0.7, p < 0.05),aes(x = Var1, y = Var2, label = round(r, 2))) +
-    geom_text(data = filter(corDataBind, r <= -0.7, p < 0.05),aes(x = Var1, y = Var2, label = round(r, 2))) +
-  theme_bw() +
-  theme(axis.text.x = element_text(angle = 90))
-
-itsEnvData2 = itsEnvData %>% dplyr::select("BO22_curvelmean_ss", "depthM", "BO22_lightbotmean_bdmean", "BO22_tempmean_bdmean", "BO22_ppmean_bdmean")
-
-corData2 = cor(itsEnvData2)
-corMelt2 = melt(corData2)
-
-ggplot(corMelt2) +
-  geom_tile(aes(x = Var1, y = Var2, fill = value)) +
-  scale_fill_gradient2(low = "#3B9AB2FF", high = "#F21A00FF") +
-  geom_text(data = corMelt2[corMelt2$value >= 0.7,],aes(x = Var1, y = Var2, label = round(value, 2))) +
-    geom_text(data = corMelt2[corMelt2$value <= -0.7,],aes(x = Var1, y = Var2, label = round(value, 2))) +
-  theme_bw() +
-  theme(axis.text.x = element_text(angle = 90))
-
-vif = diag(solve(cor(itsEnvData2)))
-vif
-
-itsDbrda0 = dbrda(its2Dist ~ 1, data = itsEnvData2)
-itsDbrda1 = dbrda(its2Dist ~ ., data = itsEnvData2)
-anova(itsDbrda1)
-RsquareAdj(itsDbrda1)
-
-set.seed(092)
-bestItsDbrda <- ordiR2step(itsDbrda0, itsDbrda1)
-bestItsDbrda$anova
-
-```
-
-Now create best model and look at variance partitioning and significance with ANOVA
-
-```{r, ITS2 dbRDA model}
-its2Model = itsEnvData2 %>% dplyr::select("Depth" = depthM, "Current" = BO22_curvelmean_ss, "Light" = BO22_lightbotmean_bdmean)
-
-its2Dbrda = dbrda(its2Dist ~ Depth + Current + Light, its2Model)
-
-itsDbrdaVarPart = varpart(its2Dist, ~ depthM, ~ BO22_curvelmean_ss, ~ BO22_lightbotmean_bdmean, data = itsEnvData2)
-
-itsDbrdaDepth = dbrda(its2Dist ~ Depth, its2Model)
-itsDbrdaCur = dbrda(its2Dist ~ Current, its2Model)
-itsDbrdaLight = dbrda(its2Dist ~ Light, its2Model)
-
-plot(itsDbrdaVarPart, Xnames = c("Depth", "Current", "Light"), bg = c(4:7), digits = 2)
-
-itsDbrdaVarPart
-
-set.seed(004)
-anova(its2Dbrda)
-
-set.seed(003)
-anova(itsDbrdaDepth)
-
-set.seed(002)
-anova(itsDbrdaCur)
-
-set.seed(001)
-anova(itsDbrdaLight)
-
-```
-
-Prepare data and plot dbRDA
-
-```{r, plot ITS2 dbRDA}
-itsRdaVar = round(its2Dbrda$CA$eig/sum(its2Dbrda$CA$eig)*100, 1)
-head(itsRdaVar)
-
-itsRdaVarFit = round(its2Dbrda$CCA$eig/sum(its2Dbrda$CCA$eig)*100, 1)
-head(itsRdaVarFit)
-
-sintI2P = read.csv("../data/stephanocoeniaMetaData.csv")[-c(66,68,164,166,133,209,211),] %>% dplyr::select("sample" = tubeID, "pop" = site, "depth" = depthZone)
-
-sintI2P$popdepth = paste(sintI2P$pop, sintI2P$depth)
-
-its2RdaPoints = as.data.frame(scores(its2Dbrda, choices=c(1:4))$sites)
-its2RdaPoints$sample = sintI2P$sample
-head(its2RdaPoints)
-
-its2DbrdaData1 = sintI2P %>% left_join(its2RdaPoints)
-head(its2DbrdaData1)
-tail(its2DbrdaData1)
-
-its2EnvLoad = as.data.frame(its2Dbrda$CCA$biplot)
-its2EnvLoad$var = row.names(its2EnvLoad) 
-its2EnvLoad$var = its2EnvLoad$var %>% gsub(pattern = "`", replacement = "", x = its2EnvLoad$var)
-
-its2DbrdaData = merge(its2DbrdaData1, aggregate(cbind(mean.x = dbRDA1, mean.y2 = dbRDA2, mean.y3 = dbRDA3)~popdepth, its2DbrdaData1, mean), by="popdepth") %>% left_join(gssProf %>% dplyr::select(Sample, otu, count) %>% group_by(Sample) %>% summarise(count = max(count)) %>% left_join(gssProf %>% dplyr::select(Sample, otu, count)) %>% rename(sample = Sample, sym = otu) %>% dplyr::select(-count))
-
-its2DbrdaData$depth = factor(its2DbrdaData$depth)
-its2DbrdaData$depth = factor(its2DbrdaData$depth, levels(its2DbrdaData$depth)[c(2,1)])
-its2DbrdaData$pop = factor(its2DbrdaData$pop)
-its2DbrdaData$pop = factor(its2DbrdaData$pop, levels(its2DbrdaData$pop)[c(4, 1, 3, 2)])
-
-head(its2DbrdaData)
-
-```
-
-```{r, ITS2 dbRDA plots}
-its2DbrdaPlotA = ggplot() +
-  geom_hline(yintercept = 0, color = "gray90", size = 0.5) +
-  geom_vline(xintercept = 0, color = "gray90", size = 0.5) +
-  geom_segment(data = its2EnvLoad, aes(x = 0, y = 0, xend = dbRDA1, yend = dbRDA2), color = "#F5065B", arrow = arrow(length = unit(0.15, "cm"), type = "open"), size = 0.65) +
-  geom_point(data = its2DbrdaData, aes(x = dbRDA1, y = dbRDA2, fill = sym, shape = depth), color = "black", size = 2, alpha = 1, position = position_jitter(seed = 1, width = 0.075, height = 0.075)) +
-  scale_shape_manual(values = c(24, 25), name = "Depth Zone") +
-  geom_text(data = its2EnvLoad[1,], aes(x = dbRDA1-0.2, y = dbRDA2, label = var), color = "#F5065B", size = 3, fontface = "bold") +
-  geom_text(data = its2EnvLoad[2,], aes(x = dbRDA1, y = dbRDA2+0.2, label = var), color = "#F5065B", size = 3, fontface = "bold") +
-  geom_text(data = its2EnvLoad[3,], aes(x = dbRDA1-0.15, y = dbRDA2-0.1, label = var), color = "#F5065B", size = 3, fontface = "bold") +
-  scale_fill_manual(values = profPal[-c(3,6,7,8,18)], name = expression(paste(italic("ITS2"), " type profile"))) +
-  labs(title = "Symbiodiniaceae", x = paste0("dbRDA 1 (", itsRdaVarFit[1], "% [",itsRdaVar[1], "%])"), y = paste0("dbRDA 2 (", itsRdaVarFit[2], "% [",itsRdaVar[2], "%])")) +
-  
-  guides(shape = guide_legend(override.aes = list(size = 3, stroke = 0.5, alpha = NA), order = 2), fill = guide_legend(override.aes = list(shape = 22, size = 4), order = 1))+
-  
-  theme_bw()
-
-its2DbrdaPlot = its2DbrdaPlotA +
-  theme(plot.title = element_text(color = "black", size = 12),
-        axis.title.x = element_text(color = "black", size = 10),
-        axis.text.x = element_blank(),
-        axis.ticks.x = element_blank(),
-        axis.line.x = element_blank(),
-        axis.title.y = element_text(color = "black", size = 10),
-        axis.text.y = element_blank(),
-        axis.ticks.y = element_blank(),
-        axis.line.y = element_blank(),
-        legend.spacing = unit(-5, "pt"),
-        legend.key.size = unit(5, "pt"),
-        legend.position = "right",
-        legend.title = element_text(size = 10),
-        legend.text = element_text(size = 8),
-        panel.border = element_rect(color = "black", size = 1),
-        panel.background = element_rect(fill = "white"),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank())
-
-its2DbrdaPlot
-
-dbRdaPlots = (sintDbrdaPlot / its2DbrdaPlot) + 
-  plot_annotation(tag_levels = 'A') &
-  theme(plot.tag = element_text(size = 16))
-  
-ggsave("../figures/figure4.png", plot = dbRdaPlots, height = 18, width = 18, units = "cm", dpi = 300)
-
-ggsave("../figures/figure4.svg", plot = dbRdaPlots, height = 18, width = 18, units = "cm", dpi = 300)
-
-```
 
 ```{r, save RData}
 save.image("fknmsSint.RData")

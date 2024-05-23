@@ -1,0 +1,10 @@
+PCAngsd v1.11
+Time: 14/02/2024 10:56:34
+Directory: /mnt/beegfs/home/reckert2017/2bRAD/fknms/sint/pcangsd
+Options:
+	-beagle sintNoClones3x.beagle.gz
+	-out fkSintPcangsd3x
+	-selection
+	-pcadapt
+	-inbreedSamples
+	-admix

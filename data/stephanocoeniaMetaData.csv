@@ -1,227 +1,227 @@
-﻿Sample,sampleID,tubeID,site,location,siteID,date,species,latDD,longDD,depthFt,depthM,depthZone,collection
-SFK001,22-VIII-19-1-002,SFK001,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,115,35.1,Mesophotic,Tech Dive
-SFK002,22-VIII-19-1-004,SFK002,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,113,34.4,Mesophotic,Tech Dive
-SFK003,22-VIII-19-1-006,SFK003,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,115,35.1,Mesophotic,Tech Dive
-SFK004,22-VIII-19-1-008,SFK004,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,110,33.5,Mesophotic,Tech Dive
-SFK005,22-VIII-19-1-009,SFK005,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,113,34.4,Mesophotic,Tech Dive
-SFK006,22-VIII-19-1-010,SFK006,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,113,34.4,Mesophotic,Tech Dive
-SFK007,22-VIII-19-1-011,SFK007,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,114,34.7,Mesophotic,Tech Dive
-SFK008,22-VIII-19-1-012,SFK008,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,112,34.1,Mesophotic,Tech Dive
-SFK009,22-VIII-19-1-016,SFK009,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,113,34.4,Mesophotic,Tech Dive
-SFK010,22-VIII-19-2-006,SFK010,Tortugas Bank,Sherwood Forrest,Site 33,8/22/19,Stephanocoenia intersepta,24.66019667,-83.07890333,48,14.6,Shallow,Scuba
-SFK011,23-VIII-19-1-003,SFK011,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,101,30.8,Mesophotic,Tech Dive
-SFK012,23-VIII-19-1-017,SFK012,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,97,29.6,Shallow,Tech Dive
-SFK013,23-VIII-19-1-018,SFK013,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,95,29,Shallow,Tech Dive
-SFK014,23-VIII-19-1-019,SFK014,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,99,30.2,Mesophotic,Tech Dive
-SFK015,23-VIII-19-1-020,SFK015,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic,Tech Dive
-SFK016,23-VIII-19-1-021,SFK016,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,98,29.9,Shallow,Tech Dive
-SFK017,23-VIII-19-1-022,SFK017,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic,Tech Dive
-SFK018,23-VIII-19-1-023,SFK018,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,101,30.8,Mesophotic,Tech Dive
-SFK019,23-VIII-19-1-025,SFK019,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic,Tech Dive
-SFK020,23-VIII-19-1-026,SFK020,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic,Tech Dive
-SFK021,23-VIII-19-1-027,SFK021,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic,Tech Dive
-SFK022,23-VIII-19-1-028,SFK022,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,102,31.1,Mesophotic,Tech Dive
-SFK023,23-VIII-19-1-029,SFK023,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,102,31.1,Mesophotic,Tech Dive
-SFK024,23-VIII-19-1-030,SFK024,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,101,30.8,Mesophotic,Tech Dive
-SFK025,23-VIII-19-1-031,SFK025,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic,Tech Dive
-SFK026,23-VIII-19-2-022,SFK026,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.67518667,-83.068585,69,21,Shallow,Scuba
-SFK027,23-VIII-19-2-025,SFK027,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.67518667,-83.068585,67,20.4,Shallow,Scuba
-SFK028,23-VIII-19-2-036,SFK028,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.67518667,-83.068585,67,20.4,Shallow,Scuba
-SFK029,23-VIII-19-4-026,SFK029,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.640415,-83.10294667,99,30.2,Mesophotic,Scuba
-SFK030,23-VIII-19-4-030,SFK030,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.640415,-83.10294667,99,30.2,Mesophotic,Scuba
-SFK031,23-VIII-19-4-033,SFK031,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.640415,-83.10294667,94,28.7,Shallow,Scuba
-SFK032,23-VIII-19-4-034,SFK032,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.640415,-83.10294667,100,30.5,Mesophotic,Scuba
-SFK033,23-VIII-19-4-035,SFK033,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.640415,-83.10294667,100,30.5,Mesophotic,Scuba
-SFK034,23-VIII-19-4-037,SFK034,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.640415,-83.10294667,97,29.6,Shallow,Scuba
-SFK035,23-VIII-19-6-002,SFK035,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.67518667,-83.068585,68,20.7,Shallow,Scuba
-SFK036,23-VIII-19-6-003,SFK036,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.67518667,-83.068585,67,20.4,Shallow,Scuba
-SFK037,23-VIII-19-6-004,SFK037,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.67518667,-83.068585,69,21,Shallow,Scuba
-SFK038,23-VIII-19-6-006,SFK038,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.67518667,-83.068585,67,20.4,Shallow,Scuba
-SFK039,23-VIII-19-7-003,SFK039,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,67,20.4,Shallow,Scuba
-SFK040,23-VIII-19-7-004,SFK040,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,66,20.1,Shallow,Scuba
-SFK041,23-VIII-19-7-005,SFK041,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,67,20.4,Shallow,Scuba
-SFK042,23-VIII-19-7-006,SFK042,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,67,20.4,Shallow,Scuba
-SFK043,23-VIII-19-7-007,SFK043,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,67,20.4,Shallow,Scuba
-SFK044,23-VIII-19-7-009,SFK044,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,64,19.5,Shallow,Scuba
-SFK045,23-VIII-19-7-010,SFK045,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,65,19.8,Shallow,Scuba
-SFK046,23-VIII-19-7-011,SFK046,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,55,16.8,Shallow,Scuba
-SFK047,23-VIII-19-7-013,SFK047,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,65,19.8,Shallow,Scuba
-SFK048,23-VIII-19-7-014,SFK048,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,59,18,Shallow,Scuba
-SFK049,23-VIII-19-7-015,SFK049,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,58,17.7,Shallow,Scuba
-SFK050,23-VIII-19-7-016,SFK050,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,65,19.8,Shallow,Scuba
-SFK051,23-VIII-19-7-017,SFK051,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,66,20.1,Shallow,Scuba
-SFK052,23-VIII-19-7-018,SFK052,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,67,20.4,Shallow,Scuba
-SFK053,23-VIII-19-7-019,SFK053,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,61,18.6,Shallow,Scuba
-SFK054,23-VIII-19-7-020,SFK054,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,60,18.3,Shallow,Scuba
-SFK055,23-VIII-19-7-021,SFK055,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,57,17.4,Shallow,Scuba
-SFK056,24-VIII-19-1-008,SFK056,Riley's Hump,Riley's Hump,Site 18,8/24/19,Stephanocoenia intersepta,24.49396,-83.09607833,112,34.1,Mesophotic,Tech Dive
-SFK057,24-VIII-19-1-011,SFK057,Riley's Hump,Riley's Hump,Site 18,8/24/19,Stephanocoenia intersepta,24.49396,-83.09607833,111,33.8,Mesophotic,Tech Dive
-SFK058,24-VIII-19-1-038,SFK058,Riley's Hump,Riley's Hump,Site 18,8/24/19,Stephanocoenia intersepta,24.49396,-83.09607833,108,32.9,Mesophotic,Tech Dive
-SFK059,24-VIII-19-1-040,SFK059,Riley's Hump,Riley's Hump,Site 18,8/24/19,Stephanocoenia intersepta,24.49396,-83.09607833,105,32,Mesophotic,Tech Dive
-SFK060,24-VIII-19-1-042,SFK060,Riley's Hump,Riley's Hump,Site 18,8/24/19,Stephanocoenia intersepta,24.49396,-83.09607833,103,31.4,Mesophotic,Tech Dive
-SFK061,24-VIII-19-3-018,SFK061,Riley's Hump,Riley's Hump,Site 19,8/24/19,Stephanocoenia intersepta,24.48925667,-83.122695,123,37.5,Mesophotic,Tech Dive
-SFK062,24-VIII-19-4-001,SFK062,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,91,27.7,Shallow,Scuba
-SFK063,24-VIII-19-4-002,SFK063,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,92,28,Shallow,Scuba
-SFK064,24-VIII-19-4-003,SFK064,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,91,27.7,Shallow,Scuba
-SFK065,24-VIII-19-4-004,SFK065,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,90,27.4,Shallow,Scuba
-SFK066.1,24-VIII-19-4-005,SFK066,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,91,27.7,Shallow,Scuba
-SFK066.2,24-VIII-19-4-005,SFK066,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,91,27.7,Shallow,Scuba
-SFK066.3,24-VIII-19-4-005,SFK066,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,91,27.7,Shallow,Scuba
-SFK067,24-VIII-19-4-006,SFK067,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,90,27.4,Shallow,Scuba
-SFK068,24-VIII-19-4-008,SFK068,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,90,27.4,Shallow,Scuba
-SFK069,24-VIII-19-4-009,SFK069,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,89,27.1,Shallow,Scuba
-SFK070,24-VIII-19-4-016,SFK070,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,85,25.9,Shallow,Scuba
-SFK071,24-VIII-19-4-017,SFK071,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,86,26.2,Shallow,Scuba
-SFK072,25-VIII-19-2-001,SFK072,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba
-SFK073,25-VIII-19-2-002,SFK073,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba
-SFK074,25-VIII-19-2-003,SFK074,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,84,25.6,Shallow,Scuba
-SFK075,25-VIII-19-2-004,SFK075,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow,Scuba
-SFK076,25-VIII-19-2-005,SFK076,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow,Scuba
-SFK077,25-VIII-19-2-006,SFK077,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow,Scuba
-SFK078,25-VIII-19-2-007,SFK078,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba
-SFK079,25-VIII-19-2-008,SFK079,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,84,25.6,Shallow,Scuba
-SFK080,25-VIII-19-2-009,SFK080,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba
-SFK081,25-VIII-19-2-010,SFK081,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba
-SFK082,25-VIII-19-2-011,SFK082,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,87,26.5,Shallow,Scuba
-SFK083,25-VIII-19-2-012,SFK083,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba
-SFK084,25-VIII-19-2-013,SFK084,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba
-SFK085,25-VIII-19-2-014,SFK085,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow,Scuba
-SFK086,25-VIII-19-2-015,SFK086,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow,Scuba
-SFK087,25-VIII-19-2-016,SFK087,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow,Scuba
-SFK088,25-VIII-19-2-017,SFK088,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,83,25.3,Shallow,Scuba
-SFK089,25-VIII-19-2-018,SFK089,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba
-SFK090,25-VIII-19-2-019,SFK090,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow,Scuba
-SFK091,25-VIII-19-2-020,SFK091,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow,Scuba
-SFK092,25-VIII-19-5-001,SFK092,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,117,35.7,Mesophotic,Tech Dive
-SFK093,25-VIII-19-5-004,SFK093,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,113,34.4,Mesophotic,Tech Dive
-SFK094,25-VIII-19-5-005,SFK094,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,107,32.6,Mesophotic,Tech Dive
-SFK095,25-VIII-19-5-008,SFK095,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,101,30.8,Mesophotic,Tech Dive
-SFK096,25-VIII-19-5-013,SFK096,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,108,32.9,Mesophotic,Tech Dive
-SFK097,25-VIII-19-5-014,SFK097,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,110,33.5,Mesophotic,Tech Dive
-SFK098,25-VIII-19-5-016,SFK098,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,107,32.6,Mesophotic,Tech Dive
-SFK099,25-VIII-19-5-018,SFK099,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,105,32,Mesophotic,Tech Dive
-SFK100,25-VIII-19-5-020,SFK100,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,102,31.1,Mesophotic,Tech Dive
-SFK101,26-VIII-19-1-003,SFK101,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,115,35.1,Mesophotic,Tech Dive
-SFK102,26-VIII-19-1-004,SFK102,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,114,34.7,Mesophotic,Tech Dive
-SFK103,26-VIII-19-1-006,SFK103,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,112,34.1,Mesophotic,Tech Dive
-SFK104,26-VIII-19-1-007,SFK104,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,110,33.5,Mesophotic,Tech Dive
-SFK105,26-VIII-19-1-011,SFK105,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive
-SFK106,26-VIII-19-1-013,SFK106,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,106,32.3,Mesophotic,Tech Dive
-SFK107,26-VIII-19-1-016,SFK107,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive
-SFK108,26-VIII-19-1-017,SFK108,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,108,32.9,Mesophotic,Tech Dive
-SFK109,26-VIII-19-1-019,SFK109,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,108,32.9,Mesophotic,Tech Dive
-SFK110,26-VIII-19-1-020,SFK110,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive
-SFK111,26-VIII-19-1-022,SFK111,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive
-SFK112,26-VIII-19-1-023,SFK112,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,109,33.2,Mesophotic,Tech Dive
-SFK113,26-VIII-19-1-024,SFK113,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,109,33.2,Mesophotic,Tech Dive
-SFK114,26-VIII-19-1-025,SFK114,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,110,33.5,Mesophotic,Tech Dive
-SFK115,26-VIII-19-1-029,SFK115,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,110,33.5,Mesophotic,Tech Dive
-SFK116,26-VIII-19-1-031,SFK116,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,109,33.2,Mesophotic,Tech Dive
-SFK117,26-VIII-19-1-033,SFK117,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,106,32.3,Mesophotic,Tech Dive
-SFK118,26-VIII-19-1-034,SFK118,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,105,32,Mesophotic,Tech Dive
-SFK119,26-VIII-19-1-035,SFK119,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,104,31.7,Mesophotic,Tech Dive
-SFK120,26-VIII-19-1-036,SFK120,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,103,31.4,Mesophotic,Tech Dive
-SFK121,26-VIII-19-1-038,SFK121,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,104,31.7,Mesophotic,Tech Dive
-SFK122,26-VIII-19-1-040,SFK122,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,106,32.3,Mesophotic,Tech Dive
-SFK123,26-VIII-19-1-041,SFK123,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,106,32.3,Mesophotic,Tech Dive
-SFK124,26-VIII-19-1-044,SFK124,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive
-SFK125,26-VIII-19-1-046,SFK125,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,110,33.5,Mesophotic,Tech Dive
-SFK126,26-VIII-19-1-048,SFK126,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic,Tech Dive
-SFK127,26-VIII-19-1-049,SFK127,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,106,32.3,Mesophotic,Tech Dive
-SFK128,26-VIII-19-2-003,SFK128,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,60,18.3,Shallow,Scuba
-SFK129,26-VIII-19-2-004,SFK129,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,60,18.3,Shallow,Scuba
-SFK130,26-VIII-19-2-008,SFK130,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba
-SFK131,26-VIII-19-2-010,SFK131,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba
-SFK132,26-VIII-19-2-012,SFK132,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow,Scuba
-SFK133,26-VIII-19-2-014,SFK133,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba
-SFK134,26-VIII-19-2-016,SFK134,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow,Scuba
-SFK135,26-VIII-19-2-018,SFK135,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow,Scuba
-SFK136,26-VIII-19-2-020,SFK136,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow,Scuba
-SFK137,26-VIII-19-2-022,SFK137,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow,Scuba
-SFK138,26-VIII-19-2-024,SFK138,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba
-SFK139,26-VIII-19-2-026,SFK139,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba
-SFK140,26-VIII-19-2-027,SFK140,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,61,18.6,Shallow,Scuba
-SFK141,26-VIII-19-2-028,SFK141,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba
-SFK142,26-VIII-19-2-029,SFK142,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba
-SFK143,26-VIII-19-2-031,SFK143,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba
-SFK144,26-VIII-19-2-034,SFK144,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow,Scuba
-SFK145,26-VIII-19-2-037,SFK145,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,56,17.1,Shallow,Scuba
-SFK146,26-VIII-19-2-039,SFK146,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,57,17.4,Shallow,Scuba
-SFK147,26-VIII-19-2-041,SFK147,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba
-SFK148,26-VIII-19-2-043,SFK148,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,57,17.4,Shallow,Scuba
-SFK149,26-VIII-19-2-044,SFK149,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow,Scuba
-SFK150,26-VIII-19-2-047,SFK150,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,57,17.4,Shallow,Scuba
-SFK151,26-VIII-19-2-051,SFK151,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,57,17.4,Shallow,Scuba
-SFK152,26-VIII-19-2-055,SFK152,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,61,18.6,Shallow,Scuba
-SFK153,26-VIII-19-2-056,SFK153,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,60,18.3,Shallow,Scuba
-SFK154,26-VIII-19-3-014,SFK154,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.494035,-81.58790833,106,32.3,Mesophotic,Tech Dive
-SFK155,26-VIII-19-3-016,SFK155,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.494035,-81.58790833,106,32.3,Mesophotic,Tech Dive
-SFK156,26-VIII-19-3-018,SFK156,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.494035,-81.58790833,106,32.3,Mesophotic,Tech Dive
-SFK157,26-VIII-19-4-001,SFK157,Lower Keys,Big Coppitt,Site 47,8/26/19,Stephanocoenia intersepta,24.49105167,-81.60602833,62,18.9,Shallow,Scuba
-SFK158,26-VIII-19-4-003,SFK158,Lower Keys,Big Coppitt,Site 47,8/26/19,Stephanocoenia intersepta,24.49105167,-81.60602833,60,18.3,Shallow,Scuba
-SFK159,26-VIII-19-4-004,SFK159,Lower Keys,Big Coppitt,Site 47,8/26/19,Stephanocoenia intersepta,24.49105167,-81.60602833,63,19.2,Shallow,Scuba
-SFK160,26-VIII-19-4-005,SFK160,Lower Keys,Big Coppitt,Site 47,8/26/19,Stephanocoenia intersepta,24.49105167,-81.60602833,59,18,Shallow,Scuba
-SFK161,27-VIII-19-2-011,SFK161,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,78,23.8,Shallow,Scuba
-SFK162.1,27-VIII-19-2-013,SFK162,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,74,22.6,Shallow,Scuba
-SFK162.2,27-VIII-19-2-013,SFK162,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,74,22.6,Shallow,Scuba
-SFK162.3,27-VIII-19-2-013,SFK162,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,74,22.6,Shallow,Scuba
-SFK163,27-VIII-19-2-015,SFK163,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,68,20.7,Shallow,Scuba
-SFK164,27-VIII-19-2-016,SFK164,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,65,19.8,Shallow,Scuba
-SFK165,27-VIII-19-2-019,SFK165,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,65,19.8,Shallow,Scuba
-SFK166,27-VIII-19-2-020,SFK166,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,65,19.8,Shallow,Scuba
-SFK167,27-VIII-19-2-022,SFK167,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,71,21.6,Shallow,Scuba
-SFK168,27-VIII-19-2-023,SFK168,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,71,21.6,Shallow,Scuba
-SFK169,27-VIII-19-4-014,SFK169,Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,Stephanocoenia intersepta,25.15823333,-80.22064,142,43.3,Mesophotic,Tech Dive
-SFK170,27-VIII-19-4-015,SFK170,Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,Stephanocoenia intersepta,25.15823333,-80.22064,142,43.3,Mesophotic,Tech Dive
-SFK171,27-VIII-19-4-016,SFK171,Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,Stephanocoenia intersepta,25.15823333,-80.22064,142,43.3,Mesophotic,Tech Dive
-SFK172,27-VIII-19-4-017,SFK172,Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,Stephanocoenia intersepta,25.15823333,-80.22064,144,43.9,Mesophotic,Tech Dive
-SFK173,27-VIII-19-5-001,SFK173,Upper Keys,The Elbow,Site 49,8/27/19,Stephanocoenia intersepta,25.14404833,-80.25258833,66,20.1,Shallow,Scuba
-SFK174,27-VIII-19-5-002,SFK174,Upper Keys,The Elbow,Site 49,8/27/19,Stephanocoenia intersepta,25.14404833,-80.25258833,62,18.9,Shallow,Scuba
-SFK175,27-VIII-19-5-005,SFK175,Upper Keys,The Elbow,Site 49,8/27/19,Stephanocoenia intersepta,25.14404833,-80.25258833,64,19.5,Shallow,Scuba
-SFK176,27-VIII-19-5-006,SFK176,Upper Keys,The Elbow,Site 49,8/27/19,Stephanocoenia intersepta,25.14404833,-80.25258833,67,20.4,Shallow,Scuba
-SFK177,27-VIII-19-5-007,SFK177,Upper Keys,The Elbow,Site 49,8/27/19,Stephanocoenia intersepta,25.14404833,-80.25258833,61,18.6,Shallow,Scuba
-SFK178,27-VIII-19-5-009,SFK178,Upper Keys,The Elbow,Site 49,8/27/19,Stephanocoenia intersepta,25.14404833,-80.25258833,62,18.9,Shallow,Scuba
-SFK179,27-VIII-19-5-011,SFK179,Upper Keys,The Elbow,Site 49,8/27/19,Stephanocoenia intersepta,25.14404833,-80.25258833,60,18.3,Shallow,Scuba
-SFK180,28-VIII-19-1-007,SFK180,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.217545,-80.19341333,137,41.8,Mesophotic,Tech Dive
-SFK181,28-VIII-19-1-011,SFK181,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.217545,-80.19341333,137,41.8,Mesophotic,Tech Dive
-SFK182,28-VIII-19-1-021,SFK182,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.217545,-80.19341333,145,44.2,Mesophotic,Tech Dive
-SFK183,28-VIII-19-2-001,SFK183,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,91,27.7,Shallow,Scuba
-SFK184,28-VIII-19-2-003,SFK184,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,89,27.1,Shallow,Scuba
-SFK185,28-VIII-19-2-005,SFK185,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,85,25.9,Shallow,Scuba
-SFK186,28-VIII-19-2-007,SFK186,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,81,24.7,Shallow,Scuba
-SFK187,28-VIII-19-2-009,SFK187,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,87,26.5,Shallow,Scuba
-SFK188,28-VIII-19-2-010,SFK188,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,87,26.5,Shallow,Scuba
-SFK189,28-VIII-19-2-011,SFK189,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,90,27.4,Shallow,Scuba
-SFK190,28-VIII-19-2-012,SFK190,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,89,27.1,Shallow,Scuba
-SFK191,28-VIII-19-2-014,SFK191,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,93,28.3,Shallow,Scuba
-SFK192,28-VIII-19-2-015,SFK192,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,91,27.7,Shallow,Scuba
-SFK193,28-VIII-19-2-016,SFK193,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,90,27.4,Shallow,Scuba
-SFK194,28-VIII-19-3-001,SFK194,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,145,44.2,Mesophotic,Tech Dive
-SFK195,28-VIII-19-3-002,SFK195,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,149,45.4,Mesophotic,Tech Dive
-SFK196,28-VIII-19-3-003,SFK196,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,149,45.4,Mesophotic,Tech Dive
-SFK197,28-VIII-19-3-004,SFK197,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,144,43.9,Mesophotic,Tech Dive
-SFK198,28-VIII-19-3-005,SFK198,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,148,45.1,Mesophotic,Tech Dive
-SFK199,28-VIII-19-3-006,SFK199,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,147,44.8,Mesophotic,Tech Dive
-SFK200,28-VIII-19-3-007,SFK200,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,147,44.8,Mesophotic,Tech Dive
-SFK201,28-VIII-19-3-008,SFK201,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,146,44.5,Mesophotic,Tech Dive
-SFK202,28-VIII-19-3-009,SFK202,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,146,44.5,Mesophotic,Tech Dive
-SFK203,28-VIII-19-3-010,SFK203,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,146,44.5,Mesophotic,Tech Dive
-SFK204,28-VIII-19-3-011,SFK204,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,149,45.4,Mesophotic,Tech Dive
-SFK205.1,28-VIII-19-3-012,SFK205,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,148,45.1,Mesophotic,Tech Dive
-SFK205.2,28-VIII-19-3-012,SFK205,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,148,45.1,Mesophotic,Tech Dive
-SFK205.3,28-VIII-19-3-012,SFK205,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,148,45.1,Mesophotic,Tech Dive
-SFK206,28-VIII-19-3-013,SFK206,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,142,43.3,Mesophotic,Tech Dive
-SFK207,28-VIII-19-3-014,SFK207,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,145,44.2,Mesophotic,Tech Dive
-SFK208,28-VIII-19-3-015,SFK208,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,146,44.5,Mesophotic,Tech Dive
-SFK209,28-VIII-19-3-016,SFK209,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,144,43.9,Mesophotic,Tech Dive
-SFK210,28-VIII-19-3-017,SFK210,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,144,43.9,Mesophotic,Tech Dive
-SFK211,28-VIII-19-3-018,SFK211,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,143,43.6,Mesophotic,Tech Dive
-SFK212,28-VIII-19-3-019,SFK212,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,140,42.7,Mesophotic,Tech Dive
-SFK213,28-VIII-19-3-020,SFK213,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,139,42.4,Mesophotic,Tech Dive
-SFK214,28-VIII-19-3-021,SFK214,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,137,41.8,Mesophotic,Tech Dive
-SFK215,28-VIII-19-3-022,SFK215,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,141,43,Mesophotic,Tech Dive
-SFK216,28-VIII-19-3-023,SFK216,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,141,43,Mesophotic,Tech Dive
-SFK217,28-VIII-19-4-017,SFK217,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22036,-80.20094333,92,28,Shallow,Scuba
-SFK218,28-VIII-19-4-018,SFK218,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22036,-80.20094333,89,27.1,Shallow,Scuba
-SFK219,28-VIII-19-4-020,SFK219,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22036,-80.20094333,91,27.7,Shallow,Scuba
-SFK220,28-VIII-19-4-022,SFK220,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22036,-80.20094333,84,25.6,Shallow,Scuba
+﻿sample,sampleID,tubeID,site,location,siteID,date,species,latDD,longDD,depthFt,depthM,depthZone
+SFK001,22-VIII-19-1-002,SFK001,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,115,35.1,Mesophotic
+SFK002,22-VIII-19-1-004,SFK002,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,113,34.4,Mesophotic
+SFK003,22-VIII-19-1-006,SFK003,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,115,35.1,Mesophotic
+SFK004,22-VIII-19-1-008,SFK004,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,110,33.5,Mesophotic
+SFK005,22-VIII-19-1-009,SFK005,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,113,34.4,Mesophotic
+SFK006,22-VIII-19-1-010,SFK006,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,113,34.4,Mesophotic
+SFK007,22-VIII-19-1-011,SFK007,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,114,34.7,Mesophotic
+SFK008,22-VIII-19-1-012,SFK008,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,112,34.1,Mesophotic
+SFK009,22-VIII-19-1-016,SFK009,Tortugas Bank,Sherwood Forrest,Site 17,8/22/19,Stephanocoenia intersepta,24.65211,-83.103095,113,34.4,Mesophotic
+SFK010,22-VIII-19-2-006,SFK010,Tortugas Bank,Sherwood Forrest,Site 33,8/22/19,Stephanocoenia intersepta,24.66019667,-83.07890333,48,14.6,Shallow
+SFK011,23-VIII-19-1-003,SFK011,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,101,30.8,Mesophotic
+SFK012,23-VIII-19-1-017,SFK012,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,97,29.6,Shallow
+SFK013,23-VIII-19-1-018,SFK013,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,95,29,Shallow
+SFK014,23-VIII-19-1-019,SFK014,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,99,30.2,Mesophotic
+SFK015,23-VIII-19-1-020,SFK015,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic
+SFK016,23-VIII-19-1-021,SFK016,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,98,29.9,Shallow
+SFK017,23-VIII-19-1-022,SFK017,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic
+SFK018,23-VIII-19-1-023,SFK018,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,101,30.8,Mesophotic
+SFK019,23-VIII-19-1-025,SFK019,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic
+SFK020,23-VIII-19-1-026,SFK020,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic
+SFK021,23-VIII-19-1-027,SFK021,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic
+SFK022,23-VIII-19-1-028,SFK022,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,102,31.1,Mesophotic
+SFK023,23-VIII-19-1-029,SFK023,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,102,31.1,Mesophotic
+SFK024,23-VIII-19-1-030,SFK024,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,101,30.8,Mesophotic
+SFK025,23-VIII-19-1-031,SFK025,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.64042,-83.10294333,100,30.5,Mesophotic
+SFK026,23-VIII-19-2-022,SFK026,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.67518667,-83.068585,69,21,Shallow
+SFK027,23-VIII-19-2-025,SFK027,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.67518667,-83.068585,67,20.4,Shallow
+SFK028,23-VIII-19-2-036,SFK028,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.67518667,-83.068585,67,20.4,Shallow
+SFK029,23-VIII-19-4-026,SFK029,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.640415,-83.10294667,99,30.2,Mesophotic
+SFK030,23-VIII-19-4-030,SFK030,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.640415,-83.10294667,99,30.2,Mesophotic
+SFK031,23-VIII-19-4-033,SFK031,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.640415,-83.10294667,94,28.7,Shallow
+SFK032,23-VIII-19-4-034,SFK032,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.640415,-83.10294667,100,30.5,Mesophotic
+SFK033,23-VIII-19-4-035,SFK033,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.640415,-83.10294667,100,30.5,Mesophotic
+SFK034,23-VIII-19-4-037,SFK034,Tortugas Bank,Sherwood Forrest,Site 35/36,8/23/19,Stephanocoenia intersepta,24.640415,-83.10294667,97,29.6,Shallow
+SFK035,23-VIII-19-6-002,SFK035,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.67518667,-83.068585,68,20.7,Shallow
+SFK036,23-VIII-19-6-003,SFK036,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.67518667,-83.068585,67,20.4,Shallow
+SFK037,23-VIII-19-6-004,SFK037,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.67518667,-83.068585,69,21,Shallow
+SFK038,23-VIII-19-6-006,SFK038,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.67518667,-83.068585,67,20.4,Shallow
+SFK039,23-VIII-19-7-003,SFK039,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,67,20.4,Shallow
+SFK040,23-VIII-19-7-004,SFK040,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,66,20.1,Shallow
+SFK041,23-VIII-19-7-005,SFK041,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,67,20.4,Shallow
+SFK042,23-VIII-19-7-006,SFK042,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,67,20.4,Shallow
+SFK043,23-VIII-19-7-007,SFK043,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,67,20.4,Shallow
+SFK044,23-VIII-19-7-009,SFK044,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,64,19.5,Shallow
+SFK045,23-VIII-19-7-010,SFK045,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,65,19.8,Shallow
+SFK046,23-VIII-19-7-011,SFK046,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,55,16.8,Shallow
+SFK047,23-VIII-19-7-013,SFK047,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,65,19.8,Shallow
+SFK048,23-VIII-19-7-014,SFK048,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,59,18,Shallow
+SFK049,23-VIII-19-7-015,SFK049,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,58,17.7,Shallow
+SFK050,23-VIII-19-7-016,SFK050,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,65,19.8,Shallow
+SFK051,23-VIII-19-7-017,SFK051,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,66,20.1,Shallow
+SFK052,23-VIII-19-7-018,SFK052,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,67,20.4,Shallow
+SFK053,23-VIII-19-7-019,SFK053,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,61,18.6,Shallow
+SFK054,23-VIII-19-7-020,SFK054,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,60,18.3,Shallow
+SFK055,23-VIII-19-7-021,SFK055,Tortugas Bank,Sherwood Forrest,Site 37,8/23/19,Stephanocoenia intersepta,24.65691333,-83.10079667,57,17.4,Shallow
+SFK056,24-VIII-19-1-008,SFK056,Riley's Hump,Riley's Hump,Site 18,8/24/19,Stephanocoenia intersepta,24.49396,-83.09607833,112,34.1,Mesophotic
+SFK057,24-VIII-19-1-011,SFK057,Riley's Hump,Riley's Hump,Site 18,8/24/19,Stephanocoenia intersepta,24.49396,-83.09607833,111,33.8,Mesophotic
+SFK058,24-VIII-19-1-038,SFK058,Riley's Hump,Riley's Hump,Site 18,8/24/19,Stephanocoenia intersepta,24.49396,-83.09607833,108,32.9,Mesophotic
+SFK059,24-VIII-19-1-040,SFK059,Riley's Hump,Riley's Hump,Site 18,8/24/19,Stephanocoenia intersepta,24.49396,-83.09607833,105,32,Mesophotic
+SFK060,24-VIII-19-1-042,SFK060,Riley's Hump,Riley's Hump,Site 18,8/24/19,Stephanocoenia intersepta,24.49396,-83.09607833,103,31.4,Mesophotic
+SFK061,24-VIII-19-3-018,SFK061,Riley's Hump,Riley's Hump,Site 19,8/24/19,Stephanocoenia intersepta,24.48925667,-83.122695,123,37.5,Mesophotic
+SFK062,24-VIII-19-4-001,SFK062,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,91,27.7,Shallow
+SFK063,24-VIII-19-4-002,SFK063,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,92,28,Shallow
+SFK064,24-VIII-19-4-003,SFK064,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,91,27.7,Shallow
+SFK065,24-VIII-19-4-004,SFK065,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,90,27.4,Shallow
+SFK066.1,24-VIII-19-4-005,SFK066,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,91,27.7,Shallow
+SFK066.2,24-VIII-19-4-005,SFK066,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,91,27.7,Shallow
+SFK066.3,24-VIII-19-4-005,SFK066,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,91,27.7,Shallow
+SFK067,24-VIII-19-4-006,SFK067,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,90,27.4,Shallow
+SFK068,24-VIII-19-4-008,SFK068,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,90,27.4,Shallow
+SFK069,24-VIII-19-4-009,SFK069,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,89,27.1,Shallow
+SFK070,24-VIII-19-4-016,SFK070,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,85,25.9,Shallow
+SFK071,24-VIII-19-4-017,SFK071,Riley's Hump,Riley's Hump,Site 39,8/24/19,Stephanocoenia intersepta,24.51135833,-83.09516,86,26.2,Shallow
+SFK072,25-VIII-19-2-001,SFK072,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow
+SFK073,25-VIII-19-2-002,SFK073,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow
+SFK074,25-VIII-19-2-003,SFK074,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,84,25.6,Shallow
+SFK075,25-VIII-19-2-004,SFK075,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow
+SFK076,25-VIII-19-2-005,SFK076,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow
+SFK077,25-VIII-19-2-006,SFK077,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow
+SFK078,25-VIII-19-2-007,SFK078,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow
+SFK079,25-VIII-19-2-008,SFK079,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,84,25.6,Shallow
+SFK080,25-VIII-19-2-009,SFK080,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow
+SFK081,25-VIII-19-2-010,SFK081,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow
+SFK082,25-VIII-19-2-011,SFK082,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,87,26.5,Shallow
+SFK083,25-VIII-19-2-012,SFK083,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow
+SFK084,25-VIII-19-2-013,SFK084,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow
+SFK085,25-VIII-19-2-014,SFK085,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow
+SFK086,25-VIII-19-2-015,SFK086,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow
+SFK087,25-VIII-19-2-016,SFK087,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow
+SFK088,25-VIII-19-2-017,SFK088,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,83,25.3,Shallow
+SFK089,25-VIII-19-2-018,SFK089,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow
+SFK090,25-VIII-19-2-019,SFK090,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,85,25.9,Shallow
+SFK091,25-VIII-19-2-020,SFK091,Riley's Hump,Riley's Hump,Site 40,8/25/19,Stephanocoenia intersepta,24.49239333,-83.12151333,86,26.2,Shallow
+SFK092,25-VIII-19-5-001,SFK092,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,117,35.7,Mesophotic
+SFK093,25-VIII-19-5-004,SFK093,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,113,34.4,Mesophotic
+SFK094,25-VIII-19-5-005,SFK094,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,107,32.6,Mesophotic
+SFK095,25-VIII-19-5-008,SFK095,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,101,30.8,Mesophotic
+SFK096,25-VIII-19-5-013,SFK096,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,108,32.9,Mesophotic
+SFK097,25-VIII-19-5-014,SFK097,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,110,33.5,Mesophotic
+SFK098,25-VIII-19-5-016,SFK098,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,107,32.6,Mesophotic
+SFK099,25-VIII-19-5-018,SFK099,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,105,32,Mesophotic
+SFK100,25-VIII-19-5-020,SFK100,Riley's Hump,Riley's Hump,Site 41,8/25/19,Stephanocoenia intersepta,24.487965,-83.1139,102,31.1,Mesophotic
+SFK101,26-VIII-19-1-003,SFK101,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,115,35.1,Mesophotic
+SFK102,26-VIII-19-1-004,SFK102,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,114,34.7,Mesophotic
+SFK103,26-VIII-19-1-006,SFK103,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,112,34.1,Mesophotic
+SFK104,26-VIII-19-1-007,SFK104,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,110,33.5,Mesophotic
+SFK105,26-VIII-19-1-011,SFK105,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic
+SFK106,26-VIII-19-1-013,SFK106,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,106,32.3,Mesophotic
+SFK107,26-VIII-19-1-016,SFK107,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic
+SFK108,26-VIII-19-1-017,SFK108,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,108,32.9,Mesophotic
+SFK109,26-VIII-19-1-019,SFK109,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,108,32.9,Mesophotic
+SFK110,26-VIII-19-1-020,SFK110,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic
+SFK111,26-VIII-19-1-022,SFK111,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic
+SFK112,26-VIII-19-1-023,SFK112,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,109,33.2,Mesophotic
+SFK113,26-VIII-19-1-024,SFK113,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,109,33.2,Mesophotic
+SFK114,26-VIII-19-1-025,SFK114,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,110,33.5,Mesophotic
+SFK115,26-VIII-19-1-029,SFK115,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,110,33.5,Mesophotic
+SFK116,26-VIII-19-1-031,SFK116,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,109,33.2,Mesophotic
+SFK117,26-VIII-19-1-033,SFK117,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,106,32.3,Mesophotic
+SFK118,26-VIII-19-1-034,SFK118,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,105,32,Mesophotic
+SFK119,26-VIII-19-1-035,SFK119,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,104,31.7,Mesophotic
+SFK120,26-VIII-19-1-036,SFK120,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,103,31.4,Mesophotic
+SFK121,26-VIII-19-1-038,SFK121,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,104,31.7,Mesophotic
+SFK122,26-VIII-19-1-040,SFK122,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,106,32.3,Mesophotic
+SFK123,26-VIII-19-1-041,SFK123,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,106,32.3,Mesophotic
+SFK124,26-VIII-19-1-044,SFK124,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic
+SFK125,26-VIII-19-1-046,SFK125,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,110,33.5,Mesophotic
+SFK126,26-VIII-19-1-048,SFK126,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,107,32.6,Mesophotic
+SFK127,26-VIII-19-1-049,SFK127,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.49395667,-81.58831167,106,32.3,Mesophotic
+SFK128,26-VIII-19-2-003,SFK128,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,60,18.3,Shallow
+SFK129,26-VIII-19-2-004,SFK129,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,60,18.3,Shallow
+SFK130,26-VIII-19-2-008,SFK130,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow
+SFK131,26-VIII-19-2-010,SFK131,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow
+SFK132,26-VIII-19-2-012,SFK132,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow
+SFK133,26-VIII-19-2-014,SFK133,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow
+SFK134,26-VIII-19-2-016,SFK134,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow
+SFK135,26-VIII-19-2-018,SFK135,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow
+SFK136,26-VIII-19-2-020,SFK136,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow
+SFK137,26-VIII-19-2-022,SFK137,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow
+SFK138,26-VIII-19-2-024,SFK138,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow
+SFK139,26-VIII-19-2-026,SFK139,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow
+SFK140,26-VIII-19-2-027,SFK140,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,61,18.6,Shallow
+SFK141,26-VIII-19-2-028,SFK141,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow
+SFK142,26-VIII-19-2-029,SFK142,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow
+SFK143,26-VIII-19-2-031,SFK143,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow
+SFK144,26-VIII-19-2-034,SFK144,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,58,17.7,Shallow
+SFK145,26-VIII-19-2-037,SFK145,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,56,17.1,Shallow
+SFK146,26-VIII-19-2-039,SFK146,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,57,17.4,Shallow
+SFK147,26-VIII-19-2-041,SFK147,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow
+SFK148,26-VIII-19-2-043,SFK148,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,57,17.4,Shallow
+SFK149,26-VIII-19-2-044,SFK149,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,59,18,Shallow
+SFK150,26-VIII-19-2-047,SFK150,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,57,17.4,Shallow
+SFK151,26-VIII-19-2-051,SFK151,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,57,17.4,Shallow
+SFK152,26-VIII-19-2-055,SFK152,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,61,18.6,Shallow
+SFK153,26-VIII-19-2-056,SFK153,Lower Keys,Big Coppitt,Site 46,8/26/19,Stephanocoenia intersepta,24.49297,-81.59892667,60,18.3,Shallow
+SFK154,26-VIII-19-3-014,SFK154,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.494035,-81.58790833,106,32.3,Mesophotic
+SFK155,26-VIII-19-3-016,SFK155,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.494035,-81.58790833,106,32.3,Mesophotic
+SFK156,26-VIII-19-3-018,SFK156,Lower Keys,Big Coppitt,Site 45,8/26/19,Stephanocoenia intersepta,24.494035,-81.58790833,106,32.3,Mesophotic
+SFK157,26-VIII-19-4-001,SFK157,Lower Keys,Big Coppitt,Site 47,8/26/19,Stephanocoenia intersepta,24.49105167,-81.60602833,62,18.9,Shallow
+SFK158,26-VIII-19-4-003,SFK158,Lower Keys,Big Coppitt,Site 47,8/26/19,Stephanocoenia intersepta,24.49105167,-81.60602833,60,18.3,Shallow
+SFK159,26-VIII-19-4-004,SFK159,Lower Keys,Big Coppitt,Site 47,8/26/19,Stephanocoenia intersepta,24.49105167,-81.60602833,63,19.2,Shallow
+SFK160,26-VIII-19-4-005,SFK160,Lower Keys,Big Coppitt,Site 47,8/26/19,Stephanocoenia intersepta,24.49105167,-81.60602833,59,18,Shallow
+SFK161,27-VIII-19-2-011,SFK161,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,78,23.8,Shallow
+SFK162.1,27-VIII-19-2-013,SFK162,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,74,22.6,Shallow
+SFK162.2,27-VIII-19-2-013,SFK162,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,74,22.6,Shallow
+SFK162.3,27-VIII-19-2-013,SFK162,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,74,22.6,Shallow
+SFK163,27-VIII-19-2-015,SFK163,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,68,20.7,Shallow
+SFK164,27-VIII-19-2-016,SFK164,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,65,19.8,Shallow
+SFK165,27-VIII-19-2-019,SFK165,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,65,19.8,Shallow
+SFK166,27-VIII-19-2-020,SFK166,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,65,19.8,Shallow
+SFK167,27-VIII-19-2-022,SFK167,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,71,21.6,Shallow
+SFK168,27-VIII-19-2-023,SFK168,Upper Keys,The Elbow,Site 51,8/27/19,Stephanocoenia intersepta,25.14415667,-80.252055,71,21.6,Shallow
+SFK169,27-VIII-19-4-014,SFK169,Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,Stephanocoenia intersepta,25.15823333,-80.22064,142,43.3,Mesophotic
+SFK170,27-VIII-19-4-015,SFK170,Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,Stephanocoenia intersepta,25.15823333,-80.22064,142,43.3,Mesophotic
+SFK171,27-VIII-19-4-016,SFK171,Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,Stephanocoenia intersepta,25.15823333,-80.22064,142,43.3,Mesophotic
+SFK172,27-VIII-19-4-017,SFK172,Upper Keys,The Elbow,Ian's Lumps Site 52,8/27/19,Stephanocoenia intersepta,25.15823333,-80.22064,144,43.9,Mesophotic
+SFK173,27-VIII-19-5-001,SFK173,Upper Keys,The Elbow,Site 49,8/27/19,Stephanocoenia intersepta,25.14404833,-80.25258833,66,20.1,Shallow
+SFK174,27-VIII-19-5-002,SFK174,Upper Keys,The Elbow,Site 49,8/27/19,Stephanocoenia intersepta,25.14404833,-80.25258833,62,18.9,Shallow
+SFK175,27-VIII-19-5-005,SFK175,Upper Keys,The Elbow,Site 49,8/27/19,Stephanocoenia intersepta,25.14404833,-80.25258833,64,19.5,Shallow
+SFK176,27-VIII-19-5-006,SFK176,Upper Keys,The Elbow,Site 49,8/27/19,Stephanocoenia intersepta,25.14404833,-80.25258833,67,20.4,Shallow
+SFK177,27-VIII-19-5-007,SFK177,Upper Keys,The Elbow,Site 49,8/27/19,Stephanocoenia intersepta,25.14404833,-80.25258833,61,18.6,Shallow
+SFK178,27-VIII-19-5-009,SFK178,Upper Keys,The Elbow,Site 49,8/27/19,Stephanocoenia intersepta,25.14404833,-80.25258833,62,18.9,Shallow
+SFK179,27-VIII-19-5-011,SFK179,Upper Keys,The Elbow,Site 49,8/27/19,Stephanocoenia intersepta,25.14404833,-80.25258833,60,18.3,Shallow
+SFK180,28-VIII-19-1-007,SFK180,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.217545,-80.19341333,137,41.8,Mesophotic
+SFK181,28-VIII-19-1-011,SFK181,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.217545,-80.19341333,137,41.8,Mesophotic
+SFK182,28-VIII-19-1-021,SFK182,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.217545,-80.19341333,145,44.2,Mesophotic
+SFK183,28-VIII-19-2-001,SFK183,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,91,27.7,Shallow
+SFK184,28-VIII-19-2-003,SFK184,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,89,27.1,Shallow
+SFK185,28-VIII-19-2-005,SFK185,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,85,25.9,Shallow
+SFK186,28-VIII-19-2-007,SFK186,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,81,24.7,Shallow
+SFK187,28-VIII-19-2-009,SFK187,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,87,26.5,Shallow
+SFK188,28-VIII-19-2-010,SFK188,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,87,26.5,Shallow
+SFK189,28-VIII-19-2-011,SFK189,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,90,27.4,Shallow
+SFK190,28-VIII-19-2-012,SFK190,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,89,27.1,Shallow
+SFK191,28-VIII-19-2-014,SFK191,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,93,28.3,Shallow
+SFK192,28-VIII-19-2-015,SFK192,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,91,27.7,Shallow
+SFK193,28-VIII-19-2-016,SFK193,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22056667,-80.200865,90,27.4,Shallow
+SFK194,28-VIII-19-3-001,SFK194,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,145,44.2,Mesophotic
+SFK195,28-VIII-19-3-002,SFK195,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,149,45.4,Mesophotic
+SFK196,28-VIII-19-3-003,SFK196,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,149,45.4,Mesophotic
+SFK197,28-VIII-19-3-004,SFK197,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,144,43.9,Mesophotic
+SFK198,28-VIII-19-3-005,SFK198,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,148,45.1,Mesophotic
+SFK199,28-VIII-19-3-006,SFK199,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,147,44.8,Mesophotic
+SFK200,28-VIII-19-3-007,SFK200,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,147,44.8,Mesophotic
+SFK201,28-VIII-19-3-008,SFK201,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,146,44.5,Mesophotic
+SFK202,28-VIII-19-3-009,SFK202,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,146,44.5,Mesophotic
+SFK203,28-VIII-19-3-010,SFK203,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,146,44.5,Mesophotic
+SFK204,28-VIII-19-3-011,SFK204,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,149,45.4,Mesophotic
+SFK205.1,28-VIII-19-3-012,SFK205,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,148,45.1,Mesophotic
+SFK205.2,28-VIII-19-3-012,SFK205,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,148,45.1,Mesophotic
+SFK205.3,28-VIII-19-3-012,SFK205,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,148,45.1,Mesophotic
+SFK206,28-VIII-19-3-013,SFK206,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,142,43.3,Mesophotic
+SFK207,28-VIII-19-3-014,SFK207,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,145,44.2,Mesophotic
+SFK208,28-VIII-19-3-015,SFK208,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,146,44.5,Mesophotic
+SFK209,28-VIII-19-3-016,SFK209,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,144,43.9,Mesophotic
+SFK210,28-VIII-19-3-017,SFK210,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,144,43.9,Mesophotic
+SFK211,28-VIII-19-3-018,SFK211,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,143,43.6,Mesophotic
+SFK212,28-VIII-19-3-019,SFK212,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,140,42.7,Mesophotic
+SFK213,28-VIII-19-3-020,SFK213,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,139,42.4,Mesophotic
+SFK214,28-VIII-19-3-021,SFK214,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,137,41.8,Mesophotic
+SFK215,28-VIII-19-3-022,SFK215,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,141,43,Mesophotic
+SFK216,28-VIII-19-3-023,SFK216,Upper Keys,Carysfort,Site 1,8/28/19,Stephanocoenia intersepta,25.21752,-80.19336833,141,43,Mesophotic
+SFK217,28-VIII-19-4-017,SFK217,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22036,-80.20094333,92,28,Shallow
+SFK218,28-VIII-19-4-018,SFK218,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22036,-80.20094333,89,27.1,Shallow
+SFK219,28-VIII-19-4-020,SFK219,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22036,-80.20094333,91,27.7,Shallow
+SFK220,28-VIII-19-4-022,SFK220,Upper Keys,Carysfort,Site 48,8/28/19,Stephanocoenia intersepta,25.22036,-80.20094333,84,25.6,Shallow
