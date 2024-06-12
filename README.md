@@ -13,7 +13,7 @@
 This repository contains scripts and data associated with the
 publication:
 
-**[XXX](https://)**
+**[Cryptic diversity of shallow and mesophotic *Stephanocoenia intersepta* corals across Florida Keys National Marine Sanctuary](https://)**
 
 <img src="figures/figure1.png" width="425"/>
 
