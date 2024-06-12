@@ -1,5 +1,5 @@
 ---
-title: "FKNMS *Stephanocoenia intersepta* Population Genetics and Algal Symbiont Communities"
+title: "FKNMS *Stephanocoenia intersepta* Population Genetics and Algal Symbionts"
 author: "Ryan Eckert"
 output:
   html_document:
@@ -1644,7 +1644,7 @@ ggsave("../figures/figure4.svg", plot = migrateMap, width = 28, height = 12, uni
 # *S. intersepta* algal symbionts 
 ***
 
-Now let's examine algal symbiont communities with the results of
+Now let's examine algal endosymbionts with the results of
 *SymPortal* analysis of Symbiodiniaceae *ITS2* sequences.
 
 ## *ITS2* Data
@@ -2326,7 +2326,7 @@ No significant effect of Lineage on betadiversity.<br>
 
 ## Running PERMANOVA in R
 
-Now let's see how different communities are from each other with
+Now let's see how different Symbiodiniaceae are from each other with
 PERMANOVA. We will utilize the `vegan::adonis()` function. We will use
 Bray-Curtis similarity for our distance matrix and run a total 0f 9,999
 permutations, and test the effects of Site, Depth, and the interaction
