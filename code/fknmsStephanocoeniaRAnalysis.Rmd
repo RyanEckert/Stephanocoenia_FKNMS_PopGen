@@ -428,7 +428,7 @@ baseline for clonality between samples.
 cloneBams = read.csv("../data/stephanocoeniaMetaData.csv") # list of bam files
 
 # cloneMa = as.matrix(read.table("../data/snps/clones/sintClones.ibsMat")) # reads in IBS matrix produced by ANGSD 
-cloneMa = as.matrix(read.table("~/Desktop/angsd3x/sintClones3x.ibsMat")) # reads in IBS matrix produced by ANGSD 
+cloneMa = as.matrix(read.table("../data/snps/clones/sintClones3x.ibsMat")) # reads in IBS matrix produced by ANGSD 
 
 dimnames(cloneMa) = list(cloneBams[,1],cloneBams[,1])
 
@@ -1509,6 +1509,10 @@ migrate = migrateA + theme(
 
 migrate
 
+ggsave("../figures/figureS2.png", plot = migrate, width = 26, height = 12, units = "cm", dpi = 300)
+
+ggsave("../figures/figureS2.svg", plot = migrate, width = 26, height = 12, units = "cm", dpi = 300)
+
 ```
 
 ![](../figures/presentations/migrateMap.png)
@@ -1637,7 +1641,7 @@ ggsave("../figures/figure4.svg", plot = migrateMap, width = 28, height = 12, uni
 ```
 
 
-# *S. intersepta* algal symbiont community structure 
+# *S. intersepta* algal symbionts 
 ***
 
 Now let's examine algal symbiont communities with the results of
@@ -2300,7 +2304,7 @@ anova(its2dispD)
 
 Depth does significantly affect beta diversity.<br> <br>
 
-```{r, betadispersion by depth}
+```{r, betadispersion by lineage}
 its2ProfsLineage = its2Profs %>% left_join(dplyr::select(pcangsd,sample,cluster)) %>% filter(cluster != "Admixed") %>% droplevels()
 
 alpha = with(its2ProfsLineage, tapply(specnumber(its2ProfsLineage[, c(6:24)]), cluster, mean))
