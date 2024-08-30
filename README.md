@@ -2,17 +2,16 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo/7130749.svg)](https://doi.org/10.5281/zenodo.7130749)
 
-
-
-
 ### Ryan Eckert -- <ryan.j.eckert@gmail.com>
 ### [ryanjeckert.weebly.com](https://ryanjeckert.weebly.com)
 ### version: 12 June, 2024
 
 ------------------------------------------------------------------------
-<img src="figures/figure1.png" width="425"/>
+<img src="figures/figure1.png" width="425"/> 
 
 This repository contains scripts and data associated with the publication:
+
+<img src="https://media.springernature.com/w440/springer-static/cover-hires/journal/41437/133/3?as=webp&q=95"/>
 
 **[Eckert RJ, Sturm AB, Carreiro AM, Klein AM, Voss JD (2024). Cryptic diversity of shallow and mesophotic *Stephanocoenia intersepta* corals across Florida Keys National Marine Sanctuary. *Heredity* 133:137–148](https://www.nature.com/articles/s41437-024-00698-x)**
 
